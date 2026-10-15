@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/gecit.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="gecit_sekil"]
+size = Vector2(20, 200)
+
+[node name="Gecit" type="AnimatableBody2D"]
+script = ExtResource("1")
+kayma_mesafe = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("gecit_sekil")
+
+[node name="Gorsel" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -100.0
+offset_right = 10.0
+offset_bottom = 100.0
+color = Color(0.55, 0.4, 0.7, 1)

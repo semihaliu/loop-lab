@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/salter.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="alan_sekil"]
+size = Vector2(40, 48)
+
+[node name="Salter" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Taban" type="ColorRect" parent="."]
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 0.0
+color = Color(0.35, 0.35, 0.4, 1)
+
+[node name="Kol" type="ColorRect" parent="."]
+offset_left = -3.0
+offset_top = -48.0
+offset_right = 3.0
+offset_bottom = -8.0
+pivot_offset = Vector2(3, 40)
+color = Color(0.85, 0.35, 0.3, 1)
+
+[node name="SolAlan" type="Area2D" parent="."]
+position = Vector2(-20, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolAlan"]
+shape = SubResource("alan_sekil")
+
+[node name="SagAlan" type="Area2D" parent="."]
+position = Vector2(20, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SagAlan"]
+shape = SubResource("alan_sekil")

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/ekran_butonlari.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ikonlar/ev.svg" id="2"]
+[ext_resource type="Texture2D" path="res://assets/ikonlar/yeniden.svg" id="3"]
+
+[node name="EkranButonlari" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1")
+
+[node name="Kutu" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -112.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_constants/separation = 8
+
+[node name="EvDugmesi" type="Button" parent="Kutu"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Ana menü"
+icon = ExtResource("2")
+icon_alignment = 1
+expand_icon = true
+
+[node name="YenidenDugmesi" type="Button" parent="Kutu"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+tooltip_text = "Baştan başla"
+icon = ExtResource("3")
+icon_alignment = 1
+expand_icon = true

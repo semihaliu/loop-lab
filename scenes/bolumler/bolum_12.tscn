@@ -1,0 +1,190 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/oyuncu.tscn" id="1"]
+[ext_resource type="Script" path="res://scripts/bolum.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/basinc_plakasi.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/kapi.gd" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/gecit.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/tek_yonlu.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://scenes/yayli_ziplatici.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://scenes/kutu.tscn" id="10"]
+
+[sub_resource type="RectangleShape2D" id="s_36_48"]
+size = Vector2(36, 48)
+
+[sub_resource type="RectangleShape2D" id="s_60_16"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="s_1152_40"]
+size = Vector2(1152, 40)
+
+[sub_resource type="RectangleShape2D" id="s_1152_140"]
+size = Vector2(1152, 140)
+
+[sub_resource type="RectangleShape2D" id="s_480_260"]
+size = Vector2(480, 260)
+
+[sub_resource type="RectangleShape2D" id="s_552_310"]
+size = Vector2(552, 310)
+
+[node name="Bolum12" type="Node2D"]
+script = ExtResource("2")
+max_klon = 2
+
+[node name="Zemin" type="StaticBody2D" parent="."]
+position = Vector2(576, 620)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zemin"]
+shape = SubResource("s_1152_40")
+
+[node name="Gorsel" type="ColorRect" parent="Zemin"]
+offset_left = -576.0
+offset_top = -20.0
+offset_right = 576.0
+offset_bottom = 20.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="Tavan" type="StaticBody2D" parent="."]
+position = Vector2(576, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tavan"]
+shape = SubResource("s_1152_140")
+
+[node name="Gorsel" type="ColorRect" parent="Tavan"]
+offset_left = -576.0
+offset_top = -70.0
+offset_right = 576.0
+offset_bottom = 70.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="TavanSol" type="StaticBody2D" parent="."]
+position = Vector2(240, 270)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TavanSol"]
+shape = SubResource("s_480_260")
+
+[node name="Gorsel" type="ColorRect" parent="TavanSol"]
+offset_left = -240.0
+offset_top = -130.0
+offset_right = 240.0
+offset_bottom = 130.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="Blok" type="StaticBody2D" parent="."]
+position = Vector2(876, 445)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blok"]
+shape = SubResource("s_552_310")
+
+[node name="Gorsel" type="ColorRect" parent="Blok"]
+offset_left = -276.0
+offset_top = -155.0
+offset_right = 276.0
+offset_bottom = 155.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="Raf1" parent="." instance=ExtResource("8")]
+position = Vector2(540, 426)
+
+[node name="Raf2" parent="." instance=ExtResource("8")]
+position = Vector2(540, 296)
+
+[node name="PlakaK" type="Area2D" parent="."]
+position = Vector2(200, 592)
+script = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlakaK"]
+shape = SubResource("s_60_16")
+
+[node name="Gorsel" type="ColorRect" parent="PlakaK"]
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 8.0
+color = Color(0.6, 0.55, 0.25, 1)
+
+[node name="PlakaA" type="Area2D" parent="."]
+position = Vector2(40, 592)
+script = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlakaA"]
+shape = SubResource("s_60_16")
+
+[node name="Gorsel" type="ColorRect" parent="PlakaA"]
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 8.0
+color = Color(0.6, 0.55, 0.25, 1)
+
+[node name="PlakaB" type="Area2D" parent="."]
+position = Vector2(740, 282)
+script = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlakaB"]
+shape = SubResource("s_60_16")
+
+[node name="Gorsel" type="ColorRect" parent="PlakaB"]
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 8.0
+color = Color(0.6, 0.55, 0.25, 1)
+
+[node name="Ziplatici" parent="." instance=ExtResource("9")]
+position = Vector2(560, 594)
+firlatma_hizi = 820.0
+
+[node name="GecitK" parent="." instance=ExtResource("6")]
+position = Vector2(380, 500)
+kayma_yonu = Vector2(0, -1)
+kayma_mesafe = 100.0
+hiz = 120.0
+tetikleyici_yollari = Array[NodePath]([NodePath("../PlakaK")])
+
+[node name="GecitA1" parent="." instance=ExtResource("6")]
+position = Vector2(700, 190)
+kayma_yonu = Vector2(0, -1)
+kayma_mesafe = 100.0
+hiz = 120.0
+tetikleyici_yollari = Array[NodePath]([NodePath("../PlakaA")])
+
+[node name="GecitB" parent="." instance=ExtResource("6")]
+position = Vector2(980, 190)
+kayma_yonu = Vector2(0, -1)
+kayma_mesafe = 100.0
+hiz = 120.0
+tetikleyici_yollari = Array[NodePath]([NodePath("../PlakaB")])
+
+[node name="GecitA2" parent="." instance=ExtResource("6")]
+position = Vector2(1060, 190)
+kayma_yonu = Vector2(0, -1)
+kayma_mesafe = 100.0
+hiz = 120.0
+tetikleyici_yollari = Array[NodePath]([NodePath("../PlakaA")])
+
+[node name="Kapi" type="Area2D" parent="."]
+position = Vector2(1112, 266)
+script = ExtResource("5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kapi"]
+shape = SubResource("s_36_48")
+
+[node name="Gorsel" type="ColorRect" parent="Kapi"]
+offset_left = -18.0
+offset_top = -24.0
+offset_right = 18.0
+offset_bottom = 24.0
+color = Color(0.45, 0.25, 0.1, 1)
+
+[node name="Kutu" parent="." instance=ExtResource("10")]
+position = Vector2(200, 580)
+
+[node name="Oyuncu" parent="." instance=ExtResource("1")]
+position = Vector2(110, 576)
+
+[node name="Bilgi" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 600.0
+offset_bottom = 40.0

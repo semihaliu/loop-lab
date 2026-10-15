@@ -1,0 +1,79 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/oyuncu.tscn" id="oyuncu"]
+[ext_resource type="Script" path="res://scripts/bolum.gd" id="bolum"]
+[ext_resource type="Script" path="res://scripts/kapi.gd" id="kapi"]
+[ext_resource type="PackedScene" path="res://scenes/kutu.tscn" id="kutu"]
+[ext_resource type="PackedScene" path="res://scenes/lazer.tscn" id="lazer"]
+
+[sub_resource type="RectangleShape2D" id="kapi_sekil"]
+size = Vector2(36, 48)
+
+[sub_resource type="RectangleShape2D" id="zemin_sekil"]
+size = Vector2(1152, 40)
+
+[sub_resource type="RectangleShape2D" id="raf_sekil"]
+size = Vector2(300, 20)
+
+[node name="KutuTest" type="Node2D"]
+script = ExtResource("bolum")
+
+[node name="Zemin" type="StaticBody2D" parent="."]
+position = Vector2(576, 620)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zemin"]
+shape = SubResource("zemin_sekil")
+
+[node name="Gorsel" type="ColorRect" parent="Zemin"]
+offset_left = -576
+offset_top = -20
+offset_right = 576
+offset_bottom = 20
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="Raf" type="StaticBody2D" parent="."]
+position = Vector2(950, 530)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Raf"]
+shape = SubResource("raf_sekil")
+
+[node name="Gorsel" type="ColorRect" parent="Raf"]
+offset_left = -150
+offset_top = -10
+offset_right = 150
+offset_bottom = 10
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="Lazer" parent="." instance=ExtResource("lazer")]
+position = Vector2(700, 620)
+yon = Vector2(0, -1)
+uzunluk = 120.0
+
+[node name="Kutu" parent="." instance=ExtResource("kutu")]
+position = Vector2(160, 580)
+
+[node name="Kutu2" parent="." instance=ExtResource("kutu")]
+position = Vector2(820, 500)
+
+[node name="Kapi" type="Area2D" parent="."]
+position = Vector2(500, 100)
+script = ExtResource("kapi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kapi"]
+shape = SubResource("kapi_sekil")
+
+[node name="Gorsel" type="ColorRect" parent="Kapi"]
+offset_left = -18.0
+offset_top = -24.0
+offset_right = 18.0
+offset_bottom = 24.0
+color = Color(0.45, 0.25, 0.1, 1)
+
+[node name="Oyuncu" parent="." instance=ExtResource("oyuncu")]
+position = Vector2(60, 576)
+
+[node name="Bilgi" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 600.0
+offset_bottom = 40.0

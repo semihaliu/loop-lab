@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/yayli_ziplatici.gd" id="1_ziplatici"]
+
+[sub_resource type="RectangleShape2D" id="ziplatici_sekil"]
+size = Vector2(60, 12)
+
+[node name="YayliZiplatici" type="Area2D"]
+script = ExtResource("1_ziplatici")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ziplatici_sekil")
+
+[node name="Gorsel" type="ColorRect" parent="."]
+offset_left = -30.0
+offset_top = -6.0
+offset_right = 30.0
+offset_bottom = 6.0
+mouse_filter = 2
+color = Color(0.3, 0.8, 0.4, 1)

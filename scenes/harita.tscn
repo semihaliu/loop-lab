@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/harita.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/harita_arkaplan.gd" id="2"]
+
+[node name="Harita" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Arkaplan" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2")
+
+[node name="Baglantilar" type="Node2D" parent="."]
+
+[node name="Dugumler" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Baslik" type="Label" parent="."]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 20.0
+offset_right = 1152.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.95, 0.97, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 54
+text = "Bölüm seç"
+horizontal_alignment = 1
+
+[node name="Ayrac" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 98.0
+offset_right = 776.0
+offset_bottom = 101.0
+mouse_filter = 2
+color = Color(0.37, 0.88, 0.81, 0.55)
+
+[node name="GeriDugmesi" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 576.0
+offset_right = 164.0
+offset_bottom = 624.0
+focus_mode = 0
+text = "<  Geri"

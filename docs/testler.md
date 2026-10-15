@@ -1,0 +1,3426 @@
+﻿# Otomatik test sonuçları
+
+Çalıştırma: `--headless --path . --fixed-fps 60 --script res://tests/test_runner.gd -- --rapor`
+
+## 2026-10-14 11:54 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=2200
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1370
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1370
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 4.3 sn
+
+## 2026-10-14 12:19 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Turu yeniden başlat:** GEÇTİ — atılan girdi: 40 kare, kayıtlar aynı: true, klon sayısı: 1, tur etiketi: "Tur 2", yeni turda kayıt temiz: true
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 4.8 sn
+
+## 2026-10-14 12:29 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 5.3 sn
+
+## 2026-10-14 12:50 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 8.8 sn
+
+## 2026-10-14 13:05 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 7.9 sn
+
+## 2026-10-14 16:05 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" gizli:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: false
+- **Menü bölüm seçme:** GEÇTİ — etiketler: ["Bölüm 1", "Bölüm 2", "Geri"], Geri çalışıyor: true, "Bölüm 2" butonu Bölüm 2'yi açtı: true, klon sayısı 0 ve Kayitlar boş: true
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 11.5 sn
+
+## 2026-10-14 16:47 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" gizli:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: false
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 2 (liste: 2), bağlantı: 1 (beklenen 1), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 7.5 sn
+
+## 2026-10-14 16:53 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" gizli:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: false
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 2 (liste: 2), bağlantı: 1 (beklenen 1), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 1, çizgi nesnesi: 2 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 8.8 sn
+
+## 2026-10-14 17:24 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" gizli:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: false
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 2 (liste: 2), bağlantı: 1 (beklenen 1), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 1, çizgi nesnesi: 2 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 12.4 sn
+
+## 2026-10-14 17:33 — KALDI
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" gizli:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: false
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 2 (liste: 2), bağlantı: 1 (beklenen 1), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 1, çizgi nesnesi: 2 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** KALDI — canlı klon x=100 kapı açık: false, bölüm bitti: false; ölü klon x=100 ölü: false kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 13.5 sn
+
+## 2026-10-14 17:34 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" gizli:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: false
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 2 (liste: 2), bağlantı: 1 (beklenen 1), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 1, çizgi nesnesi: 2 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 13.5 sn
+
+## 2026-10-14 17:37 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 3 (liste: 3), bağlantı: 2 (beklenen 2), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 2, çizgi nesnesi: 4 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 12.6 sn
+
+## 2026-10-14 17:56 — KALDI
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 4 (liste: 4), bağlantı: 3 (beklenen 3), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 3, çizgi nesnesi: 6 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 154, 418] + 522 (8.70 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=370 (hedef 370), E2 y min=210 (hedef 210)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 470, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** KALDI — P_a basıldı: true, P_c basıldı: true (beklenen ikisi de false), E1 en yüksek y=570 (aşağı 610, yukarı 370), E2 en yüksek y=330 (aşağı 370, yukarı 210)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 157, B 421
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=370 (yukarıda), oyuncu ayak y min=448.0 (PA üstü 470, F2 360), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 470), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=369.0 (F2 üstü 360), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (541 kare) P_c hiç basılmadı: true, E2 en yüksek y=370 (aşağı 370), oyuncu ayak y min=360.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=516, PA üstüne oturma süresi: 28 kare, en yüksek y=424.0, son y=446.0 (beklenen 446), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=446.0 (beklenen 446), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 523 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 18.3 sn
+
+## 2026-10-14 18:00 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 4 (liste: 4), bağlantı: 3 (beklenen 3), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 3, çizgi nesnesi: 6 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 17.7 sn
+
+## 2026-10-14 18:10 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 5 (liste: 5), bağlantı: 4 (beklenen 4), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 4, çizgi nesnesi: 8 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 21.8 sn
+
+## 2026-10-14 18:22 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 6 (liste: 6), bağlantı: 5 (beklenen 5), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 5, çizgi nesnesi: 10 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (476,498)->(594,402), kalınlık 12; Cizgi5_Ic: (476,498)->(594,402), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 25.4 sn
+
+## 2026-10-14 18:42 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 7 (liste: 7), bağlantı: 6 (beklenen 6), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 6, çizgi nesnesi: 12 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (476,498)->(594,402), kalınlık 12; Cizgi5_Ic: (476,498)->(594,402), kalınlık 7; Cizgi6_Dis: (654,384)->(816,406), kalınlık 12; Cizgi6_Ic: (654,384)->(816,406), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 33.5 sn
+
+## 2026-10-14 19:11 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 8 (liste: 8), bağlantı: 7 (beklenen 7), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 7, çizgi nesnesi: 14 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (476,498)->(594,402), kalınlık 12; Cizgi5_Ic: (476,498)->(594,402), kalınlık 7; Cizgi6_Dis: (654,384)->(816,406), kalınlık 12; Cizgi6_Ic: (654,384)->(816,406), kalınlık 7; Cizgi7_Dis: (818,422)->(772,438), kalınlık 12; Cizgi7_Ic: (818,422)->(772,438), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [43, 171, 490] + 514 (8.57 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 241, 278, 315, 354, 457, 471, 480]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: A, C, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 43, C 171, B 490
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: A+C, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: C yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: A plakadan ayrılır (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: geç zıplama (a'ya inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=730: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716, 730] (taslak penceresi 624..716; geç zıplama 770/800 inemez, F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 8: 3 klon gereği (A, C veya B eksikse bitmez):** GEÇTİ — A yok: E1 y min (bekleme)=576 (aşağı 610, F2 hizası 410; klon plakadan geçerken kısa kalkış), bitti: false; C yok: ölüm 1 son x=550 (L1 560), bitti: false; B yok: geçit y min=140 (kapalı 140), bitti: false, ölüm: 0
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 515 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 37.7 sn
+
+## 2026-10-14 19:19 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 8 (liste: 8), bağlantı: 7 (beklenen 7), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 7, çizgi nesnesi: 14 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (476,498)->(594,402), kalınlık 12; Cizgi5_Ic: (476,498)->(594,402), kalınlık 7; Cizgi6_Dis: (654,384)->(816,406), kalınlık 12; Cizgi6_Ic: (654,384)->(816,406), kalınlık 7; Cizgi7_Dis: (818,422)->(772,438), kalınlık 12; Cizgi7_Ic: (818,422)->(772,438), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.95, 0.55, 0.15, 1.0), düğüm 2 renk: (0.2, 0.5, 0.9, 1.0)
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [43, 171, 490] + 514 (8.57 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 241, 278, 315, 354, 457, 471, 480]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: A, C, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 43, C 171, B 490
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: A+C, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: C yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: A plakadan ayrılır (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 8: A+C+B yolunda A, C veya B eksikse bitmez (2 klonlu kısayol ayrı test):** GEÇTİ — A yok: E1 y min (bekleme)=576 (aşağı 610, F2 hizası 410; klon plakadan geçerken kısa kalkış), bitti: false; C yok: ölüm 1 son x=550 (L1 560), bitti: false; B yok: geçit y min=140 (kapalı 140), bitti: false, ölüm: 0
+- **Bölüm 8 kısayol: 2 klonla (X, B) çözüm, gerçek R/girdi yolu:** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/3  |  R: turu bitir", geçit y min=40, L1 kapandı: true, L3 kapandı: true, L2 açıldı: true
+- **Bölüm 8 kısayol: 1 klonla çözülemez (yalnız X, yalnız B):** GEÇTİ — yalnız X: bitti=false ölüm=0 geçit y min=140; yalnız B: bitti=false ölüm=0 E1 y min=574
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 515 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 38.7 sn
+
+## 2026-10-14 22:56 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 8 (liste: 8), bağlantı: 7 (beklenen 7), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 7, çizgi nesnesi: 14 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (476,498)->(594,402), kalınlık 12; Cizgi5_Ic: (476,498)->(594,402), kalınlık 7; Cizgi6_Dis: (654,384)->(816,406), kalınlık 12; Cizgi6_Ic: (654,384)->(816,406), kalınlık 7; Cizgi7_Dis: (818,422)->(772,438), kalınlık 12; Cizgi7_Ic: (818,422)->(772,438), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Bölüm listesi tam 8 kayıt, yollar sıralı:** GEÇTİ — kayıt: 8, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"]
+- **8 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->8, 8'den sonra boş:** GEÇTİ — zincir doğru: true, 8'den sonra boş: true
+- **Harita 8 düğüm oluşturur:** GEÇTİ — düğüm: 8
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [43, 171, 490] + 514 (8.57 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 241, 278, 315, 354, 457, 471, 480]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: A, C, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 43, C 171, B 490
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: A+C, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: C yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: A plakadan ayrılır (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 8: A+C+B yolunda A, C veya B eksikse bitmez (2 klonlu kısayol ayrı test):** GEÇTİ — A yok: E1 y min (bekleme)=576 (aşağı 610, F2 hizası 410; klon plakadan geçerken kısa kalkış), bitti: false; C yok: ölüm 1 son x=550 (L1 560), bitti: false; B yok: geçit y min=140 (kapalı 140), bitti: false, ölüm: 0
+- **Bölüm 8 kısayol: 2 klonla (X, B) çözüm, gerçek R/girdi yolu:** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/3  |  R: turu bitir", geçit y min=40, L1 kapandı: true, L3 kapandı: true, L2 açıldı: true
+- **Bölüm 8 kısayol: 1 klonla çözülemez (yalnız X, yalnız B):** GEÇTİ — yalnız X: bitti=false ölüm=0 geçit y min=140; yalnız B: bitti=false ölüm=0 E1 y min=574
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 515 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 43.9 sn
+
+## 2026-10-14 23:19 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 8 (liste: 8), bağlantı: 7 (beklenen 7), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 7, çizgi nesnesi: 14 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (476,498)->(594,402), kalınlık 12; Cizgi5_Ic: (476,498)->(594,402), kalınlık 7; Cizgi6_Dis: (654,384)->(816,406), kalınlık 12; Cizgi6_Ic: (654,384)->(816,406), kalınlık 7; Cizgi7_Dis: (818,422)->(772,438), kalınlık 12; Cizgi7_Ic: (818,422)->(772,438), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Bölüm listesi tam 8 kayıt, yollar sıralı:** GEÇTİ — kayıt: 8, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"]
+- **8 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->8, 8'den sonra boş:** GEÇTİ — zincir doğru: true, 8'den sonra boş: true
+- **Harita 8 düğüm oluşturur:** GEÇTİ — düğüm: 8
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 209, 247, 279, 316, 353, 392, 495, 509, 518]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: X, B (ve A) kayıtları üretildi:** GEÇTİ — kare sayıları: X 423, B 528, A 43
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C'ye giden yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: yalnız X, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: X C'ye basmaz, yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: X A'ya dönmez, A plakası boş (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 8: 2 klon gerekir (yalnız X, yalnız B, X'siz, B'siz bitmez):** GEÇTİ — yalnız X: bitti=false geçit y min=140; yalnız B: bitti=false E1 y min=574; X'siz: bitti=false E1 y min=574; B'siz: bitti=false geçit y min=140
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 553 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 44.3 sn
+
+## 2026-10-14 23:30 — KALDI
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 8 (liste: 8), bağlantı: 7 (beklenen 7), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 7, çizgi nesnesi: 14 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (476,498)->(594,402), kalınlık 12; Cizgi5_Ic: (476,498)->(594,402), kalınlık 7; Cizgi6_Dis: (654,384)->(816,406), kalınlık 12; Cizgi6_Ic: (654,384)->(816,406), kalınlık 7; Cizgi7_Dis: (818,422)->(772,438), kalınlık 12; Cizgi7_Ic: (818,422)->(772,438), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Bölüm listesi tam 8 kayıt, yollar sıralı:** GEÇTİ — kayıt: 8, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"]
+- **8 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->8, 8'den sonra boş:** GEÇTİ — zincir doğru: true, 8'den sonra boş: true
+- **Harita 8 düğüm oluşturur:** GEÇTİ — düğüm: 8
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 209, 247, 279, 316, 353, 392, 495, 509, 518]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: X, B (ve A) kayıtları üretildi:** GEÇTİ — kare sayıları: X 423, B 528, A 43
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C'ye giden yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: yalnız X, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: X C'ye basmaz, yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: X A'ya dönmez, A plakası boş (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 8: 2 klon gerekir (yalnız X, yalnız B, X'siz, B'siz bitmez):** GEÇTİ — yalnız X: bitti=false geçit y min=140; yalnız B: bitti=false E1 y min=574; X'siz: bitti=false E1 y min=574; B'siz: bitti=false geçit y min=140
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 553 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Kutu 1a) Oyuncu sağa iter, kutu sağ duvarda durur:** GEÇTİ — kare 60 kutu x=395.0 (başlangıç 160), son kutu x=1132.0 (beklenen 1132, duvar iç kenarı 1152), oyuncu x=1098.0, oyuncu_oldu=0
+- **Kutu 1b) Oyuncu sola iter, kutu sol duvarda durur:** GEÇTİ — son kutu x=20.0 (beklenen 20), oyuncu x=54.0
+- **Kutu 2) Platform kenarından düşer ve zeminde durur:** GEÇTİ — rafta y=500 (ilk 20 kare): true, düşüş karesi 47 x=1132.0 (kenar 1100), son y=579.93 (beklenen 580), son 30 karede y oynaması 0.0000
+- **Kutu 4a) Klon kutuyu oyuncuyla aynı kod yoluyla iter:** GEÇTİ — 130 kare, canlı oyuncu/kutu ile klon/kutu en büyük fark 0.0000 px (beklenen 0), kutu kare 69'da x=440.0 (başlangıç 160)
+- **Kutu 4b) Klon + kutu determinizmi (100x):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px
+- **Kutu 7) Lazer kutuyu yok etmez/engel sayılmaz:** GEÇTİ — kutu ışının içinde 120 kare yerinde: true, ışın açık, kutu ışın alanında sayılmıyor; aynı noktada oyuncu ölümü: 1 (beklenen 1)
+- **Kutu 8) Oyuncu kutunun üstüne çıkar, ayakta durur:** GEÇTİ — son oyuncu (300.0, 536.0) (beklenen y=536, x 266..334), kutu (300.0, 580.0) yerinde
+- **Kutu 9) Kutu başka kutuyu zincirleme itmez:** KALDI — itilen kutu son x=364.10 (beklenen ~360), diğer kutu x=404.11 (beklenen 400, hiç kımıldamadı: false), oyuncu x=330.1
+- **Kutu 3) Kutu plakayı basılı tutar, itilince bırakır:** GEÇTİ — yalnız kutuyla basılı: true, çakışırken basılı (21 kare): true, ayrılınca bırakılmış (104 kare): true, son kutu x=380.0
+- **Kutu 5) Asansör kutuyla birlikte yükselir:** GEÇTİ — son asansör y=430.0 (beklenen 430), son kutu y=400.0 (beklenen 400) x=850.0, kutu-asansör bağıl sapma en çok 2.00 px
+- **Kutu 6a) Asansör inerken altındaki kutuya durur, ezmez:** GEÇTİ — en alçak asansör y=546.0 (kutu üstü 560 -> <=551), son y=546.0, kutu yerinde: true; kutusuz kontrol son y=610.0 (beklenen 610)
+- **Kutu 6b) Geçit kapanırken altındaki kutuya durur:** GEÇTİ — en alçak geçit y=458.0 (kutu üstü 560 -> <=461), son y=458.0; kutusuz kontrol son y=500.0 (beklenen 500)
+- **Zıplatıcı 1a) Oyuncu ~240 px yükselir, yükselirken tekrar tetiklenmez:** GEÇTİ — yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 1b) Klon ~240 px yükselir:** GEÇTİ — klon yükselme 247.1 px (beklenen 240 +-15)
+- **Zıplatıcı 1c) Kutu ~240 px yükselir, tek tetik:** GEÇTİ — kutu yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 2) Yön/hız determinizmi (100x: oyuncu+klon+kutu):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px, hareket var: true
+- **Bant 1) Üstündeki oyuncu ve kutu girdisiz yön*hız ile kayar (iki yön):** GEÇTİ — Oyuncu sağ bant: 30 karede dx=50.0 (beklenen 50); Oyuncu sol bant: 30 karede dx=-50.0 (beklenen -50); Kutu sağ bant: 30 karede dx=50.0 (beklenen 50); Kutu sol bant: 30 karede dx=-50.0 (beklenen -50)
+- **Bant 2) Bandan inince etki biter (zeminde kaymaz):** GEÇTİ — Oyuncu: son (795.0, 576.0), son 40 karede x oynaması 0.0000; Kutu: son (800.1, 579.9), son 40 karede x oynaması 0.0000
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 47.5 sn
+
+### Aşama B test notları (kutu, yaylı zıplatıcı, taşıma bandı)
+- Yeni test sahneleri: `tests/sahneler/kutu_test.tscn` (zemin, raf, lazer, 2 kutu), `kutu_plaka_test.tscn` (plaka, asansör, geçit; Asansor2/Gecit2 ezme testleri için), `ziplatici_bant_test.tscn` (2 zıplatıcı, 2 bant). Hızlı koşu: `-- --kutu`.
+- Testler taslağa göre bağımsız yazıldı; hepsi gerçek Input yolu ve düğüm örneklemesiyle çalışır.
+- **Açık bulgu (Kutu 9, KALDI):** zincirleme itme kesin değil, yavaş sızıntı var. A kutusu B kutusuna dayanıp oyuncu itmeye devam edince B yaklaşık 0,02 px/kare kayar (200 karede +4,1 px, 400 karede +8,3 px; A ile B arası -40,00 px olarak temas halinde kalır). Kök neden (varsayım, ölçülmüş belirti): `kutu.gd` `it()` içindeki `move_and_collide` A'yı her karede güvenli aralık (safe margin ~0,08 px) kadar B'nin içine sokuyor, B'nin `move_and_slide` içindeki depenetrasyonu (recovery) B'yi dışarı itiyor. Aynı anda y değerleri 579,93 / 579,998 arasında titriyor. Düzeltme önerisi (uygulayıcıya): `it()` içinde önce `test_move`/`move_and_collide(..., true)` ile gidilebilecek mesafeyi bulup `get_travel()` kadar ilerlemek (kutu-kutu temasında 0), veya kutunun diğer kutu katmanını maskeden çıkarıp kutu-kutu kontrolünü kendi sorgusuyla yapmak.
+
+## 2026-10-14 23:46 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 8 (liste: 8), bağlantı: 7 (beklenen 7), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 7, çizgi nesnesi: 14 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (476,498)->(594,402), kalınlık 12; Cizgi5_Ic: (476,498)->(594,402), kalınlık 7; Cizgi6_Dis: (654,384)->(816,406), kalınlık 12; Cizgi6_Ic: (654,384)->(816,406), kalınlık 7; Cizgi7_Dis: (818,422)->(772,438), kalınlık 12; Cizgi7_Ic: (818,422)->(772,438), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Bölüm listesi tam 8 kayıt, yollar sıralı:** GEÇTİ — kayıt: 8, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn"]
+- **8 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->8, 8'den sonra boş:** GEÇTİ — zincir doğru: true, 8'den sonra boş: true
+- **Harita 8 düğüm oluşturur:** GEÇTİ — düğüm: 8
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 209, 247, 279, 316, 353, 392, 495, 509, 518]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: X, B (ve A) kayıtları üretildi:** GEÇTİ — kare sayıları: X 423, B 528, A 43
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C'ye giden yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: yalnız X, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: X C'ye basmaz, yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: X A'ya dönmez, A plakası boş (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 8: 2 klon gerekir (yalnız X, yalnız B, X'siz, B'siz bitmez):** GEÇTİ — yalnız X: bitti=false geçit y min=140; yalnız B: bitti=false E1 y min=574; X'siz: bitti=false E1 y min=574; B'siz: bitti=false geçit y min=140
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 553 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Kutu 1a) Oyuncu sağa iter, kutu sağ duvarda durur:** GEÇTİ — kare 60 kutu x=395.0 (başlangıç 160), son kutu x=1132.0 (beklenen 1132, duvar iç kenarı 1152), oyuncu x=1098.0, oyuncu_oldu=0
+- **Kutu 1b) Oyuncu sola iter, kutu sol duvarda durur:** GEÇTİ — son kutu x=20.0 (beklenen 20), oyuncu x=54.0
+- **Kutu 2) Platform kenarından düşer ve zeminde durur:** GEÇTİ — rafta y=500 (ilk 20 kare): true, düşüş karesi 47 x=1132.0 (kenar 1100), son y=579.93 (beklenen 580), son 30 karede y oynaması 0.0000
+- **Kutu 4a) Klon kutuyu oyuncuyla aynı kod yoluyla iter:** GEÇTİ — 130 kare, canlı oyuncu/kutu ile klon/kutu en büyük fark 0.0000 px (beklenen 0), kutu kare 69'da x=440.0 (başlangıç 160)
+- **Kutu 4b) Klon + kutu determinizmi (100x):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px
+- **Kutu 7) Lazer kutuyu yok etmez/engel sayılmaz:** GEÇTİ — kutu ışının içinde 120 kare yerinde: true, ışın açık, kutu ışın alanında sayılmıyor; aynı noktada oyuncu ölümü: 1 (beklenen 1)
+- **Kutu 8) Oyuncu kutunun üstüne çıkar, ayakta durur:** GEÇTİ — son oyuncu (300.0, 536.0) (beklenen y=536, x 266..334), kutu (300.0, 580.0) yerinde
+- **Kutu 9) Kutu başka kutuyu zincirleme itmez:** GEÇTİ — itilen kutu son x=359.91 (beklenen ~360), diğer kutu x=400.00 (beklenen 400, hiç kımıldamadı: true), oyuncu x=325.9
+- **Kutu 3) Kutu plakayı basılı tutar, itilince bırakır:** GEÇTİ — yalnız kutuyla basılı: true, çakışırken basılı (21 kare): true, ayrılınca bırakılmış (104 kare): true, son kutu x=380.0
+- **Kutu 5) Asansör kutuyla birlikte yükselir:** GEÇTİ — son asansör y=430.0 (beklenen 430), son kutu y=400.0 (beklenen 400) x=850.0, kutu-asansör bağıl sapma en çok 2.00 px
+- **Kutu 6a) Asansör inerken altındaki kutuya durur, ezmez:** GEÇTİ — en alçak asansör y=546.0 (kutu üstü 560 -> <=551), son y=546.0, kutu yerinde: true; kutusuz kontrol son y=610.0 (beklenen 610)
+- **Kutu 6b) Geçit kapanırken altındaki kutuya durur:** GEÇTİ — en alçak geçit y=458.0 (kutu üstü 560 -> <=461), son y=458.0; kutusuz kontrol son y=500.0 (beklenen 500)
+- **Zıplatıcı 1a) Oyuncu ~240 px yükselir, yükselirken tekrar tetiklenmez:** GEÇTİ — yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 1d) Pad üstünde zıplama tuşu fırlatmayı zayıflatmaz:** GEÇTİ — tuşlu yükselme 247.1 px (en az 235), tuşsuz 247.1 px (fark <= 5)
+- **Zıplatıcı 1e) Kutu üst sınır duvarına çarpar, ekran dışına çıkmaz:** GEÇTİ — kutu en yüksek merkez y=20.0 (>= 0 beklenir), yükseldi: true
+- **Zıplatıcı 1b) Klon ~240 px yükselir:** GEÇTİ — klon yükselme 247.1 px (beklenen 240 +-15)
+- **Zıplatıcı 1c) Kutu ~240 px yükselir, tek tetik:** GEÇTİ — kutu yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 2) Yön/hız determinizmi (100x: oyuncu+klon+kutu):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px, hareket var: true
+- **Bant 1) Üstündeki oyuncu ve kutu girdisiz yön*hız ile kayar (iki yön):** GEÇTİ — Oyuncu sağ bant: 30 karede dx=50.0 (beklenen 50); Oyuncu sol bant: 30 karede dx=-50.0 (beklenen -50); Kutu sağ bant: 30 karede dx=50.0 (beklenen 50); Kutu sol bant: 30 karede dx=-50.0 (beklenen -50)
+- **Bant 2) Bandan inince etki biter (zeminde kaymaz):** GEÇTİ — Oyuncu: son (795.0, 576.0), son 40 karede x oynaması 0.0000; Kutu: son (800.1, 579.9), son 40 karede x oynaması 0.0000
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 56.5 sn
+
+## 2026-10-15 00:15 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 9 (liste: 9), bağlantı: 8 (beklenen 8), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 8, çizgi nesnesi: 16 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (417,514)->(263,486), kalınlık 12; Cizgi5_Ic: (417,514)->(263,486), kalınlık 7; Cizgi6_Dis: (214,450)->(166,360), kalınlık 12; Cizgi6_Ic: (214,450)->(166,360), kalınlık 7; Cizgi7_Dis: (167,300)->(213,220), kalınlık 12; Cizgi7_Ic: (167,300)->(213,220), kalınlık 7; Cizgi8_Dis: (263,196)->(407,224), kalınlık 12; Cizgi8_Ic: (263,196)->(407,224), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Bölüm listesi en az 8 kayıt, ilk 8 yol bolum_1..8 sıralı:** GEÇTİ — kayıt: 9, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn"]
+- **Listedeki 9 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->9, son bölümden sonra boş:** GEÇTİ — zincir doğru: true, son bölümden sonra boş: true
+- **Harita liste kadar (9) düğüm oluşturur:** GEÇTİ — düğüm: 9, liste: 9
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 9: bölüm 9, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 209, 247, 279, 316, 353, 392, 495, 509, 518]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: X, B (ve A) kayıtları üretildi:** GEÇTİ — kare sayıları: X 423, B 528, A 43
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C'ye giden yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: yalnız X, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: X C'ye basmaz, yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: X A'ya dönmez, A plakası boş (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 8: 2 klon gerekir (yalnız X, yalnız B, X'siz, B'siz bitmez):** GEÇTİ — yalnız X: bitti=false geçit y min=140; yalnız B: bitti=false E1 y min=574; X'siz: bitti=false E1 y min=574; B'siz: bitti=false geçit y min=140
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 553 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 9 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [25, 224, 329] + 406 (6.77 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=270 (açık 270), L0 kapandı: true, L1 kapandı: true, PlakaKutu basıldı: true, adım başlangıçları: [0, 105, 290, 346, 354, 366, 379]
+- **Bölüm 9 alternatif S2 (kutu Plaka3'te, k3 PlakaKutu'yu tutar) bitirir:** GEÇTİ — k3 tur kare=371 adımlar=[true, true, true, true, true, true, true] ölüm=0; oyuncu turu: bitti=true kare=394 ölüm=0 adımlar=[true, true, true, true, true, true, true], geçit y min=270, son kutu=(770,420) (Plaka3 x=760)
+- **Bölüm 9 atlanamaz: klonsuz L0'da ölünür, Kayitlar değişmez:** GEÇTİ — ölüm: 1, bitti: false, kayıtlı tur: 0, L0 açık: true
+- **Bölüm 9 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=499.0 (zıplama tepesi ~503, F2 yüzeyi 440), zıpladı: true, ölüm: 0
+- **Bölüm 9 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=459.0 (kutu üstü 560, zıplama tepesi ~463; F2 440), kutu x: 500..682 (Kat2 duvarı 702 -> en çok 682), ölüm: 0
+- **Bölüm 9 atlanamaz: platformdan F2'ye atlanamaz:** GEÇTİ — F2'ye çıktı: false, en büyük x=688 (Kat2 sol kenarı 702), ölüm: 0
+- **Bölüm 9 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen >=1), baş y min=309.6 (tavan 300), L1 açıktı: true
+- **Bölüm 9 atlanamaz: kapalı G yürüyerek/zıplayarak aşılamaz:** GEÇTİ — en büyük x=1046 (G sol yüzü 1060, bedel 14), geçit y min=340 (kapalı 340), ölüm: 0, bitti: false
+- **Bölüm 9 atlanamaz: zıplayarak L0 aşılamaz:** GEÇTİ — ölüm: 1, L0 açıktı: true
+- **Bölüm 9 kısayol: eksik klonla (k1; k1+k2; k1+k3; k2+k3) bitmez:** GEÇTİ — yalnız k1: S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k1+k2 (k3 yok): S1 bitti=false (ölüm 1, kare 337), S2 bitti=false (ölüm 0, kare 660); k1+k3 (k2 yok): S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k2+k3 (k1 yok): S1 bitti=false (ölüm 1, kare 37), S2 bitti=false (ölüm 1, kare 37)
+- **Bölüm 9 kısayol: röle (Plaka1->Plaka2; PlakaKutu->Plaka3) ile bitmez, röle klonları L0/L1'de ölür:** GEÇTİ — röle1 klonu ölüm/bitti: 1/false, röle1+k3: bitti=false (ölüm 1, asansör y min=610); röle2 (k3 yerine) ölüm/bitti: 1/false, k1+k2+röle2+oyuncu: bitti=false (ölüm 1)
+- **Bölüm 9 hazırlık: k1, k2, k3 kayıtları üretildi:** GEÇTİ — kare sayıları: 25, 224, 329
+- **Bölüm 9 başarısızlık: k2 erken basar, kutu F2'ye ulaşmaz, bitmez:** GEÇTİ — k2 adımları [true, true, true, true, true, true]; bitti: false, ölüm: 0, son kutu=(610,420) (kutu asansörün üstünde ama F2'ye ulaşmadı: x<702), kutu y min=420, asansör y min=450, oyuncu F2'ye çıktı: false
+- **Bölüm 9 başarısızlık: kutu PlakaKutu'yu aşıp G'ye itilir, bitmez:** GEÇTİ — bitti: false, ölüm: 0, son kutu x=1085 (plaka 900..960, G 1060), PlakaKutu basılı: false, geçit y=298 (kapalı 340)
+- **Bölüm 9 başarısızlık: k3 asansöre binmez, bitmez:** GEÇTİ — bitti: false, ölüm: 1, Plaka3 hiç basılmadı: false, son kutu=(890,420), asansör y min=450
+- **Bölüm 9: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 9: kutu asansörle F2'ye taşınır (konum ölçümü):** GEÇTİ — asansörle yükseldi: true (kutu-asansör bağıl sapma en çok 1.96 px), F2'ye ilk geçiş kare 303, son kutu=(800.0,420.0) (F2 yüzeyi 440 -> y 420), asansör y=450.0 (üstte 450), klon ölümleri: [false, false, false], oyuncu ölümü: 0
+- **Bölüm 9: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 407 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Kutu 1a) Oyuncu sağa iter, kutu sağ duvarda durur:** GEÇTİ — kare 60 kutu x=395.0 (başlangıç 160), son kutu x=1132.0 (beklenen 1132, duvar iç kenarı 1152), oyuncu x=1098.0, oyuncu_oldu=0
+- **Kutu 1b) Oyuncu sola iter, kutu sol duvarda durur:** GEÇTİ — son kutu x=20.0 (beklenen 20), oyuncu x=54.0
+- **Kutu 2) Platform kenarından düşer ve zeminde durur:** GEÇTİ — rafta y=500 (ilk 20 kare): true, düşüş karesi 47 x=1132.0 (kenar 1100), son y=579.93 (beklenen 580), son 30 karede y oynaması 0.0000
+- **Kutu 4a) Klon kutuyu oyuncuyla aynı kod yoluyla iter:** GEÇTİ — 130 kare, canlı oyuncu/kutu ile klon/kutu en büyük fark 0.0000 px (beklenen 0), kutu kare 69'da x=440.0 (başlangıç 160)
+- **Kutu 4b) Klon + kutu determinizmi (100x):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px
+- **Kutu 7) Lazer kutuyu yok etmez/engel sayılmaz:** GEÇTİ — kutu ışının içinde 120 kare yerinde: true, ışın açık, kutu ışın alanında sayılmıyor; aynı noktada oyuncu ölümü: 1 (beklenen 1)
+- **Kutu 8) Oyuncu kutunun üstüne çıkar, ayakta durur:** GEÇTİ — son oyuncu (300.0, 536.0) (beklenen y=536, x 266..334), kutu (300.0, 580.0) yerinde
+- **Kutu 9) Kutu başka kutuyu zincirleme itmez:** GEÇTİ — itilen kutu son x=359.91 (beklenen ~360), diğer kutu x=400.00 (beklenen 400, hiç kımıldamadı: true), oyuncu x=325.9
+- **Kutu 3) Kutu plakayı basılı tutar, itilince bırakır:** GEÇTİ — yalnız kutuyla basılı: true, çakışırken basılı (21 kare): true, ayrılınca bırakılmış (104 kare): true, son kutu x=380.0
+- **Kutu 5) Asansör kutuyla birlikte yükselir:** GEÇTİ — son asansör y=430.0 (beklenen 430), son kutu y=400.0 (beklenen 400) x=850.0, kutu-asansör bağıl sapma en çok 2.00 px
+- **Kutu 6a) Asansör inerken altındaki kutuya durur, ezmez:** GEÇTİ — en alçak asansör y=546.0 (kutu üstü 560 -> <=551), son y=546.0, kutu yerinde: true; kutusuz kontrol son y=610.0 (beklenen 610)
+- **Kutu 6b) Geçit kapanırken altındaki kutuya durur:** GEÇTİ — en alçak geçit y=458.0 (kutu üstü 560 -> <=461), son y=458.0; kutusuz kontrol son y=500.0 (beklenen 500)
+- **Zıplatıcı 1a) Oyuncu ~240 px yükselir, yükselirken tekrar tetiklenmez:** GEÇTİ — yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 1d) Pad üstünde zıplama tuşu fırlatmayı zayıflatmaz:** GEÇTİ — tuşlu yükselme 247.1 px (en az 235), tuşsuz 247.1 px (fark <= 5)
+- **Zıplatıcı 1e) Kutu üst sınır duvarına çarpar, ekran dışına çıkmaz:** GEÇTİ — kutu en yüksek merkez y=20.0 (>= 0 beklenir), yükseldi: true
+- **Zıplatıcı 1b) Klon ~240 px yükselir:** GEÇTİ — klon yükselme 247.1 px (beklenen 240 +-15)
+- **Zıplatıcı 1c) Kutu ~240 px yükselir, tek tetik:** GEÇTİ — kutu yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 2) Yön/hız determinizmi (100x: oyuncu+klon+kutu):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px, hareket var: true
+- **Bant 1) Üstündeki oyuncu ve kutu girdisiz yön*hız ile kayar (iki yön):** GEÇTİ — Oyuncu sağ bant: 30 karede dx=50.0 (beklenen 50); Oyuncu sol bant: 30 karede dx=-50.0 (beklenen -50); Kutu sağ bant: 30 karede dx=50.0 (beklenen 50); Kutu sol bant: 30 karede dx=-50.0 (beklenen -50)
+- **Bant 2) Bandan inince etki biter (zeminde kaymaz):** GEÇTİ — Oyuncu: son (795.0, 576.0), son 40 karede x oynaması 0.0000; Kutu: son (800.1, 579.9), son 40 karede x oynaması 0.0000
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 63.4 sn
+
+## 2026-10-15 00:42 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 10 (liste: 10), bağlantı: 9 (beklenen 9), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 9, çizgi nesnesi: 18 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (417,514)->(263,486), kalınlık 12; Cizgi5_Ic: (417,514)->(263,486), kalınlık 7; Cizgi6_Dis: (214,450)->(166,360), kalınlık 12; Cizgi6_Ic: (214,450)->(166,360), kalınlık 7; Cizgi7_Dis: (167,300)->(213,220), kalınlık 12; Cizgi7_Ic: (167,300)->(213,220), kalınlık 7; Cizgi8_Dis: (263,196)->(407,224), kalınlık 12; Cizgi8_Ic: (263,196)->(407,224), kalınlık 7; Cizgi9_Dis: (473,223)->(607,197), kalınlık 12; Cizgi9_Ic: (473,223)->(607,197), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Bölüm listesi en az 8 kayıt, ilk 8 yol bolum_1..8 sıralı:** GEÇTİ — kayıt: 10, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn"]
+- **Listedeki 10 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->10, son bölümden sonra boş:** GEÇTİ — zincir doğru: true, son bölümden sonra boş: true
+- **Harita liste kadar (10) düğüm oluşturur:** GEÇTİ — düğüm: 10, liste: 10
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 9: bölüm 9, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 10: bölüm 10, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 209, 247, 279, 316, 353, 392, 495, 509, 518]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: X, B (ve A) kayıtları üretildi:** GEÇTİ — kare sayıları: X 423, B 528, A 43
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C'ye giden yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: yalnız X, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: X C'ye basmaz, yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: X A'ya dönmez, A plakası boş (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 8: 2 klon gerekir (yalnız X, yalnız B, X'siz, B'siz bitmez):** GEÇTİ — yalnız X: bitti=false geçit y min=140; yalnız B: bitti=false E1 y min=574; X'siz: bitti=false E1 y min=574; B'siz: bitti=false geçit y min=140
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 553 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 9 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [25, 224, 329] + 406 (6.77 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=270 (açık 270), L0 kapandı: true, L1 kapandı: true, PlakaKutu basıldı: true, adım başlangıçları: [0, 105, 290, 346, 354, 366, 379]
+- **Bölüm 9 alternatif S2 (kutu Plaka3'te, k3 PlakaKutu'yu tutar) bitirir:** GEÇTİ — k3 tur kare=371 adımlar=[true, true, true, true, true, true, true] ölüm=0; oyuncu turu: bitti=true kare=394 ölüm=0 adımlar=[true, true, true, true, true, true, true], geçit y min=270, son kutu=(770,420) (Plaka3 x=760)
+- **Bölüm 9 atlanamaz: klonsuz L0'da ölünür, Kayitlar değişmez:** GEÇTİ — ölüm: 1, bitti: false, kayıtlı tur: 0, L0 açık: true
+- **Bölüm 9 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=499.0 (zıplama tepesi ~503, F2 yüzeyi 440), zıpladı: true, ölüm: 0
+- **Bölüm 9 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=459.0 (kutu üstü 560, zıplama tepesi ~463; F2 440), kutu x: 500..682 (Kat2 duvarı 702 -> en çok 682), ölüm: 0
+- **Bölüm 9 atlanamaz: platformdan F2'ye atlanamaz:** GEÇTİ — F2'ye çıktı: false, en büyük x=688 (Kat2 sol kenarı 702), ölüm: 0
+- **Bölüm 9 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen >=1), baş y min=309.6 (tavan 300), L1 açıktı: true
+- **Bölüm 9 atlanamaz: kapalı G yürüyerek/zıplayarak aşılamaz:** GEÇTİ — en büyük x=1046 (G sol yüzü 1060, bedel 14), geçit y min=340 (kapalı 340), ölüm: 0, bitti: false
+- **Bölüm 9 atlanamaz: zıplayarak L0 aşılamaz:** GEÇTİ — ölüm: 1, L0 açıktı: true
+- **Bölüm 9 kısayol: eksik klonla (k1; k1+k2; k1+k3; k2+k3) bitmez:** GEÇTİ — yalnız k1: S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k1+k2 (k3 yok): S1 bitti=false (ölüm 1, kare 337), S2 bitti=false (ölüm 0, kare 660); k1+k3 (k2 yok): S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k2+k3 (k1 yok): S1 bitti=false (ölüm 1, kare 37), S2 bitti=false (ölüm 1, kare 37)
+- **Bölüm 9 kısayol: röle (Plaka1->Plaka2; PlakaKutu->Plaka3) ile bitmez, röle klonları L0/L1'de ölür:** GEÇTİ — röle1 klonu ölüm/bitti: 1/false, röle1+k3: bitti=false (ölüm 1, asansör y min=610); röle2 (k3 yerine) ölüm/bitti: 1/false, k1+k2+röle2+oyuncu: bitti=false (ölüm 1)
+- **Bölüm 9 hazırlık: k1, k2, k3 kayıtları üretildi:** GEÇTİ — kare sayıları: 25, 224, 329
+- **Bölüm 9 başarısızlık: k2 erken basar, kutu F2'ye ulaşmaz, bitmez:** GEÇTİ — k2 adımları [true, true, true, true, true, true]; bitti: false, ölüm: 0, son kutu=(610,420) (kutu asansörün üstünde ama F2'ye ulaşmadı: x<702), kutu y min=420, asansör y min=450, oyuncu F2'ye çıktı: false
+- **Bölüm 9 başarısızlık: kutu PlakaKutu'yu aşıp G'ye itilir, bitmez:** GEÇTİ — bitti: false, ölüm: 0, son kutu x=1085 (plaka 900..960, G 1060), PlakaKutu basılı: false, geçit y=298 (kapalı 340)
+- **Bölüm 9 başarısızlık: k3 asansöre binmez, bitmez:** GEÇTİ — bitti: false, ölüm: 1, Plaka3 hiç basılmadı: false, son kutu=(890,420), asansör y min=450
+- **Bölüm 9: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 9: kutu asansörle F2'ye taşınır (konum ölçümü):** GEÇTİ — asansörle yükseldi: true (kutu-asansör bağıl sapma en çok 1.96 px), F2'ye ilk geçiş kare 303, son kutu=(800.0,420.0) (F2 yüzeyi 440 -> y 420), asansör y=450.0 (üstte 450), klon ölümleri: [false, false, false], oyuncu ölümü: 0
+- **Bölüm 9: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 407 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 10 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bitti: true, tur kareleri: [251, 187, 336] + 394 (6.57 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", L1 kapandı: true, L2 kapandı: true, asansör y min=450 (üst 450), geçit y min=240 (açık 240), adım başlangıçları: [0, 43, 47, 79, 88, 89, 134, 194, 313]
+- **Bölüm 10 bant: kutu girdisiz 1,667 px/kare gider, duvara dayanır, P1 basılı, titremez:** GEÇTİ — ortalama hız=1.6667 px/kare, son x=409.93 (duvar 430 -> 410), son 120 karede x oynaması=0.0736 px, P1 hep basılı: true, L1 hep kapalı: true
+- **Bölüm 10 bant: bantta bekleyen oyuncu ışına sürüklenir (ölür):** GEÇTİ — başlangıç hızı=1.667 px/kare, ölüm: 1, bitti: false
+- **Bölüm 10 bant: B2 üstünde ters girdi 3,33; bant yönünde 6,67; B1'de sağa 6,67 px/kare:** GEÇTİ — B2 sağ: 3.333 (beklenen +3,333), B2 sol: -6.667 (beklenen -6,667), B1 sağ: 6.667 (beklenen +6,667)
+- **Bölüm 10 atlanamaz: klonsuz bitmez (asansör kalkmaz):** GEÇTİ — bitti: false, ölüm: 1, asansör y min=610 (inik 610), ayak y min=499.0
+- **Bölüm 10 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=553.8 (zıplama tepesi ~500, F2 440), ölüm: 1
+- **Bölüm 10 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=553.8 (kutu üstü 560 + zıplama ~460; F2 440), ölüm: 1, son kutu x=792
+- **Bölüm 10 atlanamaz: L1 zıplayarak aşılamaz (açıkken ölür):** GEÇTİ — ölüm: 1, baş y min=527.1 (tavan 300), L1 açıktı: true
+- **Bölüm 10 atlanamaz: L2 zıplayarak aşılamaz (P2 boşken ölür):** GEÇTİ — ölüm: 1, L2 açıktı: true
+- **Bölüm 10 atlanamaz: PG'den G'ye sprint geçemez (G kapanır):** GEÇTİ — en büyük x=1041.0 (G sol yüzü 1055 -> merkez 1041), bitti: false, ölüm: 0, geçit y min=322, son geçit y=340
+- **Bölüm 10 kısayol: eksik klonla (A; A+B; B+C; A+C) bitmez:** GEÇTİ — klonsuz: bitti=false (ölüm 0, kare 1094); yalnız A: bitti=false (ölüm 1, kare 256); A+B (C yok): bitti=false (ölüm 0, kare 714); B+C (A yok): bitti=false (ölüm 0, kare 1097); A+C (B yok): bitti=false (ölüm 1, kare 257)
+- **Bölüm 10 kısayol: röle (önce PE sonra P2) tek başına / C ile / B+C ile bitmez:** GEÇTİ — röle kaydı adımları [true, true, true, true, true, true, true, true, true, true, true, true, true, true]; röle: bitti=false (ölüm 1); röle+C: bitti=false (ölüm 1); röle+B+C: bitti=false (ölüm 0)
+- **Bölüm 10 hazırlık: A, B, C kayıtları üretildi:** GEÇTİ — kare sayıları: 251, 187, 336
+- **Bölüm 10 başarısızlık: kutu bandın dışına sola itilir, L1 hiç kapanmaz:** GEÇTİ — adımlar [true, true], son kutu=(197,580), P1 hiç basılmadı: true, L1 hep açık: true
+- **Bölüm 10 başarısızlık: A, C binmeden basar -> C binemez, bitmez:** GEÇTİ — C turu adımları [true, true, true, true, true, true, true, true, true, true, true, false, true], C ayak y min=499.0 (zıplama tepesi ~499; asansör üstü 440 olsaydı <460), PG basıldı: false; oyuncu turu bitti: false (ölüm 0)
+- **Bölüm 10 başarısızlık: zıplamadan yürüyen kutuda durur:** GEÇTİ — en büyük x=376.0 (kutu sol kenarı 390 -> merkez 376), ölüm: 0
+- **Bölüm 10 ölçüm: kalkış penceresi [267,350] yok; kutu+duvar her x0'dan zıplanarak aşılır (taslak iddiası geçersiz):** GEÇTİ — x0=240 -> en büyük x=706, ölüm 0; x0=300 -> en büyük x=761, ölüm 0; x0=370 -> en büyük x=796, ölüm 0
+- **Bölüm 10: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 10: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 395 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Kutu 1a) Oyuncu sağa iter, kutu sağ duvarda durur:** GEÇTİ — kare 60 kutu x=395.0 (başlangıç 160), son kutu x=1132.0 (beklenen 1132, duvar iç kenarı 1152), oyuncu x=1098.0, oyuncu_oldu=0
+- **Kutu 1b) Oyuncu sola iter, kutu sol duvarda durur:** GEÇTİ — son kutu x=20.0 (beklenen 20), oyuncu x=54.0
+- **Kutu 2) Platform kenarından düşer ve zeminde durur:** GEÇTİ — rafta y=500 (ilk 20 kare): true, düşüş karesi 47 x=1132.0 (kenar 1100), son y=579.93 (beklenen 580), son 30 karede y oynaması 0.0000
+- **Kutu 4a) Klon kutuyu oyuncuyla aynı kod yoluyla iter:** GEÇTİ — 130 kare, canlı oyuncu/kutu ile klon/kutu en büyük fark 0.0000 px (beklenen 0), kutu kare 69'da x=440.0 (başlangıç 160)
+- **Kutu 4b) Klon + kutu determinizmi (100x):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px
+- **Kutu 7) Lazer kutuyu yok etmez/engel sayılmaz:** GEÇTİ — kutu ışının içinde 120 kare yerinde: true, ışın açık, kutu ışın alanında sayılmıyor; aynı noktada oyuncu ölümü: 1 (beklenen 1)
+- **Kutu 8) Oyuncu kutunun üstüne çıkar, ayakta durur:** GEÇTİ — son oyuncu (300.0, 536.0) (beklenen y=536, x 266..334), kutu (300.0, 580.0) yerinde
+- **Kutu 9) Kutu başka kutuyu zincirleme itmez:** GEÇTİ — itilen kutu son x=359.91 (beklenen ~360), diğer kutu x=400.00 (beklenen 400, hiç kımıldamadı: true), oyuncu x=325.9
+- **Kutu 3) Kutu plakayı basılı tutar, itilince bırakır:** GEÇTİ — yalnız kutuyla basılı: true, çakışırken basılı (21 kare): true, ayrılınca bırakılmış (104 kare): true, son kutu x=380.0
+- **Kutu 5) Asansör kutuyla birlikte yükselir:** GEÇTİ — son asansör y=430.0 (beklenen 430), son kutu y=400.0 (beklenen 400) x=850.0, kutu-asansör bağıl sapma en çok 2.00 px
+- **Kutu 6a) Asansör inerken altındaki kutuya durur, ezmez:** GEÇTİ — en alçak asansör y=546.0 (kutu üstü 560 -> <=551), son y=546.0, kutu yerinde: true; kutusuz kontrol son y=610.0 (beklenen 610)
+- **Kutu 6b) Geçit kapanırken altındaki kutuya durur:** GEÇTİ — en alçak geçit y=458.0 (kutu üstü 560 -> <=461), son y=458.0; kutusuz kontrol son y=500.0 (beklenen 500)
+- **Zıplatıcı 1a) Oyuncu ~240 px yükselir, yükselirken tekrar tetiklenmez:** GEÇTİ — yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 1d) Pad üstünde zıplama tuşu fırlatmayı zayıflatmaz:** GEÇTİ — tuşlu yükselme 247.1 px (en az 235), tuşsuz 247.1 px (fark <= 5)
+- **Zıplatıcı 1e) Kutu üst sınır duvarına çarpar, ekran dışına çıkmaz:** GEÇTİ — kutu en yüksek merkez y=20.0 (>= 0 beklenir), yükseldi: true
+- **Zıplatıcı 1b) Klon ~240 px yükselir:** GEÇTİ — klon yükselme 247.1 px (beklenen 240 +-15)
+- **Zıplatıcı 1c) Kutu ~240 px yükselir, tek tetik:** GEÇTİ — kutu yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 2) Yön/hız determinizmi (100x: oyuncu+klon+kutu):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px, hareket var: true
+- **Bant 1) Üstündeki oyuncu ve kutu girdisiz yön*hız ile kayar (iki yön):** GEÇTİ — Oyuncu sağ bant: 30 karede dx=50.0 (beklenen 50); Oyuncu sol bant: 30 karede dx=-50.0 (beklenen -50); Kutu sağ bant: 30 karede dx=50.0 (beklenen 50); Kutu sol bant: 30 karede dx=-50.0 (beklenen -50)
+- **Bant 2) Bandan inince etki biter (zeminde kaymaz):** GEÇTİ — Oyuncu: son (795.0, 576.0), son 40 karede x oynaması 0.0000; Kutu: son (800.1, 579.9), son 40 karede x oynaması 0.0000
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 126.6 sn
+
+
+## 2026-10-15 12:05 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn", "res://scenes/bolumler/bolum_11.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 11 (liste: 11), bağlantı: 10 (beklenen 10), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 10, çizgi nesnesi: 20 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (417,514)->(263,486), kalınlık 12; Cizgi5_Ic: (417,514)->(263,486), kalınlık 7; Cizgi6_Dis: (214,450)->(166,360), kalınlık 12; Cizgi6_Ic: (214,450)->(166,360), kalınlık 7; Cizgi7_Dis: (167,300)->(213,220), kalınlık 12; Cizgi7_Ic: (167,300)->(213,220), kalınlık 7; Cizgi8_Dis: (263,196)->(407,224), kalınlık 12; Cizgi8_Ic: (263,196)->(407,224), kalınlık 7; Cizgi9_Dis: (473,223)->(607,197), kalınlık 12; Cizgi9_Ic: (473,223)->(607,197), kalınlık 7; Cizgi10_Dis: (674,188)->(816,177), kalınlık 12; Cizgi10_Ic: (674,188)->(816,177), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Harita: bağlantı çizgileri birbirini ve başka düğümleri kesmez (liste geneli, 11 kayıt):** GEÇTİ — çizgi: 10, eksik Line2D: false, sorunlar: []
+- **Bölüm listesi en az 8 kayıt, ilk 8 yol bolum_1..8 sıralı:** GEÇTİ — kayıt: 11, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn", "res://scenes/bolumler/bolum_11.tscn"]
+- **Listedeki 11 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->11, son bölümden sonra boş:** GEÇTİ — zincir doğru: true, son bölümden sonra boş: true
+- **Harita liste kadar (11) düğüm oluşturur:** GEÇTİ — düğüm: 11, liste: 11
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 9: bölüm 9, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 10: bölüm 10, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 11: bölüm 11, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 209, 247, 279, 316, 353, 392, 495, 509, 518]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: X, B (ve A) kayıtları üretildi:** GEÇTİ — kare sayıları: X 423, B 528, A 43
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C'ye giden yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: yalnız X, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: X C'ye basmaz, yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: X A'ya dönmez, A plakası boş (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 8: 2 klon gerekir (yalnız X, yalnız B, X'siz, B'siz bitmez):** GEÇTİ — yalnız X: bitti=false geçit y min=140; yalnız B: bitti=false E1 y min=574; X'siz: bitti=false E1 y min=574; B'siz: bitti=false geçit y min=140
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 553 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 9 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [25, 224, 329] + 406 (6.77 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=270 (açık 270), L0 kapandı: true, L1 kapandı: true, PlakaKutu basıldı: true, adım başlangıçları: [0, 105, 290, 346, 354, 366, 379]
+- **Bölüm 9 alternatif S2 (kutu Plaka3'te, k3 PlakaKutu'yu tutar) bitirir:** GEÇTİ — k3 tur kare=371 adımlar=[true, true, true, true, true, true, true] ölüm=0; oyuncu turu: bitti=true kare=394 ölüm=0 adımlar=[true, true, true, true, true, true, true], geçit y min=270, son kutu=(770,420) (Plaka3 x=760)
+- **Bölüm 9 atlanamaz: klonsuz L0'da ölünür, Kayitlar değişmez:** GEÇTİ — ölüm: 1, bitti: false, kayıtlı tur: 0, L0 açık: true
+- **Bölüm 9 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=499.0 (zıplama tepesi ~503, F2 yüzeyi 440), zıpladı: true, ölüm: 0
+- **Bölüm 9 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=459.0 (kutu üstü 560, zıplama tepesi ~463; F2 440), kutu x: 500..682 (Kat2 duvarı 702 -> en çok 682), ölüm: 0
+- **Bölüm 9 atlanamaz: platformdan F2'ye atlanamaz:** GEÇTİ — F2'ye çıktı: false, en büyük x=688 (Kat2 sol kenarı 702), ölüm: 0
+- **Bölüm 9 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen >=1), baş y min=309.6 (tavan 300), L1 açıktı: true
+- **Bölüm 9 atlanamaz: kapalı G yürüyerek/zıplayarak aşılamaz:** GEÇTİ — en büyük x=1046 (G sol yüzü 1060, bedel 14), geçit y min=340 (kapalı 340), ölüm: 0, bitti: false
+- **Bölüm 9 atlanamaz: zıplayarak L0 aşılamaz:** GEÇTİ — ölüm: 1, L0 açıktı: true
+- **Bölüm 9 kısayol: eksik klonla (k1; k1+k2; k1+k3; k2+k3) bitmez:** GEÇTİ — yalnız k1: S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k1+k2 (k3 yok): S1 bitti=false (ölüm 1, kare 337), S2 bitti=false (ölüm 0, kare 660); k1+k3 (k2 yok): S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k2+k3 (k1 yok): S1 bitti=false (ölüm 1, kare 37), S2 bitti=false (ölüm 1, kare 37)
+- **Bölüm 9 kısayol: röle (Plaka1->Plaka2; PlakaKutu->Plaka3) ile bitmez, röle klonları L0/L1'de ölür:** GEÇTİ — röle1 klonu ölüm/bitti: 1/false, röle1+k3: bitti=false (ölüm 1, asansör y min=610); röle2 (k3 yerine) ölüm/bitti: 1/false, k1+k2+röle2+oyuncu: bitti=false (ölüm 1)
+- **Bölüm 9 hazırlık: k1, k2, k3 kayıtları üretildi:** GEÇTİ — kare sayıları: 25, 224, 329
+- **Bölüm 9 başarısızlık: k2 erken basar, kutu F2'ye ulaşmaz, bitmez:** GEÇTİ — k2 adımları [true, true, true, true, true, true]; bitti: false, ölüm: 0, son kutu=(610,420) (kutu asansörün üstünde ama F2'ye ulaşmadı: x<702), kutu y min=420, asansör y min=450, oyuncu F2'ye çıktı: false
+- **Bölüm 9 başarısızlık: kutu PlakaKutu'yu aşıp G'ye itilir, bitmez:** GEÇTİ — bitti: false, ölüm: 0, son kutu x=1085 (plaka 900..960, G 1060), PlakaKutu basılı: false, geçit y=298 (kapalı 340)
+- **Bölüm 9 başarısızlık: k3 asansöre binmez, bitmez:** GEÇTİ — bitti: false, ölüm: 1, Plaka3 hiç basılmadı: false, son kutu=(890,420), asansör y min=450
+- **Bölüm 9: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 9: kutu asansörle F2'ye taşınır (konum ölçümü):** GEÇTİ — asansörle yükseldi: true (kutu-asansör bağıl sapma en çok 1.96 px), F2'ye ilk geçiş kare 303, son kutu=(800.0,420.0) (F2 yüzeyi 440 -> y 420), asansör y=450.0 (üstte 450), klon ölümleri: [false, false, false], oyuncu ölümü: 0
+- **Bölüm 9 atlanamaz: PlakaKutu'dan ayrılıp G'ye sprint (düz ve zıplayarak) geçemez:** GEÇTİ — gecikme 0: en büyük x=1045.9, x>=1041 kare=56, o karede G y=300 (geçiş için <=292), bitti=false, ölüm=0; gecikme 6: en büyük x=1045.9, x>=1041 kare=56, o karede G y=296 (geçiş için <=292), bitti=false, ölüm=0; gecikme 12: en büyük x=1045.9, x>=1041 kare=56, o karede G y=296 (geçiş için <=292), bitti=false, ölüm=0
+- **Bölüm 9 ölçüm: asansör kutuda takılıp basamak olur; 2 klonla bölüm yine de bitmez:** GEÇTİ — klon adımları [true, true, true, true, true, true, true, true], oyuncu adımları [true, true, true, true, true, true, false, true, true], asansör basamak anında y=546.0 (kutuda takılı ~550; inik 610), basamaktan ayak y min=366.0 (F2 yüzeyi 440), F2'ye ÇIKTI: true (ölçüm; L1'de ölür), bitti: false, ölüm: 1
+- **Bölüm 9 ölçüm: F2'deki kutu sola itilince kenardan düşer, platforma ulaşamaz:** GEÇTİ — kutu x aralığı 595..760, son kutu=(595.0,580.0) (F2 yüzeyi 420, zemin 580, platform 340..460/y~510), platformda: false, oyuncu ölümü: 0
+- **Bölüm 9: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 407 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 10 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bitti: true, tur kareleri: [251, 187, 336] + 394 (6.57 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", L1 kapandı: true, L2 kapandı: true, asansör y min=450 (üst 450), geçit y min=240 (açık 240), adım başlangıçları: [0, 43, 47, 79, 88, 89, 134, 194, 313]
+- **Bölüm 10 bant: kutu girdisiz 1,667 px/kare gider, duvara dayanır, P1 basılı, titremez:** GEÇTİ — ortalama hız=1.6667 px/kare, son x=409.93 (duvar 430 -> 410), son 120 karede x oynaması=0.0736 px, P1 hep basılı: true, L1 hep kapalı: true
+- **Bölüm 10 bant: bantta bekleyen oyuncu ışına sürüklenir (ölür):** GEÇTİ — başlangıç hızı=1.667 px/kare, ölüm: 1, bitti: false
+- **Bölüm 10 bant: B2 üstünde ters girdi 3,33; bant yönünde 6,67; B1'de sağa 6,67 px/kare:** GEÇTİ — B2 sağ: 3.333 (beklenen +3,333), B2 sol: -6.667 (beklenen -6,667), B1 sağ: 6.667 (beklenen +6,667)
+- **Bölüm 10 atlanamaz: klonsuz bitmez (asansör kalkmaz):** GEÇTİ — bitti: false, ölüm: 1, asansör y min=610 (inik 610), ayak y min=499.0
+- **Bölüm 10 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=553.8 (zıplama tepesi ~500, F2 440), ölüm: 1
+- **Bölüm 10 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=553.8 (kutu üstü 560 + zıplama ~460; F2 440), ölüm: 1, son kutu x=792
+- **Bölüm 10 atlanamaz: L1 zıplayarak aşılamaz (açıkken ölür):** GEÇTİ — ölüm: 1, baş y min=527.1 (tavan 300), L1 açıktı: true
+- **Bölüm 10 atlanamaz: P2 boşken L2 açıktır, zıplayan oyuncu ışına girip ölür:** GEÇTİ — ölüm: 1, L2 açıktı: true
+- **Bölüm 10 atlanamaz: PG'den G'ye sprint geçemez (G kapanır):** GEÇTİ — en büyük x=1041.0 (G sol yüzü 1055 -> merkez 1041), bitti: false, ölüm: 0, geçit y min=322, son geçit y=340
+- **Bölüm 10 hazırlık: tek başına B kaydı P2'ye basar:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true, true, true], ölüm: 0, P2 basıldı: true, kare: 196
+- **Bölüm 10 atlanamaz (L2 kapalı, P2'ye basan klonla): zeminden zıplayarak F2'ye çıkılamaz:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true], L2 kapandı: true, ölüm: 0 (beklenen 0), ayak y min=499.0 (zıplama tepesi ~500, F2 440), bitti: false
+- **Bölüm 10 atlanamaz (L2 kapalı, P2'ye basan klonla): kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true, true, true], L2 kapandı: true, ölüm: 0 (beklenen 0), ayak y min=459.0 (kutu üstü 560 + zıplama ~460; F2 440), son kutu x=792, bitti: false
+- **Bölüm 10 atlanamaz: PG'den ayrılıp G'ye ZIPLAYARAK sprint geçemez:** GEÇTİ — gecikme 0: en büyük x=1041.0, x>=1040,5 kare=91, G y=310 (geçiş için <=292), bitti=false, ölüm=0; gecikme 8: en büyük x=1041.0, x>=1040,5 kare=91, G y=298 (geçiş için <=292), bitti=false, ölüm=0; gecikme 16: en büyük x=1041.0, x>=1040,5 kare=93, G y=302 (geçiş için <=292), bitti=false, ölüm=0; gecikme 24: en büyük x=1041.0, x>=1040,5 kare=95, G y=306 (geçiş için <=292), bitti=false, ölüm=0
+- **Bölüm 10 kısayol: eksik klonla (A; A+B; B+C; A+C) bitmez:** GEÇTİ — klonsuz: bitti=false (ölüm 0, kare 1094); yalnız A: bitti=false (ölüm 1, kare 256); A+B (C yok): bitti=false (ölüm 0, kare 714); B+C (A yok): bitti=false (ölüm 0, kare 1097); A+C (B yok): bitti=false (ölüm 1, kare 257)
+- **Bölüm 10 kısayol: röle (önce PE sonra P2) tek başına / C ile / B+C ile bitmez:** GEÇTİ — röle kaydı adımları [true, true, true, true, true, true, true, true, true, true, true, true, true, true]; röle: bitti=false (ölüm 1); röle+C: bitti=false (ölüm 1); röle+B+C: bitti=false (ölüm 0)
+- **Bölüm 10 hazırlık: A, B, C kayıtları üretildi:** GEÇTİ — kare sayıları: 251, 187, 336
+- **Bölüm 10 başarısızlık: kutu bandın dışına sola itilir, L1 hiç kapanmaz:** GEÇTİ — adımlar [true, true], son kutu=(197,580), P1 hiç basılmadı: true, L1 hep açık: true
+- **Bölüm 10 başarısızlık: A, C binmeden basar -> C binemez, bitmez:** GEÇTİ — C turu adımları [true, true, true, true, true, true, true, true, true, true, true, false, true], C ayak y min=499.0 (zıplama tepesi ~499; asansör üstü 440 olsaydı <460), PG basıldı: false; oyuncu turu bitti: false (ölüm 0)
+- **Bölüm 10 başarısızlık: zıplamadan yürüyen kutuda durur:** GEÇTİ — en büyük x=376.0 (kutu sol kenarı 390 -> merkez 376), ölüm: 0
+- **Bölüm 10 ölçüm: kalkış penceresi [267,350] yok; kutu+duvar her x0'dan zıplanarak aşılır (taslak iddiası geçersiz):** GEÇTİ — x0=240 -> en büyük x=706, ölüm 0; x0=300 -> en büyük x=761, ölüm 0; x0=370 -> en büyük x=796, ölüm 0
+- **Bölüm 10: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 10: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 395 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Kutu 1a) Oyuncu sağa iter, kutu sağ duvarda durur:** GEÇTİ — kare 60 kutu x=395.0 (başlangıç 160), son kutu x=1132.0 (beklenen 1132, duvar iç kenarı 1152), oyuncu x=1098.0, oyuncu_oldu=0
+- **Kutu 1b) Oyuncu sola iter, kutu sol duvarda durur:** GEÇTİ — son kutu x=20.0 (beklenen 20), oyuncu x=54.0
+- **Kutu 2) Platform kenarından düşer ve zeminde durur:** GEÇTİ — rafta y=500 (ilk 20 kare): true, düşüş karesi 47 x=1132.0 (kenar 1100), son y=579.93 (beklenen 580), son 30 karede y oynaması 0.0000
+- **Kutu 4a) Klon kutuyu oyuncuyla aynı kod yoluyla iter:** GEÇTİ — 130 kare, canlı oyuncu/kutu ile klon/kutu en büyük fark 0.0000 px (beklenen 0), kutu kare 69'da x=440.0 (başlangıç 160)
+- **Kutu 4b) Klon + kutu determinizmi (100x):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px
+- **Kutu 7) Lazer kutuyu yok etmez/engel sayılmaz:** GEÇTİ — kutu ışının içinde 120 kare yerinde: true, ışın açık, kutu ışın alanında sayılmıyor; aynı noktada oyuncu ölümü: 1 (beklenen 1)
+- **Kutu 8) Oyuncu kutunun üstüne çıkar, ayakta durur:** GEÇTİ — son oyuncu (300.0, 536.0) (beklenen y=536, x 266..334), kutu (300.0, 580.0) yerinde
+- **Kutu 9) Kutu başka kutuyu zincirleme itmez:** GEÇTİ — itilen kutu son x=359.91 (beklenen ~360), diğer kutu x=400.00 (beklenen 400, hiç kımıldamadı: true), oyuncu x=325.9
+- **Kutu 3) Kutu plakayı basılı tutar, itilince bırakır:** GEÇTİ — yalnız kutuyla basılı: true, çakışırken basılı (21 kare): true, ayrılınca bırakılmış (104 kare): true, son kutu x=380.0
+- **Kutu 5) Asansör kutuyla birlikte yükselir:** GEÇTİ — son asansör y=430.0 (beklenen 430), son kutu y=400.0 (beklenen 400) x=850.0, kutu-asansör bağıl sapma en çok 2.00 px
+- **Kutu 6a) Asansör inerken altındaki kutuya durur, ezmez:** GEÇTİ — en alçak asansör y=546.0 (kutu üstü 560 -> <=551), son y=546.0, kutu yerinde: true; kutusuz kontrol son y=610.0 (beklenen 610)
+- **Kutu 6b) Geçit kapanırken altındaki kutuya durur:** GEÇTİ — en alçak geçit y=458.0 (kutu üstü 560 -> <=461), son y=458.0; kutusuz kontrol son y=500.0 (beklenen 500)
+- **Zıplatıcı 1a) Oyuncu ~240 px yükselir, yükselirken tekrar tetiklenmez:** GEÇTİ — yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 1d) Pad üstünde zıplama tuşu fırlatmayı zayıflatmaz:** GEÇTİ — tuşlu yükselme 247.1 px (en az 235), tuşsuz 247.1 px (fark <= 5)
+- **Zıplatıcı 1e) Kutu üst sınır duvarına çarpar, ekran dışına çıkmaz:** GEÇTİ — kutu en yüksek merkez y=20.0 (>= 0 beklenir), yükseldi: true
+- **Zıplatıcı 1b) Klon ~240 px yükselir:** GEÇTİ — klon yükselme 247.1 px (beklenen 240 +-15)
+- **Zıplatıcı 1c) Kutu ~240 px yükselir, tek tetik:** GEÇTİ — kutu yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 2) Yön/hız determinizmi (100x: oyuncu+klon+kutu):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px, hareket var: true
+- **Bant 1) Üstündeki oyuncu ve kutu girdisiz yön*hız ile kayar (iki yön):** GEÇTİ — Oyuncu sağ bant: 30 karede dx=50.0 (beklenen 50); Oyuncu sol bant: 30 karede dx=-50.0 (beklenen -50); Kutu sağ bant: 30 karede dx=50.0 (beklenen 50); Kutu sol bant: 30 karede dx=-50.0 (beklenen -50)
+- **Bant 2) Bandan inince etki biter (zeminde kaymaz):** GEÇTİ — Oyuncu: son (795.0, 576.0), son 40 karede x oynaması 0.0000; Kutu: son (800.1, 579.9), son 40 karede x oynaması 0.0000
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 118.6 sn
+
+## 2026-10-15 12:15 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn", "res://scenes/bolumler/bolum_11.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 11 (liste: 11), bağlantı: 10 (beklenen 10), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 10, çizgi nesnesi: 20 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (417,514)->(263,486), kalınlık 12; Cizgi5_Ic: (417,514)->(263,486), kalınlık 7; Cizgi6_Dis: (214,450)->(166,360), kalınlık 12; Cizgi6_Ic: (214,450)->(166,360), kalınlık 7; Cizgi7_Dis: (167,300)->(213,220), kalınlık 12; Cizgi7_Ic: (167,300)->(213,220), kalınlık 7; Cizgi8_Dis: (263,196)->(407,224), kalınlık 12; Cizgi8_Ic: (263,196)->(407,224), kalınlık 7; Cizgi9_Dis: (473,223)->(607,197), kalınlık 12; Cizgi9_Ic: (473,223)->(607,197), kalınlık 7; Cizgi10_Dis: (674,188)->(816,177), kalınlık 12; Cizgi10_Ic: (674,188)->(816,177), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Harita: bağlantı çizgileri birbirini ve başka düğümleri kesmez (liste geneli, 11 kayıt):** GEÇTİ — çizgi: 10, eksik Line2D: false, sorunlar: []
+- **Bölüm listesi en az 8 kayıt, ilk 8 yol bolum_1..8 sıralı:** GEÇTİ — kayıt: 11, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn", "res://scenes/bolumler/bolum_11.tscn"]
+- **Listedeki 11 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->11, son bölümden sonra boş:** GEÇTİ — zincir doğru: true, son bölümden sonra boş: true
+- **Harita liste kadar (11) düğüm oluşturur:** GEÇTİ — düğüm: 11, liste: 11
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 9: bölüm 9, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 10: bölüm 10, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 11: bölüm 11, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 209, 247, 279, 316, 353, 392, 495, 509, 518]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: X, B (ve A) kayıtları üretildi:** GEÇTİ — kare sayıları: X 423, B 528, A 43
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C'ye giden yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: yalnız X, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: X C'ye basmaz, yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: X A'ya dönmez, A plakası boş (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 8: 2 klon gerekir (yalnız X, yalnız B, X'siz, B'siz bitmez):** GEÇTİ — yalnız X: bitti=false geçit y min=140; yalnız B: bitti=false E1 y min=574; X'siz: bitti=false E1 y min=574; B'siz: bitti=false geçit y min=140
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 553 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 9 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [25, 224, 329] + 406 (6.77 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=270 (açık 270), L0 kapandı: true, L1 kapandı: true, PlakaKutu basıldı: true, adım başlangıçları: [0, 105, 290, 346, 354, 366, 379]
+- **Bölüm 9 alternatif S2 (kutu Plaka3'te, k3 PlakaKutu'yu tutar) bitirir:** GEÇTİ — k3 tur kare=371 adımlar=[true, true, true, true, true, true, true] ölüm=0; oyuncu turu: bitti=true kare=394 ölüm=0 adımlar=[true, true, true, true, true, true, true], geçit y min=270, son kutu=(770,420) (Plaka3 x=760)
+- **Bölüm 9 atlanamaz: klonsuz L0'da ölünür, Kayitlar değişmez:** GEÇTİ — ölüm: 1, bitti: false, kayıtlı tur: 0, L0 açık: true
+- **Bölüm 9 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=499.0 (zıplama tepesi ~503, F2 yüzeyi 440), zıpladı: true, ölüm: 0
+- **Bölüm 9 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=459.0 (kutu üstü 560, zıplama tepesi ~463; F2 440), kutu x: 500..682 (Kat2 duvarı 702 -> en çok 682), ölüm: 0
+- **Bölüm 9 atlanamaz: platformdan F2'ye atlanamaz:** GEÇTİ — F2'ye çıktı: false, en büyük x=688 (Kat2 sol kenarı 702), ölüm: 0
+- **Bölüm 9 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen >=1), baş y min=309.6 (tavan 300), L1 açıktı: true
+- **Bölüm 9 atlanamaz: kapalı G yürüyerek/zıplayarak aşılamaz:** GEÇTİ — en büyük x=1046 (G sol yüzü 1060, bedel 14), geçit y min=340 (kapalı 340), ölüm: 0, bitti: false
+- **Bölüm 9 atlanamaz: zıplayarak L0 aşılamaz:** GEÇTİ — ölüm: 1, L0 açıktı: true
+- **Bölüm 9 kısayol: eksik klonla (k1; k1+k2; k1+k3; k2+k3) bitmez:** GEÇTİ — yalnız k1: S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k1+k2 (k3 yok): S1 bitti=false (ölüm 1, kare 337), S2 bitti=false (ölüm 0, kare 660); k1+k3 (k2 yok): S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k2+k3 (k1 yok): S1 bitti=false (ölüm 1, kare 37), S2 bitti=false (ölüm 1, kare 37)
+- **Bölüm 9 kısayol: röle (Plaka1->Plaka2; PlakaKutu->Plaka3) ile bitmez, röle klonları L0/L1'de ölür:** GEÇTİ — röle1 klonu ölüm/bitti: 1/false, röle1+k3: bitti=false (ölüm 1, asansör y min=610); röle2 (k3 yerine) ölüm/bitti: 1/false, k1+k2+röle2+oyuncu: bitti=false (ölüm 1)
+- **Bölüm 9 hazırlık: k1, k2, k3 kayıtları üretildi:** GEÇTİ — kare sayıları: 25, 224, 329
+- **Bölüm 9 başarısızlık: k2 erken basar, kutu F2'ye ulaşmaz, bitmez:** GEÇTİ — k2 adımları [true, true, true, true, true, true]; bitti: false, ölüm: 0, son kutu=(610,420) (kutu asansörün üstünde ama F2'ye ulaşmadı: x<702), kutu y min=420, asansör y min=450, oyuncu F2'ye çıktı: false
+- **Bölüm 9 başarısızlık: kutu PlakaKutu'yu aşıp G'ye itilir, bitmez:** GEÇTİ — bitti: false, ölüm: 0, son kutu x=1085 (plaka 900..960, G 1060), PlakaKutu basılı: false, geçit y=298 (kapalı 340)
+- **Bölüm 9 başarısızlık: k3 asansöre binmez, bitmez:** GEÇTİ — bitti: false, ölüm: 1, Plaka3 hiç basılmadı: false, son kutu=(890,420), asansör y min=450
+- **Bölüm 9: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 9: kutu asansörle F2'ye taşınır (konum ölçümü):** GEÇTİ — asansörle yükseldi: true (kutu-asansör bağıl sapma en çok 1.96 px), F2'ye ilk geçiş kare 303, son kutu=(800.0,420.0) (F2 yüzeyi 440 -> y 420), asansör y=450.0 (üstte 450), klon ölümleri: [false, false, false], oyuncu ölümü: 0
+- **Bölüm 9 atlanamaz: PlakaKutu'dan ayrılıp G'ye sprint (düz ve zıplayarak) geçemez:** GEÇTİ — gecikme 0: en büyük x=1045.9, x>=1041 kare=56, o karede G y=300 (geçiş için <=292), bitti=false, ölüm=0; gecikme 6: en büyük x=1045.9, x>=1041 kare=56, o karede G y=296 (geçiş için <=292), bitti=false, ölüm=0; gecikme 12: en büyük x=1045.9, x>=1041 kare=56, o karede G y=296 (geçiş için <=292), bitti=false, ölüm=0
+- **Bölüm 9 ölçüm: asansör kutuda takılıp basamak olur; 2 klonla bölüm yine de bitmez:** GEÇTİ — klon adımları [true, true, true, true, true, true, true, true], oyuncu adımları [true, true, true, true, true, true, false, true, true], asansör basamak anında y=546.0 (kutuda takılı ~550; inik 610), basamaktan ayak y min=366.0 (F2 yüzeyi 440), F2'ye ÇIKTI: true (ölçüm; L1'de ölür), bitti: false, ölüm: 1
+- **Bölüm 9 ölçüm: F2'deki kutu sola itilince kenardan düşer, platforma ulaşamaz:** GEÇTİ — kutu x aralığı 595..760, son kutu=(595.0,580.0) (F2 yüzeyi 420, zemin 580, platform 340..460/y~510), platformda: false, oyuncu ölümü: 0
+- **Bölüm 9: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 407 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 10 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bitti: true, tur kareleri: [251, 187, 336] + 394 (6.57 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", L1 kapandı: true, L2 kapandı: true, asansör y min=450 (üst 450), geçit y min=240 (açık 240), adım başlangıçları: [0, 43, 47, 79, 88, 89, 134, 194, 313]
+- **Bölüm 10 bant: kutu girdisiz 1,667 px/kare gider, duvara dayanır, P1 basılı, titremez:** GEÇTİ — ortalama hız=1.6667 px/kare, son x=409.93 (duvar 430 -> 410), son 120 karede x oynaması=0.0736 px, P1 hep basılı: true, L1 hep kapalı: true
+- **Bölüm 10 bant: bantta bekleyen oyuncu ışına sürüklenir (ölür):** GEÇTİ — başlangıç hızı=1.667 px/kare, ölüm: 1, bitti: false
+- **Bölüm 10 bant: B2 üstünde ters girdi 3,33; bant yönünde 6,67; B1'de sağa 6,67 px/kare:** GEÇTİ — B2 sağ: 3.333 (beklenen +3,333), B2 sol: -6.667 (beklenen -6,667), B1 sağ: 6.667 (beklenen +6,667)
+- **Bölüm 10 atlanamaz: klonsuz bitmez (asansör kalkmaz):** GEÇTİ — bitti: false, ölüm: 1, asansör y min=610 (inik 610), ayak y min=499.0
+- **Bölüm 10 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=553.8 (zıplama tepesi ~500, F2 440), ölüm: 1
+- **Bölüm 10 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=553.8 (kutu üstü 560 + zıplama ~460; F2 440), ölüm: 1, son kutu x=792
+- **Bölüm 10 atlanamaz: L1 zıplayarak aşılamaz (açıkken ölür):** GEÇTİ — ölüm: 1, baş y min=527.1 (tavan 300), L1 açıktı: true
+- **Bölüm 10 atlanamaz: P2 boşken L2 açıktır, zıplayan oyuncu ışına girip ölür:** GEÇTİ — ölüm: 1, L2 açıktı: true
+- **Bölüm 10 atlanamaz: PG'den G'ye sprint geçemez (G kapanır):** GEÇTİ — en büyük x=1041.0 (G sol yüzü 1055 -> merkez 1041), bitti: false, ölüm: 0, geçit y min=322, son geçit y=340
+- **Bölüm 10 hazırlık: tek başına B kaydı P2'ye basar:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true, true, true], ölüm: 0, P2 basıldı: true, kare: 196
+- **Bölüm 10 atlanamaz (L2 kapalı, P2'ye basan klonla): zeminden zıplayarak F2'ye çıkılamaz:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true], L2 kapandı: true, ölüm: 0 (beklenen 0), ayak y min=499.0 (zıplama tepesi ~500, F2 440), bitti: false
+- **Bölüm 10 atlanamaz (L2 kapalı, P2'ye basan klonla): kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true, true, true], L2 kapandı: true, ölüm: 0 (beklenen 0), ayak y min=459.0 (kutu üstü 560 + zıplama ~460; F2 440), son kutu x=792, bitti: false
+- **Bölüm 10 atlanamaz: PG'den ayrılıp G'ye ZIPLAYARAK sprint geçemez:** GEÇTİ — gecikme 0: en büyük x=1041.0, x>=1040,5 kare=91, G y=310 (geçiş için <=292), bitti=false, ölüm=0; gecikme 8: en büyük x=1041.0, x>=1040,5 kare=91, G y=298 (geçiş için <=292), bitti=false, ölüm=0; gecikme 16: en büyük x=1041.0, x>=1040,5 kare=93, G y=302 (geçiş için <=292), bitti=false, ölüm=0; gecikme 24: en büyük x=1041.0, x>=1040,5 kare=95, G y=306 (geçiş için <=292), bitti=false, ölüm=0
+- **Bölüm 10 kısayol: eksik klonla (A; A+B; B+C; A+C) bitmez:** GEÇTİ — klonsuz: bitti=false (ölüm 0, kare 1094); yalnız A: bitti=false (ölüm 1, kare 256); A+B (C yok): bitti=false (ölüm 0, kare 714); B+C (A yok): bitti=false (ölüm 0, kare 1097); A+C (B yok): bitti=false (ölüm 1, kare 257)
+- **Bölüm 10 kısayol: röle (önce PE sonra P2) tek başına / C ile / B+C ile bitmez:** GEÇTİ — röle kaydı adımları [true, true, true, true, true, true, true, true, true, true, true, true, true, true]; röle: bitti=false (ölüm 1); röle+C: bitti=false (ölüm 1); röle+B+C: bitti=false (ölüm 0)
+- **Bölüm 10 hazırlık: A, B, C kayıtları üretildi:** GEÇTİ — kare sayıları: 251, 187, 336
+- **Bölüm 10 başarısızlık: kutu bandın dışına sola itilir, L1 hiç kapanmaz:** GEÇTİ — adımlar [true, true], son kutu=(197,580), P1 hiç basılmadı: true, L1 hep açık: true
+- **Bölüm 10 başarısızlık: A, C binmeden basar -> C binemez, bitmez:** GEÇTİ — C turu adımları [true, true, true, true, true, true, true, true, true, true, true, false, true], C ayak y min=499.0 (zıplama tepesi ~499; asansör üstü 440 olsaydı <460), PG basıldı: false; oyuncu turu bitti: false (ölüm 0)
+- **Bölüm 10 başarısızlık: zıplamadan yürüyen kutuda durur:** GEÇTİ — en büyük x=376.0 (kutu sol kenarı 390 -> merkez 376), ölüm: 0
+- **Bölüm 10 ölçüm: kalkış penceresi [267,350] yok; kutu+duvar her x0'dan zıplanarak aşılır (taslak iddiası geçersiz):** GEÇTİ — x0=240 -> en büyük x=706, ölüm 0; x0=300 -> en büyük x=761, ölüm 0; x0=370 -> en büyük x=796, ölüm 0
+- **Bölüm 10: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 10: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 395 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 11 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bitti: true, tur kareleri: [114, 187] + 220 (3.67 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 97, 100, 101, 163, 176]
+- **Bölüm 11 atlanamaz: F1'den duvar dibinde zıplayarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.1 (zıplama tepesi ~499, F2 380), en büyük x=406, ölüm: 0
+- **Bölüm 11 atlanamaz: Raf'a (üst y=420) zeminden zıplayarak çıkılamaz:** GEÇTİ — ayak y min=499.0 (zıplama tepesi ~499, Raf 420), PlakaPA basıldı: false
+- **Bölüm 11 atlanamaz: F2'den zıplayarak F3'e (ayak y<=160) çıkılamaz (Z2 dışı):** GEÇTİ — ayak y min=328.1 (F2 380 - 101 = ~279, F3 160), en büyük x=870, ölüm: 1
+- **Bölüm 11 atlanamaz: yalnız Z1 fırlatması F3'e erişemez (ayak y>=340):** GEÇTİ — ayak y min=352.9 (beklenen ~353; F3 160), en büyük x=561
+- **Bölüm 11 atlanamaz: cepte ışınlar açıkken zıplayarak geçilemez (ölür):** GEÇTİ — ölüm: 1, ayak y min=328.1 (cep 100 px), bitti: false
+- **Bölüm 11 atlanamaz: cep tavanı (Kat3 alt kenarı y=280) aşılamaz:** GEÇTİ — baş y min=280.0 (tavan 280), ayak y min=328.0
+- **Bölüm 11 hazırlık: A ve B kayıtları üretildi:** GEÇTİ — kare sayıları: 114, 187
+- **Bölüm 11 başarısızlık: klonsuz bitmez; ışına koşan oyuncu ölür:** GEÇTİ — bekleyen: bitti=false ölüm=1; koşan: bitti=false ölüm=1
+- **Bölüm 11 başarısızlık: yalnız A -> L2 açık kalır, bitmez / ışında ölür:** GEÇTİ — bekleyen: bitti=false ölüm=1; koşan: bitti=false ölüm=1; PlakaPA basıldı: true; L2 hep açık: true
+- **Bölüm 11 başarısızlık: yalnız B -> L1 açık kalır, bitmez / ışında ölür:** GEÇTİ — bekleyen: bitti=false ölüm=1; koşan: bitti=false ölüm=1; PlakaPB basıldı: true; L1 hep açık: true
+- **Bölüm 11 başarısızlık: A çok uzun sol (n=40) Raf'ı kaçırır, L1 açık, bitmez:** GEÇTİ — A turu sonunda PlakaPA basılı: false (uçuşta anlık değme: true); oyuncu turu: bitti=false, ölüm=1, L1 hiç kapanmadı: false
+- **Bölüm 11 başarısızlık: Z2 üstüne inen oyuncu F3'e fırlar, bitmez:** GEÇTİ — ayak y min=132.9 (F3 160), en büyük x=1138, ölüm: 0, bitti: false
+- **Bölüm 11 başarısızlık: A çok kısa sol (n=10) Raf'a inmez, bitmez:** GEÇTİ — A turu PlakaPA basıldı: false; oyuncu turu: bitti=false, ölüm=1
+- **Bölüm 11 kısayol: klonsuz/tek klonla bitmez, A+B ile biter:** GEÇTİ — klonsuz: bitti=false; yalnız A: bitti=false; yalnız B: bitti=false; A+B: bitti=true (kare 220)
+- **Bölüm 11 kısayol: klonsuz tek-zıplama taraması (24 varyant) hiçbiri bitirmez:** GEÇTİ — koşu: 24, bitiren: 0, F3'e (ayak<=170) çıkan: 17, ulaşılan en yüksek ayak y=108.1, ölenler: ["m=100 ölüm 1", "m=110 ölüm 1"]
+- **Bölüm 11 kısayol: tek klon (18 varyant) + oyuncu standart rota hiçbiri bitirmez:** GEÇTİ — varyant: 18, bitiren: 0 [], iki ışının birden kapandığı varyant: 0
+- **Bölüm 11 kısayol: röle (PA sonra PB) tek klonla iki ışını birlikte kapatamaz, bitmez:** GEÇTİ — röle kaydı adımları [true, true, true, true, true, true, false, false, true], kayıt kare: 669; oyuncu: bitti=false, ölüm=1, iki ışın birden kapandı: false
+- **Bölüm 11 kısayol: oyuncu kendi plakasında durursa (diğeri klon) bölüm bitmez:** GEÇTİ — PA'da durur (B klon): bitti=false; PB'de durur (A klon): bitti=false
+- **Bölüm 11 ölçüm: zamanlama pencereleri (A sol n, B gecikme, oyuncu zıplama x0):** GEÇTİ — A sol n çalışanlar (4..48 adım 2): [16, 18, 20, 22, 24, 26, 28, 30, 32]; B başlangıç gecikmesi çalışanlar (0,5,10,20,40): [0, 5, 10, 20, 40]; oyuncu x0 çalışanlar (440..640 adım 10): [460, 470, 480, 490, 500, 510, 520, 530, 540, 550, 560, 570, 580, 590]
+- **Bölüm 11: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 11: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Kutu 1a) Oyuncu sağa iter, kutu sağ duvarda durur:** GEÇTİ — kare 60 kutu x=395.0 (başlangıç 160), son kutu x=1132.0 (beklenen 1132, duvar iç kenarı 1152), oyuncu x=1098.0, oyuncu_oldu=0
+- **Kutu 1b) Oyuncu sola iter, kutu sol duvarda durur:** GEÇTİ — son kutu x=20.0 (beklenen 20), oyuncu x=54.0
+- **Kutu 2) Platform kenarından düşer ve zeminde durur:** GEÇTİ — rafta y=500 (ilk 20 kare): true, düşüş karesi 47 x=1132.0 (kenar 1100), son y=579.93 (beklenen 580), son 30 karede y oynaması 0.0000
+- **Kutu 4a) Klon kutuyu oyuncuyla aynı kod yoluyla iter:** GEÇTİ — 130 kare, canlı oyuncu/kutu ile klon/kutu en büyük fark 0.0000 px (beklenen 0), kutu kare 69'da x=440.0 (başlangıç 160)
+- **Kutu 4b) Klon + kutu determinizmi (100x):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px
+- **Kutu 7) Lazer kutuyu yok etmez/engel sayılmaz:** GEÇTİ — kutu ışının içinde 120 kare yerinde: true, ışın açık, kutu ışın alanında sayılmıyor; aynı noktada oyuncu ölümü: 1 (beklenen 1)
+- **Kutu 8) Oyuncu kutunun üstüne çıkar, ayakta durur:** GEÇTİ — son oyuncu (300.0, 536.0) (beklenen y=536, x 266..334), kutu (300.0, 580.0) yerinde
+- **Kutu 9) Kutu başka kutuyu zincirleme itmez:** GEÇTİ — itilen kutu son x=359.91 (beklenen ~360), diğer kutu x=400.00 (beklenen 400, hiç kımıldamadı: true), oyuncu x=325.9
+- **Kutu 3) Kutu plakayı basılı tutar, itilince bırakır:** GEÇTİ — yalnız kutuyla basılı: true, çakışırken basılı (21 kare): true, ayrılınca bırakılmış (104 kare): true, son kutu x=380.0
+- **Kutu 5) Asansör kutuyla birlikte yükselir:** GEÇTİ — son asansör y=430.0 (beklenen 430), son kutu y=400.0 (beklenen 400) x=850.0, kutu-asansör bağıl sapma en çok 2.00 px
+- **Kutu 6a) Asansör inerken altındaki kutuya durur, ezmez:** GEÇTİ — en alçak asansör y=546.0 (kutu üstü 560 -> <=551), son y=546.0, kutu yerinde: true; kutusuz kontrol son y=610.0 (beklenen 610)
+- **Kutu 6b) Geçit kapanırken altındaki kutuya durur:** GEÇTİ — en alçak geçit y=458.0 (kutu üstü 560 -> <=461), son y=458.0; kutusuz kontrol son y=500.0 (beklenen 500)
+- **Zıplatıcı 1a) Oyuncu ~240 px yükselir, yükselirken tekrar tetiklenmez:** GEÇTİ — yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 1d) Pad üstünde zıplama tuşu fırlatmayı zayıflatmaz:** GEÇTİ — tuşlu yükselme 247.1 px (en az 235), tuşsuz 247.1 px (fark <= 5)
+- **Zıplatıcı 1e) Kutu üst sınır duvarına çarpar, ekran dışına çıkmaz:** GEÇTİ — kutu en yüksek merkez y=20.0 (>= 0 beklenir), yükseldi: true
+- **Zıplatıcı 1b) Klon ~240 px yükselir:** GEÇTİ — klon yükselme 247.1 px (beklenen 240 +-15)
+- **Zıplatıcı 1c) Kutu ~240 px yükselir, tek tetik:** GEÇTİ — kutu yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 2) Yön/hız determinizmi (100x: oyuncu+klon+kutu):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px, hareket var: true
+- **Bant 1) Üstündeki oyuncu ve kutu girdisiz yön*hız ile kayar (iki yön):** GEÇTİ — Oyuncu sağ bant: 30 karede dx=50.0 (beklenen 50); Oyuncu sol bant: 30 karede dx=-50.0 (beklenen -50); Kutu sağ bant: 30 karede dx=50.0 (beklenen 50); Kutu sol bant: 30 karede dx=-50.0 (beklenen -50)
+- **Bant 2) Bandan inince etki biter (zeminde kaymaz):** GEÇTİ — Oyuncu: son (795.0, 576.0), son 40 karede x oynaması 0.0000; Kutu: son (800.1, 579.9), son 40 karede x oynaması 0.0000
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 134.1 sn
+
+## 2026-10-15 12:36 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn", "res://scenes/bolumler/bolum_11.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 11 (liste: 11), bağlantı: 10 (beklenen 10), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 10, çizgi nesnesi: 20 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (417,514)->(263,486), kalınlık 12; Cizgi5_Ic: (417,514)->(263,486), kalınlık 7; Cizgi6_Dis: (214,450)->(166,360), kalınlık 12; Cizgi6_Ic: (214,450)->(166,360), kalınlık 7; Cizgi7_Dis: (167,300)->(213,220), kalınlık 12; Cizgi7_Ic: (167,300)->(213,220), kalınlık 7; Cizgi8_Dis: (263,196)->(407,224), kalınlık 12; Cizgi8_Ic: (263,196)->(407,224), kalınlık 7; Cizgi9_Dis: (473,223)->(607,197), kalınlık 12; Cizgi9_Ic: (473,223)->(607,197), kalınlık 7; Cizgi10_Dis: (674,188)->(816,177), kalınlık 12; Cizgi10_Ic: (674,188)->(816,177), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Harita: bağlantı çizgileri birbirini ve başka düğümleri kesmez (liste geneli, 11 kayıt):** GEÇTİ — çizgi: 10, eksik Line2D: false, sorunlar: []
+- **Bölüm listesi en az 8 kayıt, ilk 8 yol bolum_1..8 sıralı:** GEÇTİ — kayıt: 11, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn", "res://scenes/bolumler/bolum_11.tscn"]
+- **Listedeki 11 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->11, son bölümden sonra boş:** GEÇTİ — zincir doğru: true, son bölümden sonra boş: true
+- **Harita liste kadar (11) düğüm oluşturur:** GEÇTİ — düğüm: 11, liste: 11
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 9: bölüm 9, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 10: bölüm 10, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 11: bölüm 11, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 209, 247, 279, 316, 353, 392, 495, 509, 518]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: X, B (ve A) kayıtları üretildi:** GEÇTİ — kare sayıları: X 423, B 528, A 43
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C'ye giden yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: yalnız X, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: X C'ye basmaz, yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: X A'ya dönmez, A plakası boş (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 8: 2 klon gerekir (yalnız X, yalnız B, X'siz, B'siz bitmez):** GEÇTİ — yalnız X: bitti=false geçit y min=140; yalnız B: bitti=false E1 y min=574; X'siz: bitti=false E1 y min=574; B'siz: bitti=false geçit y min=140
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 553 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 9 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [25, 224, 329] + 406 (6.77 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=270 (açık 270), L0 kapandı: true, L1 kapandı: true, PlakaKutu basıldı: true, adım başlangıçları: [0, 105, 290, 346, 354, 366, 379]
+- **Bölüm 9 alternatif S2 (kutu Plaka3'te, k3 PlakaKutu'yu tutar) bitirir:** GEÇTİ — k3 tur kare=371 adımlar=[true, true, true, true, true, true, true] ölüm=0; oyuncu turu: bitti=true kare=394 ölüm=0 adımlar=[true, true, true, true, true, true, true], geçit y min=270, son kutu=(770,420) (Plaka3 x=760)
+- **Bölüm 9 atlanamaz: klonsuz L0'da ölünür, Kayitlar değişmez:** GEÇTİ — ölüm: 1, bitti: false, kayıtlı tur: 0, L0 açık: true
+- **Bölüm 9 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=499.0 (zıplama tepesi ~503, F2 yüzeyi 440), zıpladı: true, ölüm: 0
+- **Bölüm 9 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=459.0 (kutu üstü 560, zıplama tepesi ~463; F2 440), kutu x: 500..682 (Kat2 duvarı 702 -> en çok 682), ölüm: 0
+- **Bölüm 9 atlanamaz: platformdan F2'ye atlanamaz:** GEÇTİ — F2'ye çıktı: false, en büyük x=688 (Kat2 sol kenarı 702), ölüm: 0
+- **Bölüm 9 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen >=1), baş y min=309.6 (tavan 300), L1 açıktı: true
+- **Bölüm 9 atlanamaz: kapalı G yürüyerek/zıplayarak aşılamaz:** GEÇTİ — en büyük x=1046 (G sol yüzü 1060, bedel 14), geçit y min=340 (kapalı 340), ölüm: 0, bitti: false
+- **Bölüm 9 atlanamaz: zıplayarak L0 aşılamaz:** GEÇTİ — ölüm: 1, L0 açıktı: true
+- **Bölüm 9 kısayol: eksik klonla (k1; k1+k2; k1+k3; k2+k3) bitmez:** GEÇTİ — yalnız k1: S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k1+k2 (k3 yok): S1 bitti=false (ölüm 1, kare 337), S2 bitti=false (ölüm 0, kare 660); k1+k3 (k2 yok): S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k2+k3 (k1 yok): S1 bitti=false (ölüm 1, kare 37), S2 bitti=false (ölüm 1, kare 37)
+- **Bölüm 9 kısayol: röle (Plaka1->Plaka2; PlakaKutu->Plaka3) ile bitmez, röle klonları L0/L1'de ölür:** GEÇTİ — röle1 klonu ölüm/bitti: 1/false, röle1+k3: bitti=false (ölüm 1, asansör y min=610); röle2 (k3 yerine) ölüm/bitti: 1/false, k1+k2+röle2+oyuncu: bitti=false (ölüm 1)
+- **Bölüm 9 hazırlık: k1, k2, k3 kayıtları üretildi:** GEÇTİ — kare sayıları: 25, 224, 329
+- **Bölüm 9 başarısızlık: k2 erken basar, kutu F2'ye ulaşmaz, bitmez:** GEÇTİ — k2 adımları [true, true, true, true, true, true]; bitti: false, ölüm: 0, son kutu=(610,420) (kutu asansörün üstünde ama F2'ye ulaşmadı: x<702), kutu y min=420, asansör y min=450, oyuncu F2'ye çıktı: false
+- **Bölüm 9 başarısızlık: kutu PlakaKutu'yu aşıp G'ye itilir, bitmez:** GEÇTİ — bitti: false, ölüm: 0, son kutu x=1085 (plaka 900..960, G 1060), PlakaKutu basılı: false, geçit y=298 (kapalı 340)
+- **Bölüm 9 başarısızlık: k3 asansöre binmez, bitmez:** GEÇTİ — bitti: false, ölüm: 1, Plaka3 hiç basılmadı: false, son kutu=(890,420), asansör y min=450
+- **Bölüm 9: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 9: kutu asansörle F2'ye taşınır (konum ölçümü):** GEÇTİ — asansörle yükseldi: true (kutu-asansör bağıl sapma en çok 1.96 px), F2'ye ilk geçiş kare 303, son kutu=(800.0,420.0) (F2 yüzeyi 440 -> y 420), asansör y=450.0 (üstte 450), klon ölümleri: [false, false, false], oyuncu ölümü: 0
+- **Bölüm 9 atlanamaz: PlakaKutu'dan ayrılıp G'ye sprint (düz ve zıplayarak) geçemez:** GEÇTİ — gecikme 0: en büyük x=1045.9, x>=1041 kare=56, o karede G y=300 (geçiş için <=292), bitti=false, ölüm=0; gecikme 6: en büyük x=1045.9, x>=1041 kare=56, o karede G y=296 (geçiş için <=292), bitti=false, ölüm=0; gecikme 12: en büyük x=1045.9, x>=1041 kare=56, o karede G y=296 (geçiş için <=292), bitti=false, ölüm=0
+- **Bölüm 9 ölçüm: asansör kutuda takılıp basamak olur; 2 klonla bölüm yine de bitmez:** GEÇTİ — klon adımları [true, true, true, true, true, true, true, true], oyuncu adımları [true, true, true, true, true, true, false, true, true], asansör basamak anında y=546.0 (kutuda takılı ~550; inik 610), basamaktan ayak y min=366.0 (F2 yüzeyi 440), F2'ye ÇIKTI: true (ölçüm; L1'de ölür), bitti: false, ölüm: 1
+- **Bölüm 9 ölçüm: F2'deki kutu sola itilince kenardan düşer, platforma ulaşamaz:** GEÇTİ — kutu x aralığı 595..760, son kutu=(595.0,580.0) (F2 yüzeyi 420, zemin 580, platform 340..460/y~510), platformda: false, oyuncu ölümü: 0
+- **Bölüm 9: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 407 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 10 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bitti: true, tur kareleri: [251, 187, 336] + 394 (6.57 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", L1 kapandı: true, L2 kapandı: true, asansör y min=450 (üst 450), geçit y min=240 (açık 240), adım başlangıçları: [0, 43, 47, 79, 88, 89, 134, 194, 313]
+- **Bölüm 10 bant: kutu girdisiz 1,667 px/kare gider, duvara dayanır, P1 basılı, titremez:** GEÇTİ — ortalama hız=1.6667 px/kare, son x=409.93 (duvar 430 -> 410), son 120 karede x oynaması=0.0736 px, P1 hep basılı: true, L1 hep kapalı: true
+- **Bölüm 10 bant: bantta bekleyen oyuncu ışına sürüklenir (ölür):** GEÇTİ — başlangıç hızı=1.667 px/kare, ölüm: 1, bitti: false
+- **Bölüm 10 bant: B2 üstünde ters girdi 3,33; bant yönünde 6,67; B1'de sağa 6,67 px/kare:** GEÇTİ — B2 sağ: 3.333 (beklenen +3,333), B2 sol: -6.667 (beklenen -6,667), B1 sağ: 6.667 (beklenen +6,667)
+- **Bölüm 10 atlanamaz: klonsuz bitmez (asansör kalkmaz):** GEÇTİ — bitti: false, ölüm: 1, asansör y min=610 (inik 610), ayak y min=499.0
+- **Bölüm 10 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=553.8 (zıplama tepesi ~500, F2 440), ölüm: 1
+- **Bölüm 10 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=553.8 (kutu üstü 560 + zıplama ~460; F2 440), ölüm: 1, son kutu x=792
+- **Bölüm 10 atlanamaz: L1 zıplayarak aşılamaz (açıkken ölür):** GEÇTİ — ölüm: 1, baş y min=527.1 (tavan 300), L1 açıktı: true
+- **Bölüm 10 atlanamaz: P2 boşken L2 açıktır, zıplayan oyuncu ışına girip ölür:** GEÇTİ — ölüm: 1, L2 açıktı: true
+- **Bölüm 10 atlanamaz: PG'den G'ye sprint geçemez (G kapanır):** GEÇTİ — en büyük x=1041.0 (G sol yüzü 1055 -> merkez 1041), bitti: false, ölüm: 0, geçit y min=322, son geçit y=340
+- **Bölüm 10 hazırlık: tek başına B kaydı P2'ye basar:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true, true, true], ölüm: 0, P2 basıldı: true, kare: 196
+- **Bölüm 10 atlanamaz (L2 kapalı, P2'ye basan klonla): zeminden zıplayarak F2'ye çıkılamaz:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true], L2 kapandı: true, ölüm: 0 (beklenen 0), ayak y min=499.0 (zıplama tepesi ~500, F2 440), bitti: false
+- **Bölüm 10 atlanamaz (L2 kapalı, P2'ye basan klonla): kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true, true, true], L2 kapandı: true, ölüm: 0 (beklenen 0), ayak y min=459.0 (kutu üstü 560 + zıplama ~460; F2 440), son kutu x=792, bitti: false
+- **Bölüm 10 atlanamaz: PG'den ayrılıp G'ye ZIPLAYARAK sprint geçemez:** GEÇTİ — gecikme 0: en büyük x=1041.0, x>=1040,5 kare=91, G y=310 (geçiş için <=292), bitti=false, ölüm=0; gecikme 8: en büyük x=1041.0, x>=1040,5 kare=91, G y=298 (geçiş için <=292), bitti=false, ölüm=0; gecikme 16: en büyük x=1041.0, x>=1040,5 kare=93, G y=302 (geçiş için <=292), bitti=false, ölüm=0; gecikme 24: en büyük x=1041.0, x>=1040,5 kare=95, G y=306 (geçiş için <=292), bitti=false, ölüm=0
+- **Bölüm 10 kısayol: eksik klonla (A; A+B; B+C; A+C) bitmez:** GEÇTİ — klonsuz: bitti=false (ölüm 0, kare 1094); yalnız A: bitti=false (ölüm 1, kare 256); A+B (C yok): bitti=false (ölüm 0, kare 714); B+C (A yok): bitti=false (ölüm 0, kare 1097); A+C (B yok): bitti=false (ölüm 1, kare 257)
+- **Bölüm 10 kısayol: röle (önce PE sonra P2) tek başına / C ile / B+C ile bitmez:** GEÇTİ — röle kaydı adımları [true, true, true, true, true, true, true, true, true, true, true, true, true, true]; röle: bitti=false (ölüm 1); röle+C: bitti=false (ölüm 1); röle+B+C: bitti=false (ölüm 0)
+- **Bölüm 10 hazırlık: A, B, C kayıtları üretildi:** GEÇTİ — kare sayıları: 251, 187, 336
+- **Bölüm 10 başarısızlık: kutu bandın dışına sola itilir, L1 hiç kapanmaz:** GEÇTİ — adımlar [true, true], son kutu=(197,580), P1 hiç basılmadı: true, L1 hep açık: true
+- **Bölüm 10 başarısızlık: A, C binmeden basar -> C binemez, bitmez:** GEÇTİ — C turu adımları [true, true, true, true, true, true, true, true, true, true, true, false, true], C ayak y min=499.0 (zıplama tepesi ~499; asansör üstü 440 olsaydı <460), PG basıldı: false; oyuncu turu bitti: false (ölüm 0)
+- **Bölüm 10 başarısızlık: zıplamadan yürüyen kutuda durur:** GEÇTİ — en büyük x=376.0 (kutu sol kenarı 390 -> merkez 376), ölüm: 0
+- **Bölüm 10 ölçüm: kalkış penceresi [267,350] yok; kutu+duvar her x0'dan zıplanarak aşılır (taslak iddiası geçersiz):** GEÇTİ — x0=240 -> en büyük x=706, ölüm 0; x0=300 -> en büyük x=761, ölüm 0; x0=370 -> en büyük x=796, ölüm 0
+- **Bölüm 10: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 10: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 395 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 11 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bitti: true, tur kareleri: [114, 221] + 213 (3.55 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 97, 100, 101, 163, 169]
+- **Bölüm 11 atlanamaz: F1'den duvar dibinde zıplayarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.1 (zıplama tepesi ~499, F2 380), en büyük x=406, ölüm: 0
+- **Bölüm 11 atlanamaz: Raf'a (üst y=420) zeminden zıplayarak çıkılamaz:** GEÇTİ — ayak y min=499.0 (zıplama tepesi ~499, Raf 420), PlakaPA basıldı: false
+- **Bölüm 11 atlanamaz: F2'den zıplayarak F3'e (ayak y<=160) çıkılamaz (Z2 dışı):** GEÇTİ — ayak y min=328.1 (F2 380 - 101 = ~279, F3 160), en büyük x=870, ölüm: 1
+- **Bölüm 11 atlanamaz: yalnız Z1 fırlatması F3'e erişemez (ayak y>=340):** GEÇTİ — ayak y min=352.9 (beklenen ~353; F3 160), en büyük x=561
+- **Bölüm 11 atlanamaz: cepte ışınlar açıkken zıplayarak geçilemez (ölür):** GEÇTİ — ölüm: 1, ayak y min=328.1 (cep 100 px), bitti: false
+- **Bölüm 11 atlanamaz: cep tavanı (Kat3 alt kenarı y=280) aşılamaz:** GEÇTİ — baş y min=280.0 (tavan 280), ayak y min=328.0
+- **Bölüm 11 hazırlık: A ve B kayıtları üretildi:** GEÇTİ — kare sayıları: 114, 221
+- **Bölüm 11 başarısızlık: klonsuz bitmez; ışına koşan oyuncu ölür:** GEÇTİ — bekleyen: bitti=false ölüm=1; koşan: bitti=false ölüm=1
+- **Bölüm 11 başarısızlık: yalnız A -> L2 açık kalır, bitmez / ışında ölür:** GEÇTİ — bekleyen: bitti=false ölüm=1; koşan: bitti=false ölüm=1; PlakaPA basıldı: true; L2 hep açık: true
+- **Bölüm 11 başarısızlık: yalnız B -> L1 açık kalır, bitmez / ışında ölür:** GEÇTİ — bekleyen: bitti=false ölüm=1; koşan: bitti=false ölüm=1; PlakaPB basıldı: true; L1 hep açık: true
+- **Bölüm 11 başarısızlık: A çok uzun sol (n=40) Raf'ı kaçırır, L1 açık, bitmez:** GEÇTİ — A turu sonunda PlakaPA basılı: false (uçuşta anlık değme: true); oyuncu turu: bitti=false, ölüm=1, L1 hiç kapanmadı: false
+- **Bölüm 11 başarısızlık: Z2 üstüne inen oyuncu F3'e fırlar, bitmez:** GEÇTİ — ayak y min=132.9 (F3 160), en büyük x=1138, ölüm: 0, bitti: false
+- **Bölüm 11 başarısızlık: A çok kısa sol (n=10) Raf'a inmez, bitmez:** GEÇTİ — A turu PlakaPA basıldı: false; oyuncu turu: bitti=false, ölüm=1
+- **Bölüm 11 başarısızlık: B çok erken (gecikme 0/20) -> oyuncu pencereyi kaçırır, ölür, bitmez:** GEÇTİ — g=0: bitti=false ölüm=1; g=20: bitti=false ölüm=1
+- **Bölüm 11 başarısızlık: oyuncu ışını geç geçerse (>=8 kare gecikme) ölür:** GEÇTİ — gecikme 8: bitti=false ölüm=1; gecikme 12: bitti=false ölüm=1
+- **Bölüm 11 kısayol: klonsuz/tek klonla bitmez, A+B ile biter:** GEÇTİ — klonsuz: bitti=false; yalnız A: bitti=false; yalnız B: bitti=false; A+B: bitti=true (kare 213)
+- **Bölüm 11 kısayol: klonsuz tek-zıplama taraması (24 varyant) hiçbiri bitirmez:** GEÇTİ — koşu: 24, bitiren: 0, F3'e (ayak<=170) çıkan: 17, ulaşılan en yüksek ayak y=108.1, ölenler: ["m=100 ölüm 1", "m=110 ölüm 1"]
+- **Bölüm 11 kısayol: tek klon (18 varyant) + oyuncu standart rota hiçbiri bitirmez:** GEÇTİ — varyant: 18, bitiren: 0 [], iki ışının birden kapandığı varyant: 0
+- **Bölüm 11 kısayol: röle (PA sonra PB) tek klonla iki ışını birlikte kapatamaz, bitmez:** GEÇTİ — röle kaydı adımları [true, true, true, true, true, true, false, true, true], kayıt kare: 559; oyuncu: bitti=false, ölüm=1, iki ışın birden kapandı: false
+- **Bölüm 11 kısayol: oyuncu kendi plakasında (PA'da dururak / Z2 uçuşuyla PB'yi basarak) bölüm bitmez:** GEÇTİ — PA'da durur (B klon): bitti=false; Z2 uçuşu (A klon): bitti=false, PB basıldı=true; uçuş sonrası cebe geri yürür: bitti=false, ölüm=1
+- **Bölüm 11 ölçüm: zamanlama pencereleri (A sol n, B gecikme, oyuncu geçiş gecikmesi, zıplama x0):** GEÇTİ — A sol n çalışanlar (4..48 adım 2): [16, 18, 20, 22, 24, 26, 28, 30, 32]; B başlangıç gecikmesi tam çözümü bitirenler (0,20,30,31,32,33,38,40,60,100): [32, 33, 38, 40, 60, 100] [g=0: PB ilk kare 128, oyuncu cepte 163, bitmedi (ölüm 1); g=20: PB ilk kare 148, oyuncu cepte 163, bitmedi (ölüm 1); g=30: PB ilk kare 158, oyuncu cepte 163, bitmedi (ölüm 1); g=31: PB ilk kare 159, oyuncu cepte 163, bitmedi (ölüm 1); g=32: PB ilk kare 160, oyuncu cepte 163, BİTTİ (ölüm 0); g=33: PB ilk kare 161, oyuncu cepte 163, BİTTİ (ölüm 0); g=38: PB ilk kare 166, oyuncu cepte 163, BİTTİ (ölüm 0); g=40: PB ilk kare 168, oyuncu cepte 163, BİTTİ (ölüm 0); g=60: PB ilk kare 188, oyuncu cepte 163, BİTTİ (ölüm 0); g=100: PB ilk kare 228, oyuncu cepte 163, BİTTİ (ölüm 0)]; oyuncu geçiş gecikmesi 0..12 çalışanlar: [0, 1, 2, 3]; oyuncu x0 çalışanlar (440..640 adım 5): [510, 515, 520, 525, 530, 535, 540, 545, 550, 555, 560, 565, 570, 575, 580, 585]; çalışmayanlar: ["440(ölüm 0, adım [true, true, true, true, false, false])", "445(ölüm 0, adım [true, true, true, true, false, false])", "450(ölüm 0, adım [true, true, true, true, false, false])", "455(ölüm 0, adım [true, true, true, true, false, false])", "460(ölüm 1, adım [true, true, true, true, false, false])", "465(ölüm 1, adım [true, true, true, true, false, false])", "470(ölüm 1, adım [true, true, true, true, false, false])", "475(ölüm 1, adım [true, true, true, true, false, false])", "480(ölüm 1, adım [true, true, true, true, false, false])", "485(ölüm 1, adım [true, true, true, true, true, false])", "490(ölüm 1, adım [true, true, true, true, true, false])", "495(ölüm 1, adım [true, true, true, true, true, false])", "500(ölüm 1, adım [true, true, true, true, true, false])", "505(ölüm 1, adım [true, true, true, true, true, false])", "590(ölüm 1, adım [true, true, true, true, true, false])", "595(ölüm 1, adım [true, true, true, true, true, false])", "600(ölüm 0, adım [true, true, true, true, true, false])", "605(ölüm 0, adım [true, true, true, true, true, false])", "610(ölüm 0, adım [true, true, true, true, true, false])", "615(ölüm 0, adım [true, true, true, true, true, false])", "620(ölüm 0, adım [true, true, true, true, true, false])", "625(ölüm 0, adım [true, true, true, true, true, false])", "630(ölüm 0, adım [true, true, true, true, true, false])", "635(ölüm 0, adım [true, true, true, true, true, false])", "640(ölüm 0, adım [true, true, true, true, true, false])"]
+- **Bölüm 11 PlakaPB: F3'te durarak/zıplayarak kalıcı basılamaz; uçuş darbesi kısa:** GEÇTİ — idle (3 konum x 60 kare) basılı kare: 0; zıplama/zıpla+sol en uzun ardışık: 10 (sonda basılı: false); kenardan sol düşüş: toplam 17, en uzun 17 (sonda basılı: false); doğal Z2 uçuşu: toplam 14, en uzun 14, L2 kapalı kare: 14; alternatif B (kenardan düşer): toplam 31, en uzun 17
+- **Bölüm 11 alternatif B (F3 kenarından düşerek plakadan geçer) de çözer:** GEÇTİ — bitti=true, ölüm=0, kare=213
+- **Bölüm 11: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 11: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 214 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Kutu 1a) Oyuncu sağa iter, kutu sağ duvarda durur:** GEÇTİ — kare 60 kutu x=395.0 (başlangıç 160), son kutu x=1132.0 (beklenen 1132, duvar iç kenarı 1152), oyuncu x=1098.0, oyuncu_oldu=0
+- **Kutu 1b) Oyuncu sola iter, kutu sol duvarda durur:** GEÇTİ — son kutu x=20.0 (beklenen 20), oyuncu x=54.0
+- **Kutu 2) Platform kenarından düşer ve zeminde durur:** GEÇTİ — rafta y=500 (ilk 20 kare): true, düşüş karesi 47 x=1132.0 (kenar 1100), son y=579.93 (beklenen 580), son 30 karede y oynaması 0.0000
+- **Kutu 4a) Klon kutuyu oyuncuyla aynı kod yoluyla iter:** GEÇTİ — 130 kare, canlı oyuncu/kutu ile klon/kutu en büyük fark 0.0000 px (beklenen 0), kutu kare 69'da x=440.0 (başlangıç 160)
+- **Kutu 4b) Klon + kutu determinizmi (100x):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px
+- **Kutu 7) Lazer kutuyu yok etmez/engel sayılmaz:** GEÇTİ — kutu ışının içinde 120 kare yerinde: true, ışın açık, kutu ışın alanında sayılmıyor; aynı noktada oyuncu ölümü: 1 (beklenen 1)
+- **Kutu 8) Oyuncu kutunun üstüne çıkar, ayakta durur:** GEÇTİ — son oyuncu (300.0, 536.0) (beklenen y=536, x 266..334), kutu (300.0, 580.0) yerinde
+- **Kutu 9) Kutu başka kutuyu zincirleme itmez:** GEÇTİ — itilen kutu son x=359.91 (beklenen ~360), diğer kutu x=400.00 (beklenen 400, hiç kımıldamadı: true), oyuncu x=325.9
+- **Kutu 3) Kutu plakayı basılı tutar, itilince bırakır:** GEÇTİ — yalnız kutuyla basılı: true, çakışırken basılı (21 kare): true, ayrılınca bırakılmış (104 kare): true, son kutu x=380.0
+- **Kutu 5) Asansör kutuyla birlikte yükselir:** GEÇTİ — son asansör y=430.0 (beklenen 430), son kutu y=400.0 (beklenen 400) x=850.0, kutu-asansör bağıl sapma en çok 2.00 px
+- **Kutu 6a) Asansör inerken altındaki kutuya durur, ezmez:** GEÇTİ — en alçak asansör y=546.0 (kutu üstü 560 -> <=551), son y=546.0, kutu yerinde: true; kutusuz kontrol son y=610.0 (beklenen 610)
+- **Kutu 6b) Geçit kapanırken altındaki kutuya durur:** GEÇTİ — en alçak geçit y=458.0 (kutu üstü 560 -> <=461), son y=458.0; kutusuz kontrol son y=500.0 (beklenen 500)
+- **Zıplatıcı 1a) Oyuncu ~240 px yükselir, yükselirken tekrar tetiklenmez:** GEÇTİ — yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 1d) Pad üstünde zıplama tuşu fırlatmayı zayıflatmaz:** GEÇTİ — tuşlu yükselme 247.1 px (en az 235), tuşsuz 247.1 px (fark <= 5)
+- **Zıplatıcı 1e) Kutu üst sınır duvarına çarpar, ekran dışına çıkmaz:** GEÇTİ — kutu en yüksek merkez y=20.0 (>= 0 beklenir), yükseldi: true
+- **Zıplatıcı 1b) Klon ~240 px yükselir:** GEÇTİ — klon yükselme 247.1 px (beklenen 240 +-15)
+- **Zıplatıcı 1c) Kutu ~240 px yükselir, tek tetik:** GEÇTİ — kutu yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 2) Yön/hız determinizmi (100x: oyuncu+klon+kutu):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px, hareket var: true
+- **Bant 1) Üstündeki oyuncu ve kutu girdisiz yön*hız ile kayar (iki yön):** GEÇTİ — Oyuncu sağ bant: 30 karede dx=50.0 (beklenen 50); Oyuncu sol bant: 30 karede dx=-50.0 (beklenen -50); Kutu sağ bant: 30 karede dx=50.0 (beklenen 50); Kutu sol bant: 30 karede dx=-50.0 (beklenen -50)
+- **Bant 2) Bandan inince etki biter (zeminde kaymaz):** GEÇTİ — Oyuncu: son (795.0, 576.0), son 40 karede x oynaması 0.0000; Kutu: son (800.1, 579.9), son 40 karede x oynaması 0.0000
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 108.7 sn
+
+## 2026-10-15 13:51 — GEÇTİ
+
+- **Determinizm:** GEÇTİ — 100 çalıştırma x 300 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **Bölüm 1 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296 (4.93 sn), oyuncu konumu: (1025, 396)
+- **Sonuç ekranında ekran butonları gizli:** GEÇTİ — butonlar görünür: false (beklenen: false)
+- **Başarısızlık: oyuncu asansöre geç geliyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon plakaya erken basıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **Başarısızlık: klon yok, plaka basılmıyor:** GEÇTİ — bölüm bitti: false (beklenen: false), 703 kare oynandı, oyuncu x=1138
+- **A) Klon asansöre binemez:** GEÇTİ — klon-2 son konum: (620, 576), asansörün altında: true, klon-2 en yüksek y: 576 (zemin 576), asansör y: 430 (yukarı: 430), bölüm bitti: false
+- **B) Sol/sağ/üst duvar:** GEÇTİ — 792 kare izlendi, sınır ihlali: 0, x aralığı: [14, 1138] (sınır 14..1138), en yüksek y: 295 (tavan sınırı 24), asansör üstündeki karakterin kafası ile tavan arası: 372 px, bölüm bitti: true
+- **C) Asansör altında karakter varken durur:** GEÇTİ — durdu: true (y=538, alt=610), en dar boşluk: 3.93 px (>=0 beklenir), karakter y: 576 (ezilmedi: true), çekilince alta indi: true (y=610)
+- **D) Klon sınırı:** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **E) Baştan başla: tam sıfırlama:** GEÇTİ — öncesi: 2 klon, "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"; sonrası: Kayitlar boş: true, klon sayısı: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **E3) Sıfırlama sonrası Bölüm 1 baştan çözülür:** GEÇTİ — bölüm bitti: true, bitiş karesi: 296, kayıtlı klon: 1
+- **E2) Ev butonu ana menüye döner:** GEÇTİ — ana menüde: true, kayıtlar silindi: true
+- **F) Şalter itme:** GEÇTİ — başta sol: true, sağa yürüyünce sağda: true (ve 30 kare sonra konum kaldı), sola yürüyünce solda: true, geçiş sayısı: 2 (beklenen 2) @kare [52, 106]; yanlış yönden (sağ yarıdan sola) çevrilmedi: true (x aralığı 110..610)
+- **G) Şalter klonla + determinizm:** GEÇTİ — tur 1 çevirme karesi: [52], klonla: [52] (aynı kare: true), son konum sağda, 100 tekrar, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px
+- **H) Şalterin içinden geçerek yürümek:** GEÇTİ — çevirme sayısı: 1 (beklenen 1) @kare [52], son konum sağda: true (bilinçli eksi: içinden geçerken çevirir)
+- **I) Geçit plaka ile:** GEÇTİ — açıldı (en yüksek y=386, kapalı 500): true, bırakılınca kapandı: true, yön ihlali: 0; kapalıyken geçemedi (en uzak x=776, bitti=false): true; açıkken geçti ve bölüm bitti: true
+- **J) Geçit şalter ile:** GEÇTİ — başta kapalı: true, tam açık olduğu kare: 151, sonuna kadar açık kaldı: true, açıkken geçip bitirdi: true
+- **K) Geçit VEYA mantığı:** GEÇTİ — yalnız plaka aktifken açıldı: true, yalnız şalter aktifken açıldı: true, ikisi pasifken kapandı: true, yön ihlali: 0, sonunda kapalı: true
+- **L) Geçit içinde karakter varken durur:** GEÇTİ — durdu: true (y=450, kapalı 500), en dar boşluk: 1.93 px (>=0 beklenir), karakter y=576 (ezilmedi: true), çıkınca kapandı: true (y=500)
+- **Bölüm 2 çözümü:** GEÇTİ — bölüm bitti: true, bitiş karesi: 747 (12.45 sn), oyuncu (1121, 392), klon A (300, 576), klon B (130, 416), klonlar asansör altında değil: true, E1 en yüksek y=450
+- **Bölüm 2 başarısızlık: plaka klonu (A) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=576 (F1 ≈ 576, F2 ≈ 416)
+- **Bölüm 2 başarısızlık: P2 klonu (B) yok:** GEÇTİ — bölüm bitti: false, oyuncu y=416 (F2 ≈ 416, F3 ≈ 256)
+- **Bölüm 2 başarısızlık: klon A plakaya erken basıyor:** GEÇTİ — bölüm bitti: false, oyuncu y=576
+- **Bölüm 2: kapalı geçit atlanamaz:** GEÇTİ — oyuncu F3'te: true, F3'te en uzak x=776 (geçit x=800, sınır 776), bölüm bitti: false
+- **Bölüm 2: F2 koridorundan cebe zıplayarak girilemez:** GEÇTİ — oyuncu F2'de: true, en uzak x=1026 (duvar x=1040, sınır 1026), bölüm bitti: false
+- **Bölüm 2: S'nin içinden sola dönünce S sola döner, G kapanır:** GEÇTİ — çevirmeler (kare, sağda mı): [[612, true], [692, false]], G en açık y=160 (açık 160), son G y=230 (kapalı 230), son S sağda: false
+- **Bölüm listesi:** GEÇTİ — yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn", "res://scenes/bolumler/bolum_11.tscn", "res://scenes/bolumler/bolum_12.tscn"], hepsi yüklenebilir: true
+- **Bölüm 1 sonuç ekranında "Sonraki bölüm" görünür:** GEÇTİ — bölüm bitti: true, buton görünür: true, metin: "Sonraki bölüm"
+- **"Sonraki bölüm": Bölüm 2, klon 0, tur 1:** GEÇTİ — öncesinde kayıtlı klon: 1, yüklenen bölüm 2: true, klon sayısı: 0, tur etiketi: "Tur 1", Kayitlar boş: true
+- **Bölüm 2 sonuç ekranında "Sonraki bölüm" listeye göre:** GEÇTİ — bölüm bitti: true, buton var: true, görünür: true, beklenen görünür: true
+- **Bölüm 2 "Sonraki bölüm" listedeki sonrakine gider:** GEÇTİ — beklenen: res://scenes/bolumler/bolum_3.tscn, yüklenen: res://scenes/bolumler/bolum_3.tscn
+- **Menü "Oyna" ilerleme haritasını açar:** GEÇTİ — harita açıldı: true
+- **Harita ekranı:** GEÇTİ — düğüm sayısı: 12 (liste: 12), bağlantı: 11 (beklenen 11), konumlar listeden ve ekran içinde: true, numara yazıları: true, focus_mode=NONE: true
+- **Harita düğümü: doğru bölüm, klon 0, tur 1:** GEÇTİ — Bölüm 2 yüklendi: true, klon sayısı 0 ve Kayitlar boş: true, tur etiketi Tur 1: true
+- **Harita "Geri" ana menüye döner:** GEÇTİ — ana menüde: true
+- **Harita bağlantı çizgisi:** GEÇTİ — bağlantı: 11, çizgi nesnesi: 22 (koyu dış + açık iç), uçlar düğüm kenarında: true, çizim sırası arka plan < çizgi < düğüm: true, Cizgi1_Dis: (363,391)->(787,279), kalınlık 12; Cizgi1_Ic: (363,391)->(787,279), kalınlık 7; Cizgi2_Dis: (845,293)->(985,417), kalınlık 12; Cizgi2_Ic: (845,293)->(985,417), kalınlık 7; Cizgi3_Dis: (977,449)->(733,521), kalınlık 12; Cizgi3_Ic: (977,449)->(733,521), kalınlık 7; Cizgi4_Dis: (666,529)->(484,521), kalınlık 12; Cizgi4_Ic: (666,529)->(484,521), kalınlık 7; Cizgi5_Dis: (417,514)->(263,486), kalınlık 12; Cizgi5_Ic: (417,514)->(263,486), kalınlık 7; Cizgi6_Dis: (214,450)->(166,360), kalınlık 12; Cizgi6_Ic: (214,450)->(166,360), kalınlık 7; Cizgi7_Dis: (167,300)->(213,220), kalınlık 12; Cizgi7_Ic: (167,300)->(213,220), kalınlık 7; Cizgi8_Dis: (263,196)->(407,224), kalınlık 12; Cizgi8_Ic: (263,196)->(407,224), kalınlık 7; Cizgi9_Dis: (473,223)->(607,197), kalınlık 12; Cizgi9_Ic: (473,223)->(607,197), kalınlık 7; Cizgi10_Dis: (674,188)->(816,177), kalınlık 12; Cizgi10_Ic: (674,188)->(816,177), kalınlık 7; Cizgi11_Dis: (883,185)->(997,220), kalınlık 12; Cizgi11_Ic: (883,185)->(997,220), kalınlık 7
+- **Harita başlangıç düğümü farklı renkte:** GEÇTİ — düğüm 1 renk: (0.8902, 0.6471, 0.2353, 1.0), düğüm 2 renk: (0.1843, 0.498, 0.4706, 1.0)
+- **Harita: bağlantı çizgileri birbirini ve başka düğümleri kesmez (liste geneli, 12 kayıt):** GEÇTİ — çizgi: 11, eksik Line2D: false, sorunlar: []
+- **Bölüm listesi en az 8 kayıt, ilk 8 yol bolum_1..8 sıralı:** GEÇTİ — kayıt: 12, yollar: ["res://scenes/bolumler/bolum_1.tscn", "res://scenes/bolumler/bolum_2.tscn", "res://scenes/bolumler/bolum_3.tscn", "res://scenes/bolumler/bolum_4.tscn", "res://scenes/bolumler/bolum_5.tscn", "res://scenes/bolumler/bolum_6.tscn", "res://scenes/bolumler/bolum_7.tscn", "res://scenes/bolumler/bolum_8.tscn", "res://scenes/bolumler/bolum_9.tscn", "res://scenes/bolumler/bolum_10.tscn", "res://scenes/bolumler/bolum_11.tscn", "res://scenes/bolumler/bolum_12.tscn"]
+- **Listedeki 12 bölüm sahnesi var, yüklenir, örneklenir:** GEÇTİ — sorunlar: []
+- **Her bölümde Kapi ve Oyuncu düğümü var:** GEÇTİ — sorunlar: []
+- **Bağlantılar: her onceki listede, bölüm 1 boş:** GEÇTİ — sorunlar: []
+- **Düğüm konumları 1152x648 içinde ve çakışmasız (>= 68 px):** GEÇTİ — sorunlar: []
+- **Sonraki bölüm zinciri 1->12, son bölümden sonra boş:** GEÇTİ — zincir doğru: true, son bölümden sonra boş: true
+- **Harita liste kadar (12) düğüm oluşturur:** GEÇTİ — düğüm: 12, liste: 12
+- **Harita düğümü 1: bölüm 1, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 2: bölüm 2, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 3: bölüm 3, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 4: bölüm 4, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 5: bölüm 5, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 6: bölüm 6, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 7: bölüm 7, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 8: bölüm 8, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 9: bölüm 9, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 10: bölüm 10, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 3, Tur 1: true
+- **Harita düğümü 11: bölüm 11, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Harita düğümü 12: bölüm 12, klon 0, Tur 1, max_klon 1..3:** GEÇTİ — yol doğru: true, klon 0 ve Kayitlar boş: true, oyuncu: true, max_klon: 2, Tur 1: true
+- **Lazer 1a) Canlı oyuncu ölür, tur yeniden başlar (kayıt korunur):** GEÇTİ — ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99, son x=690 (ışın x=700), yeni sahne: true, klon: 1, kayıtlı tur: 1 (beklenen 1, aynı içerik: true), etiket: "Tur 2  |  Klon: 1/2  |  R: turu bitir", yeni oyuncu kare<=3: true
+- **Lazer 1b) Klonsuz ölüm: kayıt eklenmez, Tur 1 kalır:** GEÇTİ — ölüm sinyali: 1, kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 1c) Art arda ölümde tur sayısı artmaz:** GEÇTİ — ikinci ölüm sinyali: 1, kayıtlı tur: 0, etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Lazer 2a) Tetikleyicisiz lazer hep açık:** GEÇTİ — 120 kare, hep açık: true, plaka basıldı (anlamlı test): true, görünür: true, izleme: true
+- **Lazer 2b) Plaka lazeri kapatır (klon plakadayken oyuncu geçer):** GEÇTİ — başta açık: true, plaka basılıyken kapalı+gizli+izleme kapalı: true (kare 26'den), oyuncu hayatta: true, son x=845 (ışın 700)
+- **Lazer 2b2) Plaka bırakılınca lazer tekrar ölümcül:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2c) tetik_aktifken_kapali=false: plakasızken kapalı, plakadayken açık:** GEÇTİ — başta kapalı: true, plakadayken açık görüldü: true, plaka bırakılmış oyuncu ışından sağ çıktı: true (son x=845)
+- **Lazer 2c2) tetik_aktifken_kapali=false: klon plakadayken lazer öldürür:** GEÇTİ — oyuncu ölüm sinyali: 1 (beklenen 1), ölüm karesi ~99
+- **Lazer 2d) Şalter sağdayken lazer kapanır (acik_taraf_sag=true):** GEÇTİ — başta açık (şalter solda): true, şalter sağa itilince kapandı: true, oyuncu ışından geçti: true (son x=845)
+- **Lazer 2d2) acik_taraf_sag=false: şalter sağa itilince lazer açılıp öldürür:** GEÇTİ — başta (şalter solda) kapalı: true, ölüm sinyali: 1 (beklenen 1)
+- **Lazer 3a) Klon ışına değince ölür, yerinde kalır, oldu_kare deterministik:** GEÇTİ — oldu_kare: 98 ve 98 (aynı: true), son x=690.0, ışın x=700, yerinde donmuş: true, katman/maske=0/0 (beklenen 0/0), oyuncu etkilenmedi: true
+- **Lazer 3b) Ölen klon plakayı basılı tutmaz:** GEÇTİ — ölmeden önce plaka basıldı: true, ölüm karesi: 29, ölümden sonra plaka boş: true, klon x=340 (plaka x=350, hâlâ üstünde: true)
+- **Lazer 3c) Ölü klon asansörü durdurmaz:** GEÇTİ — asansör en yüksek y=430, sonunda y=610 (alt=610, beklenen iner: true), klon 2 ölü ve asansörün altında: true (x=605); kontrol (ışın yok): klon 2 canlı, asansör takıldı y=538: true
+- **Tek yönlü platform: aşağıdan geçilir, üstünde durulur:** GEÇTİ — başlangıç y=576 (zemin 576, platform alt kenarı 542), en yüksek y=474.2, son y=506.0 (platform üstü 530, beklenen merkez 506), son 30 karede kararlı: true, yatay sapma: 0.0 px
+- **Tek yönlü platform: üstünden yürüyüp zemine inilir:** GEÇTİ — kare 110'da platform üstünde: true (y=506.0), sonunda zeminde: true (y=576.0)
+- **Lazer 5) Determinizm (100x lazer + plaka + asansör):** GEÇTİ — 100 çalıştırma x 220 kare, sapmalı çalıştırma: 0, en büyük konum sapması: 0.0000 px, klon B ölüm karesi: 98, asansör en yüksek y=430 (anlamlı senaryo: true)
+- **Bölüm 3 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, bitiş karesi: 187 (3.12 sn), tur 1-2 ölüm: 0, tur 3 ölüm: 0, klon (tur 3 başı): 2, kayıtlı tur: 2, klon A x=260 (P1 260), klon B x=640 (P2 640), son karede L1 açık: false, L2 açık: false; etiketler: "Tur 1" / "Tur 2" / "Tur 3"
+- **Bölüm 3 hazırlık: A ve B kayıtları sağ kalır:** GEÇTİ — A kayıt kare: 60, B kayıt kare: 138 (0 = oyuncu öldü, kayıt atıldı)
+- **Bölüm 3 başarısızlık: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, son x=470 (L1 x=480), kayıtlı tur: 0 (beklenen 0), etiket: "Tur 1  |  Klon: 0/2  |  R: turu bitir"
+- **Bölüm 3 başarısızlık: yalnız A klonuyla L2'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~151, en uzak x=850 (L1 480 geçildi, L2 860 geçilmedi), kayıtlı tur: 1 (değişmedi)
+- **Bölüm 3 başarısızlık: A plakada değilken L1'de ölür:** GEÇTİ — ölüm sinyali: 1, ölüm karesi ~75, en uzak x=470 (L1 x=480), klon A x=200 (P1 plaka x 230..290 dışında), L1 son karede açık: true
+- **Bölüm 3 başarısızlık: A olmadan B L1'de ölür, P2 basılmaz:** GEÇTİ — klon B ölü: true (x=470, L1 480), P2 hiç basılmadı: true
+- **Bölüm 3 başarısızlık: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm sinyali: 1, en uzak x=470 (L1 x=480), ışınlar y 400..600 ve 400..600 (zemin 600, tavan alt kenarı 400): tam kapatıyor: true, en yüksek y=475
+- **Bölüm 3: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 3: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 187 kare, sapmalı çalıştırma: 0, en büyük sapma: 0.0000 px, bölümü bitirmeyen çalıştırma: 0
+- **Bölüm 4 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [30, 163, 442] + 532 (8.87 sn), klon: 3, kayıtlı tur: 3, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", E1 y min=340 (hedef 340 = üst yüzey 330), E2 y min=210 (hedef 210 = üst yüzey 200)
+- **Bölüm 4 atlanamaz: klonsuz zeminden PA/K'ya çıkılmaz:** GEÇTİ — PA altında ayak y min=499.0 (PA üstü 445, beklenen ~499), K altında ayak y min=499.0 (zıpladı: true), bölüm bitti: false
+- **Bölüm 4 atlanamaz: zeminden zıplayan plakaya basmaz:** GEÇTİ — P_a basıldı: false, P_c basıldı: false (beklenen ikisi de false), E1 en yüksek y=610 (aşağı 610, yukarı 340; asansör konumu = merkez, üst yüzey 330), E2 en yüksek y=340 (aşağı 340, yukarı 210; üst yüzey 200)
+- **Bölüm 4 hazırlık: A0, A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A0 33, A 166, B 445
+- **Bölüm 4 başarısızlık: yalnız A0 (oyuncu E1'e binemez):** GEÇTİ — P_a basıldı: true, E1 en yüksek y=340 (yukarıda), oyuncu ayak y min=418.0 (PA üstü 445, F2 330), bölüm bitti: false, adımlar: [true, true, true, true, true, true, true]
+- **Bölüm 4 başarısızlık: yalnız A (A0 yok), P_a basılmaz:** GEÇTİ — P_a hiç basılmadı: true, oyuncu ayak y min=499.0, klon A ayak y min=499.0 (PA üstü 445), bölüm bitti: false
+- **Bölüm 4 başarısızlık: K'dan F2'ye çıkılamaz (2 klon):** GEÇTİ — K'ya ulaşıldı: true, E2 y min=210 (yukarı), K'dan zıplarken ayak y min=344.0 (F2 üstü 330), bölüm bitti: false
+- **Bölüm 4 başarısızlık: B yön hatası (P_c basılmaz, bölüm bitmez):** GEÇTİ — B beklenirken (565 kare) P_c hiç basılmadı: true, E2 en yüksek y=340 (aşağı 340), oyuncu ayak y min=330.0 (F3 200), bölüm bitti: false
+- **Bölüm 4: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 4 tek yönlü: aşağıdan geçilir, PA üstüne oturur:** GEÇTİ — E0 üstünden zıplama başlangıç y=496, PA üstüne oturma süresi: 36 kare, en yüksek y=394.0, son y=421.0 (beklenen 421), adımlar tamam: [true, true, true, true]
+- **Bölüm 4 tek yönlü: yan yüzden geçilir:** GEÇTİ — başlangıç (560,480) PA sol kenarı x=600, son konum (760, 576) (beklenen x>=760, y=576), adım karşılandı: [true, true]
+- **Bölüm 4 tek yönlü: üstten düşen K üstünde kalır:** GEÇTİ — son y=421.0 (beklenen 421), P_c basıldı: true
+- **Bölüm 4: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 533 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 5 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [112, 266] + 298 (4.97 sn, sınır 10 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", asansör y min=480 (hedef 480), şalter sağda görüldü: true, adım başlangıçları: [0, 112, 186, 224, 261]
+- **Bölüm 5 atlanamaz: klonsuz yürüyüş L1'de ölür:** GEÇTİ — ölüm: 1 (beklenen 1), son x=710 (L1 x=720), kayıtlı tur: 0 (beklenen 0), bölüm bitti: false
+- **Bölüm 5 atlanamaz: zeminden zıplayarak sahanlığa çıkılmaz:** GEÇTİ — ayak y min=499.0 (sahanlık üstü 470, beklenen > 470), zıpladı: true, en uzak x=560, ölüm: 0
+- **Bölüm 5 atlanamaz: ışın zıplayarak aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (710, 494), L1 x=720, bölüm bitti: false
+- **Bölüm 5 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 112, B 266
+- **Bölüm 5 başarısızlık: yalnız A (L2'de ölünür):** GEÇTİ — bölüm bitti: false, ölüm: 1, son konum (890, 576) (L2 x=900), asansör y min=480, adımlar: [true, true, true]
+- **Bölüm 5 başarısızlık: A yok, B var (asansör kalkmaz, L1'de ölünür):** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), asansör y min=610 (aşağı 610), şalter sağda görüldü: false, plaka basıldı: false
+- **Bölüm 5 başarısızlık: B yalnız sağa iter (L2 açık kalır):** GEÇTİ — ölüm: 1, son x=890 (L2 x=900), L1 kapandı: true, şalter sağdayken L2 hep açık: true, bölüm bitti: false, adımlar: [true, true, true, false, false]
+- **Bölüm 5 başarısızlık: L1'e şalter dönmeden girmek ölüm:** GEÇTİ — ölüm: 1, son x=710 (L1 x=720), 123. karede, bölüm bitti: false
+- **Bölüm 5: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 5: şalter kalıcılığı (klon itip uzaklaşınca durum kalır):** GEÇTİ — geçiş sayısı: 1 (beklenen 1) @kare 186, klon x>=626'ya uzaklaştı: true, sonra hep sağda: true, sonda L1 kapalı: true, L2 açık: true, klon son x=635
+- **Bölüm 5: plakada bekleyip E1'e koşarak sahanlığa çıkılamaz (zıplama zamanı taraması):** GEÇTİ — E1 her denemede tepeye çıktı: true, ayak y min=499.0 (sahanlık üstü 470; pay 29.0 px) @bekleme 80 kare, şalter hiç dönmedi: true
+- **Bölüm 5: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 299 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 çözümü (3 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [22, 125] + 219 (3.65 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=300 (açık 300), asansör y min=530 (hedef 530), lazer kapalı görüldü: true, adım başlangıçları: [0, 120, 121, 129, 145, 180, 181]
+- **Bölüm 6 atlanamaz: klonsuz sprint geçitte sıkışır:** GEÇTİ — en uzak x=556.0 (geçit sol kenarı 570, beklenen < 562), son kare geçit alt kenarı y=600 > baş üstü y=552: true, geçit y min=300, bölüm bitti: false, ölüm: 0
+- **Bölüm 6 atlanamaz: asansör aşağıdayken seki'ye zeminden çıkılmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), zıpladı: true, asansör hiç kalkmadı: true (y min=610), bölüm bitti: false
+- **Bölüm 6 atlanamaz: oyuncu kendi PlakaL'ine basıp ışını geçemez:** GEÇTİ — ölüm: 1 (beklenen 1), son konum (750, 576) (ışın x=760), asansör y min=530, adımlar: [true, true, true], bölüm bitti: false
+- **Bölüm 6 hazırlık: A, B kayıtları üretildi:** GEÇTİ — kare sayıları: A 22, B 125
+- **Bölüm 6 başarısızlık 2: yalnız A (ışında ölünür):** GEÇTİ — ölüm: 1, son x=750 (ışın 760), geçit y min=300 (açıldı), bölüm bitti: false
+- **Bölüm 6 başarısızlık 3: A kaydı boş (B geçitte takılır):** GEÇTİ — geçit y min=500 (kapalı 500), PlakaL hiç basılmadı: true, oyuncu en uzak x=556, klon B en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 4: A erken ayrılır (geçit kapanır, B takılır):** GEÇTİ — geçit en açık y=446, PlakaL hiç basılmadı: true, klon B en uzak x=556, oyuncu en uzak x=556, bölüm bitti: false
+- **Bölüm 6 başarısızlık 5: B plaka dışında (ışında ölünür):** GEÇTİ — oyuncu ölüm: 1, son x=750 (ışın 760), bölüm bitti: false
+- **Bölüm 6 başarısızlık 6: B yön hatası (PlakaL basılmaz):** GEÇTİ — oyuncu ölüm: 1, oyuncu plakaya varmadan PlakaL basıldı: false (beklenen false), bölüm bitti: false
+- **Bölüm 6 başarısızlık 7: asansör aşağıdayken zıplama seki'ye ulaşmaz:** GEÇTİ — ayak y min=499.0 (seki üstü 450, taslak ~499), asansör y min=610 (aşağı 610), son x=1138, bölüm bitti: false
+- **Bölüm 6: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 6: VEYA mantığı (PlakaL basılıyken A ayrılsa da geçit açık):** GEÇTİ — PlakaL ilk basılış karesi=105, A'nın ayrıldığı kare=172, yalnız PlakaL basılı kare sayısı=168, o sırada geçit kapanmaya başladı: false, geçit son y=300; kontrol (B yok): son y=500 (kapalı 500)
+- **Bölüm 6: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 221 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 çözümü (4 tur, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [186, 347, 387] + 447 (7.45 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=440 (açık 440), asansör y min=350 (<=390), L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 160, 285]
+- **Bölüm 7 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — asansör y min=610 (aşağı 610), ayak y min=499.0 (Kat2 üstü 340, >=400 beklenir), oyuncu son x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 atlanamaz: zeminden zıplayarak Kat2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (Kat2 alt kenarı 400 + 48 = 448 beklenir; çıkış için <400), zıpladı: true, bölüm bitti: false
+- **Bölüm 7 atlanamaz: F2'de ışın (L1) geçilemez:** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), L1 açıktı: true, bölüm bitti: false
+- **Bölüm 7 hazırlık: A, Z, Y kayıtları üretildi:** GEÇTİ — kare sayıları: A 186, Z 347, Y 387
+- **Bölüm 7 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — asansör y min (bekleme evresi)=610, bölüm bitti: false, ölüm: 0
+- **Bölüm 7 başarısızlık 2: yalnız A (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), PlakaB oyuncuyla basıldı: true, bölüm bitti: false
+- **Bölüm 7 başarısızlık 3: A+Z, Y yok (L2'de ölünür):** GEÇTİ — ölüm: 1, son x=387 (L2 x=380), L1 kapanıp geçildi: true (oyuncu yürürken PlakaC'ye kendisi basar, sonra L2 geri açılır), bölüm bitti: false
+- **Bölüm 7 başarısızlık 4: A erken basar (E1 yukarıda, binilemez):** GEÇTİ — asansör y min=350 (üstte 350), oyuncu en uzak x=900, ölüm: 0, bölüm bitti: false
+- **Bölüm 7 başarısızlık 5: Z yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=607 (L1 x=600), klon Z en sol x=637 (plaka 670..730'a girmez; oyuncu sonradan kendisi basabilir), bölüm bitti: false
+- **Bölüm 7 başarısızlık 6: şalter çevrilmez (geçit kapalı):** GEÇTİ — şalter hiç sağa geçmedi: true, geçit y min=500 (kapalı 500), oyuncu en uzak x=416 (geçit x=440), bölüm bitti: false
+- **Bölüm 7 başarısızlık 7: Y, Z basmadan L1'i geçer (klon ölür):** GEÇTİ — klon ölü durumları [A, Y]: [false, true], PlakaC hiç basılmadı: true, oyuncu ölüm: 0, bölüm bitti: false
+- **Bölüm 7: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 7: 3 klon gereği (A, Y veya Z eksikse bitmez):** GEÇTİ — A yok: asansör y min (bekleme evresi)=610 (aşağı 610), bitti: false; Y yok: ölüm 1 son x=387, L1 kapandı: true; Z yok: bitti: false, ölüm: 1
+- **Bölüm 7: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 448 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L1 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=610 (ışın x=600), baş y min=191.0 (tavan alt 180), zıpladı: true
+- **Bölüm 7 atlanamaz: F2'de zıplayarak L2 aşılamaz (tavan payı):** GEÇTİ — ölüm: 1 (beklenen 1), son x=390 (ışın x=380), baş y min=209.6 (tavan alt 180), bölüm bitti: false
+- **Bölüm 7 atlanamaz: Kat2/asansör kolonu köşesinden zıplayarak F2'ye çıkılamaz:** GEÇTİ — x=835 yon=0: ayak y min=499.0; x=832 yon=1: ayak y min=499.0; x=850 yon=-1: ayak y min=499.0 (F2 yüzeyi 340; çıkış için ayak <340, köşe başı 448 beklenir)
+- **Bölüm 8 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [423, 528] + 552 (9.20 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", geçit y min=40 (açık 40), E1 y min=410 (<=410), L1 kapandı: true, L3 kapandı: true, L2 açıldı: true, adım başlangıçları: [0, 125, 209, 247, 279, 316, 353, 392, 495, 509, 518]
+- **Bölüm 8 atlanamaz: klonsuz F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.0 (F2 yüzeyi 400, çıkış için <400; zıplama tepesi ~499, K2 altı >=488), zıpladı: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 atlanamaz: zeminden zıplayarak K2'ye (ayak y<400) çıkılamaz:** GEÇTİ — K2 altı x=700: ayak y min=499.0; E1 kenarı x=145 (sağa): ayak y min=499.0 (K2 alt kenarı 440 + 48 = 488 beklenir; çıkış için <400)
+- **Bölüm 8 atlanamaz: F2'den K3'e basamaksız çıkılamaz:** GEÇTİ — ayak y min=299.0 (K3 yüzeyi 200; K3 alt 240 + 48 = 288 beklenir), zıpladı: true
+- **Bölüm 8 atlanamaz: a'dan K3'e doğrudan (tek zıplama) çıkılamaz:** GEÇTİ — ayak y min=228.2 (tepe ~229, K3 yüzeyi 200), son ayak y=260.0 (b üstü 260 / a üstü 330), son x=714
+- **Bölüm 8 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=570 (ışın x=560), baş y min=269.6 (K3 alt 240)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L3 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=200 (ışın x=190)
+- **Bölüm 8 atlanamaz: F3'te zıplayarak L_L (şalter SAĞda) aşılamaz:** GEÇTİ — ölüm: 1 (beklenen 1), son x=260 (ışın x=250), L_L açıktı: true
+- **Bölüm 8 hazırlık: X, B (ve A) kayıtları üretildi:** GEÇTİ — kare sayıları: X 423, B 528, A 43
+- **Bölüm 8 başarısızlık 1: klonsuz (E1 inik):** GEÇTİ — E1 y min (bekleme evresi)=610 (aşağı 610), bölüm bitti: false, ölüm: 0
+- **Bölüm 8 başarısızlık 2: yalnız A, C'ye giden yok (L1'de ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), bölüm bitti: false
+- **Bölüm 8 başarısızlık 3: yalnız X, B yok (geçit kapalı, G önünde kalır):** GEÇTİ — geçit y min=140 (kapalı 140; geçiş için <=50), son x=344 (G x=320, sağ yüzü 330 + 14), şalter hiç sağa geçmedi: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 4: B şalteri çok erken SOLA çevirir (geçit geçilemez):** GEÇTİ — geçit y min=126 (geçiş için <=50), şalter sağa geçti: true, ölüm: 0, bölüm bitti: false
+- **Bölüm 8 başarısızlık 5: X C'ye basmaz, yanlış yerde (L1 açık, ölünür):** GEÇTİ — ölüm: 1, son x=550 (L1 x=560), PlakaC hiç basılmadı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 6: X A'ya dönmez, A plakası boş (L3 açılır, ölünür):** GEÇTİ — ölüm: 1, son x=199 (L3 x=190), L3 açıldı: true, bölüm bitti: false
+- **Bölüm 8 başarısızlık 7: zıplama penceresi (pencerede a'ya iner; erken/geç inilmez, ölüm yok):** GEÇTİ — kontrol x=680: adımlar [true, true, true, true, true, true, true]; x>=580: a'ya inildi: false (son ayak y=400.0); x>=600: a'ya inildi: true (son ayak y=328.0); x>=624: a'ya inildi: true (son ayak y=328.0); x>=650: a'ya inildi: true (son ayak y=328.0); x>=716: a'ya inildi: true (son ayak y=327.2); x>=750: a'ya inildi: false (son ayak y=400.0); x>=770: a'ya inildi: false (son ayak y=400.0); x>=800: a'ya inildi: false (son ayak y=400.0); a'ya inilen zıplama x değerleri: [600, 624, 650, 716] (ölçülen pencere ~584..~728; 600/624/650/716 iner, 580 ve 750+ F2'ye düşer, ölüm yok)
+- **Bölüm 8: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 8: 2 klon gerekir (yalnız X, yalnız B, X'siz, B'siz bitmez):** GEÇTİ — yalnız X: bitti=false geçit y min=140; yalnız B: bitti=false E1 y min=574; X'siz: bitti=false E1 y min=574; B'siz: bitti=false geçit y min=140
+- **Bölüm 8: tek yönlü basamaklara aşağıdan geçilir ve üstünde durulur:** GEÇTİ — a (F2'den): tepe ayak y=298.2, son ayak y=330.0 (yüzey 330); b (a'dan): tepe ayak y=228.2, son ayak y=260.0 (yüzey 260); sekme (K3'ten): tepe ayak y=97.3, son ayak y=120.0 (yüzey 120)
+- **Bölüm 8: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 553 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 9 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bölüm bitti: true, tur kareleri: [25, 224, 329] + 406 (6.77 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", geçit y min=270 (açık 270), L0 kapandı: true, L1 kapandı: true, PlakaKutu basıldı: true, adım başlangıçları: [0, 105, 290, 346, 354, 366, 379]
+- **Bölüm 9 alternatif S2 (kutu Plaka3'te, k3 PlakaKutu'yu tutar) bitirir:** GEÇTİ — k3 tur kare=371 adımlar=[true, true, true, true, true, true, true] ölüm=0; oyuncu turu: bitti=true kare=394 ölüm=0 adımlar=[true, true, true, true, true, true, true], geçit y min=270, son kutu=(770,420) (Plaka3 x=760)
+- **Bölüm 9 atlanamaz: klonsuz L0'da ölünür, Kayitlar değişmez:** GEÇTİ — ölüm: 1, bitti: false, kayıtlı tur: 0, L0 açık: true
+- **Bölüm 9 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=499.0 (zıplama tepesi ~503, F2 yüzeyi 440), zıpladı: true, ölüm: 0
+- **Bölüm 9 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=459.0 (kutu üstü 560, zıplama tepesi ~463; F2 440), kutu x: 500..682 (Kat2 duvarı 702 -> en çok 682), ölüm: 0
+- **Bölüm 9 atlanamaz: platformdan F2'ye atlanamaz:** GEÇTİ — F2'ye çıktı: false, en büyük x=688 (Kat2 sol kenarı 702), ölüm: 0
+- **Bölüm 9 atlanamaz: F2'de zıplayarak L1 aşılamaz:** GEÇTİ — ölüm: 1 (beklenen >=1), baş y min=309.6 (tavan 300), L1 açıktı: true
+- **Bölüm 9 atlanamaz: kapalı G yürüyerek/zıplayarak aşılamaz:** GEÇTİ — en büyük x=1046 (G sol yüzü 1060, bedel 14), geçit y min=340 (kapalı 340), ölüm: 0, bitti: false
+- **Bölüm 9 atlanamaz: zıplayarak L0 aşılamaz:** GEÇTİ — ölüm: 1, L0 açıktı: true
+- **Bölüm 9 kısayol: eksik klonla (k1; k1+k2; k1+k3; k2+k3) bitmez:** GEÇTİ — yalnız k1: S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k1+k2 (k3 yok): S1 bitti=false (ölüm 1, kare 337), S2 bitti=false (ölüm 0, kare 660); k1+k3 (k2 yok): S1 bitti=false (ölüm 0, kare 1083), S2 bitti=false (ölüm 0, kare 993); k2+k3 (k1 yok): S1 bitti=false (ölüm 1, kare 37), S2 bitti=false (ölüm 1, kare 37)
+- **Bölüm 9 kısayol: röle (Plaka1->Plaka2; PlakaKutu->Plaka3) ile bitmez, röle klonları L0/L1'de ölür:** GEÇTİ — röle1 klonu ölüm/bitti: 1/false, röle1+k3: bitti=false (ölüm 1, asansör y min=610); röle2 (k3 yerine) ölüm/bitti: 1/false, k1+k2+röle2+oyuncu: bitti=false (ölüm 1)
+- **Bölüm 9 hazırlık: k1, k2, k3 kayıtları üretildi:** GEÇTİ — kare sayıları: 25, 224, 329
+- **Bölüm 9 başarısızlık: k2 erken basar, kutu F2'ye ulaşmaz, bitmez:** GEÇTİ — k2 adımları [true, true, true, true, true, true]; bitti: false, ölüm: 0, son kutu=(610,420) (kutu asansörün üstünde ama F2'ye ulaşmadı: x<702), kutu y min=420, asansör y min=450, oyuncu F2'ye çıktı: false
+- **Bölüm 9 başarısızlık: kutu PlakaKutu'yu aşıp G'ye itilir, bitmez:** GEÇTİ — bitti: false, ölüm: 0, son kutu x=1085 (plaka 900..960, G 1060), PlakaKutu basılı: false, geçit y=298 (kapalı 340)
+- **Bölüm 9 başarısızlık: k3 asansöre binmez, bitmez:** GEÇTİ — bitti: false, ölüm: 1, Plaka3 hiç basılmadı: false, son kutu=(890,420), asansör y min=450
+- **Bölüm 9: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 9: kutu asansörle F2'ye taşınır (konum ölçümü):** GEÇTİ — asansörle yükseldi: true (kutu-asansör bağıl sapma en çok 1.96 px), F2'ye ilk geçiş kare 303, son kutu=(800.0,420.0) (F2 yüzeyi 440 -> y 420), asansör y=450.0 (üstte 450), klon ölümleri: [false, false, false], oyuncu ölümü: 0
+- **Bölüm 9 atlanamaz: PlakaKutu'dan ayrılıp G'ye sprint (düz ve zıplayarak) geçemez:** GEÇTİ — gecikme 0: en büyük x=1045.9, x>=1041 kare=56, o karede G y=300 (geçiş için <=292), bitti=false, ölüm=0; gecikme 6: en büyük x=1045.9, x>=1041 kare=56, o karede G y=296 (geçiş için <=292), bitti=false, ölüm=0; gecikme 12: en büyük x=1045.9, x>=1041 kare=56, o karede G y=296 (geçiş için <=292), bitti=false, ölüm=0
+- **Bölüm 9 ölçüm: asansör kutuda takılıp basamak olur; 2 klonla bölüm yine de bitmez:** GEÇTİ — klon adımları [true, true, true, true, true, true, true, true], oyuncu adımları [true, true, true, true, true, true, false, true, true], asansör basamak anında y=546.0 (kutuda takılı ~550; inik 610), basamaktan ayak y min=366.0 (F2 yüzeyi 440), F2'ye ÇIKTI: true (ölçüm; L1'de ölür), bitti: false, ölüm: 1
+- **Bölüm 9 ölçüm: F2'deki kutu sola itilince kenardan düşer, platforma ulaşamaz:** GEÇTİ — kutu x aralığı 595..760, son kutu=(595.0,580.0) (F2 yüzeyi 420, zemin 580, platform 340..460/y~510), platformda: false, oyuncu ölümü: 0
+- **Bölüm 9: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 407 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 10 çözümü (4 tur, 3 klon, gerçek R/girdi yolu):** GEÇTİ — bitti: true, tur kareleri: [251, 187, 336] + 394 (6.57 sn), klon: 3, kayıtlı tur: 3, ölüm: 0, etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", L1 kapandı: true, L2 kapandı: true, asansör y min=450 (üst 450), geçit y min=240 (açık 240), adım başlangıçları: [0, 43, 47, 79, 88, 89, 134, 194, 313]
+- **Bölüm 10 bant: kutu girdisiz 1,667 px/kare gider, duvara dayanır, P1 basılı, titremez:** GEÇTİ — ortalama hız=1.6667 px/kare, son x=409.93 (duvar 430 -> 410), son 120 karede x oynaması=0.0736 px, P1 hep basılı: true, L1 hep kapalı: true
+- **Bölüm 10 bant: bantta bekleyen oyuncu ışına sürüklenir (ölür):** GEÇTİ — başlangıç hızı=1.667 px/kare, ölüm: 1, bitti: false
+- **Bölüm 10 bant: B2 üstünde ters girdi 3,33; bant yönünde 6,67; B1'de sağa 6,67 px/kare:** GEÇTİ — B2 sağ: 3.333 (beklenen +3,333), B2 sol: -6.667 (beklenen -6,667), B1 sağ: 6.667 (beklenen +6,667)
+- **Bölüm 10 atlanamaz: klonsuz bitmez (asansör kalkmaz):** GEÇTİ — bitti: false, ölüm: 1, asansör y min=610 (inik 610), ayak y min=499.0
+- **Bölüm 10 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz:** GEÇTİ — ayak y min=553.8 (zıplama tepesi ~500, F2 440), ölüm: 1
+- **Bölüm 10 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=553.8 (kutu üstü 560 + zıplama ~460; F2 440), ölüm: 1, son kutu x=792
+- **Bölüm 10 atlanamaz: L1 zıplayarak aşılamaz (açıkken ölür):** GEÇTİ — ölüm: 1, baş y min=527.1 (tavan 300), L1 açıktı: true
+- **Bölüm 10 atlanamaz: P2 boşken L2 açıktır, zıplayan oyuncu ışına girip ölür:** GEÇTİ — ölüm: 1, L2 açıktı: true
+- **Bölüm 10 atlanamaz: PG'den G'ye sprint geçemez (G kapanır):** GEÇTİ — en büyük x=1041.0 (G sol yüzü 1055 -> merkez 1041), bitti: false, ölüm: 0, geçit y min=322, son geçit y=340
+- **Bölüm 10 hazırlık: tek başına B kaydı P2'ye basar:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true, true, true], ölüm: 0, P2 basıldı: true, kare: 196
+- **Bölüm 10 atlanamaz (L2 kapalı, P2'ye basan klonla): zeminden zıplayarak F2'ye çıkılamaz:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true], L2 kapandı: true, ölüm: 0 (beklenen 0), ayak y min=499.0 (zıplama tepesi ~500, F2 440), bitti: false
+- **Bölüm 10 atlanamaz (L2 kapalı, P2'ye basan klonla): kutu basamak yapılarak F2'ye çıkılamaz:** GEÇTİ — adımlar [true, true, true, true, true, true, true, true, true, true], L2 kapandı: true, ölüm: 0 (beklenen 0), ayak y min=459.0 (kutu üstü 560 + zıplama ~460; F2 440), son kutu x=792, bitti: false
+- **Bölüm 10 atlanamaz: PG'den ayrılıp G'ye ZIPLAYARAK sprint geçemez:** GEÇTİ — gecikme 0: en büyük x=1041.0, x>=1040,5 kare=91, G y=310 (geçiş için <=292), bitti=false, ölüm=0; gecikme 8: en büyük x=1041.0, x>=1040,5 kare=91, G y=298 (geçiş için <=292), bitti=false, ölüm=0; gecikme 16: en büyük x=1041.0, x>=1040,5 kare=93, G y=302 (geçiş için <=292), bitti=false, ölüm=0; gecikme 24: en büyük x=1041.0, x>=1040,5 kare=95, G y=306 (geçiş için <=292), bitti=false, ölüm=0
+- **Bölüm 10 kısayol: eksik klonla (A; A+B; B+C; A+C) bitmez:** GEÇTİ — klonsuz: bitti=false (ölüm 0, kare 1094); yalnız A: bitti=false (ölüm 1, kare 256); A+B (C yok): bitti=false (ölüm 0, kare 714); B+C (A yok): bitti=false (ölüm 0, kare 1097); A+C (B yok): bitti=false (ölüm 1, kare 257)
+- **Bölüm 10 kısayol: röle (önce PE sonra P2) tek başına / C ile / B+C ile bitmez:** GEÇTİ — röle kaydı adımları [true, true, true, true, true, true, true, true, true, true, true, true, true, true]; röle: bitti=false (ölüm 1); röle+C: bitti=false (ölüm 1); röle+B+C: bitti=false (ölüm 0)
+- **Bölüm 10 hazırlık: A, B, C kayıtları üretildi:** GEÇTİ — kare sayıları: 251, 187, 336
+- **Bölüm 10 başarısızlık: kutu bandın dışına sola itilir, L1 hiç kapanmaz:** GEÇTİ — adımlar [true, true], son kutu=(197,580), P1 hiç basılmadı: true, L1 hep açık: true
+- **Bölüm 10 başarısızlık: A, C binmeden basar -> C binemez, bitmez:** GEÇTİ — C turu adımları [true, true, true, true, true, true, true, true, true, true, true, false, true], C ayak y min=499.0 (zıplama tepesi ~499; asansör üstü 440 olsaydı <460), PG basıldı: false; oyuncu turu bitti: false (ölüm 0)
+- **Bölüm 10 başarısızlık: zıplamadan yürüyen kutuda durur:** GEÇTİ — en büyük x=376.0 (kutu sol kenarı 390 -> merkez 376), ölüm: 0
+- **Bölüm 10 ölçüm: kalkış penceresi [267,350] yok; kutu+duvar her x0'dan zıplanarak aşılır (taslak iddiası geçersiz):** GEÇTİ — x0=240 -> en büyük x=706, ölüm 0; x0=300 -> en büyük x=761, ölüm 0; x0=370 -> en büyük x=796, ölüm 0
+- **Bölüm 10: klon sınırı (dördüncü R klon kaydetmez):** GEÇTİ — max_klon=3; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, R #3 -> kayıtlı klon: 3, sınırda etiket: "Tur 4  |  Klon: 3/3  |  Klon hakkı bitti", R #4 -> kayıtlı klon: 3
+- **Bölüm 10: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 395 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 11 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bitti: true, tur kareleri: [114, 221] + 213 (3.55 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", L1 kapandı: true, L2 kapandı: true, adım başlangıçları: [0, 97, 100, 101, 163, 169]
+- **Bölüm 11 atlanamaz: F1'den duvar dibinde zıplayarak F2'ye çıkılamaz:** GEÇTİ — ayak y min=499.1 (zıplama tepesi ~499, F2 380), en büyük x=406, ölüm: 0
+- **Bölüm 11 atlanamaz: Raf'a (üst y=420) zeminden zıplayarak çıkılamaz:** GEÇTİ — ayak y min=499.0 (zıplama tepesi ~499, Raf 420), PlakaPA basıldı: false
+- **Bölüm 11 atlanamaz: F2'den zıplayarak F3'e (ayak y<=160) çıkılamaz (Z2 dışı):** GEÇTİ — ayak y min=328.1 (F2 380 - 101 = ~279, F3 160), en büyük x=870, ölüm: 1
+- **Bölüm 11 atlanamaz: yalnız Z1 fırlatması F3'e erişemez (ayak y>=340):** GEÇTİ — ayak y min=352.9 (beklenen ~353; F3 160), en büyük x=561
+- **Bölüm 11 atlanamaz: cepte ışınlar açıkken zıplayarak geçilemez (ölür):** GEÇTİ — ölüm: 1, ayak y min=328.1 (cep 100 px), bitti: false
+- **Bölüm 11 atlanamaz: cep tavanı (Kat3 alt kenarı y=280) aşılamaz:** GEÇTİ — baş y min=280.0 (tavan 280), ayak y min=328.0
+- **Bölüm 11 hazırlık: A ve B kayıtları üretildi:** GEÇTİ — kare sayıları: 114, 221
+- **Bölüm 11 başarısızlık: klonsuz bitmez; ışına koşan oyuncu ölür:** GEÇTİ — bekleyen: bitti=false ölüm=1; koşan: bitti=false ölüm=1
+- **Bölüm 11 başarısızlık: yalnız A -> L2 açık kalır, bitmez / ışında ölür:** GEÇTİ — bekleyen: bitti=false ölüm=1; koşan: bitti=false ölüm=1; PlakaPA basıldı: true; L2 hep açık: true
+- **Bölüm 11 başarısızlık: yalnız B -> L1 açık kalır, bitmez / ışında ölür:** GEÇTİ — bekleyen: bitti=false ölüm=1; koşan: bitti=false ölüm=1; PlakaPB basıldı: true; L1 hep açık: true
+- **Bölüm 11 başarısızlık: A çok uzun sol (n=40) Raf'ı kaçırır, L1 açık, bitmez:** GEÇTİ — A turu sonunda PlakaPA basılı: false (uçuşta anlık değme: true); oyuncu turu: bitti=false, ölüm=1, L1 hiç kapanmadı: false
+- **Bölüm 11 başarısızlık: Z2 üstüne inen oyuncu F3'e fırlar, bitmez:** GEÇTİ — ayak y min=132.9 (F3 160), en büyük x=1138, ölüm: 0, bitti: false
+- **Bölüm 11 başarısızlık: A çok kısa sol (n=10) Raf'a inmez, bitmez:** GEÇTİ — A turu PlakaPA basıldı: false; oyuncu turu: bitti=false, ölüm=1
+- **Bölüm 11 başarısızlık: B çok erken (gecikme 0/20) -> oyuncu pencereyi kaçırır, ölür, bitmez:** GEÇTİ — g=0: bitti=false ölüm=1; g=20: bitti=false ölüm=1
+- **Bölüm 11 başarısızlık: oyuncu ışını geç geçerse (>=8 kare gecikme) ölür:** GEÇTİ — gecikme 8: bitti=false ölüm=1; gecikme 12: bitti=false ölüm=1
+- **Bölüm 11 kısayol: klonsuz/tek klonla bitmez, A+B ile biter:** GEÇTİ — klonsuz: bitti=false; yalnız A: bitti=false; yalnız B: bitti=false; A+B: bitti=true (kare 213)
+- **Bölüm 11 kısayol: klonsuz tek-zıplama taraması (24 varyant) hiçbiri bitirmez:** GEÇTİ — koşu: 24, bitiren: 0, F3'e (ayak<=170) çıkan: 17, ulaşılan en yüksek ayak y=108.1, ölenler: ["m=100 ölüm 1", "m=110 ölüm 1"]
+- **Bölüm 11 kısayol: tek klon (18 varyant) + oyuncu standart rota hiçbiri bitirmez:** GEÇTİ — varyant: 18, bitiren: 0 [], iki ışının birden kapandığı varyant: 0
+- **Bölüm 11 kısayol: röle (PA sonra PB) tek klonla iki ışını birlikte kapatamaz, bitmez:** GEÇTİ — röle kaydı adımları [true, true, true, true, true, true, false, true, true], kayıt kare: 559; oyuncu: bitti=false, ölüm=1, iki ışın birden kapandı: false
+- **Bölüm 11 kısayol: oyuncu kendi plakasında (PA'da dururak / Z2 uçuşuyla PB'yi basarak) bölüm bitmez:** GEÇTİ — PA'da durur (B klon): bitti=false; Z2 uçuşu (A klon): bitti=false, PB basıldı=true; uçuş sonrası cebe geri yürür: bitti=false, ölüm=1
+- **Bölüm 11 ölçüm: zamanlama pencereleri (A sol n, B gecikme, oyuncu geçiş gecikmesi, zıplama x0):** GEÇTİ — A sol n çalışanlar (4..48 adım 2): [16, 18, 20, 22, 24, 26, 28, 30, 32]; B başlangıç gecikmesi tam çözümü bitirenler (0,20,30,31,32,33,38,40,60,100): [32, 33, 38, 40, 60, 100] [g=0: PB ilk kare 128, oyuncu cepte 163, bitmedi (ölüm 1); g=20: PB ilk kare 148, oyuncu cepte 163, bitmedi (ölüm 1); g=30: PB ilk kare 158, oyuncu cepte 163, bitmedi (ölüm 1); g=31: PB ilk kare 159, oyuncu cepte 163, bitmedi (ölüm 1); g=32: PB ilk kare 160, oyuncu cepte 163, BİTTİ (ölüm 0); g=33: PB ilk kare 161, oyuncu cepte 163, BİTTİ (ölüm 0); g=38: PB ilk kare 166, oyuncu cepte 163, BİTTİ (ölüm 0); g=40: PB ilk kare 168, oyuncu cepte 163, BİTTİ (ölüm 0); g=60: PB ilk kare 188, oyuncu cepte 163, BİTTİ (ölüm 0); g=100: PB ilk kare 228, oyuncu cepte 163, BİTTİ (ölüm 0)]; oyuncu geçiş gecikmesi 0..12 çalışanlar: [0, 1, 2, 3]; oyuncu x0 çalışanlar (440..640 adım 5): [510, 515, 520, 525, 530, 535, 540, 545, 550, 555, 560, 565, 570, 575, 580, 585]; çalışmayanlar: ["440(ölüm 0, adım [true, true, true, true, false, false])", "445(ölüm 0, adım [true, true, true, true, false, false])", "450(ölüm 0, adım [true, true, true, true, false, false])", "455(ölüm 0, adım [true, true, true, true, false, false])", "460(ölüm 1, adım [true, true, true, true, false, false])", "465(ölüm 1, adım [true, true, true, true, false, false])", "470(ölüm 1, adım [true, true, true, true, false, false])", "475(ölüm 1, adım [true, true, true, true, false, false])", "480(ölüm 1, adım [true, true, true, true, false, false])", "485(ölüm 1, adım [true, true, true, true, true, false])", "490(ölüm 1, adım [true, true, true, true, true, false])", "495(ölüm 1, adım [true, true, true, true, true, false])", "500(ölüm 1, adım [true, true, true, true, true, false])", "505(ölüm 1, adım [true, true, true, true, true, false])", "590(ölüm 1, adım [true, true, true, true, true, false])", "595(ölüm 1, adım [true, true, true, true, true, false])", "600(ölüm 0, adım [true, true, true, true, true, false])", "605(ölüm 0, adım [true, true, true, true, true, false])", "610(ölüm 0, adım [true, true, true, true, true, false])", "615(ölüm 0, adım [true, true, true, true, true, false])", "620(ölüm 0, adım [true, true, true, true, true, false])", "625(ölüm 0, adım [true, true, true, true, true, false])", "630(ölüm 0, adım [true, true, true, true, true, false])", "635(ölüm 0, adım [true, true, true, true, true, false])", "640(ölüm 0, adım [true, true, true, true, true, false])"]
+- **Bölüm 11 PlakaPB: F3'te durarak/zıplayarak kalıcı basılamaz; uçuş darbesi kısa:** GEÇTİ — idle (3 konum x 60 kare) basılı kare: 0; zıplama/zıpla+sol en uzun ardışık: 10 (sonda basılı: false); kenardan sol düşüş: toplam 17, en uzun 17 (sonda basılı: false); doğal Z2 uçuşu: toplam 14, en uzun 14, L2 kapalı kare: 14; alternatif B (kenardan düşer): toplam 31, en uzun 17
+- **Bölüm 11 alternatif B (F3 kenarından düşerek plakadan geçer) de çözer:** GEÇTİ — bitti=true, ölüm=0, kare=213
+- **Bölüm 11: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 11: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 214 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 12 çözümü (3 tur, 2 klon, gerçek R/girdi yolu):** GEÇTİ — bitti: true, tur kareleri: [25, 300] + 371 (6.18 sn), klon: 2, kayıtlı tur: 2, ölüm: 0, etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti"
+- **Bölüm 12 atlanamaz: R'den R2'ye kutusuz zıplayarak çıkılamaz (R2 üstü 290):** GEÇTİ — ayak y min=319.0 (R 420 - 100,9 = ~319; R2 290), en büyük x=500
+- **Bölüm 12 atlanamaz: zıplatıcıdan doğrudan R2'ye (ayak y<=290) çıkılamaz:** GEÇTİ — ayak y min=352.4 (beklenen ~353; R2 290), yon 0: ayak min 352.4; yon 1: ayak min 352.4; yon -1: ayak min 448.1
+- **Bölüm 12 atlanamaz: zeminden (kutusuz/zemin kutusu üstünden) R'ye çıkılamaz (R üstü 420):** GEÇTİ — zeminden ayak min=499.0 (~499); zemin kutusu üstünden ayak min=459.0 (~459), R 420
+- **Bölüm 12 atlanamaz: kapalı geçitler (GK, GA1, GB, GA2) zıplayarak/yürüyerek geçilemez:** GEÇTİ — GK: en büyük x=355.9 (sol yüz 370), baş y min=451.0; GA1: en büyük x=675.9 (sol yüz 690), baş y min=141.0; GB: en büyük x=955.9 (sol yüz 970), baş y min=141.0; GA2: en büyük x=1035.9 (sol yüz 1050), baş y min=141.0
+- **Bölüm 12 atlanamaz: PlakaB'den GB'ye koşarak geçilemez (34,4 kare > 26):** GEÇTİ — GB tam açıkken (y=90) plakadan ayrılış kare 90, GB sol yüzüne varış (merkez>=955) kare 123 (33 kare), varışta açıklık=34.0 px (gerek >=48), en büyük x=956.0, bitti: false
+- **Bölüm 12 hazırlık: Y1 ve Y2 kayıtları üretildi:** GEÇTİ — kare sayıları: 25, 300
+- **Bölüm 12 başarısızlık: klonsuz bitmez (GA1 kapalı, PlakaA boş):** GEÇTİ — bitti=false, en büyük x=676 (GA1 sol yüzü 690), ayak y min=278.2 (R2'ye çıkabildi: true), GA1 hiç açılmadı: true
+- **Bölüm 12 başarısızlık: yalnız Y1 -> GB kapalı kalır, bitmez:** GEÇTİ — Y2 rotası+sağ: bitti=false; plakada 40 kare durup GB'ye koş: bitti=false, en büyük x=956 (GB sol yüz 970), PlakaB basıldı: true
+- **Bölüm 12 başarısızlık: yalnız Y2 (Y1'siz) -> GA1 önünde kalır, bitmez:** GEÇTİ — bitti=false, klon en büyük x=676 (GA1 sol yüz 690), PlakaB basıldı: false
+- **Bölüm 12 başarısızlık: Y2 başlangıç gecikmesi s<20 -> GK kapanır, bitmez:** GEÇTİ — s=0: bitti=false, Y2 adımları tamam=false, kutu son=(350,580); s=5: bitti=false, Y2 adımları tamam=false, kutu son=(395,580); s=10: bitti=false, Y2 adımları tamam=false, kutu son=(395,580); s=15: bitti=false, Y2 adımları tamam=false, kutu son=(395,580)
+- **Bölüm 12 ölçüm: Y2 kutu havadayken Zıplatıcı'ya girer (taslak §10.5): kutu R içinde kalır, kilitlenme olmaz:** GEÇTİ — bitiren n: [10, 20, 35, 50] (taslak: başarısız bekleniyordu); n=1: bitti=false, kutu son=(500,400); n=3: bitti=false, kutu son=(500,400); n=6: bitti=false, kutu son=(500,400); n=10: bitti=true, kutu son=(510,400); n=20: bitti=true, kutu son=(520,400); n=35: bitti=true, kutu son=(520,400); n=50: bitti=true, kutu son=(520,400)
+- **Bölüm 12 başarısızlık: Y2 fırlama sonrası sağ geç başlarsa (>~5 kare) bitmez:** GEÇTİ — çalışan gec değerleri: [0, 2, 4]; gec=0:BİTTİ; gec=2:BİTTİ; gec=4:BİTTİ; gec=6:bitmedi; gec=8:bitmedi; gec=10:bitmedi; gec=14:bitmedi
+- **Bölüm 12 başarısızlık: oyuncu PlakaB'den GB'ye koşar (34,4 > 26 kare) -> bitmez:** GEÇTİ — Y2 yolu hazır, PlakaB basıldı: true, bitti=false, en büyük x=956
+- **Bölüm 12 kısayol: klonsuz/yalnız Y1/yalnız Y2 ile bitmez, Y1+Y2 ile biter:** GEÇTİ — klonsuz: bitti=false; yalnız Y1: bitti=false; yalnız Y2: bitti=false; Y1+Y2 (gerçek çözüm): bitti=true
+- **Bölüm 12 kısayol: oyuncu PlakaA'yı tutar (Y2 klon var) -> GA1'e yetişemez, bitmez:** GEÇTİ — bitti=false, oyuncu en büyük x=356 (GA1 sol yüz 690), PlakaA basıldı: true
+- **Bölüm 12 kısayol: kutu PlakaA'yı tutar (sola itilir) -> R2'ye çıkış yok, bitmez:** GEÇTİ — PlakaA kutuyla basıldı: true, kutu son=(350,580), oyuncu ayak y min=459.0, bitti=false
+- **Bölüm 12 kısayol: zemin kutusu basamak olarak R'ye yetmez (en az 43,5 px kısa):** GEÇTİ — ayak y min=459.0 (kutu üstü 560 - 100,9 = ~459; R 420)
+- **Bölüm 12 kısayol: kutu GK altında açıklığı 40..48 px'te tutar, oyuncu geçemez (kutu da çıkarılamaz):** GEÇTİ — D=8: oyuncu en büyük x=356 (GK sol yüz 370), GK açıklık=42 px, kutu son x=395; D=12: oyuncu en büyük x=356 (GK sol yüz 370), GK açıklık=42 px, kutu son x=395; D=16: oyuncu en büyük x=356 (GK sol yüz 370), GK açıklık=42 px, kutu son x=395
+- **Bölüm 12 ölçüm: yığma (kutuyla fırlayan oyuncu R2'ye çıkar) tek başına yapılamaz; kutuya binerek GK geçilemez:** GEÇTİ — a) tek başına zemin kutusu üstü: ayak y min=459.0 (fırlama yok); b) kutu zıplatıcıda fırlarken üstündeki oyuncu: ayak y min=188.0, son=(515,266) R2'de: true; c) Y2 kutuyu iterken oyuncu üstüne binip yürür: en büyük x=356 (GK sol yüz 370, oyuncu+kutu 88 px gerek), bitti=false
+- **Bölüm 12 röle (mekanizma, GK): oyuncu geçit altında park eder, plakada bekleyen klon geçer; park yoksa geçemez:** GEÇTİ — klon en büyük x: parklı=586, parksız=356 (GK sol yüz 370); parklı turda GK en alçak y=450 (açıklık 50 px; karakter 48)
+- **Bölüm 12 röle (bölümde): tek klonla (5 klon x 8 oyuncu stratejisi) bitirilemez:** GEÇTİ — denenen: 43, bitiren: [], oyuncunun ulaştığı en büyük x=956; Y2 kör (Y1'siz kaydı): kayıtlı klon en büyük x=676 PlakaB basıldı=false | Y2 kör, s=0: kayıtlı klon en büyük x=316 PlakaB basıldı=false | Y1 (PlakaA'da bekler): kayıtlı klon en büyük x=110 PlakaB basıldı=false | PlakaA'da 150 kare, sonra Y2: kayıtlı klon en büyük x=676 PlakaB basıldı=false | PlakaA'da 300 kare, sonra Y2: kayıtlı klon en büyük x=676 PlakaB basıldı=false | park-röle (oyuncu kutuyu çıkarıp GA1 altında park): T=290: klon en büyük x=356 (GK sol yüz 370, GA1 690), PlakaB basıldı=true, oyuncu en büyük x=741, bitti=false | T=330: klon en büyük x=356 (GK sol yüz 370, GA1 690), PlakaB basıldı=true, oyuncu en büyük x=741, bitti=false | T=380: klon en büyük x=356 (GK sol yüz 370, GA1 690), PlakaB basıldı=true, oyuncu en büyük x=741, bitti=false
+- **Bölüm 12 ölçüm: zamanlama pencereleri (Y2 gecikme s, GK yarışı payı, fırlama sonrası tuşlar, izleme gecikmesi L, kutu basamağı):** GEÇTİ — Y2 s çalışanlar [0,10,14,16,18,20,22,24,26,28,30,45,100]: [20, 22, 24, 26, 28, 30, 45, 100]; PlakaK'dan ayrılınca durak d çalışanlar [0,1,2,3,4,5,6,8,12]: [0, 1, 2, 3] (standart Y2'nin GK'ya vardığı karede açıklık 56 px, gerek >=48); sag_n çalışanlar [2,3,4,5,6,8,10,14]: [5, 6, 8, 10, 14]; sol başlangıcı çalışanlar [10,14,18,22,26,30,36,44]: [18, 22, 26, 30, 36]; sol süresi çalışanlar [2,4,6,8,10,12,16]: [6, 8, 10, 12, 16]; oyuncu gecikmesi L çalışanlar [0,1,2,3,5,10,14,18,20,22,24,26,28,30,32,34,36,38,40,80]: [0, 1, 2, 3, 5, 10, 14, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38]; kutu basamağı (kutu x=520): zıplama tepesi ayak y=278.2 (R2 üstü 290, pay 11.8 px), sağ+zıpla ile R2'ye çıkan kutu x: [500, 510, 520, 540, 560, 580]
+- **Bölüm 12 kutu: R'deki kutu itilince R duvarları (480..600) içinde kalır, R'den düşmez; kilitlenme değil:** GEÇTİ — sağa itme: kutu son=(580,400); sola itme: kutu son=(560,400); kutu x aralığı 530..580 (R 480..600, kutu 40), en büyük y=400.0 (R üstü 420 -> 400)
+- **Bölüm 12 kutu: sola duvara itilen kutu geri alınamaz (oyuncu kutunun solunda duramaz):** GEÇTİ — kutu en sol x=20, son x=20 (oyuncu zıplayıp sağa dönse de kutu aynı), bitti=false
+- **Bölüm 12 kutu: GK'ya takılan kutu geri alınamaz (itilemez, plakaya dönemez): kilitlenme, Baştan başla gerekir:** GEÇTİ — D=12: kutu son=(395,580), GK son y=458 (açıklık 42), oyuncu en büyük x=356, PlakaK basılı: false; D=30: kutu son=(350,580), GK son y=500 (açıklık 0), oyuncu en büyük x=316, PlakaK basılı: false
+- **Bölüm 12: klon sınırı (üçüncü R klon kaydetmez):** GEÇTİ — max_klon=2; R #1 -> kayıtlı klon: 1, R #2 -> kayıtlı klon: 2, sınırda etiket: "Tur 3  |  Klon: 2/2  |  Klon hakkı bitti", R #3 -> kayıtlı klon: 2
+- **Bölüm 12: determinizm (100x çözüm):** GEÇTİ — 100 çalıştırma x 372 kare, sapmalı: 0, en büyük sapma: 0.0000 px, bitirmeyen çalıştırma: 0, kayıt turu bitti: true
+- **Bölüm 6 röle araştırması (ölçüm): tek klon + geçit altında park ile bölüm bitiyor mu:** GEÇTİ — TEK KLONLA BİTEN: 12/12 ["T=100 px=575", "T=100 px=580", "T=100 px=585", "T=120 px=575", "T=120 px=580", "T=120 px=585", "T=150 px=575", "T=150 px=580", "T=150 px=585", "T=200 px=575", "T=200 px=580", "T=200 px=585"]; kör kayıt D=117 kare sağ; T=100 px=575: bitti=true ölüm=0 kare=343; T=100 px=580: bitti=true ölüm=0 kare=343; T=100 px=585: bitti=true ölüm=0 kare=343; (T=100 kör kayıt turunda klon geçitte takılı kaldı: true); T=120 px=575: bitti=true ölüm=0 kare=363; T=120 px=580: bitti=true ölüm=0 kare=363; T=120 px=585: bitti=true ölüm=0 kare=363; (T=120 kör kayıt turunda klon geçitte takılı kaldı: true); T=150 px=575: bitti=true ölüm=0 kare=393; T=150 px=580: bitti=true ölüm=0 kare=393; T=150 px=585: bitti=true ölüm=0 kare=393; (T=150 kör kayıt turunda klon geçitte takılı kaldı: true); T=200 px=575: bitti=true ölüm=0 kare=443; T=200 px=580: bitti=true ölüm=0 kare=443; T=200 px=585: bitti=true ölüm=0 kare=443; (T=200 kör kayıt turunda klon geçitte takılı kaldı: true)
+- **Bölüm 7 röle araştırması (ölçüm): tek geçit şalter geçidi; roller birleştirme/asansör park ile klon azaltılamıyor:** GEÇTİ — TEK/İKİ KLONLA BİTEN: YOK (denenen 4); Z' T=0 (A+Z', Y yok): kayıt tamam=false, bitti=false ölüm=1; Z' T=30 (A+Z', Y yok): kayıt tamam=false, bitti=false ölüm=1; Z' T=60 (A+Z', Y yok): kayıt tamam=false, bitti=false ölüm=1; Z' T=100 (A+Z', Y yok): kayıt tamam=false, bitti=false ölüm=1; asansör altında park: A ~190. karede PlakaA'dan ayrılır; asansör en yüksek y=350 (üst 390), park sonu y=538 (park asansörü F2'de tutmaz)
+- **Bölüm 9 röle araştırması (ölçüm): plaka-geçit rölesi yok (G klonların yolunda değil); oyuncu-tutucu denemesi klon azaltmıyor:** GEÇTİ — İKİ KLONLA BİTEN: YOK (denenen 2); k1 yerine oyuncu Plaka1'de T=150 tutar, klonlar k2'+k3: bitti=false ölüm=1; k1 yerine oyuncu Plaka1'de T=220 tutar, klonlar k2'+k3: bitti=false ölüm=1
+- **Bölüm 10 röle araştırması (ölçüm): P2->PE zaman paylaşımı ve G altı park klon sayısını düşürmüyor:** GEÇTİ — TEK/İKİ KLONLA BİTEN: YOK (denenen 6); X' (P2 T=20 sonra PE): +C bitti=false ölüm=0; tek bitti=false ölüm=0; X' (P2 T=40 sonra PE): +C bitti=false ölüm=1; tek bitti=false ölüm=1; X' (P2 T=80 sonra PE): +C bitti=false ölüm=1; tek bitti=false ölüm=1
+- **Ölü klon geçidin kapanmasını engellemez:** GEÇTİ — ölü B: ölü=true x=790, geçit en açık y=300, sonunda y=500 (kapalı 500): kapandı: true; kontrol (B canlı altında): x=800, geçit y=450 (arada takıldı: true)
+- **Ölü klon şalteri çevirmez:** GEÇTİ — ölü klon: ölü=true x=430, şalter hiç sağa geçmedi: true; kontrol (klon canlı): şalter sağda: true
+- **Klon kapıya ulaşsa da bölüm bitmez (canlı ve ölü klon):** GEÇTİ — canlı klon x=1138 kapı açık: false, bölüm bitti: false; ölü klon x=470 ölü: true kapı açık: false
+- **Kutu 1a) Oyuncu sağa iter, kutu sağ duvarda durur:** GEÇTİ — kare 60 kutu x=395.0 (başlangıç 160), son kutu x=1132.0 (beklenen 1132, duvar iç kenarı 1152), oyuncu x=1098.0, oyuncu_oldu=0
+- **Kutu 1b) Oyuncu sola iter, kutu sol duvarda durur:** GEÇTİ — son kutu x=20.0 (beklenen 20), oyuncu x=54.0
+- **Kutu 2) Platform kenarından düşer ve zeminde durur:** GEÇTİ — rafta y=500 (ilk 20 kare): true, düşüş karesi 47 x=1132.0 (kenar 1100), son y=579.93 (beklenen 580), son 30 karede y oynaması 0.0000
+- **Kutu 4a) Klon kutuyu oyuncuyla aynı kod yoluyla iter:** GEÇTİ — 130 kare, canlı oyuncu/kutu ile klon/kutu en büyük fark 0.0000 px (beklenen 0), kutu kare 69'da x=440.0 (başlangıç 160)
+- **Kutu 4b) Klon + kutu determinizmi (100x):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px
+- **Kutu 7) Lazer kutuyu yok etmez/engel sayılmaz:** GEÇTİ — kutu ışının içinde 120 kare yerinde: true, ışın açık, kutu ışın alanında sayılmıyor; aynı noktada oyuncu ölümü: 1 (beklenen 1)
+- **Kutu 8) Oyuncu kutunun üstüne çıkar, ayakta durur:** GEÇTİ — son oyuncu (300.0, 536.0) (beklenen y=536, x 266..334), kutu (300.0, 580.0) yerinde
+- **Kutu 9) Kutu başka kutuyu zincirleme itmez:** GEÇTİ — itilen kutu son x=359.91 (beklenen ~360), diğer kutu x=400.00 (beklenen 400, hiç kımıldamadı: true), oyuncu x=325.9
+- **Kutu 3) Kutu plakayı basılı tutar, itilince bırakır:** GEÇTİ — yalnız kutuyla basılı: true, çakışırken basılı (21 kare): true, ayrılınca bırakılmış (104 kare): true, son kutu x=380.0
+- **Kutu 5) Asansör kutuyla birlikte yükselir:** GEÇTİ — son asansör y=430.0 (beklenen 430), son kutu y=400.0 (beklenen 400) x=850.0, kutu-asansör bağıl sapma en çok 2.00 px
+- **Kutu 6a) Asansör inerken altındaki kutuya durur, ezmez:** GEÇTİ — en alçak asansör y=546.0 (kutu üstü 560 -> <=551), son y=546.0, kutu yerinde: true; kutusuz kontrol son y=610.0 (beklenen 610)
+- **Kutu 6b) Geçit kapanırken altındaki kutuya durur:** GEÇTİ — en alçak geçit y=458.0 (kutu üstü 560 -> <=461), son y=458.0; kutusuz kontrol son y=500.0 (beklenen 500)
+- **Zıplatıcı 1a) Oyuncu ~240 px yükselir, yükselirken tekrar tetiklenmez:** GEÇTİ — yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 1d) Pad üstünde zıplama tuşu fırlatmayı zayıflatmaz:** GEÇTİ — tuşlu yükselme 247.1 px (en az 235), tuşsuz 247.1 px (fark <= 5)
+- **Zıplatıcı 1e) Kutu üst sınır duvarına çarpar, ekran dışına çıkmaz:** GEÇTİ — kutu en yüksek merkez y=20.0 (>= 0 beklenir), yükseldi: true
+- **Zıplatıcı 1b) Klon ~240 px yükselir:** GEÇTİ — klon yükselme 247.1 px (beklenen 240 +-15)
+- **Zıplatıcı 1c) Kutu ~240 px yükselir, tek tetik:** GEÇTİ — kutu yükselme 247.1 px (beklenen 240 +-15), tek tetik: true
+- **Zıplatıcı 2) Yön/hız determinizmi (100x: oyuncu+klon+kutu):** GEÇTİ — 100 çalıştırma, sapmalı: 0, en büyük sapma: 0.0000 px, hareket var: true
+- **Bant 1) Üstündeki oyuncu ve kutu girdisiz yön*hız ile kayar (iki yön):** GEÇTİ — Oyuncu sağ bant: 30 karede dx=50.0 (beklenen 50); Oyuncu sol bant: 30 karede dx=-50.0 (beklenen -50); Kutu sağ bant: 30 karede dx=50.0 (beklenen 50); Kutu sol bant: 30 karede dx=-50.0 (beklenen -50)
+- **Bant 2) Bandan inince etki biter (zeminde kaymaz):** GEÇTİ — Oyuncu: son (795.0, 576.0), son 40 karede x oynaması 0.0000; Kutu: son (800.1, 579.9), son 40 karede x oynaması 0.0000
+- **Toplam süre (gerçek saat, yalnızca bilgi):** 146.5 sn
+

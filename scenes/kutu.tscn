@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/kutu.gd" id="1_kutu"]
+
+[sub_resource type="RectangleShape2D" id="kutu_sekil"]
+size = Vector2(40, 40)
+
+[node name="Kutu" type="CharacterBody2D"]
+script = ExtResource("1_kutu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("kutu_sekil")
+
+[node name="Gorsel" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 2
+color = Color(0.6, 0.45, 0.25, 1)

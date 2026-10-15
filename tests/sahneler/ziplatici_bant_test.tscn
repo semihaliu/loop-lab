@@ -1,0 +1,72 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/oyuncu.tscn" id="oyuncu"]
+[ext_resource type="Script" path="res://scripts/bolum.gd" id="bolum"]
+[ext_resource type="Script" path="res://scripts/kapi.gd" id="kapi"]
+[ext_resource type="PackedScene" path="res://scenes/kutu.tscn" id="kutu"]
+[ext_resource type="PackedScene" path="res://scenes/yayli_ziplatici.tscn" id="zip"]
+[ext_resource type="PackedScene" path="res://scenes/tasima_bandi.tscn" id="bant"]
+
+[sub_resource type="RectangleShape2D" id="kapi_sekil"]
+size = Vector2(36, 48)
+
+[sub_resource type="RectangleShape2D" id="zemin_sekil"]
+size = Vector2(1152, 40)
+
+[node name="ZiplaticiBantTest" type="Node2D"]
+script = ExtResource("bolum")
+
+[node name="Zemin" type="StaticBody2D" parent="."]
+position = Vector2(576, 620)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zemin"]
+shape = SubResource("zemin_sekil")
+
+[node name="Gorsel" type="ColorRect" parent="Zemin"]
+offset_left = -576
+offset_top = -20
+offset_right = 576
+offset_bottom = 20
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="Ziplatici1" parent="." instance=ExtResource("zip")]
+position = Vector2(300, 594)
+
+[node name="Ziplatici2" parent="." instance=ExtResource("zip")]
+position = Vector2(520, 594)
+
+[node name="Bant1" parent="." instance=ExtResource("bant")]
+position = Vector2(700, 592)
+yon = 1
+hiz = 100.0
+
+[node name="Bant2" parent="." instance=ExtResource("bant")]
+position = Vector2(950, 592)
+yon = -1
+hiz = 100.0
+
+[node name="Kutu" parent="." instance=ExtResource("kutu")]
+position = Vector2(1100, 580)
+
+[node name="Kapi" type="Area2D" parent="."]
+position = Vector2(500, 100)
+script = ExtResource("kapi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kapi"]
+shape = SubResource("kapi_sekil")
+
+[node name="Gorsel" type="ColorRect" parent="Kapi"]
+offset_left = -18.0
+offset_top = -24.0
+offset_right = 18.0
+offset_bottom = 24.0
+color = Color(0.45, 0.25, 0.1, 1)
+
+[node name="Oyuncu" parent="." instance=ExtResource("oyuncu")]
+position = Vector2(60, 576)
+
+[node name="Bilgi" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 600.0
+offset_bottom = 40.0

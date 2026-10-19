@@ -13,8 +13,8 @@
 [sub_resource type="RectangleShape2D" id="s_1152_40"]
 size = Vector2(1152, 40)
 
-[sub_resource type="RectangleShape2D" id="s_450_160"]
-size = Vector2(450, 160)
+[sub_resource type="RectangleShape2D" id="s_450_170"]
+size = Vector2(450, 170)
 
 [sub_resource type="RectangleShape2D" id="s_1152_300"]
 size = Vector2(1152, 300)
@@ -46,16 +46,16 @@ offset_bottom = 20.0
 color = Color(0.3, 0.3, 0.35, 1)
 
 [node name="Kat2" type="StaticBody2D" parent="."]
-position = Vector2(927, 520)
+position = Vector2(927, 515)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kat2"]
-shape = SubResource("s_450_160")
+shape = SubResource("s_450_170")
 
 [node name="Gorsel" type="ColorRect" parent="Kat2"]
 offset_left = -225.0
-offset_top = -80.0
+offset_top = -85.0
 offset_right = 225.0
-offset_bottom = 80.0
+offset_bottom = 85.0
 color = Color(0.3, 0.3, 0.35, 1)
 
 [node name="Tavan" type="StaticBody2D" parent="."]
@@ -103,7 +103,7 @@ offset_bottom = 8.0
 color = Color(0.6, 0.55, 0.25, 1)
 
 [node name="Plaka3" type="Area2D" parent="."]
-position = Vector2(760, 432)
+position = Vector2(760, 422)
 script = ExtResource("3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plaka3"]
@@ -117,7 +117,7 @@ offset_bottom = 8.0
 color = Color(0.6, 0.55, 0.25, 1)
 
 [node name="PlakaKutu" type="Area2D" parent="."]
-position = Vector2(930, 432)
+position = Vector2(910, 422)
 script = ExtResource("3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlakaKutu"]
@@ -134,7 +134,7 @@ color = Color(0.6, 0.55, 0.25, 1)
 position = Vector2(640, 610)
 script = ExtResource("4")
 plaka = NodePath("../Plaka2")
-yukseklik = 160.0
+yukseklik = 170.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Asansor"]
 shape = SubResource("s_120_20")
@@ -147,7 +147,7 @@ offset_bottom = 10.0
 color = Color(0.5, 0.5, 0.6, 1)
 
 [node name="Gecit" parent="." instance=ExtResource("6")]
-position = Vector2(1070, 340)
+position = Vector2(1070, 330)
 kayma_yonu = Vector2(0, -1)
 kayma_mesafe = 70.0
 hiz = 120.0
@@ -163,12 +163,12 @@ tetik_aktifken_kapali = true
 [node name="Lazer2" parent="." instance=ExtResource("7")]
 position = Vector2(860, 300)
 yon = Vector2(0, 1)
-uzunluk = 140.0
+uzunluk = 130.0
 tetikleyici_yollari = Array[NodePath]([NodePath("../Plaka3")])
 tetik_aktifken_kapali = true
 
 [node name="Kapi" type="Area2D" parent="."]
-position = Vector2(1120, 416)
+position = Vector2(1120, 406)
 script = ExtResource("5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kapi"]

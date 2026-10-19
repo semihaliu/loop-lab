@@ -34,6 +34,109 @@ func _calistir() -> void:
 	if Engine.physics_ticks_per_second != 60:
 		print("UYARI: fizik kare hızı 60 değil: ", Engine.physics_ticks_per_second)
 
+	if "--sdusme" in OS.get_cmdline_user_args():
+		aktif_bolum = ASAGI_TEST
+		await _asagi_testleri()
+		var hepsi_sd := true
+		for s in sonuclar:
+			hepsi_sd = hepsi_sd and s["gecti"]
+			print("[%s] %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"]])
+		quit(0 if hepsi_sd else 1)
+		return
+	if "--plaka" in OS.get_cmdline_user_args():
+		await _plaka_testleri()
+		var hepsi_pl := true
+		for s in sonuclar:
+			hepsi_pl = hepsi_pl and s["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		for o in pl_olcum:
+			print("ÖLÇÜM: ", o)
+		quit(0 if hepsi_pl else 1)
+		return
+	if "--arayuz" in OS.get_cmdline_user_args():
+		await _arayuz_testleri()
+		var hepsi_ar := true
+		for s in sonuclar:
+			hepsi_ar = hepsi_ar and s["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		quit(0 if hepsi_ar else 1)
+		return
+	if "--tustu" in OS.get_cmdline_user_args():
+		await _tustu_testleri()
+		var hepsi_tt := true
+		for s in sonuclar:
+			hepsi_tt = hepsi_tt and s["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		quit(0 if hepsi_tt else 1)
+		return
+	if "--ipucu" in OS.get_cmdline_user_args():
+		await _ipucu_testleri()
+		var hepsi_ip := true
+		for s in sonuclar:
+			hepsi_ip = hepsi_ip and s["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		quit(0 if hepsi_ip else 1)
+		return
+	var _arg_n := OS.get_cmdline_user_args()
+	if "--b18" in _arg_n or "--b19" in _arg_n or "--b20" in _arg_n or "--b21" in _arg_n:
+		if "--b18" in _arg_n:
+			aktif_bolum = BOLUM_18
+			await _b18_calistir()
+		if "--b19" in _arg_n:
+			aktif_bolum = BOLUM_19
+			await _b19_calistir()
+		if "--b20" in _arg_n:
+			aktif_bolum = BOLUM_20
+			await _b20_calistir()
+		if "--b21" in _arg_n:
+			aktif_bolum = BOLUM_21
+			await _b21_calistir()
+		var hepsi_y := true
+		for sy in sonuclar:
+			hepsi_y = hepsi_y and sy["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if sy["gecti"] else "KALDI", sy["ad"], sy["ayrinti"]])
+		print("TOPLAM: %s (%d test)" % ["GEÇTİ" if hepsi_y else "KALDI", sonuclar.size()])
+		if "--rapor" in _arg_n:
+			_rapor_yaz(0.0, hepsi_y)
+		quit(0 if hepsi_y else 1)
+		return
+	if "--b15" in _arg_n or "--b16" in _arg_n or "--b17" in _arg_n:
+		if "--b15" in _arg_n:
+			aktif_bolum = BOLUM_15
+			await _b15_calistir()
+		if "--b16" in _arg_n:
+			aktif_bolum = BOLUM_16
+			await _b16_calistir()
+		if "--b17" in _arg_n:
+			aktif_bolum = BOLUM_17
+			await _b17_calistir()
+		var hepsi_n := true
+		for sn in sonuclar:
+			hepsi_n = hepsi_n and sn["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if sn["gecti"] else "KALDI", sn["ad"], sn["ayrinti"]])
+		print("TOPLAM: %s (%d test)" % ["GEÇTİ" if hepsi_n else "KALDI", sonuclar.size()])
+		if "--rapor" in _arg_n:
+			_rapor_yaz(0.0, hepsi_n)
+		quit(0 if hepsi_n else 1)
+		return
+	if "--b14" in OS.get_cmdline_user_args():
+		aktif_bolum = BOLUM_14
+		await _b14_calistir()
+		var hepsi_14 := true
+		for s in sonuclar:
+			hepsi_14 = hepsi_14 and s["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		if "--rapor" in OS.get_cmdline_user_args():
+			_rapor_yaz(0.0, hepsi_14)
+		quit(0 if hepsi_14 else 1)
+		return
+	if "--b13" in OS.get_cmdline_user_args():
+		aktif_bolum = BOLUM_13
+		await _b13_calistir()
+		for s in sonuclar:
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		quit(0)
+		return
 	if "--b12" in OS.get_cmdline_user_args():
 		aktif_bolum = BOLUM_12
 		await _b12_calistir()
@@ -65,6 +168,9 @@ func _calistir() -> void:
 		await _test_bolum10_basarisizlik()
 		await _test_bolum10_klon_siniri()
 		await _test_bolum10_determinizm()
+		await _test_bolum10_klon_fark()
+		await _test_bolum10_pg_tutma()
+		await _test_bolum10_p1_pencere()
 		for s in sonuclar:
 			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
 		quit(0)
@@ -80,6 +186,7 @@ func _calistir() -> void:
 		await _test_bolum9_kutu_tasima()
 		await _test_bolum9_ek_olcumler()
 		await _test_bolum9_determinizm()
+		await _test_bolum9_pencereler()
 		for s in sonuclar:
 			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
 		quit(0)
@@ -89,6 +196,15 @@ func _calistir() -> void:
 		for s in sonuclar:
 			print("[%s] %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"]])
 		quit(0)
+		return
+	if "--gorunurluk" in OS.get_cmdline_user_args():
+		await _gorunurluk_testleri()
+		var hepsi_gr := true
+		for s in sonuclar:
+			hepsi_gr = hepsi_gr and s["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		print("TOPLAM: %s (%d test)" % ["GEÇTİ" if hepsi_gr else "KALDI", sonuclar.size()])
+		quit(0 if hepsi_gr else 1)
 		return
 	await _determinizm_testi()
 	await _cozum_testi()
@@ -174,6 +290,7 @@ func _calistir() -> void:
 	await _test_bolum9_kutu_tasima()
 	await _test_bolum9_ek_olcumler()
 	await _test_bolum9_determinizm()
+	await _test_bolum9_pencereler()
 	aktif_bolum = BOLUM_10
 	await _test_bolum10_cozum()
 	await _test_bolum10_bant()
@@ -183,6 +300,9 @@ func _calistir() -> void:
 	await _test_bolum10_basarisizlik()
 	await _test_bolum10_klon_siniri()
 	await _test_bolum10_determinizm()
+	await _test_bolum10_klon_fark()
+	await _test_bolum10_pg_tutma()
+	await _test_bolum10_p1_pencere()
 	aktif_bolum = BOLUM_11
 	await _test_bolum11_cozum()
 	await _test_bolum11_atlanamaz()
@@ -194,12 +314,39 @@ func _calistir() -> void:
 	await _test_bolum11_determinizm()
 	aktif_bolum = BOLUM_12
 	await _b12_calistir()
+	aktif_bolum = BOLUM_13
+	await _b13_calistir()
+	aktif_bolum = BOLUM_14
+	await _b14_calistir()
+	aktif_bolum = BOLUM_15
+	await _b15_calistir()
+	aktif_bolum = BOLUM_16
+	await _b16_calistir()
+	aktif_bolum = BOLUM_17
+	await _b17_calistir()
+	aktif_bolum = BOLUM_18
+	await _b18_calistir()
+	aktif_bolum = BOLUM_19
+	await _b19_calistir()
+	aktif_bolum = BOLUM_20
+	await _b20_calistir()
+	aktif_bolum = BOLUM_21
+	await _b21_calistir()
 	aktif_bolum = GECIT_TEST
 	await _test_olu_klon_gecit()
 	await _test_olu_klon_salter()
 	aktif_bolum = BOLUM_3
 	await _test_olu_klon_kapi()
 	await _asamab_testleri()
+	aktif_bolum = ASAGI_TEST
+	await _asagi_testleri()
+	await _ipucu_testleri()
+	await _plaka_testleri()
+	await _arayuz_testleri()
+	await _tustu_testleri()
+	await _gorunurluk_testleri()
+	for o in pl_olcum:
+		print("ÖLÇÜM: ", o)
 	aktif_bolum = BOLUM
 	_kayitlar().sifirla()
 
@@ -227,8 +374,10 @@ func _betik(parcalar: Array) -> Array:
 
 
 func _girdi_uygula(g: Dictionary) -> void:
-	for a in ["sol", "sag", "zipla"]:
+	for a in ["sol", "sag", "zipla", "asagi"]:
 		Input.action_release(a)
+	if g.get("asagi", false):
+		Input.action_press("asagi")
 	if g["yon"] > 0.0:
 		Input.action_press("sag")
 	elif g["yon"] < 0.0:
@@ -4133,8 +4282,13 @@ func _test_bolum8_determinizm() -> void:
 # Taslak: docs/devir/bolum_9_taslak.md. Çözüm: k1 Plaka1, k2 Plaka2 (platform), k3 kutuyu asansörle F2'ye
 # taşıyıp Plaka3'e gider, oyuncu kutuyu PlakaKutu'ya iter. Alternatif S2: kutu Plaka3'te, k3 PlakaKutu'da.
 const BOLUM_9 := "res://scenes/bolumler/bolum_9.tscn"
-const B9_ASANSOR_UST_Y := 450.0    # asansör merkezi (üst yüzey 440 = F2 hizası)
-const B9_GECIT_ACIK_Y := 270.5     # geçit merkezi (kapalı 340, açık 270)
+const B9_F2_Y := 430.0                         # F2 (Kat2) yüzeyi (2026-10-16 ayar: 440 -> 430)
+const B9_PK_X := 910.0                         # PlakaKutu merkezi x (2026-10-16 ayar: 930 -> 910)
+const B9_ASANSOR_UST_Y := B9_F2_Y + 10.0       # asansör merkezi üstte (üst yüzey = F2 hizası)
+const B9_GECIT_KAPALI_Y := 330.0               # geçit merkezi kapalıyken (2026-10-16 ayar: 340 -> 330)
+const B9_GECIT_ACIK_Y := B9_GECIT_KAPALI_Y - 69.5   # geçit merkezi açık (kayma 70)
+const B9_GECIT_GECIS_Y := B9_F2_Y - 148.0      # geçit merkezi <= bu değerse ayakta geçilir (baş F2-48, geçit yarı boyu 100)
+const B9_K2_BEKLE := 60                        # (2026-10-16 ayar: 120 -> 60) k2'nin platforma zıplamadan önceki beklemesi (kare)
 
 var _b9_onbellek: Array = []   # [k1, k2, k3]
 
@@ -4154,32 +4308,37 @@ func _b9_k1() -> Array:
 
 
 ## Tur 2 -> k2: L0'ı geçip platforma zıpla, Plaka2'ye bas. bekle: zıplamadan önceki bekleme (kare).
-func _b9_k2(bekle := 120) -> Array:
+func _b9_k2(bekle := B9_K2_BEKLE) -> Array:
 	return [_b4_a(1, _b4_x_ge(350.0), 100), _b4_a(0, Callable(), bekle),
 		_b4_a(0, _b4_durdu(510.0), 120, true), _b4_a(1, _b4_x_ge(380.0), 40),
 		_b4_a(0, _b4_plakada("Plaka2"), 60), _b4_a(0, Callable(), 10)]
 
 
 ## Ortak: kutuyu asansöre yükle, asansör üstte olunca (position.y <= 450) bekleme biter.
-func _b9_yukle() -> Array:
-	return [_b4_a(1, _b4_x_ge(620.0), 200), _b4_a(0, _b4_yukari("Asansor", B9_ASANSOR_UST_Y), 400)]
+## dur_x: oyuncunun asansörde durduğu x (kutu önünde); gecikme: yola çıkmadan önce bekleme (kare).
+func _b9_yukle(dur_x := 620.0, gecikme := 0) -> Array:
+	return [_b4_a(0, Callable(), gecikme), _b4_a(1, _b4_x_ge(dur_x), 200), _b4_a(0, _b4_yukari("Asansor", B9_ASANSOR_UST_Y), 400)]
 
 
 ## Tur 3 -> k3: kutuyu F2'ye taşı, Plaka3'e (x=760) bas.
-func _b9_k3() -> Array:
-	return _b9_yukle() + [_b4_a(1, _b4_x_ge(760.0), 100), _b4_a(0, _b4_plakada("Plaka3"), 60), _b4_a(0, Callable(), 10)]
+func _b9_k3(dur_x := 620.0, gecikme := 0) -> Array:
+	return _b9_yukle(dur_x, gecikme) + [_b4_a(1, _b4_x_ge(760.0), 100), _b4_a(0, _b4_plakada("Plaka3"), 60), _b4_a(0, Callable(), 10)]
 
 
 ## Alternatif S2 k3: kutuyu Plaka3'e iter (x=726), üstünden zıplayıp PlakaKutu'ya basar.
 func _b9_k3_s2() -> Array:
 	return _b9_yukle() + [_b4_a(1, _b4_x_ge(726.0), 100), _b4_a(0, Callable(), 8, true),
-		_b4_a(1, _b4_x_ge(930.0), 80), _b4_a(0, _b4_plakada("PlakaKutu"), 60), _b4_a(0, Callable(), 10)]
+		_b4_a(1, _b4_x_ge(B9_PK_X), 80), _b4_a(0, _b4_plakada("PlakaKutu"), 60), _b4_a(0, Callable(), 10)]
 
 
-## Tur 4 -> oyuncu (S1): kutuyu PlakaKutu'ya (x~930) iter, üstünden zıplar, G'nin altından kapıya.
-func _b9_oyuncu() -> Array:
-	return _b9_yukle() + [_b4_a(1, _b4_x_ge(896.0), 150), _b4_a(0, Callable(), 8, true),
-		_b4_a(1, _b4_x_ge(956.0), 40), _b4_a(0, _b4_durdu(441.0), 80), _b4_a(1, _b4_bitti_k(), 300)]
+## Tur 4 -> oyuncu (S1): kutuyu PlakaKutu'ya iter (kutu merkezi = oyuncu x + 34), üstünden zıplar, G'nin altından kapıya.
+## itme_x: itmenin bittiği oyuncu x'i; zipla_bekle: dikey zıplamadan sonra sağa geçmeden önceki kare.
+## Oyuncu L1'i (x=860) ekrana bakarak geçer: x=800'de L1 kapanana kadar bekler (normal akışta zaten kapalıdır).
+func _b9_oyuncu(itme_x := B9_PK_X - 34.0, zipla_bekle := 8) -> Array:
+	var l1_kapali := func(b: Node) -> bool: return not b.get_node("Lazer2").acik_mi()
+	return _b9_yukle() + [_b4_a(1, _b4_x_ge(800.0), 150), _b4_a(0, l1_kapali, 200),
+		_b4_a(1, _b4_x_ge(itme_x), 150), _b4_a(0, Callable(), zipla_bekle, true),
+		_b4_a(1, _b4_x_ge(itme_x + 60.0), 40), _b4_a(0, _b4_durdu(B9_F2_Y + 1.0), 80), _b4_a(1, _b4_bitti_k(), 300)]
 
 
 ## S2'de oyuncu kutuya dokunmaz: Plaka3'teki kutunun üstünden zıplar.
@@ -4350,16 +4509,16 @@ func _test_bolum9_atlanamaz() -> void:
 	var sb: Dictionary = await _b9_senaryo([], [_b4_a(1, _b4_x_ge(686.0), 200)] + _b8_zipla_dizisi(6, 1.0, 50),
 		_b9_yerlestir(Vector2(660.0, 570.0)))
 	var mb := _b4_ayak_min(sb["iz"])
-	_kaydi("Bölüm 9 atlanamaz: zeminden zıplayarak F2'ye (ayak y<440) çıkılamaz", mb >= 490.0 and mb < 599.0 and not sb["bitti"] and sb["oldu"] == 0,
-		"ayak y min=%.1f (zıplama tepesi ~503, F2 yüzeyi 440), zıpladı: %s, ölüm: %d" % [mb, mb < 595.0, sb["oldu"]])
+	_kaydi("Bölüm 9 atlanamaz: zeminden zıplayarak F2'ye (ayak y<430) çıkılamaz", mb >= 490.0 and mb < 599.0 and not sb["bitti"] and sb["oldu"] == 0,
+		"ayak y min=%.1f (zıplama tepesi ~499, F2 yüzeyi 430), zıpladı: %s, ölüm: %d" % [mb, mb < 595.0, sb["oldu"]])
 
-	# c) Kutu basamak: kutuyu Kat2'ye (x=702) kadar iter, üstüne çıkıp zıpla; ayak y>=440 kalır.
+	# c) Kutu basamak: kutuyu Kat2'ye (x=702) kadar iter, üstüne çıkıp zıpla; ayak y>=430 kalır (F2 yüzeyi 430).
 	var adim_c: Array = [_b4_a(1, _b4_x_ge(640.0), 400)] + _b8_zipla_dizisi(2, 1.0, 25) + _b8_zipla_dizisi(5, 1.0, 40)
 	var sc: Dictionary = await _b9_senaryo([], adim_c, _b9_yerlestir(Vector2(440.0, 570.0)))
 	var mc := _b4_ayak_min(sc["iz"])
 	var kc: Vector2 = _b9_kutu_aralik(sc["ozel"], "x")
 	_kaydi("Bölüm 9 atlanamaz: kutu basamak yapılarak F2'ye çıkılamaz", mc >= 445.0 and not sc["bitti"] and sc["oldu"] == 0,
-		"ayak y min=%.1f (kutu üstü 560, zıplama tepesi ~463; F2 440), kutu x: %.0f..%.0f (Kat2 duvarı 702 -> en çok 682), ölüm: %d" % [
+		"ayak y min=%.1f (kutu üstü 560, zıplama tepesi ~459; F2 430), kutu x: %.0f..%.0f (Kat2 duvarı 702 -> en çok 682), ölüm: %d" % [
 			mc, kc.x, kc.y, sc["oldu"]])
 
 	# d) Platformdan F2'ye atlanamaz (yatay 242 px): platform sağ ucundan sağa zıpla.
@@ -4374,20 +4533,20 @@ func _test_bolum9_atlanamaz() -> void:
 		"F2'ye çıktı: %s, en büyük x=%.0f (Kat2 sol kenarı 702), ölüm: %d" % [f2_d, maks_x_d, sd["oldu"]])
 
 	# e) L1 (x=860, F2) zıplayarak aşılamaz; kapalı G aşılamaz; L0 aşılamaz.
-	var se: Dictionary = await _b9_senaryo([], _b8_zipla_dizisi(8, 1.0, 25), _b9_yerlestir(Vector2(780.0, 416.0)))
+	var se: Dictionary = await _b9_senaryo([], _b8_zipla_dizisi(8, 1.0, 25), _b9_yerlestir(Vector2(780.0, B9_F2_Y - 24.0)))
 	var bas_e := 1.0e9
 	for p in se["iz"]:
 		bas_e = minf(bas_e, p.y - 24.0)
 	_kaydi("Bölüm 9 atlanamaz: F2'de zıplayarak L1 aşılamaz", se["oldu"] >= 1 and not se["bitti"] and bas_e >= 300.0 and _b7_hic(se["ozel"], "l1"),
 		"ölüm: %d (beklenen >=1), baş y min=%.1f (tavan 300), L1 açıktı: %s" % [se["oldu"], bas_e, _b7_hic(se["ozel"], "l1")])
-	var sg: Dictionary = await _b9_senaryo([], [_b4_a(1, Callable(), 80)] + _b8_zipla_dizisi(6, 1.0, 30), _b9_yerlestir(Vector2(990.0, 416.0)))
+	var sg: Dictionary = await _b9_senaryo([], [_b4_a(1, Callable(), 80)] + _b8_zipla_dizisi(6, 1.0, 30), _b9_yerlestir(Vector2(990.0, B9_F2_Y - 24.0)))
 	var son_g := 0.0
 	for p in sg["iz"]:
 		son_g = maxf(son_g, p.x)
 	_kaydi("Bölüm 9 atlanamaz: kapalı G yürüyerek/zıplayarak aşılamaz", son_g < 1050.0 and not sg["bitti"] and sg["oldu"] == 0 \
-		and _b7_min(sg["ozel"], "g") > 335.0,
-		"en büyük x=%.0f (G sol yüzü 1060, bedel 14), geçit y min=%.0f (kapalı 340), ölüm: %d, bitti: %s" % [
-			son_g, _b7_min(sg["ozel"], "g"), sg["oldu"], sg["bitti"]])
+		and _b7_min(sg["ozel"], "g") > B9_GECIT_KAPALI_Y - 5.0,
+		"en büyük x=%.0f (G sol yüzü 1060, bedel 14), geçit y min=%.0f (kapalı %.0f), ölüm: %d, bitti: %s" % [
+			son_g, _b7_min(sg["ozel"], "g"), B9_GECIT_KAPALI_Y, sg["oldu"], sg["bitti"]])
 	var sl: Dictionary = await _b9_senaryo([], _b8_zipla_dizisi(8, 1.0, 25), _b9_yerlestir(Vector2(200.0, 570.0)))
 	_kaydi("Bölüm 9 atlanamaz: zıplayarak L0 aşılamaz", sl["oldu"] >= 1 and not sl["bitti"] and _b7_hic(sl["ozel"], "l0"),
 		"ölüm: %d, L0 açıktı: %s" % [sl["oldu"], _b7_hic(sl["ozel"], "l0")])
@@ -4408,7 +4567,7 @@ func _test_bolum9_kisayol() -> void:
 		# Oyuncu iki yolu dener: S1 (kutuyu G'ye götür) ve S2 (kutuyu Plaka3'e iter, PlakaKutu'ya geçer).
 		var s1: Dictionary = await _b9_senaryo(k[1], _b9_oyuncu())
 		var oyuncu_s2: Array = _b9_yukle() + [_b4_a(1, _b4_x_ge(726.0), 100), _b4_a(0, Callable(), 8, true),
-			_b4_a(1, _b4_x_ge(930.0), 80), _b4_a(0, Callable(), 100), _b4_a(1, _b4_bitti_k(), 200)]
+			_b4_a(1, _b4_x_ge(B9_PK_X), 80), _b4_a(0, Callable(), 100), _b4_a(1, _b4_bitti_k(), 200)]
 		var s2: Dictionary = await _b9_senaryo(k[1], oyuncu_s2)
 		var ok: bool = not s1["bitti"] and not s2["bitti"]
 		hepsi = hepsi and ok
@@ -4424,8 +4583,8 @@ func _test_bolum9_kisayol() -> void:
 	var rk: Array = sr["kayit"]
 	var r1: Dictionary = await _b9_senaryo([rk, k3], _b9_oyuncu())
 	# Röle 2: k3 kutuyu PlakaKutu'ya itip sonra Plaka3'e döner (L1'i Plaka3 boşken geçmek zorunda -> ölür).
-	var role3: Array = _b9_yukle() + [_b4_a(1, _b4_x_ge(896.0), 150), _b4_a(0, Callable(), 8, true),
-		_b4_a(1, _b4_x_ge(956.0), 40), _b4_a(0, Callable(), 30), _b4_a(-1, _b4_x_le(760.0), 200), _b4_a(0, Callable(), 10)]
+	var role3: Array = _b9_yukle() + [_b4_a(1, _b4_x_ge(B9_PK_X - 34.0), 150), _b4_a(0, Callable(), 8, true),
+		_b4_a(1, _b4_x_ge(B9_PK_X + 26.0), 40), _b4_a(0, Callable(), 30), _b4_a(-1, _b4_x_le(760.0), 200), _b4_a(0, Callable(), 10)]
 	var sr3: Dictionary = await _b9_senaryo([k1, k2], role3)
 	var r3: Dictionary = await _b9_senaryo([k1, k2, sr3["kayit"]], _b9_oyuncu())
 	var ok_r: bool = not r1["bitti"] and not r3["bitti"] and sr["oldu"] >= 1 and sr3["oldu"] >= 1
@@ -4465,10 +4624,10 @@ func _test_bolum9_basarisizlik() -> void:
 	var kutu2: Vector2 = _b9_kutu_son(s2)
 	var son_g: float = s2["ozel"][s2["ozel"].size() - 1]["g"]
 	var son_pk: bool = s2["ozel"][s2["ozel"].size() - 1]["pk"]
-	var ok2: bool = not s2["bitti"] and kutu2.x > 965.0 and not son_pk
+	var ok2: bool = not s2["bitti"] and kutu2.x > B9_PK_X + 50.0 and not son_pk
 	_kaydi("Bölüm 9 başarısızlık: kutu PlakaKutu'yu aşıp G'ye itilir, bitmez", ok2,
-		"bitti: %s, ölüm: %d, son kutu x=%.0f (plaka 900..960, G 1060), PlakaKutu basılı: %s, geçit y=%.0f (kapalı 340)" % [
-			s2["bitti"], s2["oldu"], kutu2.x, son_pk, son_g])
+		"bitti: %s, ölüm: %d, son kutu x=%.0f (plaka %.0f..%.0f, G 1060), PlakaKutu basılı: %s, geçit y=%.0f (kapalı %.0f)" % [
+			s2["bitti"], s2["oldu"], kutu2.x, B9_PK_X - 30.0, B9_PK_X + 30.0, son_pk, son_g, B9_GECIT_KAPALI_Y])
 
 	# 3) k3 asansöre binmez (x=540'ta durur, kutu yerde): oyuncu kutuyu kendisi taşımak zorunda -> L1 açık, bitmez.
 	var k3k: Array = [_b4_a(1, _b4_x_ge(540.0), 100), _b4_a(0, Callable(), 10)]
@@ -4524,15 +4683,15 @@ func _test_bolum9_kutu_tasima() -> void:
 		if o["kutu"].x < 700.0 and o["kutu"].x > 580.0 and o["kutu"].y < 560.0:
 			tasindi = true
 			bagil_maks = maxf(bagil_maks, absf(o["kutu"].y - (o["as"] - 30.0)))
-		if ilk_f2 < 0 and o["kutu"].x >= 722.0 and absf(o["kutu"].y - 420.0) <= 2.0:
+		if ilk_f2 < 0 and o["kutu"].x >= 722.0 and absf(o["kutu"].y - (B9_F2_Y - 20.0)) <= 2.0:
 			ilk_f2 = i
 	var son: Vector2 = _b9_kutu_son(s)
 	var as_son: float = s["ozel"][s["ozel"].size() - 1]["as"]
-	var ok: bool = tasindi and bagil_maks <= 5.0 and ilk_f2 > 0 and absf(son.y - 420.0) <= 2.0 \
-		and son.x > 722.0 and absf(as_son - 450.0) <= 1.5 and s["oldu"] == 0
+	var ok: bool = tasindi and bagil_maks <= 5.0 and ilk_f2 > 0 and absf(son.y - (B9_F2_Y - 20.0)) <= 2.0 \
+		and son.x > 722.0 and absf(as_son - B9_ASANSOR_UST_Y) <= 1.5 and s["oldu"] == 0
 	_kaydi("Bölüm 9: kutu asansörle F2'ye taşınır (konum ölçümü)", ok,
-		"asansörle yükseldi: %s (kutu-asansör bağıl sapma en çok %.2f px), F2'ye ilk geçiş kare %d, son kutu=(%.1f,%.1f) (F2 yüzeyi 440 -> y 420), asansör y=%.1f (üstte 450), klon ölümleri: %s, oyuncu ölümü: %d" % [
-			tasindi, bagil_maks, ilk_f2, son.x, son.y, as_son, str(s["klon_oldu"]), s["oldu"]])
+		"asansörle yükseldi: %s (kutu-asansör bağıl sapma en çok %.2f px), F2'ye ilk geçiş kare %d, son kutu=(%.1f,%.1f) (F2 yüzeyi %.0f -> y %.0f), asansör y=%.1f (üstte %.0f), klon ölümleri: %s, oyuncu ölümü: %d" % [
+			tasindi, bagil_maks, ilk_f2, son.x, son.y, B9_F2_Y, B9_F2_Y - 20.0, as_son, B9_ASANSOR_UST_Y, str(s["klon_oldu"]), s["oldu"]])
 	_kayitlar().sifirla()
 
 
@@ -4549,7 +4708,7 @@ func _test_bolum9_ek_olcumler() -> void:
 	for gecikme in [0, 6, 12]:
 		var adim_a: Array = [_b4_a(0, g_acik, 150), _b4_a(1, Callable(), gecikme), _b4_a(1, Callable(), 1, true),
 			_b4_a(1, Callable(), 150)]
-		var sa: Dictionary = await _b9_senaryo([], adim_a, _b9_yerlestir(Vector2(950.0, 416.0)))
+		var sa: Dictionary = await _b9_senaryo([], adim_a, _b9_yerlestir(Vector2(B9_PK_X + 20.0, B9_F2_Y - 24.0)))
 		var maks := -1.0
 		for p in sa["iz"]:
 			maks = maxf(maks, p.x)
@@ -4560,10 +4719,10 @@ func _test_bolum9_ek_olcumler() -> void:
 				break
 		var g_ilk: float = sa["ozel"][ilk]["g"] if ilk >= 0 else -1.0
 		var ok: bool = not sa["bitti"] and sa["oldu"] == 0 and maks < 1046.0 and sa["tamam"][0] \
-			and (ilk < 0 or g_ilk >= 292.0)
+			and (ilk < 0 or g_ilk >= B9_GECIT_GECIS_Y)
 		ok_a = ok_a and ok
-		ayr_a.append("gecikme %d: en büyük x=%.1f, x>=1041 kare=%d, o karede G y=%.0f (geçiş için <=292), bitti=%s, ölüm=%d" % [
-			gecikme, maks, ilk, g_ilk, sa["bitti"], sa["oldu"]])
+		ayr_a.append("gecikme %d: en büyük x=%.1f, x>=1041 kare=%d, o karede G y=%.0f (geçiş için <=%.0f; pay %.0f px = %.1f kare), bitti=%s, ölüm=%d" % [
+			gecikme, maks, ilk, g_ilk, B9_GECIT_GECIS_Y, g_ilk - B9_GECIT_GECIS_Y, (g_ilk - B9_GECIT_GECIS_Y) / 2.0, sa["bitti"], sa["oldu"]])
 	_kaydi("Bölüm 9 atlanamaz: PlakaKutu'dan ayrılıp G'ye sprint (düz ve zıplayarak) geçemez", ok_a, "; ".join(ayr_a))
 
 	# b) Asansör kutuda takılıp basamak olur: k2 yerine plakayı sonradan bırakan klon; kutu yukarıdaki
@@ -4587,19 +4746,20 @@ func _test_bolum9_ek_olcumler() -> void:
 	var as_ara: float = sb["ozel"][sb["baslangic"][5] if sb["baslangic"].size() > 5 else 0]["as"]
 	var f2_b := false
 	for p in sb["iz"]:
-		if p.x >= 702.0 and p.y + B4_AYAK <= 445.0:
+		if p.x >= 702.0 and p.y + B4_AYAK <= B9_F2_Y + 1.0:
 			f2_b = true
-	_kaydi("Bölüm 9 ölçüm: asansör kutuda takılıp basamak olur; 2 klonla bölüm yine de bitmez",
+	# 2026-10-16 ayar: F2 440 -> 430; basamaktan F2'ye gereken 96 -> 106 px (ayrık karede zıplama tepesi ~100,9): artık F2'ye çıkılamaz.
+	_kaydi("Bölüm 9 ölçüm: asansör kutuda takılıp basamak olur; basamaktan F2'ye çıkılamaz, bitmez",
 		not sk2["tamam"].has(false) and not sb["tamam"].slice(0, 5).has(false) \
-		and as_ara > 535.0 and as_ara < 600.0 and not sb["bitti"],
-		"klon adımları %s, oyuncu adımları %s, asansör basamak anında y=%.1f (kutuda takılı ~550; inik 610), basamaktan ayak y min=%.1f (F2 yüzeyi 440), F2'ye ÇIKTI: %s (ölçüm; L1'de ölür), bitti: %s, ölüm: %d" % [
-			str(sk2["tamam"]), str(sb["tamam"]), as_ara, mb, f2_b, sb["bitti"], sb["oldu"]])
+		and as_ara > 535.0 and as_ara < 600.0 and not sb["bitti"] and not f2_b and mb > B9_F2_Y + 1.0,
+		"klon adımları %s, oyuncu adımları %s, asansör basamak anında y=%.1f (kutuda takılı ~550; inik 610), basamaktan ayak y min=%.1f (F2 yüzeyi %.0f; basamak üstü %.1f, gereken %.1f; ayrık zıplama tepesi ~100,9), F2'ye ÇIKTI: %s, bitti: %s, ölüm: %d" % [
+			str(sk2["tamam"]), str(sb["tamam"]), as_ara, mb, B9_F2_Y, as_ara - 10.0, as_ara - 10.0 - B9_F2_Y, f2_b, sb["bitti"], sb["oldu"]])
 
 	# c) Kutu F2'de, oyuncu sola iter: kutu F2 kenarından düşer, platforma (x 340..460, yüzey 530)
 	# ulaşamaz, zeminde kalır; bölüm bitmez.
 	var yer_c := func(b: Node) -> void:
-		b.get_node("Oyuncu").global_position = Vector2(800.0, 416.0)
-		b.get_node("Kutu").global_position = Vector2(760.0, 420.0)
+		b.get_node("Oyuncu").global_position = Vector2(800.0, B9_F2_Y - 24.0)
+		b.get_node("Kutu").global_position = Vector2(760.0, B9_F2_Y - 20.0)
 	var sc: Dictionary = await _b9_senaryo([], [_b4_a(-1, _b4_x_le(450.0), 250), _b4_a(0, Callable(), 60)], yer_c)
 	var kc: Vector2 = _b9_kutu_aralik(sc["ozel"], "x")
 	var kson: Vector2 = _b9_kutu_son(sc)
@@ -4609,8 +4769,8 @@ func _test_bolum9_ek_olcumler() -> void:
 			platformda = true
 	_kaydi("Bölüm 9 ölçüm: F2'deki kutu sola itilince kenardan düşer, platforma ulaşamaz",
 		kson.y > 570.0 and kson.x > 470.0 and kc.x > 470.0 and not platformda and not sc["bitti"],
-		"kutu x aralığı %.0f..%.0f, son kutu=(%.1f,%.1f) (F2 yüzeyi 420, zemin 580, platform 340..460/y~510), platformda: %s, oyuncu ölümü: %d" % [
-			kc.x, kc.y, kson.x, kson.y, platformda, sc["oldu"]])
+		"kutu x aralığı %.0f..%.0f, son kutu=(%.1f,%.1f) (F2'de kutu y %.0f, zemin 580, platform 340..460/y~510), platformda: %s, oyuncu ölümü: %d" % [
+			kc.x, kc.y, kson.x, kson.y, B9_F2_Y - 20.0, platformda, sc["oldu"]])
 	_kayitlar().sifirla()
 
 
@@ -4648,6 +4808,113 @@ func _test_bolum9_determinizm() -> void:
 			TEKRAR, referans["kare"], sapmali, maks_sapma, bitmeyen, s0["bitti"]])
 	_kayitlar().sifirla()
 	paused = false
+
+
+## Örnekler içinde anahtarın ilk true olduğu kare (-1: hiç).
+func _b9_ilk(ozel: Array, anahtar: String) -> int:
+	for i in range(ozel.size()):
+		if ozel[i][anahtar]:
+			return i
+	return -1
+
+
+## Tarama sonucu: geçen değerlerin [en küçük, en büyük] aralığı ve sayısı.
+func _b9_aralik(degerler: Array, gecen: Array) -> Dictionary:
+	var lo := 1.0e9
+	var hi := -1.0e9
+	var n := 0
+	for i in range(degerler.size()):
+		if gecen[i]:
+			lo = minf(lo, degerler[i])
+			hi = maxf(hi, degerler[i])
+			n += 1
+	return {"lo": lo, "hi": hi, "n": n}
+
+
+## 10) Ölçüm (2026-10-16, ayar): kritik pencere payları ve tur süreleri (kare). Her satırda
+## ilgili tur yeniden kaydedilir, sonraki turlar betikle yeniden üretilir; sonuç "bitti" ile ölçülür.
+## Eşikler: her kritik pencerede >= 8 kare pay, her tur <= 600 kare.
+func _test_bolum9_pencereler() -> void:
+	var kay: Array = await _b9_kayitlar()
+	var k1: Array = kay[0]
+	var k2: Array = kay[1]
+	var k3: Array = kay[2]
+	var ayr: Array = []
+	var ok := true
+	# a) k2 basma anı (Plaka2'nin ilk basıldığı kare): bekleme W taranır.
+	var ws: Array = [0, 10, 20, 30, 40, 60, 80, 120]
+	var w_gecen: Array = []
+	var w_ayr: Array = []
+	var bas_secili := -1
+	for w in ws:
+		var s2: Dictionary = await _b9_senaryo([k1], _b9_k2(w))
+		var f: int = _b9_ilk(s2["ozel"], "p2")
+		var s3: Dictionary = await _b9_senaryo([k1, s2["kayit"]], _b9_k3())
+		var s4: Dictionary = await _b9_senaryo([k1, s2["kayit"], s3["kayit"]], _b9_oyuncu())
+		w_gecen.append(s4["bitti"])
+		w_ayr.append("W%d:bas%d:%s" % [w, f, "+" if s4["bitti"] else "-"])
+		if w == B9_K2_BEKLE:
+			bas_secili = f
+	ayr.append("a) k2 basma (W:kare:bitti) " + " ".join(w_ayr))
+	# b) k3 geç kalma payı (seçili k2 ile): k3 D kare geç çıkar.
+	var ds: Array = [0, 10, 20, 30, 40, 50, 60, 80, 100, 120]
+	var d_gecen: Array = []
+	for d in ds:
+		var s3: Dictionary = await _b9_senaryo([k1, k2], _b9_k3(620.0, d))
+		var s4: Dictionary = await _b9_senaryo([k1, k2, s3["kayit"]], _b9_oyuncu())
+		d_gecen.append(s4["bitti"])
+	var d_ar: Dictionary = _b9_aralik(ds, d_gecen)
+	ayr.append("b) k3 geç kalma: en çok %.0f kare (taranan %s, geçen %s)" % [d_ar["hi"], str(ds), str(d_gecen)])
+	ok = ok and d_ar["lo"] == 0.0 and d_ar["hi"] >= 8.0
+	# c) Oyuncu (tur 4) geç kalma payı.
+	var o_gecen: Array = []
+	for d in ds:
+		var s4: Dictionary = await _b9_senaryo(kay, [_b4_a(0, Callable(), d)] + _b9_oyuncu())
+		o_gecen.append(s4["bitti"])
+	var o_ar: Dictionary = _b9_aralik(ds, o_gecen)
+	ayr.append("c) oyuncu geç kalma: en çok %.0f kare (geçen %s)" % [o_ar["hi"], str(o_gecen)])
+	ok = ok and o_ar["lo"] == 0.0 and o_ar["hi"] >= 8.0
+	# d) k3'ün asansörde durduğu x (kutu önünde): durma aralığı.
+	var xs: Array = [540.0, 560.0, 570.0, 580.0, 600.0, 620.0, 640.0, 645.0]   # 645: kutu Kat2 duvarına dayanana kadar sağ basılı (oyuncu ~648'de durur)
+	var x_gecen: Array = []
+	for x in xs:
+		var s3: Dictionary = await _b9_senaryo([k1, k2], _b9_k3(x))
+		var s4: Dictionary = await _b9_senaryo([k1, k2, s3["kayit"]], _b9_oyuncu())
+		x_gecen.append(s4["bitti"])
+	var x_ar: Dictionary = _b9_aralik(xs, x_gecen)
+	ayr.append("d) k3 asansörde durma x: %.0f..%.0f (%.0f kare; geçen %s)" % [x_ar["lo"], x_ar["hi"], (x_ar["hi"] - x_ar["lo"]) / 5.0, str(x_gecen)])
+	ok = ok and (x_ar["hi"] - x_ar["lo"]) / 5.0 >= 8.0
+	# e) Tur 4: kutunun PlakaKutu'da bırakıldığı yer (kutu merkezi = itme_x + 34).
+	var ks: Array = []
+	for i in range(-7, 8):
+		ks.append(B9_PK_X - 34.0 + i * 10.0)
+	var k_gecen: Array = []
+	for kx in ks:
+		var s4: Dictionary = await _b9_senaryo(kay, _b9_oyuncu(kx))
+		k_gecen.append(s4["bitti"])
+	var k_ar: Dictionary = _b9_aralik(ks, k_gecen)
+	ayr.append("e) kutu bırakma (kutu merkezi) %.0f..%.0f (%.0f kare; geçen %s)" % [k_ar["lo"] + 34.0, k_ar["hi"] + 34.0, (k_ar["hi"] - k_ar["lo"]) / 5.0, str(k_gecen)])
+	ok = ok and (k_ar["hi"] - k_ar["lo"]) / 5.0 >= 8.0
+	# f) Tur 4: kutunun üstünden geçiş, dikey zıplamadan sonra sağa basma karesi.
+	var zs: Array = []
+	for z in range(1, 41):
+		zs.append(z)
+	var z_gecen: Array = []
+	for z in zs:
+		var s4: Dictionary = await _b9_senaryo(kay, _b9_oyuncu(B9_PK_X - 34.0, z))
+		z_gecen.append(s4["bitti"])
+	var z_ar: Dictionary = _b9_aralik(zs, z_gecen)
+	ayr.append("f) kutu üstünden geçiş: sağa basma karesi %.0f..%.0f (%d kare)" % [z_ar["lo"], z_ar["hi"], z_ar["n"]])
+	ok = ok and z_ar["n"] >= 8
+	# g) Tur süreleri (çözüm betiği).
+	var t1: Dictionary = await _b9_senaryo([], _b9_k1())
+	var t2: Dictionary = await _b9_senaryo([k1], _b9_k2())
+	var t3: Dictionary = await _b9_senaryo([k1, k2], _b9_k3())
+	var t4: Dictionary = await _b9_senaryo(kay, _b9_oyuncu())
+	ayr.append("g) tur kareleri %d / %d / %d / %d (k2 basma karesi %d)" % [t1["kare"], t2["kare"], t3["kare"], t4["kare"], bas_secili])
+	ok = ok and t4["bitti"] and maxi(maxi(t1["kare"], t2["kare"]), maxi(t3["kare"], t4["kare"])) <= 600
+	_kaydi("Bölüm 9 ölçüm: kritik pencere payları (>= 8 kare) ve tur süreleri (<= 600 kare)", ok, "; ".join(ayr))
+	_kayitlar().sifirla()
 
 
 # ---------------------------------------------------------------- Bölüm 10 (taşıma bandı)
@@ -7199,6 +7466,2692 @@ func _test_tasima_bandi() -> void:
 
 # ---------------------------------------------------------------- rapor
 
+# ---------------------------------------------------------------- Aşağı düşme (asagi eylemi)
+# Kullanıcı kararı (docs/kararlar.md): tek yönlü platformda `asagi` -> o karakter için 12 kare yok sayılır,
+# sonra katı. Yalnızca tek yönlü platformda etkili. Kayıt {yon, zipla, asagi}; eski kayıtta asagi yok = false.
+# Test sahnesi: tests/sahneler/asagi_test.tscn (zemin merkezi y=576, platform üstü merkezi y=506,
+# kutu üstü 536, asansör üstü 526).
+
+const ASAGI_TEST := "res://tests/sahneler/asagi_test.tscn"
+const SD_PLATFORM_Y := 506.0
+const SD_ZEMIN_Y := 576.0
+const SD_BASMA := 10   # asagi darbesinin gönderildiği kare (karakter o zamana dek platformda oturmuştur)
+
+
+func _asagi_testleri() -> void:
+	aktif_bolum = ASAGI_TEST
+	await _test_sd_duser()
+	await _test_sd_basmadan_durur()
+	await _test_sd_zemin_etkisiz()
+	await _test_sd_kutu_asansor_etkisiz()
+	await _test_sd_klon()
+	await _test_sd_eski_kayit()
+	await _test_sd_digerleri_etkilenmez()
+	await _test_sd_tekrar_cikis()
+	await _test_sd_determinizm()
+	await _test_sd_duvar_duser()
+	await _test_sd_duvar_zemin_etkisiz()
+	await _test_sd_duvar_12_kare()
+	await _test_sd_gercek_sahneler()
+	aktif_bolum = ASAGI_TEST
+
+
+## [[kare, yon, zipla, asagi], ...] -> girdi dizisi (zıplama yalnızca parçanın ilk karesinde).
+func _sd_betik(parcalar: Array) -> Array:
+	var cikti: Array = []
+	for p in parcalar:
+		for i in range(p[0]):
+			cikti.append({"yon": float(p[1]), "zipla": bool(p[2]) and i == 0, "asagi": bool(p[3])})
+	return cikti
+
+
+func _sd_ornek(b: Node) -> Dictionary:
+	var o: CharacterBody2D = b.get_node("Oyuncu")
+	var d := {"o": o.global_position, "ist": o.get_collision_exceptions().size(),
+		"k": b.get_node("Kutu").global_position, "k2": b.get_node("Kutu2").global_position,
+		"a": b.get_node("Asansor").global_position, "klon": Vector2.ZERO, "kist": 0}
+	var kl: Array = _klonlar(b)
+	if kl.size() > 0:
+		d["klon"] = kl[0].global_position
+		d["kist"] = kl[0].get_collision_exceptions().size()
+	return d
+
+
+## Düğümleri yerleştirir; "Klon" anahtarı ilk klonu taşır. Oyuncu düğümü tutucuya eklenir.
+func _sd_yerlestir(konumlar: Dictionary, tutucu: Array) -> Callable:
+	return func(b: Node) -> void:
+		tutucu.append(b.get_node("Oyuncu"))
+		for ad in konumlar:
+			if ad == "Klon":
+				_klonlar(b)[0].global_position = konumlar[ad]
+			else:
+				b.get_node(ad).global_position = konumlar[ad]
+
+
+func _sd_calistir(kayitlar: Array, betik: Array, n: int, yer: Dictionary, tutucu := []) -> Dictionary:
+	return await _lazer_senaryo(kayitlar, betik, n, _sd_yerlestir(yer, tutucu), _sd_ornek)
+
+
+## Verilen anahtarın y değerinin hedeften en büyük mutlak sapması, [bas, son) aralığında.
+func _sd_y_sapma(iz: Array, anahtar: String, hedef: float, bas: int, son := -1) -> float:
+	var m := 0.0
+	var s := iz.size() if son < 0 else mini(son, iz.size())
+	for i in range(bas, s):
+		m = maxf(m, absf(iz[i][anahtar].y - hedef))
+	return m
+
+
+## y değerinin eşiği ilk aştığı kare (y > esik), yoksa -1.
+func _sd_ilk_y_ustu(iz: Array, anahtar: String, esik: float, bas := 0) -> int:
+	for i in range(bas, iz.size()):
+		if iz[i][anahtar].y > esik:
+			return i
+	return -1
+
+
+func _sd_ist_kare(iz: Array, anahtar := "ist") -> int:
+	var n := 0
+	for d in iz:
+		if d[anahtar] > 0:
+			n += 1
+	return n
+
+
+func _sd_fark(a: Array, b: Array, anahtarlar: Array) -> float:
+	var m := 0.0
+	if a.size() != b.size():
+		return 1.0e9
+	for i in range(a.size()):
+		for k in anahtarlar:
+			m = maxf(m, (a[i][k] - b[i][k]).length())
+	return m
+
+
+## 1) Oyuncu platformda `asagi` ile alttaki zemine düşer.
+func _test_sd_duser() -> void:
+	var betik := _sd_betik([[SD_BASMA, 0, false, false], [1, 0, false, true], [89, 0, false, false]])
+	var s: Dictionary = await _sd_calistir([], betik, 100, {"Oyuncu": Vector2(200, 500)})
+	var iz: Array = s["ozel_iz"]
+	var oturdu: float = _sd_y_sapma(iz, "o", SD_PLATFORM_Y, 6, SD_BASMA + 1)
+	var dusus := _sd_ilk_y_ustu(iz, "o", SD_PLATFORM_Y + 1.0)
+	var inis := _sd_ilk_y_ustu(iz, "o", SD_ZEMIN_Y - 0.5)
+	var son_sap: float = _sd_y_sapma(iz, "o", SD_ZEMIN_Y, maxi(inis, 0) + 1)
+	var yatay := 0.0
+	for d in iz:
+		yatay = maxf(yatay, absf(d["o"].x - 200.0))
+	var ist := _sd_ist_kare(iz)
+	var ok: bool = s["tamamlandi"] and oturdu < 0.5 and dusus > SD_BASMA and dusus <= SD_BASMA + 3 \
+		and inis > dusus and son_sap < 0.5 and yatay < 0.5 and ist >= 11 and ist <= 13
+	_kaydi("Aşağı düşme 1) Platformda asagi ile alttaki zemine düşer", ok,
+		"platformda y=%.1f (beklenen 506, sapma %.2f), basma karesi %d, düşüş başladı kare %d, zemine indi kare %d (düşüş süresi %d kare), son y sapma %.2f (zemin 576), yatay sapma %.2f px, platform yok sayılan kare sayısı %d (beklenen 12)" % [
+			iz[SD_BASMA - 1]["o"].y, oturdu, SD_BASMA, dusus, inis, inis - dusus, son_sap, yatay, ist])
+
+
+## 2) asagi basmadan düşmez.
+func _test_sd_basmadan_durur() -> void:
+	var s: Dictionary = await _sd_calistir([], _sd_betik([[100, 0, false, false]]), 100, {"Oyuncu": Vector2(200, 500)})
+	var iz: Array = s["ozel_iz"]
+	var sap: float = _sd_y_sapma(iz, "o", SD_PLATFORM_Y, 6)
+	_kaydi("Aşağı düşme 2) asagi basmadan platformda kalır", s["tamamlandi"] and sap < 0.5 and _sd_ist_kare(iz) == 0,
+		"kare 6..99 en büyük y sapması %.3f px (beklenen < 0.5), yok sayma kare sayısı %d (beklenen 0)" % [sap, _sd_ist_kare(iz)])
+
+
+## 3) Normal zeminde asagi etkisiz: y değişmez, hareket asagi basılı olmayan kontrolle birebir aynı.
+func _test_sd_zemin_etkisiz() -> void:
+	var yer := {"Oyuncu": Vector2(300, 576)}
+	var asagili := _sd_betik([[20, 1, false, true], [20, 0, false, true]])
+	var kontrol := _sd_betik([[20, 1, false, false], [20, 0, false, false]])
+	var s: Dictionary = await _sd_calistir([], asagili, 40, yer)
+	var c: Dictionary = await _sd_calistir([], kontrol, 40, yer)
+	var iz: Array = s["ozel_iz"]
+	var sap: float = _sd_y_sapma(iz, "o", SD_ZEMIN_Y, 0)
+	var fark: float = _sd_fark(iz, c["ozel_iz"], ["o"])
+	var yol: float = iz[iz.size() - 1]["o"].x - 300.0
+	_kaydi("Aşağı düşme 3) Normal zeminde asagi etkisiz (y değişmez, takılma yok)",
+		s["tamamlandi"] and sap < 0.5 and fark == 0.0 and _sd_ist_kare(iz) == 0 and absf(yol - 100.0) < 1.5,
+		"y sapma %.4f px, asagi'lı ile asagi'sız kontrol arası en büyük fark %.4f, 20 karede alınan yol %.1f px (beklenen ~100), yok sayma kare sayısı %d" % [
+			sap, fark, yol, _sd_ist_kare(iz)])
+
+
+## 4) Kutu üstünde ve asansör üstünde etkisiz.
+func _test_sd_kutu_asansor_etkisiz() -> void:
+	var betik := _sd_betik([[20, 0, false, false], [60, 0, false, true]])
+	# Kutu: üst yüzey 560 -> merkez 536.
+	var s: Dictionary = await _sd_calistir([], betik, 80, {"Oyuncu": Vector2(800, 520)})
+	var iz: Array = s["ozel_iz"]
+	var k_sap: float = _sd_y_sapma(iz, "o", 536.0, 12)
+	var kutu_sap: float = _sd_y_sapma(iz, "k", 580.0, 0)
+	var k_ok: bool = s["tamamlandi"] and k_sap < 0.5 and kutu_sap < 0.5 and _sd_ist_kare(iz) == 0
+	_kaydi("Aşağı düşme 4a) Kutu üstünde asagi etkisiz", k_ok,
+		"oyuncu y sapma %.3f (beklenen merkez 536), kutu y sapma %.3f, yok sayma kare sayısı %d (beklenen 0)" % [
+			k_sap, kutu_sap, _sd_ist_kare(iz)])
+	# Asansör (hareketsiz, plaka basılmaz): üst yüzey 550 -> merkez 526.
+	s = await _sd_calistir([], betik, 80, {"Oyuncu": Vector2(1000, 515)})
+	iz = s["ozel_iz"]
+	var a_sap: float = _sd_y_sapma(iz, "o", 526.0, 12)
+	var as_sap: float = _sd_y_sapma(iz, "a", 560.0, 0)
+	_kaydi("Aşağı düşme 4b) Asansör üstünde asagi etkisiz", s["tamamlandi"] and a_sap < 0.5 and as_sap < 0.5 and _sd_ist_kare(iz) == 0,
+		"oyuncu y sapma %.3f (beklenen merkez 526), asansör y sapma %.3f, yok sayma kare sayısı %d (beklenen 0)" % [
+			a_sap, as_sap, _sd_ist_kare(iz)])
+
+
+## 5) Klon kayıttan asagi ile aynı karede aynı şekilde düşer (kayıt alanı klavye yoluyla yazılır).
+func _test_sd_klon() -> void:
+	var betik := _sd_betik([[SD_BASMA, 0, false, false], [1, 0, false, true], [89, 0, false, false]])
+	var tut := []
+	var canli: Dictionary = await _sd_calistir([], betik, 100, {"Oyuncu": Vector2(200, 500)}, tut)
+	var kayit: Array = tut[0].kayit_girdileri.duplicate(true)
+	var asagi_n := 0
+	var alan_var := true
+	for g in kayit:
+		alan_var = alan_var and g.has("asagi")
+		if g.get("asagi", false):
+			asagi_n += 1
+	var kayit_ok: bool = kayit.size() == 100 and alan_var and asagi_n == 1 and kayit[SD_BASMA].get("asagi", false)
+	var klon: Dictionary = await _sd_calistir([kayit], [], 100, {"Oyuncu": Vector2(60, 576), "Klon": Vector2(200, 500)})
+	var cz: Array = canli["ozel_iz"]
+	var kz: Array = klon["ozel_iz"]
+	var maks := 0.0
+	for i in range(mini(cz.size(), kz.size())):
+		maks = maxf(maks, (cz[i]["o"] - kz[i]["klon"]).length())
+	var c_dus := _sd_ilk_y_ustu(cz, "o", SD_PLATFORM_Y + 1.0)
+	var k_dus := _sd_ilk_y_ustu(kz, "klon", SD_PLATFORM_Y + 1.0)
+	var k_ist := _sd_ist_kare(kz, "kist")
+	var son: Vector2 = kz[kz.size() - 1]["klon"]
+	_kaydi("Aşağı düşme 5) Klon kayıttan aynı karede aynı şekilde düşer",
+		kayit_ok and cz.size() == 100 and kz.size() == 100 and maks == 0.0 and c_dus == k_dus and c_dus > 0 \
+			and absf(son.y - SD_ZEMIN_Y) < 0.5 and k_ist >= 11 and k_ist <= 13,
+		"kayıt: %d kare, asagi=true %d kare (kare %d), tüm karelerde asagi alanı: %s; canlı düşüş karesi %d, klon düşüş karesi %d, canlı-klon en büyük fark %.4f px, klon son y=%.1f, klonun yok saydığı kare %d" % [
+			kayit.size(), asagi_n, SD_BASMA, alan_var, c_dus, k_dus, maks, son.y, k_ist])
+
+
+## 6) Eski kayıt formatı ({yon, zipla}) hata vermeden oynar, asagi = false.
+func _test_sd_eski_kayit() -> void:
+	var eski: Array = _betik([[10, 0, false], [30, 1, false], [1, 0, true], [60, 0, false]])
+	var yeni: Array = []
+	var alan_yok := true
+	for g in eski:
+		alan_yok = alan_yok and not g.has("asagi")
+		var h: Dictionary = g.duplicate()
+		h["asagi"] = false
+		yeni.append(h)
+	# Klon platform A üstünde başlar, sağa yürür, zıplar: eski ve yeni biçim birebir aynı olmalı.
+	var yer := {"Oyuncu": Vector2(60, 576), "Klon": Vector2(160, 500)}
+	var e: Dictionary = await _sd_calistir([eski], [], 101, yer)
+	var y: Dictionary = await _sd_calistir([yeni], [], 101, yer)
+	var fark: float = _sd_fark(e["ozel_iz"], y["ozel_iz"], ["klon"])
+	var iz: Array = e["ozel_iz"]
+	var hareket: float = iz[iz.size() - 1]["klon"].x - 160.0
+	# Eski biçimli durağan kayıt platformda düşmez.
+	var d: Dictionary = await _sd_calistir([_betik([[80, 0, false]])], [], 80, {"Klon": Vector2(200, 500)})
+	var dsap: float = _sd_y_sapma(d["ozel_iz"], "klon", SD_PLATFORM_Y, 6)
+	_kaydi("Aşağı düşme 6) Eski kayıt formatı hata vermeden oynar (asagi = false)",
+		alan_yok and e["tamamlandi"] and y["tamamlandi"] and fark == 0.0 and absf(hareket) > 50.0 and dsap < 0.5 \
+			and _sd_ist_kare(d["ozel_iz"], "kist") == 0,
+		"kayıtta asagi alanı yok: %s, eski/yeni biçim en büyük fark %.4f px, klon x yolu %.1f px, durağan eski kayıt platformda y sapma %.3f (düşmedi)" % [
+			alan_yok, fark, hareket, dsap])
+
+
+## 7) Düşen karakterin ardından başka karakter ve kutu platformda kalır (istisna yalnızca basan karakter için).
+func _test_sd_digerleri_etkilenmez() -> void:
+	var klon_kaydi: Array = _sd_betik([[70, 0, false, false]])
+	var betik := _sd_betik([[6, 0, false, false], [1, 0, false, true], [63, 0, false, false]])
+	# Oyuncu ve klon platform A'da (x 150 / 250, kutudan ayrık), kutu havadan platforma iner.
+	var yer := {"Oyuncu": Vector2(150, 500), "Klon": Vector2(250, 500), "Kutu2": Vector2(200, 470)}
+	var s: Dictionary = await _sd_calistir([klon_kaydi], betik, 70, yer)
+	var iz: Array = s["ozel_iz"]
+	var dusus := _sd_ilk_y_ustu(iz, "o", SD_PLATFORM_Y + 1.0)
+	var o_son: float = iz[iz.size() - 1]["o"].y
+	var klon_sap: float = _sd_y_sapma(iz, "klon", SD_PLATFORM_Y, 6)
+	var kutu_inis := -1
+	for i in range(iz.size()):
+		if iz[i]["k2"].y > 509.0:
+			kutu_inis = i
+			break
+	var kutu_max := 0.0
+	for i in range(maxi(kutu_inis, 0), iz.size()):
+		kutu_max = maxf(kutu_max, iz[i]["k2"].y)
+	var kutu_son: float = iz[iz.size() - 1]["k2"].y
+	var ist := _sd_ist_kare(iz)
+	var ok: bool = s["tamamlandi"] and dusus > 0 and absf(o_son - SD_ZEMIN_Y) < 0.5 and klon_sap < 0.5 \
+		and _sd_ist_kare(iz, "kist") == 0 and kutu_inis > 0 and kutu_inis < dusus + 14 and kutu_max < 511.0 \
+		and absf(kutu_son - 510.0) < 0.5 and ist >= 11 and ist <= 13
+	_kaydi("Aşağı düşme 7) Düşen karakterden sonra başka karakter/kutu platformda durur", ok,
+		"oyuncu kare %d'te düştü, son y=%.1f (zemin); klon platformda y sapma %.3f, klonun yok saydığı kare %d (beklenen 0); kutu kare %d'te platforma indi, en çok y=%.2f, son y=%.2f (beklenen 510); oyuncu yok sayma kare sayısı %d (12 kare sonra platform yeniden katı)" % [
+			dusus, o_son, klon_sap, _sd_ist_kare(iz, "kist"), kutu_inis, kutu_max, kutu_son, ist])
+
+
+## 8) Zıplayarak altından geçme bozulmadı; düştükten sonra platforma tek yönlü kuralıyla çıkılır.
+func _test_sd_tekrar_cikis() -> void:
+	# a) asagi darbesi, zemine iniş, altından zıplayıp platformun üstüne çıkma (platform yeniden katı olmalı).
+	var betik := _sd_betik([[6, 0, false, false], [1, 0, false, true], [44, 0, false, false], [1, 0, true, false], [100, 0, false, false]])
+	var s: Dictionary = await _sd_calistir([], betik, betik.size(), {"Oyuncu": Vector2(500, 500)})
+	var iz: Array = s["ozel_iz"]
+	var yerde: float = iz[50]["o"].y
+	var min_y := 1.0e9
+	for i in range(51, iz.size()):
+		min_y = minf(min_y, iz[i]["o"].y)
+	var son_sap: float = _sd_y_sapma(iz, "o", SD_PLATFORM_Y, iz.size() - 30)
+	_kaydi("Aşağı düşme 8a) Düştükten sonra altından zıplayıp platforma çıkılır",
+		s["tamamlandi"] and absf(yerde - SD_ZEMIN_Y) < 0.5 and min_y < 500.0 and son_sap < 0.5,
+		"zıplamadan önce y=%.1f (zemin), zıplamadaki en yüksek y=%.1f (<500: platformun altından geçti), son 30 karede platform üstünden sapma %.3f (kararlı)" % [
+			yerde, min_y, son_sap])
+	# b) asagi sürekli basılıyken zıpla: yukarı geçiş engellenmez; üstte duruşta tekrar düşer, sıkışma/tünel yok.
+	var betik_b := _sd_betik([[6, 0, false, false], [45, 0, false, true], [1, 0, true, true], [100, 0, false, true]])
+	var sb: Dictionary = await _sd_calistir([], betik_b, betik_b.size(), {"Oyuncu": Vector2(500, 500)})
+	var izb: Array = sb["ozel_iz"]
+	var min_b := 1.0e9
+	var maks_b := -1.0e9
+	for i in range(51, izb.size()):
+		min_b = minf(min_b, izb[i]["o"].y)
+		maks_b = maxf(maks_b, izb[i]["o"].y)
+	var son_b: float = izb[izb.size() - 1]["o"].y
+	_kaydi("Aşağı düşme 8b) asagi basılıyken altından zıplayıp geçme engellenmez, sıkışma yok",
+		sb["tamamlandi"] and min_b < 500.0 and maks_b < SD_ZEMIN_Y + 0.5 and absf(son_b - SD_ZEMIN_Y) < 0.5,
+		"zıplamada en yüksek y=%.1f (<500), en alçak y=%.1f (zemin 576, altına inmedi), son y=%.1f (üstte tekrar düşüp zemine indi)" % [
+			min_b, maks_b, son_b])
+
+
+## 9) Determinizm 100x: S içeren kayıt (klon + kutu), her karede birebir aynı.
+func _test_sd_determinizm() -> void:
+	var betik := _sd_betik([[6, 0, false, false], [1, 0, false, true], [40, 0, false, false], [1, 0, true, false],
+		[50, 0, false, false], [30, 1, false, true], [20, 0, false, true], [1, 0, true, true], [30, 0, false, false]])
+	var tut := []
+	await _sd_calistir([], betik, betik.size(), {"Oyuncu": Vector2(150, 500)}, tut)
+	var kayit: Array = tut[0].kayit_girdileri.duplicate(true)
+	var yer := {"Oyuncu": Vector2(60, 576), "Klon": Vector2(150, 500), "Kutu2": Vector2(200, 470)}
+	var ref: Array = []
+	var sapmali := 0
+	var maks_sapma := 0.0
+	for r in range(TEKRAR):
+		var s: Dictionary = await _sd_calistir([kayit], [], betik.size(), yer)
+		var iz: Array = s["ozel_iz"]
+		if r == 0:
+			ref = iz
+			continue
+		var f := _sd_fark(iz, ref, ["klon", "k2", "o"])
+		if f != 0.0:
+			sapmali += 1
+			maks_sapma = maxf(maks_sapma, f)
+	var inen: bool = ref.size() == betik.size() and _sd_ilk_y_ustu(ref, "klon", SD_PLATFORM_Y + 1.0) > 0
+	_kaydi("Aşağı düşme 9) Determinizm (S içeren kayıt, %dx)" % TEKRAR, sapmali == 0 and inen,
+		"%d çalıştırma, %d kare, sapmalı: %d, en büyük sapma %.4f px, klon düştü: %s" % [TEKRAR, ref.size(), sapmali, maks_sapma, inen])
+
+
+# ---------------------------------------------------------------- ipucu ikonu
+# Karar (docs/kararlar.md, 2026-10-15): ipucu_klon 0 ise ikon yok; Bölüm 4 = 2, Bölüm 6 = 1.
+# İkon yalnızca HUD'dur: "?" ikonu (IpucuIkonu), hover'da altında "N klonla çözülebilir".
+
+const IPUCU_BOLUM_4 := "res://scenes/bolumler/bolum_4.tscn"
+const IPUCU_BOLUM_6 := "res://scenes/bolumler/bolum_6.tscn"
+
+
+## Bölümün ipucu düğümlerini bulur (yoksa null).
+func _ip_dugum(bolum: Node, ad: String) -> Control:
+	return bolum.find_child(ad, true, false) as Control
+
+
+func _ipucu_testleri() -> void:
+	var beklenen := {IPUCU_BOLUM_4: 2, IPUCU_BOLUM_6: 1}
+	var viewport_alan := Rect2(Vector2.ZERO, Vector2(
+		ProjectSettings.get_setting("display/window/size/viewport_width", 1152),
+		ProjectSettings.get_setting("display/window/size/viewport_height", 648)))
+	# 1-3) Bölüm 4 ve 6: ikon var/görünür, metin gizli; hover aç/kapa; konum.
+	for yol in beklenen:
+		var n: int = beklenen[yol]
+		var ad: String = yol.get_file().get_basename()
+		aktif_bolum = yol
+		_kayitlar().sifirla()
+		var bolum: Node = await _bolumu_yukle()
+		await physics_frame
+		var ikon := _ip_dugum(bolum, "IpucuIkonu")
+		var metin := _ip_dugum(bolum, "IpucuMetni")
+		var var_mi: bool = ikon != null and metin != null
+		_kaydi("İpucu %s 1) ikon düğümü var ve görünür, metin başta gizli" % ad,
+			var_mi and ikon.is_visible_in_tree() and not metin.visible
+			and int(bolum.get("ipucu_klon")) == n,
+			"ikon: %s, görünür: %s, metin görünür: %s, ipucu_klon: %s" % [
+				ikon != null, ikon != null and ikon.is_visible_in_tree(),
+				metin != null and metin.visible, str(bolum.get("ipucu_klon"))])
+		if not var_mi:
+			continue
+		ikon.mouse_entered.emit()
+		await physics_frame
+		var acik_gorunur: bool = metin.visible and metin.is_visible_in_tree()
+		var tam_metin: bool = metin.text == "%d klonla çözülebilir" % n
+		ikon.mouse_exited.emit()
+		await physics_frame
+		var kapali: bool = not metin.visible
+		_kaydi("İpucu %s 2) mouse_entered metni gösterir (\"%d klonla çözülebilir\"), mouse_exited gizler" % [ad, n],
+			acik_gorunur and tam_metin and kapali,
+			"hover'da görünür: %s, metin: \"%s\", çıkınca gizli: %s" % [acik_gorunur, metin.text, kapali])
+		ikon.mouse_entered.emit()
+		await physics_frame
+		var ir := ikon.get_global_rect()
+		var mr := metin.get_global_rect()
+		var asagida: bool = mr.position.y >= ir.end.y
+		var hizali: bool = mr.position.x < ir.end.x and mr.end.x > ir.position.x
+		var ekranda: bool = viewport_alan.encloses(ir) and viewport_alan.encloses(mr)
+		_kaydi("İpucu %s 3) metin ikonun hemen altında, ekran içinde" % ad,
+			asagida and hizali and ekranda and mr.position.y - ir.end.y <= 40.0,
+			"ikon %s, metin %s, boşluk %.0f px, hizalı: %s, ekranda: %s" % [
+				str(ir), str(mr), mr.position.y - ir.end.y, hizali, ekranda])
+		ikon.mouse_exited.emit()
+	# 4) Tüm listedeki bölümler: yalnız 4 ve 6'da ikon, ipucu_klon değerleri.
+	var sorunlar := ""
+	var sayi := 0
+	for kayit in BolumListesi.BOLUMLER:
+		var yol: String = kayit["yol"]
+		aktif_bolum = yol
+		_kayitlar().sifirla()
+		var b: Node = await _bolumu_yukle()
+		await physics_frame
+		sayi += 1
+		var deger := int(b.get("ipucu_klon"))
+		var bek: int = beklenen.get(yol, 0)
+		var ikon_var := _ip_dugum(b, "IpucuIkonu") != null
+		var metin_var := _ip_dugum(b, "IpucuMetni") != null
+		if deger != bek or ikon_var != (bek > 0) or metin_var != (bek > 0):
+			sorunlar += " %s(ipucu_klon=%d, ikon=%s, metin=%s)" % [yol.get_file(), deger, ikon_var, metin_var]
+	_kaydi("İpucu 4) yalnız Bölüm 4 ve 6'da ikon var (Bölüm 18 ikonu kaldırıldı), diğer tüm bölümlerde yok", sorunlar == "" and sayi >= 12,
+		"%d bölüm tarandı, sorunlar:%s" % [sayi, sorunlar if sorunlar != "" else " yok"])
+	# 5) max_klon değerleri değişmedi.
+	var mk := {}
+	for yol in beklenen:
+		aktif_bolum = yol
+		_kayitlar().sifirla()
+		var b2: Node = await _bolumu_yukle()
+		mk[yol] = int(b2.get("max_klon"))
+	_kaydi("İpucu 5) Bölüm 4 max_klon 3, Bölüm 6 max_klon 2", mk[IPUCU_BOLUM_4] == 3 and mk[IPUCU_BOLUM_6] == 2,
+		"Bölüm 4: %d, Bölüm 6: %d" % [mk[IPUCU_BOLUM_4], mk[IPUCU_BOLUM_6]])
+	# 6a) İkona hover iken girdi çalışır, oyuncu normal hareket eder; mouse_filter yalnız ikonda STOP.
+	aktif_bolum = IPUCU_BOLUM_4
+	var betik := _betik([[60, 1, false]])
+	var hover := func(b: Node) -> void: _ip_dugum(b, "IpucuIkonu").mouse_entered.emit()
+	var s_hover: Dictionary = await _senaryo([], betik, 60, hover)
+	var s_yok: Dictionary = await _senaryo([], betik, 60)
+	_kayitlar().sifirla()
+	var bolum_f: Node = await _bolumu_yukle()
+	var stop_sayisi := 0
+	var katman: Node = bolum_f.find_child("IpucuKatmani", true, false)
+	for c in katman.get_children():
+		if c is Control and c.mouse_filter == Control.MOUSE_FILTER_STOP:
+			stop_sayisi += 1
+	var ikon_stop: bool = _ip_dugum(bolum_f, "IpucuIkonu").mouse_filter == Control.MOUSE_FILTER_STOP
+	var metin_gecer: bool = _ip_dugum(bolum_f, "IpucuMetni").mouse_filter == Control.MOUSE_FILTER_IGNORE
+	var dx: float = s_hover["oyuncu_konum"].x - s_yok["oyuncu_konum"].x
+	
+	_kaydi("İpucu 6a) hover iken Input eylemleri çalışır, ikon girdiyi yutmaz",
+		dx == 0.0 and s_hover["oyuncu_iz"].size() > 0
+		and s_hover["oyuncu_iz"][-1].x > s_hover["oyuncu_iz"][0].x + 20.0
+		and ikon_stop and metin_gecer and stop_sayisi == 1,
+		"hover/yok x farkı: %.4f, hareket: %.0f px, ikon STOP: %s, metin IGNORE: %s, STOP düğüm sayısı: %d (beklenen 1)" % [
+			dx, s_hover["oyuncu_iz"][-1].x - s_hover["oyuncu_iz"][0].x, ikon_stop, metin_gecer, stop_sayisi])
+	# 6b) Determinizm: ikonlu bölümde 100x aynı sonuç (tek klon, hover dönüşümlü).
+	for yol in beklenen:
+		aktif_bolum = yol
+		var kayit: Array = await _kaydet(_betik([[5, 0, false], [25, 1, false], [1, 1, true],
+			[40, 1, false], [10, -1, false], [20, 0, false], [30, 1, false]]))
+		var ref: Array = []
+		var sapmali := 0
+		var maks := 0.0
+		for r in range(TEKRAR):
+			var h := Callable()
+			if r % 2 == 1:
+				h = hover
+			var s: Dictionary = await _senaryo([kayit], [], KLON_KARE, h)
+			var iz: Array = s["klon_izleri"][0]
+			if r == 0:
+				ref = iz
+				continue
+			var bu := iz.size() != ref.size()
+			for f in range(min(iz.size(), ref.size())):
+				var d: float = (iz[f] - ref[f]).length()
+				if d > 0.0:
+					bu = true
+					maks = maxf(maks, d)
+			if bu:
+				sapmali += 1
+		var hareketli: bool = ref.size() > 0 and (ref[-1] - ref[0]).length() > 20.0
+		_kaydi("İpucu 6b) Determinizm %s (%dx, ikon/hover açık)" % [yol.get_file().get_basename(), TEKRAR],
+			sapmali == 0 and hareketli,
+			"%d kare, sapmalı çalıştırma: %d, en büyük sapma %.4f px, klon hareket etti: %s" % [
+				ref.size(), sapmali, maks, hareketli])
+	_kayitlar().sifirla()
+
+
+# ---- Regresyon: duvara yaslıyken asagi (alt yoklama düzeltmesi)
+# Sahnede platform B (x 440..560) iki yanında duvar (sol yüzü x=440, sağ yüzü x=560).
+
+const SD_DUVAR_X := 454.0   # B üstünde sol duvara yaslı karakter merkezi (440 + 14)
+
+
+## Duvara 30 kare yaslan (yon), sonra 1 kare asagi (yon ile), sonra 60 kare (yon) bekle.
+func _sd_duvar_betik(yon: float, bekle_yon := -2.0) -> Array:
+	var by: float = yon if bekle_yon < -1.5 else bekle_yon
+	return _sd_betik([[30, yon, false, false], [1, yon, false, true], [60, by, false, false]])
+
+
+## 1) Duvara yaslı karakter 1 kare asagi ile platformdan düşer (duvara doğru, duvarsız yön, yönsüz); oyuncu ve klon.
+func _test_sd_duvar_duser() -> void:
+	var ozet: Array = []
+	var ok := true
+	for yon in [-1.0, 0.0, 1.0]:
+		var betik := _sd_duvar_betik(yon, 0.0 if yon > 0.0 else -2.0)
+		var tut := []
+		var s: Dictionary = await _sd_calistir([], betik, betik.size(), {"Oyuncu": Vector2(SD_DUVAR_X, 500)}, tut)
+		var iz: Array = s["ozel_iz"]
+		var kayit: Array = tut[0].kayit_girdileri.duplicate(true)
+		var y_once: float = iz[29]["o"].y
+		var son: Vector2 = iz[iz.size() - 1]["o"]
+		var o_ok: bool = s["tamamlandi"] and absf(y_once - SD_PLATFORM_Y) < 0.5 and absf(son.y - SD_ZEMIN_Y) < 0.5
+		var k: Dictionary = await _sd_calistir([kayit], [], betik.size(), {"Oyuncu": Vector2(60, 576), "Klon": Vector2(SD_DUVAR_X, 500)})
+		var kz: Array = k["ozel_iz"]
+		var kson: Vector2 = kz[kz.size() - 1]["klon"]
+		var fark := 0.0
+		for i in range(mini(iz.size(), kz.size())):
+			fark = maxf(fark, (iz[i]["o"] - kz[i]["klon"]).length())
+		var k_ok: bool = k["tamamlandi"] and absf(kson.y - SD_ZEMIN_Y) < 0.5 and fark == 0.0
+		ok = ok and o_ok and k_ok
+		ozet.append("yon %d: oyuncu 29. kare y=%.1f -> son y=%.1f, klon son y=%.1f (canlı-klon fark %.3f)" % [int(yon), y_once, son.y, kson.y, fark])
+	_kaydi("Aşağı düşme 10) Duvara yaslı karakter asagi ile platformdan düşer (oyuncu ve klon)", ok, "; ".join(ozet))
+
+
+## 2) Platform yokken duvar dibinde/zeminde asagi etkisiz (takılma, düşme, yok sayma yok).
+func _test_sd_duvar_zemin_etkisiz() -> void:
+	# Zeminde sol duvarın (x 420..440) dibinde: 406 = 420 - 14.
+	var betik := _sd_betik([[30, 1, false, false], [40, 1, false, true]])
+	var s: Dictionary = await _sd_calistir([], betik, betik.size(), {"Oyuncu": Vector2(380, 576)})
+	var iz: Array = s["ozel_iz"]
+	var sap: float = _sd_y_sapma(iz, "o", SD_ZEMIN_Y, 0)
+	var son_x: float = iz[iz.size() - 1]["o"].x
+	var ok: bool = s["tamamlandi"] and sap < 0.5 and _sd_ist_kare(iz) == 0 and absf(son_x - 406.0) < 1.5
+	# Aynı yürüyüş asagi'sız: aynı konum.
+	var c: Dictionary = await _sd_calistir([], _sd_betik([[70, 1, false, false]]), 70, {"Oyuncu": Vector2(380, 576)})
+	var fark: float = _sd_fark(s["ozel_iz"], c["ozel_iz"], ["o"])
+	_kaydi("Aşağı düşme 11) Platform yokken duvar dibinde/zeminde asagi etkisiz", ok and fark == 0.0,
+		"zemin duvar dibi: y sapma %.3f, x=%.1f (beklenen 406), yok sayma kare %d, asagi'sız kontrolle fark %.4f" % [
+			sap, son_x, _sd_ist_kare(iz), fark])
+
+
+## 3) Duvar dibinde asagi sonrası 12 kare yok sayma, ardından platform yeniden katı (altından zıplayıp çıkılır).
+func _test_sd_duvar_12_kare() -> void:
+	var betik := _sd_betik([[30, -1, false, false], [1, -1, false, true], [40, -1, false, false], [1, 0, true, false], [100, 0, false, false]])
+	var s: Dictionary = await _sd_calistir([], betik, betik.size(), {"Oyuncu": Vector2(SD_DUVAR_X, 500)})
+	var iz: Array = s["ozel_iz"]
+	var ist := _sd_ist_kare(iz)
+	var yerde: float = iz[70]["o"].y
+	var son_sap: float = _sd_y_sapma(iz, "o", SD_PLATFORM_Y, iz.size() - 30)
+	var son_ist: int = iz[iz.size() - 1]["ist"]
+	_kaydi("Aşağı düşme 12) Duvar dibinde asagi: 12 kare yok sayma, sonra yeniden katı",
+		s["tamamlandi"] and ist >= 11 and ist <= 13 and absf(yerde - SD_ZEMIN_Y) < 0.5 and son_sap < 0.5 and son_ist == 0,
+		"yok sayma kare sayısı %d (beklenen 12), zıplamadan önce y=%.1f (zemin), son 30 karede platform üstünden sapma %.3f, sonda yok sayma %d" % [
+			ist, yerde, son_sap, son_ist])
+
+
+## 4) Gerçek sahneler: platformun sol kenarında duvara yaslı karakter asagi ile düşer (oyuncu ve klon).
+func _sd_gercek(sahne: String, platform_ust_merkez: Vector2, ad: String, min_dusus: float, bekle := 25) -> void:
+	var onceki := aktif_bolum
+	aktif_bolum = sahne
+	var betik := _sd_betik([[30, -1, false, false], [1, -1, false, true], [bekle, -1, false, false]])
+	var izle := func(b: Node) -> Dictionary:
+		return {"o": b.get_node("Oyuncu").global_position, "ist": b.get_node("Oyuncu").get_collision_exceptions().size(),
+			"klon": (_klonlar(b)[0].global_position if _klonlar(b).size() > 0 else Vector2.ZERO)}
+	var tut := []
+	var yer := func(b: Node) -> void:
+		tut.append(b.get_node("Oyuncu"))
+		b.get_node("Oyuncu").global_position = platform_ust_merkez
+	var s: Dictionary = await _lazer_senaryo([], betik, betik.size(), yer, izle)
+	var iz: Array = s["ozel_iz"]
+	var kayit: Array = tut[0].kayit_girdileri.duplicate(true) if is_instance_valid(tut[0]) else []
+	var y_once: float = iz[29]["o"].y
+	var y_son: float = iz[iz.size() - 1]["o"].y
+	var ist := _sd_ist_kare(iz)
+	var o_ok: bool = s["oyuncu_oldu"] == 0 and y_son - y_once > min_dusus and ist >= 11 and ist <= 13
+	# Klon: aynı kayıt, aynı konum.
+	var yer_k := func(b: Node) -> void:
+		_klonlar(b)[0].global_position = platform_ust_merkez
+		b.get_node("Oyuncu").global_position = platform_ust_merkez
+	var k: Dictionary = await _lazer_senaryo([kayit], [], betik.size(), yer_k, izle)
+	var kz: Array = k["ozel_iz"]
+	var kk_ok: bool = kz.size() > 0 and kz[kz.size() - 1]["klon"].y - kz[29]["klon"].y > min_dusus
+	aktif_bolum = onceki
+	_kaydi("Aşağı düşme 13) Gerçek sahne: %s duvara yaslıyken asagi düşürür" % ad, o_ok and kk_ok and kayit.size() == betik.size(),
+		"oyuncu y %.1f -> %.1f (en az %.0f px düşmeli), yok sayma %d kare; klon y %.1f -> %.1f, oyuncu ölümü %d" % [
+			y_once, y_son, min_dusus, ist, kz[29]["klon"].y if kz.size() > 29 else -1.0,
+			kz[kz.size() - 1]["klon"].y if kz.size() > 0 else -1.0, s["oyuncu_oldu"]])
+
+
+func _test_sd_gercek_sahneler() -> void:
+	# Bölüm 12 Raf2 (merkez 540,296; üst 290): x=494 kovuk duvarına yakın. Merkez y = 290 - 24 - 1.
+	await _sd_gercek(BOLUM_12, Vector2(494, 265), "Bölüm 12 Raf2 x=494", 40.0)
+	# Bölüm 8 Basamak2 (merkez 760,266; üst 260): x=714.
+	await _sd_gercek(BOLUM_8, Vector2(714, 235), "Bölüm 8 Basamak2 x=714", 40.0, 45)
+
+
+# ---------------------------------------------------------------- Bölüm 13 (Kuyu)
+# Taslak: docs/devir/bolum_13_taslak.md. K1 (A): BantA'da girdisiz sürüklenip PlakaA'ya darbe verir.
+# K2 (B): Z1 ile kata çıkıp PlakaB'de durur. K3 (C): LazerB'yi geçip kapak kenarından döner, şalteri
+# sola çevirir, PlakaC'ye bantın aksi yönünde darbe verir. Oyuncu: kapakta bekler, S ile kuyuya düşer.
+const BOLUM_13 := "res://scenes/bolumler/bolum_13.tscn"
+
+var _b13_onbellek: Array = []   # [A, B, C]
+
+
+## Adım: yön, koşul, en çok kare, zıplama (ilk karede), asagi (S) basılı mı.
+func _b13_a(yon: float, kosul := Callable(), maks := 300, zipla := false, asagi := false) -> Dictionary:
+	return {"yon": yon, "kosul": kosul, "maks": maks, "zipla": zipla, "asagi": asagi}
+
+
+func _b13_ornekle(b: Node) -> Dictionary:
+	var o: CharacterBody2D = b.get_node("Oyuncu")
+	return {"pa": b.get_node("PlakaA").basili_mi(), "pb": b.get_node("PlakaB").basili_mi(),
+		"pc": b.get_node("PlakaC").basili_mi(),
+		"la": b.get_node("LazerA").acik_mi(), "lb": b.get_node("LazerB").acik_mi(),
+		"lc": b.get_node("LazerC").acik_mi(), "ld": b.get_node("LazerD").acik_mi(),
+		"salter": b.get_node("Salter").sagda, "zemin": o.is_on_floor()}
+
+
+func _b13_lazer_kapali(ad: String) -> Callable:
+	return func(b: Node) -> bool: return not b.get_node(ad).acik_mi()
+
+
+func _b13_lb_kapali_zemin() -> Callable:
+	return func(b: Node) -> bool:
+		return not b.get_node("LazerB").acik_mi() and b.get_node("Oyuncu").is_on_floor()
+
+
+func _b13_salter_sola() -> Callable:
+	return func(b: Node) -> bool: return not b.get_node("Salter").sagda
+
+
+func _b13_plaka_basili(ad: String) -> Callable:
+	return func(b: Node) -> bool: return b.get_node(ad).basili_mi()
+
+
+## K1: bantta `sag_n` kare sağa, sonra girdisiz sürüklenir; bant sonunda (x>=262) durmasını bekler.
+func _b13_k1(sag_n := 12, son_bekle := 12) -> Array:
+	return [_b13_a(1, Callable(), sag_n), _b13_a(0, _b4_x_ge(262.0), 200), _b13_a(0, Callable(), son_bekle)]
+
+
+## Ortak ön yol: `sag` basılı Z1'den uçar, x>=birak_x olunca bırakır (havada yatay durur, düşer).
+func _b13_ortak(birak_x := 700.0) -> Array:
+	return [_b13_a(1, _b4_x_ge(birak_x), 250)]
+
+
+## K2: ortak yol, PlakaB üstünde durur.
+func _b13_k2(birak_x := 700.0) -> Array:
+	return _b13_ortak(birak_x) + [
+		_b13_a(0, _b4_plakada("PlakaB"), 150), _b13_a(0, Callable(), 10)]
+
+
+## K3: ortak yol, LazerB kapanınca (B tutuyor) kapak x>=dur_x'e gider, sola döner (şalter, PlakaC),
+## x<=bitis_x'te durur.
+func _b13_k3(dur_x := 985.0, birak_x := 700.0, bitis_x := 735.0, bekle := 0) -> Array:
+	var d: Array = _b13_ortak(birak_x) + [_b13_a(0, _b13_lb_kapali_zemin(), 150)]
+	if bekle > 0:
+		d.append(_b13_a(0, Callable(), bekle))
+	d += [_b13_a(1, _b4_x_ge(dur_x), 250),
+		_b13_a(-1, _b4_x_le(bitis_x), 400),
+		_b13_a(0, Callable(), 10)]
+	return d
+
+
+## Oyuncu: K3 gibi kapağa gider; `ref` koşulundan sonra `kayma` kare bekler, s_n kare S basar,
+## kuyuda kapıya yürür.
+func _b13_oyuncu(ref := Callable(), kayma := 0, dur_x := 985.0, s_n := 1) -> Array:
+	var d: Array = _b13_ortak() + [_b13_a(0, _b13_lb_kapali_zemin(), 150),
+		_b13_a(1, _b4_x_ge(dur_x), 250)]
+	if ref.is_valid():
+		d.append(_b13_a(0, ref, 400))
+	if kayma > 0:
+		d.append(_b13_a(0, Callable(), kayma))
+	d.append(_b13_a(0, Callable(), s_n, false, true))
+	d.append(_b13_a(0, _b13_kuyu_dibi(), 90))
+	d.append(_b13_a(1, _b4_bitti_k(), 90))
+	return d
+
+
+## Oyuncu kuyu dibinde (zeminde, y>=570) mi?
+func _b13_kuyu_dibi() -> Callable:
+	return func(b: Node) -> bool:
+		var o: CharacterBody2D = b.get_node("Oyuncu")
+		return o.is_on_floor() and o.global_position.y >= 570.0 and o.global_position.x > 960.0
+
+
+## Kayıt (kare başına {yon, zipla, asagi}) adım listesine çevirir; gecikme kare başta bekler.
+func _b13_kayittan(kayit: Array, gecikme := 0, sonuna := true) -> Array:
+	var d: Array = []
+	if gecikme > 0:
+		d.append(_b13_a(0, Callable(), gecikme))
+	for g in kayit:
+		d.append(_b13_a(float(g["yon"]), Callable(), 1, bool(g["zipla"]), bool(g.get("asagi", false))))
+	if sonuna:
+		d.append(_b13_a(1, _b4_bitti_k(), 300))
+	return d
+
+
+func _b13_kosullu(bolum: Node, adimlar: Array, sayac: Array) -> Dictionary:
+	var oyuncu: CharacterBody2D = bolum.get_node("Oyuncu")
+	var klonlar: Array = _klonlar(bolum)
+	var klon_iz: Array = []
+	for k in klonlar:
+		klon_iz.append([])
+	var iz: Array = []
+	var ozel: Array = []
+	var baslangic: Array = []
+	var tamam: Array = []
+	var kare := 0
+	for a in adimlar:
+		baslangic.append(iz.size())
+		var n := 0
+		var karsilandi: bool = not a["kosul"].is_valid()
+		while n < a["maks"]:
+			if not is_instance_valid(bolum) or bolum.bitti:
+				break
+			_girdi_uygula({"yon": a["yon"], "zipla": a["zipla"] and n == 0, "asagi": a.get("asagi", false)})
+			iz.append(oyuncu.global_position)
+			ozel.append(_b13_ornekle(bolum))
+			for i in range(klonlar.size()):
+				klon_iz[i].append(klonlar[i].global_position)
+			await physics_frame
+			n += 1
+			kare += 1
+			if a["kosul"].is_valid() and is_instance_valid(bolum) and a["kosul"].call(bolum):
+				karsilandi = true
+				break
+		tamam.append(karsilandi)
+		if not is_instance_valid(bolum) or bolum.bitti:
+			break
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	var bitti_son: bool = is_instance_valid(bolum) and bolum.bitti
+	var kayit: Array = []
+	if is_instance_valid(oyuncu):
+		kayit = oyuncu.kayit_girdileri.duplicate(true)
+	var klon_oldu: Array = []
+	for k in klonlar:
+		klon_oldu.append(is_instance_valid(k) and k.oldu)
+	for i in range(3):
+		await physics_frame
+	return {"kare": kare, "bitti": bitti_son and sayac[0] == 0, "bitti_ham": bitti_son, "oldu": sayac[0],
+		"iz": iz, "ozel": ozel, "klon_izleri": klon_iz, "baslangic": baslangic, "tamam": tamam,
+		"kayit": kayit, "klon_oldu": klon_oldu}
+
+
+func _b13_senaryo(kayitlar: Array, adimlar: Array, hazirlik := Callable()) -> Dictionary:
+	_kayitlar().sifirla()
+	for k in kayitlar:
+		_kayitlar().tur_kaydet(k.duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	if hazirlik.is_valid():
+		hazirlik.call(bolum)
+	var sayac := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var s: Dictionary = await _b13_kosullu(bolum, adimlar, sayac)
+	paused = false
+	return s
+
+
+func _b13_yerlestir(oyuncu: Vector2) -> Callable:
+	return func(b: Node) -> void:
+		b.get_node("Oyuncu").global_position = oyuncu
+
+
+## [K1, K2, K3] kayıtları (bir kez, gerçek dünyada klonlarla üretilir).
+func _b13_kayitlar() -> Array:
+	if _b13_onbellek.is_empty():
+		var s1: Dictionary = await _b13_senaryo([], _b13_k1())
+		var s2: Dictionary = await _b13_senaryo([s1["kayit"]], _b13_k2())
+		var s3: Dictionary = await _b13_senaryo([s1["kayit"], s2["kayit"]], _b13_k3())
+		_b13_onbellek = [s1["kayit"], s2["kayit"], s3["kayit"]]
+	return _b13_onbellek
+
+
+## Ayak y'nin en küçük değeri (y) ve en büyük x (x).
+func _b13_ulasim(s: Dictionary) -> Vector2:
+	var y := 1.0e9
+	var x := -1.0e9
+	for p in s["iz"]:
+		y = minf(y, p.y + B4_AYAK)
+		x = maxf(x, p.x)
+	return Vector2(x, y)
+
+
+func _b13_ilk(ozel: Array, anahtar: String, deger: Variant) -> int:
+	for f in range(ozel.size()):
+		if ozel[f][anahtar] == deger:
+			return f
+	return -1
+
+
+## Anahtarın deger olduğu ardışık karelerin [ilk, son] aralığı ([-1,-1] yoksa); bas'tan itibaren ilk aralık.
+func _b13_aralik(ozel: Array, anahtar: String, deger: Variant, bas := 0) -> Vector2i:
+	var i0 := -1
+	var i1 := -1
+	for f in range(bas, ozel.size()):
+		if ozel[f][anahtar] == deger:
+			if i0 < 0:
+				i0 = f
+			i1 = f
+		elif i0 >= 0:
+			break
+	return Vector2i(i0, i1)
+
+
+func _b13_calistir() -> void:
+	await _test_bolum13_cozum()
+	await _test_bolum13_basarisizlik()
+	await _test_bolum13_atlanamaz()
+	await _test_bolum13_kisayol()
+	await _test_bolum13_hassasiyet()
+	await _test_bolum13_zamanlama()
+	await _test_bolum13_klon_siniri()
+	await _test_bolum13_kilitlenme()
+	await _test_bolum13_determinizm()
+	await _test_bolum13_klon_fark()
+
+
+## K3 değişkeni: şalter alanının üstünden zıplayıp geçer (şalteri çevirmez), bantta PlakaC'ye 26 karelik darbe verir.
+func _b13_k3_ziplayan() -> Array:
+	return _b13_ortak() + [_b13_a(0, _b13_lb_kapali_zemin(), 150),
+		_b13_a(1, _b4_x_ge(1040.0), 250), _b13_a(-1, _b4_x_le(880.0), 60, true),
+		_b13_a(0, _b13_zeminde(), 60),
+		_b13_a(-1, _b4_x_le(735.0), 400), _b13_a(0, Callable(), 10)]
+
+
+func _b13_zeminde() -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Oyuncu").is_on_floor()
+
+
+func _b13_son(s: Dictionary) -> Vector2:
+	return s["iz"][s["iz"].size() - 1] if s["iz"].size() > 0 else Vector2.ZERO
+
+
+## Oyuncu iziyle kare aralığı: gövde (28x48) bir dikdörtgenle çakışıyor mu.
+func _b13_cakisir(p: Vector2, r: Rect2) -> bool:
+	return Rect2(p - Vector2(14, 24), Vector2(28, 48)).intersects(r)
+
+
+## Taslağın çözümü dışında kalan bir oyuncu: kare >= td olunca S basar (K3 ile aynı kapak yolu).
+func _b13_oyuncu_td(td: int) -> Array:
+	return _b13_oyuncu(_b13_kare_ge(td), 0, 976.0)
+
+
+func _b13_kare_ge(n: int) -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Oyuncu").kare >= n
+
+
+## Tam çözümde oyuncunun izi (kapıya varır); P0 = K3'ün dönüşte PlakaC'ye bastığı ilk kare (iz indeksi).
+func _b13_referans() -> Dictionary:
+	var kay: Array = await _b13_kayitlar()
+	var s: Dictionary = await _b13_senaryo(kay, _b13_oyuncu(_b13_salter_sola(), 10))
+	# Dönüş darbesi: şalter döndükten sonraki ilk PlakaC basılı aralığı.
+	var f_salter: int = _b13_ilk(s["ozel"], "salter", false)
+	var ar: Vector2i = _b13_aralik(s["ozel"], "pc", true, maxi(f_salter - 1, 0))
+	var sf: int = s["baslangic"][5] if s["baslangic"].size() > 5 else -1   # S basılan ilk kare
+	return {"s": s, "p0": ar.x, "p1": ar.y, "salter": f_salter, "td": sf}
+
+
+# ---------------------------------------------------------------- 1) çözüm
+func _test_bolum13_cozum() -> void:
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var kareler: Array = []
+	var olumsuz := ""
+	var turlar: Array = [_b13_k1(), _b13_k2(), _b13_k3()]
+	var etiketler: Array = []
+	for i in range(3):
+		var sayac := [0]
+		bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+		var klon_once: int = _klonlar(bolum).size()
+		var s: Dictionary = await _b13_kosullu(bolum, turlar[i], sayac)
+		kareler.append(s["kare"])
+		if s["tamam"].has(false) or s["oldu"] > 0 or s["kare"] > 600 or klon_once != i:
+			olumsuz += " tur%d adım karşılanmadı %s oldu=%d kare=%d klon=%d;" % [i + 1, str(s["tamam"]), s["oldu"], s["kare"], klon_once]
+		var eski_id := bolum.get_instance_id()
+		await _r_bas()
+		bolum = await _yeni_sahne_bekle(eski_id)
+		if bolum == null:
+			_kaydi("Bölüm 13 çözümü (4 tur, 3 klon, gerçek R/girdi yolu)", false, "tur %d sonrası sahne yüklenmedi;%s" % [i + 1, olumsuz])
+			return
+		etiketler.append(bolum.bilgi.text)
+	var klon_basta: int = _klonlar(bolum).size()
+	var etiket: String = bolum.bilgi.text
+	var sayac4 := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac4[0] += 1)
+	var s4: Dictionary = await _b13_kosullu(bolum, _b13_oyuncu(_b13_salter_sola(), 10), sayac4)
+	var gecti: bool = s4["bitti"] and klon_basta == 3 and _kayitlar().turlar.size() == 3 \
+		and etiket.contains("Klon: 3/3") and olumsuz == "" and s4["kare"] <= 600 and s4["oldu"] == 0 \
+		and kareler[0] <= 600 and kareler[1] <= 600 and kareler[2] <= 600
+	_kaydi("Bölüm 13 çözümü (4 tur, 3 klon, gerçek R/girdi yolu)", gecti,
+		"bitti: %s, tur kareleri: %s + %d (%.2f sn), klon: %d, kayıtlı tur: %d, ölüm: %d, etiket: \"%s\"%s" % [
+			s4["bitti"], str(kareler), s4["kare"], s4["kare"] / 60.0, klon_basta, _kayitlar().turlar.size(),
+			s4["oldu"], etiket, olumsuz])
+	_kayitlar().sifirla()
+	paused = false
+
+
+# ---------------------------------------------------------------- 2) başarısızlık
+## Ölümün olduğu yer ve nedeni: oyuncunun son izi (ışın bölgesi).
+func _b13_olum_yeri(s: Dictionary) -> String:
+	var p: Vector2 = _b13_son(s)
+	return "(%.0f,%.0f)" % [p.x, p.y]
+
+
+func _test_bolum13_basarisizlik() -> void:
+	var kay: Array = await _b13_kayitlar()
+	var ref: Dictionary = await _b13_referans()
+	var p0: int = ref["p0"]
+	var sag_hep: Array = [_b13_a(1, Callable(), 220)]
+
+	# 1) klonsuz: LazerA'da ölür (x 303..337 içinde).
+	var s1: Dictionary = await _b13_senaryo([], sag_hep)
+	var p1: Vector2 = _b13_son(s1)
+	_kaydi("Bölüm 13 başarısızlık 1: klonsuz -> LazerA'da ölür", s1["oldu"] > 0 and not s1["bitti_ham"] and p1.x > 295.0 and p1.x < 345.0,
+		"ölüm=%d, son konum %s (ışın x 317..323, gövde ışına 303'te girer)" % [s1["oldu"], _b13_olum_yeri(s1)])
+
+	# 2) yalnız A: LazerB'de ölür.
+	var s2: Dictionary = await _b13_senaryo([kay[0]], _b13_oyuncu())
+	var p2: Vector2 = _b13_son(s2)
+	_kaydi("Bölüm 13 başarısızlık 2: yalnız A -> LazerB'de ölür", s2["oldu"] > 0 and not s2["bitti_ham"] and p2.x > 735.0 and p2.x < 775.0,
+		"ölüm=%d, son konum %s (LazerB x 757..763)" % [s2["oldu"], _b13_olum_yeri(s2)])
+
+	# 3) A + B (C yok): kuyuda LazerC'de ölür. Oyuncu P0'dan bağımsız birkaç S zamanı dener.
+	var ayr3: Array = []
+	var ok3 := true
+	for td in [186, 196, 206, 216, 230]:
+		var s3: Dictionary = await _b13_senaryo([kay[0], kay[1]], _b13_oyuncu_td(td))
+		var p3: Vector2 = _b13_son(s3)
+		ok3 = ok3 and s3["oldu"] > 0 and not s3["bitti_ham"] and p3.x > 960.0 and p3.y > 430.0
+		ayr3.append("Td=%d ölüm=%d son=%s" % [td, s3["oldu"], _b13_olum_yeri(s3)])
+	_kaydi("Bölüm 13 başarısızlık 3: A + B (C yok) -> kuyuda LazerC'de ölür", ok3, "; ".join(ayr3))
+
+	# 4) A + C (B yok): C LazerB'de donar (oyuncu bekler), oyuncu da aynı rotada ölür.
+	var s4c: Dictionary = await _b13_senaryo([kay[0], kay[2]], [_b13_a(0, Callable(), 220)])
+	var ckx: Vector2 = s4c["klon_izleri"][1][s4c["klon_izleri"][1].size() - 1]
+	var s4: Dictionary = await _b13_senaryo([kay[0], kay[2]], _b13_oyuncu(Callable(), 0))
+	var p4: Vector2 = _b13_son(s4)
+	_kaydi("Bölüm 13 başarısızlık 4: A + C (B yok) -> C LazerB'de donar, oyuncu ölür",
+		s4["oldu"] > 0 and not s4["bitti_ham"] and p4.x > 735.0 and p4.x < 775.0 and ckx.x < 775.0 and s4c["klon_oldu"][1],
+		"ölüm=%d, oyuncu son %s, C son=(%.0f,%.0f), C öldü=%s" % [s4["oldu"], _b13_olum_yeri(s4), ckx.x, ckx.y, s4c["klon_oldu"][1]])
+
+	# 5) S erken (Td < P0-18): LazerC'de ölür.
+	var ayr5: Array = []
+	var ok5 := true
+	for d in [-40, -30, -24]:
+		var s5: Dictionary = await _b13_senaryo(kay, _b13_oyuncu_td(p0 + d))
+		var p5: Vector2 = _b13_son(s5)
+		ok5 = ok5 and s5["oldu"] > 0 and not s5["bitti_ham"] and p5.y > 430.0 and p5.y < 520.0
+		ayr5.append("P0%+d ölüm=%d son=%s" % [d, s5["oldu"], _b13_olum_yeri(s5)])
+	_kaydi("Bölüm 13 başarısızlık 5: S erken basılır -> LazerC'de ölür", ok5, "P0=%d; %s" % [p0, "; ".join(ayr5)])
+
+	# 6) S geç (Td > P0+2): darbe bitmiş, LazerC'de ölür.
+	var ayr6: Array = []
+	var ok6 := true
+	for d in [6, 12, 24]:
+		var s6: Dictionary = await _b13_senaryo(kay, _b13_oyuncu_td(p0 + d))
+		var p6: Vector2 = _b13_son(s6)
+		ok6 = ok6 and s6["oldu"] > 0 and not s6["bitti_ham"] and p6.y > 430.0 and p6.y < 520.0
+		ayr6.append("P0%+d ölüm=%d son=%s" % [d, s6["oldu"], _b13_olum_yeri(s6)])
+	_kaydi("Bölüm 13 başarısızlık 6: S geç basılır -> LazerC'de ölür", ok6, "P0=%d; %s" % [p0, "; ".join(ayr6)])
+
+	# 7) C şalteri çevirmez (şalter alanının üstünden zıplar), oyuncu da çevirmez: LazerD'de ölür.
+	var c_ziplayan: Array = _b13_k3_ziplayan()
+	var s7c: Dictionary = await _b13_senaryo([kay[0], kay[1]], c_ziplayan)
+	var ar7: Vector2i = _b13_aralik(s7c["ozel"], "pc", true, s7c["baslangic"][3] if s7c["baslangic"].size() > 3 else 0)
+	var salter_hep_sagda := true
+	for o in s7c["ozel"]:
+		if not o["salter"]:
+			salter_hep_sagda = false
+	var ayr7: Array = []
+	var ok7: bool = salter_hep_sagda and ar7.x > 0
+	for d in [-10, -6]:
+		var s7: Dictionary = await _b13_senaryo([kay[0], kay[1], s7c["kayit"]], _b13_oyuncu_td(ar7.x + d))
+		var p7: Vector2 = _b13_son(s7)
+		ok7 = ok7 and s7["oldu"] > 0 and not s7["bitti_ham"] and p7.y > 505.0 and p7.y < 580.0
+		ayr7.append("P0'%+d ölüm=%d son=%s" % [d, s7["oldu"], _b13_olum_yeri(s7)])
+	_kaydi("Bölüm 13 başarısızlık 7: C şalteri çevirmeden döner -> oyuncu LazerD'de ölür", ok7,
+		"C şalteri hep sağda=%s, C darbe başlangıcı P0'=%d; %s" % [salter_hep_sagda, ar7.x, "; ".join(ayr7)])
+
+	# 8) B iniş x >= 743: LazerB açık, B kayıt turunda ölür (tur yeniden başlar, klon hakkı harcanmaz).
+	var s8: Dictionary = await _b13_senaryo([kay[0]], _b13_k2(752.0))
+	var p8: Vector2 = _b13_son(s8)
+	_kaydi("Bölüm 13 başarısızlık 8: B iniş x>=743 -> LazerB'de ölür", s8["oldu"] > 0 and p8.x > 735.0 and p8.x < 775.0,
+		"ölüm=%d, son konum %s" % [s8["oldu"], _b13_olum_yeri(s8)])
+
+	# 9) Kapakta x<974'te S: KatB duvarı, düşmez.
+	var s9: Dictionary = await _b13_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 40)],
+		_b13_yerlestir(Vector2(966, 375.9)))
+	var p9: Vector2 = _b13_son(s9)
+	var y9 := 0.0
+	for p in s9["iz"]:
+		y9 = maxf(y9, p.y)
+	_kaydi("Bölüm 13 başarısızlık 9: kapakta x<974'te S -> düşmez (KatB üstünde kalır)",
+		s9["oldu"] == 0 and y9 < 380.0, "x=966'da S, en büyük y=%.1f (yüzey 376), ölüm=%d" % [y9, s9["oldu"]])
+
+	# 10) K1 darbesi kısa (sürekli yürüme): K2 ve oyuncu LazerA'da ölür (kilitlenme).
+	var k1_kisa: Array = [_b13_a(1, _b4_x_ge(262.0), 200), _b13_a(0, Callable(), 12)]
+	var sk: Dictionary = await _b13_senaryo([], k1_kisa)
+	var s10: Dictionary = await _b13_senaryo([sk["kayit"]], _b13_k2())
+	var p10: Vector2 = _b13_son(s10)
+	var pa_ar := _b13_aralik(sk["ozel"], "pa", true)
+	_kaydi("Bölüm 13 başarısızlık 10: A kısa darbe (13 kare, geçiş penceresi dışı) -> B LazerA'da ölür",
+		s10["oldu"] > 0 and p10.x > 295.0 and p10.x < 345.0,
+		"A darbe süresi=%d kare (%s), B son konum %s, ölüm=%d" % [pa_ar.y - pa_ar.x + 1, str(pa_ar), _b13_olum_yeri(s10), s10["oldu"]])
+
+	# 11) B gecikmeli iner (tutucu geç): oyuncu LazerB'ye bekleyen yürür, ölür (tutucu zorunlu).
+	var b_gec: Array = [_b13_a(0, Callable(), 40)] + _b13_k2()
+	var sb: Dictionary = await _b13_senaryo([kay[0]], b_gec)
+	var s11: Dictionary = await _b13_senaryo([kay[0], sb["kayit"]], [_b13_a(1, Callable(), 150)])
+	var p11: Vector2 = _b13_son(s11)
+	_kaydi("Bölüm 13 başarısızlık 11: tutucu (B) geç gelir, oyuncu beklemeden koşar -> LazerB'de ölür",
+		s11["oldu"] > 0 and p11.x > 735.0 and p11.x < 775.0, "B 40 kare gecikmeli (kayıt turunda ölüm=%d), oyuncu son %s, ölüm=%d" % [
+			sb["oldu"], _b13_olum_yeri(s11), s11["oldu"]])
+	_kayitlar().sifirla()
+
+
+# ---------------------------------------------------------------- 3) atlanamazlık
+func _test_bolum13_atlanamaz() -> void:
+	# a) Zeminden kata zıplayarak çıkılamaz (kat yüzeyi 400, zıplama tepesi 100,9 px: ayak >= 499).
+	var sa: Dictionary = await _b13_senaryo([], _b8_zipla_dizisi(6, 1.0, 40) + _b8_zipla_dizisi(3, 0.0, 40),
+		_b13_yerlestir(Vector2(610, 576)))
+	var ua: Vector2 = _b13_ulasim(sa)
+	_kaydi("Bölüm 13 atlanamaz: zeminden kata zıplayarak çıkılamaz (kat 400)", ua.y >= 480.0 and sa["oldu"] == 0 and ua.x < 640.0,
+		"ayak y min=%.1f (600-100,9=~499), en büyük x=%.0f (KatA sol yüzü 640)" % [ua.y, ua.x])
+
+	# b) Z1 uçuşu: farklı çıkış x'lerinde `sag` sürekli basılı: LazerB geçilemez (alive iken x<=745).
+	var ayr_b: Array = []
+	var ok_b := true
+	var iniş_yok := 0
+	for x0 in [470.0, 500.0, 530.0, 548.0, 555.0]:
+		var sb: Dictionary = await _b13_senaryo([], [_b13_a(1, Callable(), 130)], _b13_yerlestir(Vector2(x0, 576)))
+		var max_x_canli := -1.0e9
+		for p in sb["iz"]:
+			max_x_canli = maxf(max_x_canli, p.x)
+		# Ölünce iz son noktada kalır: ölüm konumu LazerB sol kenarındadır.
+		ok_b = ok_b and sb["oldu"] > 0 and max_x_canli < 775.0 and not sb["bitti_ham"]
+		ayr_b.append("x0=%.0f: ölüm=%d, en büyük x=%.0f" % [x0, sb["oldu"], max_x_canli])
+	_kaydi("Bölüm 13 atlanamaz: Z1 uçuşu + sürekli sag LazerB'yi aşamaz (ışında ölür, x<775)", ok_b, "; ".join(ayr_b))
+
+	# c) Z1 uçuşunda sag'ı n kare basılı tutup bırak, inince sürekli sag: hiçbir varyant LazerB'yi geçemez.
+	var ayr_c: Array = []
+	var ok_c := true
+	for x0 in [470.0, 555.0]:
+		for n in [0, 10, 25, 40, 60]:
+			var sc: Dictionary = await _b13_senaryo([], [_b13_a(0, Callable(), 2), _b13_a(1, Callable(), n),
+				_b13_a(0, Callable(), 70), _b13_a(1, Callable(), 100)], _b13_yerlestir(Vector2(x0, 576)))
+			var xc := -1.0e9
+			for p in sc["iz"]:
+				xc = maxf(xc, p.x)
+			ok_c = ok_c and not sc["bitti_ham"] and xc < 775.0
+			ayr_c.append("x0=%.0f n=%d: ölüm=%d x max=%.0f" % [x0, n, sc["oldu"], xc])
+	_kaydi("Bölüm 13 atlanamaz: Z1 uçuşunda sag süresi/çıkış x'i değişse de LazerB geçilemez", ok_c, "; ".join(ayr_c))
+
+	# d) Kapak S'siz geçilemez: üstünde sol/sag/zıpla/girdisiz -> y 376'da kalır (hiçbiri kuyuya inmez).
+	var ayr_d: Array = []
+	var ok_d := true
+	for g in [[0.0, false], [-1.0, false], [1.0, false], [0.0, true]]:
+		var adim: Array = []
+		for i in range(5):
+			adim.append(_b13_a(g[0], Callable(), 8, g[1]))
+		var sd: Dictionary = await _b13_senaryo([], adim, _b13_yerlestir(Vector2(1020, 375.9)))
+		var yd := 0.0
+		for p in sd["iz"]:
+			yd = maxf(yd, p.y)
+		ok_d = ok_d and yd < 380.0 and sd["oldu"] == 0
+		ayr_d.append("yon=%d zipla=%s: y max=%.1f" % [int(g[0]), g[1], yd])
+	_kaydi("Bölüm 13 atlanamaz: kapak S'siz geçilemez (kuyuya düşülmez)", ok_d, "; ".join(ayr_d))
+
+	# e) Bant dikişleri: sağa ve sola yürüyüşte takılma yok (dx>0 / <0 her karede), y sabit.
+	var ayr_e: Array = []
+	var ok_e := true
+	var olcum: Array = [["BantA/ZeminSol+ZeminSag (x 80->300)", Vector2(80, 575.9), 1.0, 300.0],
+		["BantA ters (x 300->80)", Vector2(300, 575.9), -1.0, 80.0],
+		["BantC/KatB (x 800->960)", Vector2(800, 375.9), 1.0, 960.0],
+		["BantC/KatB ters (x 960->800)", Vector2(960, 375.9), -1.0, 800.0]]
+	for o in olcum:
+		var yon: float = o[2]
+		var hedef: float = o[3]
+		var kosul: Callable = _b4_x_ge(hedef) if yon > 0.0 else _b4_x_le(hedef)
+		var se: Dictionary = await _b13_senaryo([], [_b13_a(yon, kosul, 200)], _b13_yerlestir(o[1]))
+		var min_dx := 1.0e9
+		var max_ysap := 0.0
+		for f in range(1, se["iz"].size()):
+			min_dx = minf(min_dx, (se["iz"][f].x - se["iz"][f - 1].x) * yon)
+			max_ysap = maxf(max_ysap, absf(se["iz"][f].y - o[1].y))
+		ok_e = ok_e and min_dx > 0.5 and max_ysap < 1.5 and se["oldu"] == 0
+		ayr_e.append("%s: en küçük |dx|=%.2f px/kare, y sapma=%.2f" % [o[0], min_dx, max_ysap])
+	_kaydi("Bölüm 13 atlanamaz: bant/zemin/KatB dikişlerinde yürüyüş takılmaz", ok_e, "; ".join(ayr_e))
+
+	# f) Işın geometrisi: LazerA tavan alt kenarından (150) zemin üstüne (600), LazerB tavandan kat yüzeyine (400);
+	#    LazerC/D kuyuyu duvardan duvara (960..1080) kapatır.
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var ok_f := true
+	var ayr_f: Array = []
+	var beklenen := {"LazerA": Rect2(317, 150, 6, 450), "LazerB": Rect2(757, 150, 6, 250),
+		"LazerC": Rect2(960, 467, 120, 6), "LazerD": Rect2(960, 537, 120, 6)}
+	for ad in beklenen:
+		var lz: Node2D = bolum.get_node(ad)
+		var sh: CollisionShape2D = lz.get_node("Isin")
+		var boyut: Vector2 = (sh.shape as RectangleShape2D).size
+		var merkez: Vector2 = lz.global_position + sh.position
+		var r := Rect2(merkez - boyut / 2.0, boyut)
+		var tam: bool = absf(r.position.x - beklenen[ad].position.x) < 0.01 and absf(r.position.y - beklenen[ad].position.y) < 0.01 \
+			and absf(r.size.x - beklenen[ad].size.x) < 0.01 and absf(r.size.y - beklenen[ad].size.y) < 0.01
+		ok_f = ok_f and tam
+		ayr_f.append("%s %s" % [ad, str(r)])
+	# Işın uçları katı yüzeye değiyor mu: zemin üstü 600, kat üstü 400, tavan alt 150.
+	var zemin_ust: float = bolum.get_node("ZeminSag").position.y - 20.0
+	var kat_ust: float = bolum.get_node("KatA").position.y - 100.0
+	var tavan_alt: float = bolum.get_node("Tavan").position.y + 75.0
+	ok_f = ok_f and absf(zemin_ust - 600.0) < 0.01 and absf(kat_ust - 400.0) < 0.01 and absf(tavan_alt - 150.0) < 0.01
+	_kaydi("Bölüm 13 atlanamaz: ışınlar tam (A 150..600, B 150..400, C/D kuyu genişliği)", ok_f,
+		"%s; zemin üstü=%.0f, kat üstü=%.0f, tavan alt=%.0f" % ["; ".join(ayr_f), zemin_ust, kat_ust, tavan_alt])
+
+	# g) Kapak dışından kuyuya giriş yok: kuyu tabanı/yanları dolu. Kuyunun üstünde yalnız tek yönlü kapak;
+	#    sahnedeki tek yönlü parça sayısı 1, kapı kuyuda.
+	var tek := 0
+	var kutu_var := false
+	var gecit_var := false
+	for c in bolum.get_children():
+		if c is StaticBody2D:
+			for k in c.get_children():
+				if k is CollisionShape2D and k.one_way_collision:
+					tek += 1
+		if String(c.name).to_lower().contains("kutu"):
+			kutu_var = true
+		if c.get_script() != null and String(c.get_script().resource_path).ends_with("gecit.gd") \
+				or c.get_script() != null and String(c.get_script().resource_path).ends_with("asansor.gd"):
+			gecit_var = true
+	var kapi_p: Vector2 = bolum.get_node("Kapi").global_position
+	_kaydi("Bölüm 13 atlanamaz: tek giriş kapak (1 tek yönlü), kutu/geçit/asansör yok, kapı kuyu dibinde",
+		tek == 1 and not kutu_var and not gecit_var and kapi_p.y > 560.0 and kapi_p.x > 1000.0 and kapi_p.x < 1040.0,
+		"tek yönlü=%d, kutu=%s, geçit/asansör=%s, kapı=%s" % [tek, kutu_var, gecit_var, str(kapi_p)])
+	_kayitlar().sifirla()
+
+
+# ---------------------------------------------------------------- 4) kısayol taraması
+func _test_bolum13_kisayol() -> void:
+	var kay: Array = await _b13_kayitlar()
+	var ref: Dictionary = await _b13_referans()
+	var p0: int = ref["p0"]
+	var A: Array = kay[0]
+	var B: Array = kay[1]
+	var C: Array = kay[2]
+	var ayr: Array = []
+	var hepsi := true
+
+	# --- 1: klonsuz (çeşitli girdiler). Oyuncu tek başına hiç bir yöntemle LazerA'dan geçemez.
+	var kos: Array = [
+		["sag sürekli", [_b13_a(1, Callable(), 250)]],
+		["sağ+zıpla", [_b13_a(1, Callable(), 30)] + _b8_zipla_dizisi(5, 1.0, 40)],
+		["bantta dalgalan", [_b13_a(1, Callable(), 10), _b13_a(-1, Callable(), 10), _b13_a(1, Callable(), 10),
+			_b13_a(-1, Callable(), 10), _b13_a(1, Callable(), 250)]]]
+	for k in kos:
+		var s: Dictionary = await _b13_senaryo([], k[1])
+		hepsi = hepsi and not s["bitti_ham"]
+		ayr.append("1 klonsuz/%s: bitti=%s" % [k[0], s["bitti_ham"]])
+
+	# --- 2/3/4: 1 ya da 2 klon, kayıtların tüm alt kümeleri ve sıraları; oyuncu uyarlanabilir yol (koşullu).
+	var kume: Array = [["A", [A]], ["B", [B]], ["C", [C]], ["A+B", [A, B]], ["A+C", [A, C]], ["B+C", [B, C]],
+		["B+A", [B, A]], ["C+A", [C, A]], ["A+A", [A, A]], ["C+B", [C, B]]]
+	for k in kume:
+		# Oyuncu: kapağa varabildiği kadar gider; P0'dan farklı üç S zamanı dener (P0-8, P0, kare 400 kuralsız).
+		var sonuc := ""
+		var bitti_mi := false
+		for d in [-8, 0, 40]:
+			var s: Dictionary = await _b13_senaryo(k[1], _b13_oyuncu_td(p0 + d))
+			bitti_mi = bitti_mi or s["bitti_ham"]
+		hepsi = hepsi and not bitti_mi
+		ayr.append("2-4 %s: bitti=%s" % [k[0], bitti_mi])
+
+	# --- 3: A+B ve oyuncu PlakaC'ye kendisi darbe verir: üç darbe biçimi (13 / 26 / 53 kare) sonra kapağa koşar, S.
+	var kendi: Array = [
+		["bantla yürüyerek (13)", [_b13_a(1, _b4_x_ge(900.0), 60)]],
+		["bantla ters yürüyerek (26)", [_b13_a(1, _b4_x_ge(950.0), 60), _b13_a(-1, _b4_x_le(790.0), 80)]],
+		["girdisiz sürüklenme (53)", [_b13_a(1, _b4_x_ge(802.0), 60), _b13_a(0, _b4_x_ge(900.0), 120)]]]
+	for k in kendi:
+		var adim: Array = _b13_ortak() + [_b13_a(0, _b13_lb_kapali_zemin(), 150)] + k[1] + [
+			_b13_a(1, _b4_x_ge(985.0), 120), _b13_a(0, Callable(), 1, false, true),
+			_b13_a(0, _b13_kuyu_dibi(), 90), _b13_a(1, _b4_bitti_k(), 90)]
+		var s: Dictionary = await _b13_senaryo([A, B], adim)
+		hepsi = hepsi and not s["bitti_ham"]
+		ayr.append("3 A+B, oyuncu kendi darbesi %s: bitti=%s oldu=%d" % [k[0], s["bitti_ham"], s["oldu"]])
+
+	# --- 4/5 röle: B' PlakaB'de T kare durup ayrılır (tutucu devri), C' onun yerine geçer; 2 klon, çözüm olmaz.
+	for t in [10, 20, 40, 80]:
+		var b_role: Array = _b13_ortak() + [_b13_a(0, _b4_plakada("PlakaB"), 150), _b13_a(0, Callable(), t)] + \
+			[_b13_a(1, _b4_x_ge(985.0), 250), _b13_a(-1, _b4_x_le(735.0), 400), _b13_a(0, Callable(), 10)]
+		var sr: Dictionary = await _b13_senaryo([A], b_role)
+		var s: Dictionary = await _b13_senaryo([A, sr["kayit"]], _b13_oyuncu_td(p0 - 10))
+		hepsi = hepsi and not s["bitti_ham"]
+		ayr.append("4-5 röle T=%d: B' kayıt ölüm=%d, oyuncu bitti=%s" % [t, sr["oldu"], s["bitti_ham"]])
+
+	# --- 6: oyuncu PlakaC'yi tutar (bantta dalgalanır), kapağa gidemez; klon yok (A+B ile): plaka-kapak aralığı.
+	var s6: Dictionary = await _b13_senaryo([A, B], _b13_ortak() + [_b13_a(0, _b13_lb_kapali_zemin(), 150),
+		_b13_a(1, _b4_x_ge(820.0), 100)] + [_b13_a(-1, Callable(), 8), _b13_a(1, Callable(), 8), _b13_a(-1, Callable(), 8),
+		_b13_a(1, Callable(), 8)] + [_b13_a(1, _b4_x_ge(985.0), 120), _b13_a(0, Callable(), 1, false, true),
+		_b13_a(0, _b13_kuyu_dibi(), 90), _b13_a(1, _b4_bitti_k(), 90)])
+	hepsi = hepsi and not s6["bitti_ham"]
+	ayr.append("6 oyuncu PlakaC'de dalgalanır sonra kapağa: bitti=%s" % s6["bitti_ham"])
+
+	# --- 12: şalteri oyuncunun kendisi çevirmesi klon saymaz: [A,B,C_zıplayan] + oyuncu şalteri kendi çevirir -> BİTER;
+	#     [A,B] + oyuncu şalter çeviren ise YİNE bitmez (LazerC için C gerek).
+	var c_ziplayan: Array = _b13_k3_ziplayan()
+	var sc: Dictionary = await _b13_senaryo([A, B], c_ziplayan)
+	var arc: Vector2i = _b13_aralik(sc["ozel"], "pc", true, sc["baslangic"][3] if sc["baslangic"].size() > 3 else 0)
+	# Oyuncu kapağa varır, şalteri kendisi çevirir (sol, SagAlan), kapağa geri döner, S basar.
+	var kendi_salter: Array = _b13_ortak() + [_b13_a(0, _b13_lb_kapali_zemin(), 150),
+		_b13_a(1, _b4_x_ge(985.0), 250), _b13_a(-1, _b13_salter_sola(), 30),
+		_b13_a(1, _b4_x_ge(985.0), 30), _b13_a(0, _b13_kare_ge(arc.x - 10), 200), _b13_a(0, Callable(), 1, false, true),
+		_b13_a(0, _b13_kuyu_dibi(), 90), _b13_a(1, _b4_bitti_k(), 90)]
+	var s12: Dictionary = await _b13_senaryo([A, B, sc["kayit"]], kendi_salter)
+	var s12b: Dictionary = await _b13_senaryo([A, B], kendi_salter)
+	hepsi = hepsi and s12["bitti_ham"] and not s12b["bitti_ham"]
+	ayr.append("12 şalteri oyuncu çevirir: [A,B,C_zıplayan] bitti=%s (gerek: 3 klon yine), [A,B] bitti=%s" % [s12["bitti_ham"], s12b["bitti_ham"]])
+
+	# --- 13: S düşmenin açtığı yeni yollar: kuyudan çıkış yok (zıplatıcı kuyuda yok), yalnız kapak tek yönlü.
+	var s13: Dictionary = await _b13_senaryo([], [_b13_a(0, Callable(), 3, false, true)] + _b8_zipla_dizisi(5, 0.0, 40) + _b8_zipla_dizisi(4, 1.0, 40),
+		_b13_yerlestir(Vector2(1020, 375.9)))
+	# Not: LazerC kapalı olmadığından ölür (lazerler açık); kuyuya girmek ışında biter, bu başlı başına çıkış değil.
+	var son13: Vector2 = _b13_son(s13)
+	var kuyu_ust := 1.0e9
+	for p in s13["iz"]:
+		if p.y > 420.0:
+			kuyu_ust = minf(kuyu_ust, p.y)
+	hepsi = hepsi and not s13["bitti_ham"]
+	ayr.append("13 S düşme sonrası: oyuncu son=(%.0f,%.0f), bitti=%s, ölüm=%d" % [son13.x, son13.y, s13["bitti_ham"], s13["oldu"]])
+
+	# --- 14: kutu yok (tarama: sahnede kutu/geçit/asansör düğümü yok) -> atlanamaz testinde doğrulandı.
+	# --- 8: geçit altı park/röle bu bölümde uygulanamaz (geçit/asansör yok).
+	_kaydi("Bölüm 13 kısayol taraması (2 klonla/klonsuz bitmez; S/bant/şalter/röle varyantları; çözüm 3 klonla)", hepsi, "; ".join(ayr))
+	_kayitlar().sifirla()
+
+
+# ---------------------------------------------------------------- 5) hassasiyet (pencere ölçümleri)
+## Verilen oyuncu adımlarıyla (klonlu) çözümün biteceği değişken değerleri.
+func _b13_bitti(kayitlar: Array, adimlar: Array) -> bool:
+	var s: Dictionary = await _b13_senaryo(kayitlar, adimlar)
+	return s["bitti_ham"] and s["oldu"] == 0
+
+
+func _b13_aralik_yaz(deger_listesi: Array, ok_listesi: Array) -> String:
+	# ardışık geçen değerleri [lo..hi] parçalarına çevirir
+	var parcalar: Array = []
+	var lo := -1
+	var hi := -1
+	for i in range(deger_listesi.size()):
+		if ok_listesi[i]:
+			if lo < 0:
+				lo = deger_listesi[i]
+			hi = deger_listesi[i]
+		elif lo >= 0:
+			parcalar.append("%d..%d" % [lo, hi])
+			lo = -1
+	if lo >= 0:
+		parcalar.append("%d..%d" % [lo, hi])
+	return ", ".join(parcalar) if not parcalar.is_empty() else "yok"
+
+
+func _test_bolum13_hassasiyet() -> void:
+	var kay: Array = await _b13_kayitlar()
+	var ref: Dictionary = await _b13_referans()
+	var p0: int = ref["p0"]
+	var p1: int = ref["p1"]
+	var td_ref: int = ref["td"]
+	var s_ref: Dictionary = ref["s"]
+	# --- a) Td penceresi: S basma karesi (iz indeksi) süpürmesi.
+	var tdler: Array = []
+	var oklar: Array = []
+	for td in range(178, p0 + 24):
+		var s: Dictionary = await _b13_senaryo(kay, _b13_oyuncu_td(td))
+		tdler.append(td)
+		oklar.append(s["bitti_ham"] and s["oldu"] == 0)
+	var pencere: String = _b13_aralik_yaz(tdler, oklar)
+	var kabul := 0
+	for o in oklar:
+		if o:
+			kabul += 1
+	_kaydi("Bölüm 13 ölçüm: S basma (Td) penceresi", kabul >= 5 and kabul <= 40 and oklar[tdler.find(td_ref)] if tdler.has(td_ref) else kabul >= 5,
+		"P0=%d (C'nin dönüş darbesi ilk kare), darbe son kare=%d (%d kare), Td kabul edilenler: %s (%d kare genişlik; taslak P0-18..P0+2); referans oyuncu Td=%d" % [
+			p0, p1, p1 - p0 + 1, pencere, kabul, td_ref])
+
+	# --- b) Kuyu düşüş zamanı: referans oyuncunun izinden ışınlara göre kare farkları.
+	var iz: Array = s_ref["iz"]
+	var rc := Rect2(960, 467, 120, 6)
+	var rd := Rect2(960, 537, 120, 6)
+	var c_ilk := -1
+	var c_son := -1
+	var d_ilk := -1
+	var d_son := -1
+	var zemin_f := -1
+	for f in range(td_ref, iz.size()):
+		if _b13_cakisir(iz[f], rc):
+			if c_ilk < 0:
+				c_ilk = f
+			c_son = f
+		if _b13_cakisir(iz[f], rd):
+			if d_ilk < 0:
+				d_ilk = f
+			d_son = f
+		if zemin_f < 0 and iz[f].y >= 575.0:
+			zemin_f = f
+	var lc_kap: Vector2i = _b13_aralik(s_ref["ozel"], "lc", false, maxi(ref["salter"] - 1, 0))
+	_kaydi("Bölüm 13 ölçüm: kuyu düşüş zamanı (S'den ışınlara)", c_ilk > 0 and d_ilk > 0 and c_ilk - td_ref >= 12,
+		"S karesi=%d; LazerC ışınında kare Td+%d..Td+%d (%d kare), LazerD ışınında Td+%d..Td+%d (%d kare), zemin Td+%d (taslak C: +19..+24, D: +27..+30, zemin +32); LazerC kapalı kareler (görünür durum): %s" % [
+			td_ref, c_ilk - td_ref, c_son - td_ref, c_son - c_ilk + 1, d_ilk - td_ref, d_son - td_ref, d_son - d_ilk + 1,
+			zemin_f - td_ref, str(lc_kap)])
+
+	# --- c) Lazer geçiş pencereleri: yatay 5 px/kare ile ışın genişliği: gövde 28 + ışın 6 = 34 px.
+	var pen_a := 34.0 / 5.0
+	_kaydi("Bölüm 13 ölçüm: lazer geçiş süreleri (kare)", true,
+		"LazerA/B (6 px, yatay 5 px/kare): %.1f kare; LazerC/D düşüşte: C %d kare, D %d kare (ölçülen)" % [pen_a, c_son - c_ilk + 1, d_son - d_ilk + 1])
+
+	# --- d) Darbe süreleri (PlakaC 88 px basma penceresi, bant 1,667 px/kare).
+	var darbe: Array = []
+	var senaryolar: Array = [
+		["bantla yürüyerek (13,2)", Vector2(790, 375.9), [_b13_a(1, _b4_x_ge(910.0), 80)], "PlakaC"],
+		["bantın aksine yürüyerek (26,4)", Vector2(930, 375.9), [_b13_a(-1, _b4_x_le(780.0), 120)], "PlakaC"],
+		["girdisiz sürüklenme (52,8)", Vector2(790, 375.9), [_b13_a(0, _b4_x_ge(900.0), 150)], "PlakaC"]]
+	var ok_d := true
+	for sc in senaryolar:
+		var sd: Dictionary = await _b13_senaryo([], sc[2], _b13_yerlestir(sc[1]))
+		var key := "pc"
+		var ar: Vector2i = _b13_aralik(sd["ozel"], key, true)
+		var n: int = ar.y - ar.x + 1 if ar.x >= 0 else 0
+		darbe.append("%s: %d kare" % [sc[0], n])
+		var beklenen: int = 13 if str(sc[0]).contains("13") else (26 if str(sc[0]).contains("26") else 53)
+		ok_d = ok_d and absi(n - beklenen) <= 2
+	# PlakaA bantı (BantA üstünde, K1 gerçek kaydı): girdisiz sürüklenme.
+	var ar_a: Vector2i = _b13_aralik(ref["s"]["ozel"], "pa", true)
+	_kaydi("Bölüm 13 ölçüm: bant darbe süreleri (13 / 26 / 53 kare)", ok_d, "; ".join(darbe))
+
+	# --- e) K1 yürüme süresi (sag_n) süpürmesi: A darbesi başlangıcı ve çözümün biteceği değerler.
+	var ns: Array = []
+	var ok_n: Array = []
+	for n in [2, 4, 6, 8, 9, 10, 11, 12, 14, 18, 24, 30, 40]:
+		var s1: Dictionary = await _b13_senaryo([], _b13_k1(n))
+		var s2: Dictionary = await _b13_senaryo([s1["kayit"]], _b13_k2())
+		var tamam: bool = s2["oldu"] == 0 and not s2["tamam"].has(false)
+		ns.append(n)
+		ok_n.append(tamam)
+	_kaydi("Bölüm 13 ölçüm: K1 ilk yürüyüş süresi (BantA girişi), K2'nin LazerA'yı geçmesi", true,
+		"B (K2) geçer: sag_n=%s (K1 x=60'tan sag_n*5 px yürür; sag_n<=8 BantA başı x=100 bantta takılır, ~20 kare ZeminSol üstünde bekler)" % _b13_aralik_yaz(ns, ok_n))
+
+	# --- f) LazerA geçiş penceresi: K2 başlangıç gecikmesi s (K1 sabit).
+	var ss: Array = []
+	var ok_s: Array = []
+	for s_g in range(-10, 60, 4):
+		var gec: int = maxi(s_g, 0)
+		var adim: Array = ([_b13_a(0, Callable(), gec)] if gec > 0 else []) + _b13_k2()
+		var s2: Dictionary = await _b13_senaryo([kay[0]], adim)
+		ss.append(s_g)
+		ok_s.append(s2["oldu"] == 0 and not s2["tamam"].has(false))
+	_kaydi("Bölüm 13 ölçüm: LazerA geçiş penceresi (B'nin başlangıç gecikmesi, kare)", true,
+		"K2 geçer: gecikme=%s (negatif = 0 gecikme; taslak -10..+34)" % _b13_aralik_yaz(ss, ok_s))
+
+	# --- g) B iniş x süpürmesi (bırakma x'i): LazerB açıkken ışın sol kenarı 757-14=743.
+	var xs: Array = []
+	var ok_x: Array = []
+	var ayr_x: Array = []
+	for x in range(620, 770, 10):
+		var s2: Dictionary = await _b13_senaryo([kay[0]], _b13_k2(float(x)))
+		var son: Vector2 = _b13_son(s2)
+		var kata: bool = s2["oldu"] == 0 and not s2["tamam"].has(false) and son.y < 400.0
+		xs.append(x)
+		ok_x.append(kata)
+		ayr_x.append("%d:%s" % [x, "PlakaB" if kata else ("öldü" if s2["oldu"] > 0 else "iniş yok")])
+	_kaydi("Bölüm 13 ölçüm: B'nin bırakma x'i (PlakaB'ye iniş) penceresi", true,
+		"bırakma x'i (x>=...): %s; başarılı aralık: %s (taslak 626..735)" % [" ".join(ayr_x), _b13_aralik_yaz(xs, ok_x)])
+
+	# --- h) Z1 köşe payı (K=30'da sağ kenar 640): ortak yolda ayak y ve x.
+	var s_k2: Dictionary = await _b13_senaryo([kay[0]], _b13_k2())
+	var kose_ayak := 1.0e9
+	var kose_f := -1
+	for f in range(s_k2["iz"].size()):
+		var p: Vector2 = s_k2["iz"][f]
+		if p.x + 14.0 >= 640.0 and kose_f < 0:
+			kose_f = f
+			kose_ayak = p.y + 24.0
+	var tepe_ayak := 1.0e9
+	for p in s_k2["iz"]:
+		tepe_ayak = minf(tepe_ayak, p.y + 24.0)
+	_kaydi("Bölüm 13 ölçüm: Z1 uçuşu köşe payı", kose_f > 0 and kose_ayak < 400.0,
+		"sağ kenar 640'a ilk varışta ayak y=%.1f (kat yüzeyi 400, pay %.1f px), uçuş tepesi ayak y=%.1f (taslak 353)" % [
+			kose_ayak, 400.0 - kose_ayak, tepe_ayak])
+
+	# --- i) Bant-KatB dikişi: x=926..954 arasında dikiş; sabit durma ve sürüklenme.
+	var seam: Array = []
+	for x0 in [920.0, 930.0, 938.0, 942.0, 950.0]:
+		var sj: Dictionary = await _b13_senaryo([], [_b13_a(0, Callable(), 60)], _b13_yerlestir(Vector2(x0, 375.9)))
+		var son: Vector2 = _b13_son(sj)
+		seam.append("x0=%.0f -> %.1f" % [x0, son.x])
+	_kaydi("Bölüm 13 ölçüm: BantC-KatB dikişinde girdisiz duruş (60 kare)", true, "; ".join(seam))
+
+	# --- j) PlakaB-LazerB payı: plakadan ayrılış ile LazerB açılışı ve ışına varış.
+	var sp: Dictionary = await _b13_senaryo([], [_b13_a(1, Callable(), 40)], _b13_yerlestir(Vector2(700, 375.9)))
+	var f_pb := -1
+	var f_lb_acik := -1
+	var f_isin := -1
+	var onceki_pb := false
+	for f in range(sp["ozel"].size()):
+		if onceki_pb and not sp["ozel"][f]["pb"] and f_pb < 0:
+			f_pb = f
+		onceki_pb = sp["ozel"][f]["pb"]
+		if f_pb >= 0 and f_lb_acik < 0 and sp["ozel"][f]["lb"]:
+			f_lb_acik = f
+		if _b13_cakisir(sp["iz"][f], Rect2(757, 150, 6, 250)) and f_isin < 0:
+			f_isin = f
+	_kaydi("Bölüm 13 ölçüm: PlakaB bırakılınca LazerB açılışı ve ışına varış", f_pb > 0,
+		"plaka bırakma karesi=%d, LazerB açık (görünür) +%d kare, gövde ışında +%d kare; oyuncu öldü=%d (yalnız yürürken; açılış gecikmesi %d kare)" % [
+			f_pb, f_lb_acik - f_pb, f_isin - f_pb if f_isin > 0 else -1, sp["oldu"], f_lb_acik - f_pb])
+	_kayitlar().sifirla()
+
+
+# ---------------------------------------------------------------- 6) zamanlama: kapak x penceresi
+func _test_bolum13_zamanlama() -> void:
+	# S'nin düşürdüğü kapak merkez x aralığı (taslak 974..1066): lazerler açık, ölüm düşüşte; "düştü" = ölüm ya da y>440.
+	var xs: Array = []
+	var dus: Array = []
+	var ayr: Array = []
+	for x in [958, 962, 966, 970, 972, 973, 974, 975, 976, 980, 1060, 1064, 1065, 1066, 1067, 1070, 1074]:
+		var s: Dictionary = await _b13_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 40)],
+			_b13_yerlestir(Vector2(float(x), 375.9)))
+		var ymax := 0.0
+		for p in s["iz"]:
+			ymax = maxf(ymax, p.y)
+		var dustu: bool = s["oldu"] > 0 or ymax > 400.0
+		xs.append(x)
+		dus.append(dustu)
+		ayr.append("%d:%s" % [x, "düşer" if dustu else "durur"])
+	var alt := -1
+	var ust := -1
+	for i in range(xs.size()):
+		if dus[i]:
+			if alt < 0:
+				alt = xs[i]
+			ust = xs[i]
+	_kaydi("Bölüm 13 ölçüm: S ile düşen kapak merkez x aralığı", alt > 0,
+		"düşen aralık x=%d..%d (taslak 974..1066); %s" % [alt, ust, " ".join(ayr)])
+	_kayitlar().sifirla()
+
+
+# ---------------------------------------------------------------- 7) klon sınırı
+func _test_bolum13_klon_siniri() -> void:
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var maks: int = bolum.max_klon
+	var gecti := maks == 3
+	var ayr: Array = []
+	for n in range(maks + 1):
+		for i in range(5):
+			_girdi_uygula({"yon": 1.0, "zipla": false})
+			await physics_frame
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		var eski_id := bolum.get_instance_id()
+		await _r_bas()
+		var yeni: Node = await _yeni_sahne_bekle(eski_id)
+		var sayi: int = _kayitlar().turlar.size()
+		if n < maks:
+			gecti = gecti and yeni != null and sayi == n + 1
+			if yeni == null:
+				break
+			bolum = yeni
+		else:
+			var yazi: String = bolum.bilgi.text
+			gecti = gecti and yeni == null and sayi == maks and yazi.contains("Klon hakkı bitti") \
+				and yazi.contains("3/3")
+			ayr.append("sınırda etiket: \"%s\"" % yazi)
+		ayr.append("R #%d -> kayıtlı klon: %d" % [n + 1, sayi])
+	_kaydi("Bölüm 13: klon sınırı (dördüncü R klon kaydetmez)", gecti, "max_klon=%d; %s" % [maks, ", ".join(ayr)])
+	_kayitlar().sifirla()
+
+
+# ---------------------------------------------------------------- 8) kilitlenme davranışı
+func _test_bolum13_kilitlenme() -> void:
+	# Oyuncu kuyuda ölünce tur yeniden başlar: klonlar korunur (kilitlenme değil), tur sayısı artmaz.
+	var kay: Array = await _b13_kayitlar()
+	_kayitlar().sifirla()
+	for k in [kay[0], kay[1]]:
+		_kayitlar().tur_kaydet(k.duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	var sayac := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var eski_id := bolum.get_instance_id()
+	var s: Dictionary = await _b13_kosullu(bolum, _b13_oyuncu_td(196), sayac)
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var ok: bool = sayac[0] > 0 and yeni != null and _kayitlar().turlar.size() == 2
+	var etiket := ""
+	var klon_yeni := -1
+	if yeni != null:
+		etiket = yeni.bilgi.text
+		klon_yeni = _klonlar(yeni).size()
+		ok = ok and klon_yeni == 2 and etiket.contains("Tur 3") and etiket.contains("2/3")
+	_kaydi("Bölüm 13 kilitlenme: kuyuda ölüm -> tur yeniden başlar, klonlar korunur", ok,
+		"ölüm=%d, kayıtlı tur=%d, yeni sahnede klon=%d, etiket=\"%s\", kuyu ölüm konumu=%s" % [
+			sayac[0], _kayitlar().turlar.size(), klon_yeni, etiket, _b13_olum_yeri(s)])
+	# Klon LazerA'da ölürse yerinde donar (K2 hatalı kayıt): klon_oldu=true ve konumu sabit kalır.
+	var k1_kisa: Array = [_b13_a(1, _b4_x_ge(262.0), 200), _b13_a(0, Callable(), 12)]
+	var sk: Dictionary = await _b13_senaryo([], k1_kisa)
+	var sb: Dictionary = await _b13_senaryo([sk["kayit"]], _b13_k2())   # canlı K2 LazerA'da ölür
+	var sd: Dictionary = await _b13_senaryo([sk["kayit"], kay[1]], [_b13_a(0, Callable(), 150)])
+	var ki: Array = sd["klon_izleri"][1]
+	var sabit := true
+	var donma := -1
+	for f in range(1, ki.size()):
+		if sd["klon_oldu"][1] and donma < 0 and f > 100 and ki[f] == ki[f - 1]:
+			donma = f
+	for f in range(maxi(donma, 1), ki.size()):
+		if ki[f] != ki[donma if donma > 0 else 0]:
+			sabit = false
+	_kaydi("Bölüm 13 kilitlenme: LazerA'da ölen klon yerinde donar", sd["klon_oldu"][1] and ki[ki.size() - 1].x < 345.0,
+		"B klonu öldü=%s, son konum=(%.0f,%.0f); canlı K2 ölüm=%d" % [sd["klon_oldu"][1], ki[ki.size() - 1].x, ki[ki.size() - 1].y, sb["oldu"]])
+	_kayitlar().sifirla()
+
+
+# ---------------------------------------------------------------- 9) determinizm
+func _test_bolum13_determinizm() -> void:
+	var kay: Array = await _b13_kayitlar()
+	var s0: Dictionary = await _b13_senaryo(kay, _b13_oyuncu(_b13_salter_sola(), 10))
+	var betik: Array = s0["kayit"]
+	var ornek := func(b: Node) -> Dictionary: return _b13_ornekle(b)
+	var referans: Dictionary = {}
+	var sapmali := 0
+	var bitmeyen := 0
+	var maks_sapma := 0.0
+	for n in range(TEKRAR):
+		var s: Dictionary = await _senaryo(kay, betik, 700, Callable(), ornek)
+		if not s["bitti"]:
+			bitmeyen += 1
+		if n == 0:
+			referans = s
+			continue
+		var bu: bool = s["ozel_iz"].size() != referans["ozel_iz"].size() or s["kare"] != referans["kare"]
+		for f in range(mini(s["ozel_iz"].size(), referans["ozel_iz"].size())):
+			if s["ozel_iz"][f] != referans["ozel_iz"][f]:
+				bu = true
+			var d: float = (s["oyuncu_iz"][f] - referans["oyuncu_iz"][f]).length()
+			for ki in range(3):
+				d = maxf(d, (s["klon_izleri"][ki][f] - referans["klon_izleri"][ki][f]).length())
+			if d > 0.0:
+				bu = true
+				maks_sapma = maxf(maks_sapma, d)
+		if bu:
+			sapmali += 1
+	_kaydi("Bölüm 13: determinizm (100x çözüm)", sapmali == 0 and bitmeyen == 0 and s0["bitti_ham"],
+		"%d çalıştırma x %d kare, sapmalı: %d, en büyük sapma: %.4f px, bitirmeyen çalıştırma: %d, kayıt turu bitti: %s" % [
+			TEKRAR, referans["kare"], sapmali, maks_sapma, bitmeyen, s0["bitti_ham"]])
+	_kayitlar().sifirla()
+	paused = false
+
+
+
+# ================================================================ BÖLÜM 14 (final: üç mıhlanmış tutucu)
+# Taslak: docs/devir/bolum_14_taslak.md. C1 (raf, PlakaM) / C2 (çukur, PlakaP) / C3 (çıkıntı, PlakaU).
+const BOLUM_14 := "res://scenes/bolumler/bolum_14.tscn"
+
+var _b14_onbellek: Array = []   # [C1, C2, C3]
+
+
+func _b14_ornekle(b: Node) -> Dictionary:
+	var o: CharacterBody2D = b.get_node("Oyuncu")
+	return {"pa": b.get_node("PlakaA").basili_mi(), "pm": b.get_node("PlakaM").basili_mi(),
+		"pr": b.get_node("PlakaR").basili_mi(), "pp": b.get_node("PlakaP").basili_mi(),
+		"pu": b.get_node("PlakaU").basili_mi(),
+		"l1": b.get_node("Lazer1").acik_mi(), "l2": b.get_node("Lazer2").acik_mi(),
+		"l3": b.get_node("Lazer3").acik_mi(),
+		"ga": b.get_node("GecitA").position.y, "gr": b.get_node("GecitR").position.y,
+		"kutu": b.get_node("Kutu").global_position, "zemin": o.is_on_floor()}
+
+
+func _b14_kosullu(bolum: Node, adimlar: Array, sayac: Array) -> Dictionary:
+	var oyuncu: CharacterBody2D = bolum.get_node("Oyuncu")
+	var klonlar: Array = _klonlar(bolum)
+	var klon_iz: Array = []
+	for k in klonlar:
+		klon_iz.append([])
+	var iz: Array = []
+	var ozel: Array = []
+	var baslangic: Array = []
+	var tamam: Array = []
+	var kare := 0
+	for a in adimlar:
+		baslangic.append(iz.size())
+		var n := 0
+		var karsilandi: bool = not a["kosul"].is_valid()
+		while n < a["maks"]:
+			if not is_instance_valid(bolum) or bolum.bitti:
+				break
+			_girdi_uygula({"yon": a["yon"], "zipla": a["zipla"] and n == 0, "asagi": a.get("asagi", false)})
+			iz.append(oyuncu.global_position)
+			ozel.append(_b14_ornekle(bolum))
+			for i in range(klonlar.size()):
+				klon_iz[i].append(klonlar[i].global_position)
+			await physics_frame
+			n += 1
+			kare += 1
+			if a["kosul"].is_valid() and is_instance_valid(bolum) and a["kosul"].call(bolum):
+				karsilandi = true
+				break
+		tamam.append(karsilandi)
+		if not is_instance_valid(bolum) or bolum.bitti:
+			break
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	var bitti_son: bool = is_instance_valid(bolum) and bolum.bitti
+	var kayit: Array = []
+	if is_instance_valid(oyuncu):
+		kayit = oyuncu.kayit_girdileri.duplicate(true)
+	var klon_oldu: Array = []
+	var klon_son: Array = []
+	for k in klonlar:
+		klon_oldu.append(is_instance_valid(k) and k.oldu)
+		klon_son.append(k.global_position if is_instance_valid(k) else Vector2.ZERO)
+	for i in range(3):
+		await physics_frame
+	return {"kare": kare, "bitti": bitti_son and sayac[0] == 0, "bitti_ham": bitti_son, "oldu": sayac[0],
+		"iz": iz, "ozel": ozel, "klon_izleri": klon_iz, "baslangic": baslangic, "tamam": tamam,
+		"kayit": kayit, "klon_oldu": klon_oldu, "klon_son": klon_son}
+
+
+func _b14_senaryo(kayitlar: Array, adimlar: Array, hazirlik := Callable()) -> Dictionary:
+	_kayitlar().sifirla()
+	for k in kayitlar:
+		_kayitlar().tur_kaydet(k.duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	if hazirlik.is_valid():
+		hazirlik.call(bolum)
+	var sayac := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var s: Dictionary = await _b14_kosullu(bolum, adimlar, sayac)
+	paused = false
+	return s
+
+
+func _b14_p(ad: String) -> Callable:
+	return func(b: Node) -> bool: return b.get_node(ad).basili_mi()
+
+
+func _b14_kare_ge(n: int) -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Oyuncu").kare >= n
+
+
+func _b14_laz_kapali(ad: String) -> Callable:
+	return func(b: Node) -> bool: return not b.get_node(ad).acik_mi()
+
+
+func _b14_kutu_x_ge(v: float) -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Kutu").global_position.x >= v
+
+
+func _b14_zeminde() -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Oyuncu").is_on_floor()
+
+
+func _b14_gecit_ust(ad: String, y: float) -> Callable:
+	return func(b: Node) -> bool: return b.get_node(ad).position.y <= y
+
+
+func _b14_son(s: Dictionary) -> Vector2:
+	return s["iz"][s["iz"].size() - 1] if s["iz"].size() > 0 else Vector2.ZERO
+
+
+func _b14_iz_yaz(s: Dictionary, adim := 5, bas := 0, son := -1) -> String:
+	var t: Array = []
+	var e: int = s["iz"].size() if son < 0 else mini(son, s["iz"].size())
+	for f in range(bas, e, adim):
+		var o: Dictionary = s["ozel"][f]
+		t.append("%d:(%.0f,%.0f)%s%s%s%s%s L%s%s%s K%.0f,%.0f GA%.0f GR%.0f" % [f, s["iz"][f].x, s["iz"][f].y,
+			"a" if o["pa"] else "", "m" if o["pm"] else "", "r" if o["pr"] else "", "p" if o["pp"] else "", "u" if o["pu"] else "",
+			"1" if o["l1"] else "-", "2" if o["l2"] else "-", "3" if o["l3"] else "-",
+			o["kutu"].x, o["kutu"].y, o["ga"], o["gr"]])
+	return "\n".join(t)
+
+
+
+
+## Taslak çözümünün turları (parametreli). C1: raf tutucusu (PlakaM).
+## bekle: PlakaA'da başta bekleme; dur_g: PlakaA'dan ayrılınca (x>=140) duraksama; z1_x: Z1'e girilen x.
+func _b14_t1(bekle := 36, z1_x := 318.0, dur_g := 0) -> Array:
+	var d: Array = [_b13_a(0, Callable(), bekle)]
+	if dur_g > 0:
+		d += [_b13_a(1, _b4_x_ge(140.0), 100), _b13_a(0, Callable(), dur_g)]
+	d += [_b13_a(1, _b4_x_ge(z1_x), 200), _b13_a(1, Callable(), 2),
+		_b13_a(0, _b4_plakada("PlakaM"), 150), _b13_a(0, Callable(), 10)]
+	return d
+
+
+func _b14_l2_kapali_zemin() -> Callable:
+	return func(b: Node) -> bool:
+		return not b.get_node("Lazer2").acik_mi() and b.get_node("PlakaM").basili_mi() and _klonlar(b).size() > 0 \
+			and _klonlar(b)[0].is_on_floor()
+
+
+func _b14_bantta_zemin(x: float) -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Oyuncu").global_position.x >= x and b.get_node("Oyuncu").is_on_floor()
+
+
+## Raf'taki klon PlakaM'de inip Lazer2 kapanana kadar bekle, Z1'den fırla, bant üstüne in, PlakaR'a (x<=sol_x) dön.
+func _b14_ucus_ve_plakar(r_bekle := 60, sol_x := 475.0, ucus_kare := -1) -> Array:
+	var d: Array = [_b13_a(1, _b4_x_ge(318.0), 200)]
+	if ucus_kare >= 0:
+		d.append(_b13_a(0, _b14_kare_ge(ucus_kare), 400))
+	else:
+		d.append(_b13_a(0, _b14_l2_kapali_zemin(), 200))
+	d += [_b13_a(1, _b14_bantta_zemin(520.0), 120), _b13_a(-1, _b4_x_le(sol_x), 80)]
+	if r_bekle > 0:
+		d.append(_b13_a(0, Callable(), r_bekle))
+	return d
+
+
+## C2: kutuyla yarışı yapar (yaris_d: plakadan çıkınca duraksama), kutuyu kapaklara iter, Kapak1 üstünde S ile çukura iner.
+func _b14_t2(s_x := 854.0, r_bekle := 60, sol_x := 475.0, yaris_d := 0, ucus_kare := -1) -> Array:
+	var d: Array = _b14_ucus_ve_plakar(r_bekle, sol_x, ucus_kare)
+	if yaris_d > 0:
+		d += [_b13_a(1, _b4_x_ge(545.0), 60), _b13_a(0, Callable(), yaris_d)]
+	d += [_b13_a(1, _b4_x_ge(s_x), 250), _b13_a(0, Callable(), 3), _b13_a(0, _b14_p("PlakaP"), 90, false, true),
+		_b13_a(0, Callable(), 10)]
+	return d
+
+
+## C3: kutu geçitten geçtikten sonra yarışı yapar, kutuyu çıkıntı yüzüne iter, kutuya, çıkıntıya zıplar.
+## f_bas: >=0 ise PlakaR'dan bu karede hareket eder (konvoy ölçümü), değilse kutu x>=kutu_x olunca.
+func _b14_t3(f_bas := -1, kutu_x := 760.0, hedef_x := 979.0, z_n := 14, zipla_bekle := 14, yaris_d := 0, ucus_kare := -1) -> Array:
+	var d: Array = _b14_ucus_ve_plakar(0, 475.0, ucus_kare)
+	if f_bas >= 0:
+		d += [_b13_a(0, _b14_kare_ge(f_bas), 400)]
+	else:
+		d += [_b13_a(0, _b14_kutu_x_ge(kutu_x), 300), _b13_a(0, _b14_gecit_ust("GecitR", 200.5), 100)]
+	if yaris_d > 0:
+		d += [_b13_a(1, _b4_x_ge(545.0), 60), _b13_a(0, Callable(), yaris_d)]
+	d += [_b13_a(1, _b14_kutu_x_ge(hedef_x), 300), _b13_a(0, Callable(), 3),
+		_b13_a(1, Callable(), z_n, true), _b13_a(0, _b14_zeminde(), 60),
+		_b13_a(0, Callable(), zipla_bekle, true), _b13_a(1, _b14_p("PlakaU"), 60), _b13_a(0, Callable(), 10)]
+	return d
+
+
+## Oyuncu (son tur): Lazer1 kapanınca (C2 çukurda) yarışı yapar, kapağın üstünden yürür, kutu+çıkıntı ile kapıya gider.
+func _b14_oyuncu(z_n := 14, ucus_kare := -1, bekle_laz := "Lazer1") -> Array:
+	var d: Array = [_b13_a(1, _b4_x_ge(318.0), 200)]
+	if ucus_kare >= 0:
+		d.append(_b13_a(0, _b14_kare_ge(ucus_kare), 400))
+	else:
+		d.append(_b13_a(0, func(b: Node) -> bool: return not b.get_node("Lazer2").acik_mi() and _klonlar(b).size() > 0 and _klonlar(b)[0].is_on_floor(), 250))
+	d += [_b13_a(1, _b14_bantta_zemin(520.0), 120), _b13_a(-1, _b4_x_le(475.0), 80)]
+	if bekle_laz != "":
+		d.append(_b13_a(0, _b14_laz_kapali(bekle_laz), 400))
+	d += [_b13_a(0, _b14_gecit_ust("GecitR", 200.5), 150),
+		_b13_a(1, _b4_x_ge(944.0), 400),
+		_b13_a(1, Callable(), z_n, true), _b13_a(0, _b14_zeminde(), 60),
+		_b13_a(0, Callable(), 14, true), _b13_a(1, _b4_bitti_k(), 120)]
+	return d
+
+
+func _b14_hepsi_kapali() -> Callable:
+	return func(b: Node) -> bool:
+		return not b.get_node("Lazer1").acik_mi() and not b.get_node("Lazer2").acik_mi() and not b.get_node("Lazer3").acik_mi()
+
+
+## [C1, C2, C3] kayıtları (bir kez, gerçek dünyada klonlarla üretilir).
+func _b14_kayitlar() -> Array:
+	if _b14_onbellek.is_empty():
+		var s1: Dictionary = await _b14_senaryo([], _b14_t1())
+		var s2: Dictionary = await _b14_senaryo([s1["kayit"]], _b14_t2())
+		var s3: Dictionary = await _b14_senaryo([s1["kayit"], s2["kayit"]], _b14_t3())
+		_b14_onbellek = [s1["kayit"], s2["kayit"], s3["kayit"]]
+	return _b14_onbellek
+
+
+## Kaydın klon olarak oynatıldığındaki son durumu (oyuncu boşta bekler): lazer/plaka durumları.
+func _b14_son_durum(kayitlar: Array, kare := 450) -> Dictionary:
+	var r: Dictionary = await _b14_senaryo(kayitlar, [_b13_a(0, Callable(), kare)])
+	var o: Dictionary = r["ozel"][r["ozel"].size() - 1]
+	o["klon_oldu"] = r["klon_oldu"]
+	o["klon_son"] = r["klon_izleri"][r["klon_izleri"].size() - 1].back() if not r["klon_izleri"].is_empty() else Vector2.ZERO
+	o["klon_izleri"] = r["klon_izleri"]
+	o["ozel"] = r["ozel"]
+	return o
+
+
+func _b14_ok1(d: Dictionary) -> bool:
+	return not d["l2"] and d["pm"] and not d["klon_oldu"][0]
+
+
+func _b14_ok2(d: Dictionary) -> bool:
+	return not d["l1"] and d["pp"] and not d["klon_oldu"][1]
+
+
+func _b14_ok3(d: Dictionary) -> bool:
+	return not d["l3"] and d["pu"] and not d["klon_oldu"][2]
+
+
+func _b14_yerlestir(oyuncu: Vector2, kutu := Vector2(-1.0, -1.0)) -> Callable:
+	return func(b: Node) -> void:
+		b.get_node("Oyuncu").global_position = oyuncu
+		if kutu.x >= 0.0:
+			b.get_node("Kutu").global_position = kutu
+
+
+## Oyuncu izinden: en büyük/küçük x, en küçük ayak y (merkez y + 24), en büyük y.
+func _b14_olc(s: Dictionary) -> Dictionary:
+	var xmax := -1.0e9
+	var xmin := 1.0e9
+	var ayak := 1.0e9
+	var ymax := -1.0e9
+	for p in s["iz"]:
+		xmax = maxf(xmax, p.x)
+		xmin = minf(xmin, p.x)
+		ayak = minf(ayak, p.y + 24.0)
+		ymax = maxf(ymax, p.y)
+	return {"xmax": xmax, "xmin": xmin, "ayak": ayak, "ymax": ymax}
+
+
+func _b14_spam(yon: float, n := 8) -> Array:
+	return _b8_zipla_dizisi(n, yon, 25)
+
+
+## Bir rolün kaydını, önceki klonlar varken gerçek dünyada üretir; ölüm turu yeniden başlatır (kayıt atılır: boş kayıt).
+func _b14_rol(ad: String, onceki: Array, kor := false) -> Array:
+	var adim: Array = []
+	if ad == "C1":
+		adim = _b14_t1()
+	elif ad == "C2":
+		adim = _b14_t2(854.0, 60, 475.0, 0, 150 if kor else -1)
+	else:
+		adim = _b14_t3(-1, 760.0, 979.0, 14, 14, 0, 150 if kor else -1)
+	var s: Dictionary = await _b14_senaryo(onceki, adim)
+	if s["oldu"] > 0:
+		return []
+	return s["kayit"]
+
+
+## Bir klon kümesiyle oyuncunun denediği stratejilerden biri bölümü bitirir mi.
+func _b14_bitirir_mi(klonlar: Array) -> bool:
+	var stratejiler: Array = [_b14_oyuncu(), _b14_oyuncu(14, 150, ""), _b14_oyuncu(14, -1, "Lazer3"),
+		[_b13_a(1, Callable(), 400)]]
+	for st in stratejiler:
+		var s: Dictionary = await _b14_senaryo(klonlar, st)
+		if s["bitti_ham"]:
+			return true
+	return false
+
+
+func _b14_calistir() -> void:
+	await _test_bolum14_cozum()
+	await _test_bolum14_basarisizlik()
+	await _test_bolum14_atlanamaz()
+	await _test_bolum14_kisayol()
+	await _test_bolum14_hassasiyet()
+	await _test_bolum14_dikis()
+	await _test_bolum14_klon_siniri()
+	await _test_bolum14_kilitlenme()
+	await _test_bolum14_determinizm()
+
+
+# ---------------------------------------------------------------- 1) çözüm (gerçek R/girdi yolu)
+func _test_bolum14_cozum() -> void:
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var kareler: Array = []
+	var olumsuz := ""
+	var turlar: Array = [_b14_t1(), _b14_t2(), _b14_t3()]
+	for i in range(3):
+		var sayac := [0]
+		bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+		var klon_once: int = _klonlar(bolum).size()
+		var s: Dictionary = await _b14_kosullu(bolum, turlar[i], sayac)
+		kareler.append(s["kare"])
+		if s["tamam"].has(false) or s["oldu"] > 0 or s["kare"] > 600 or klon_once != i:
+			olumsuz += " tur%d adım karşılanmadı %s oldu=%d kare=%d klon=%d;" % [i + 1, str(s["tamam"]), s["oldu"], s["kare"], klon_once]
+		var eski_id := bolum.get_instance_id()
+		await _r_bas()
+		bolum = await _yeni_sahne_bekle(eski_id)
+		if bolum == null:
+			_kaydi("Bölüm 14 çözümü (4 tur, 3 klon, gerçek R/girdi yolu)", false, "tur %d sonrası sahne yüklenmedi;%s" % [i + 1, olumsuz])
+			return
+	var klon_basta: int = _klonlar(bolum).size()
+	var etiket: String = bolum.bilgi.text
+	var sayac4 := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac4[0] += 1)
+	var s4: Dictionary = await _b14_kosullu(bolum, _b14_oyuncu(), sayac4)
+	var gecti: bool = s4["bitti"] and klon_basta == 3 and _kayitlar().turlar.size() == 3 \
+		and etiket.contains("Klon: 3/3") and olumsuz == "" and s4["kare"] <= 600 and s4["oldu"] == 0 \
+		and kareler[0] <= 600 and kareler[1] <= 600 and kareler[2] <= 600 and not s4["tamam"].has(false)
+	_kaydi("Bölüm 14 çözümü (4 tur, 3 klon, gerçek R/girdi yolu)", gecti,
+		"bitti: %s, tur kareleri: %s + %d (%.2f sn), klon: %d, kayıtlı tur: %d, ölüm: %d, etiket: \"%s\"%s" % [
+			s4["bitti"], str(kareler), s4["kare"], s4["kare"] / 60.0, klon_basta, _kayitlar().turlar.size(),
+			s4["oldu"], etiket, olumsuz])
+	_kayitlar().sifirla()
+	paused = false
+
+
+# ---------------------------------------------------------------- 2) başarısızlık senaryoları
+func _test_bolum14_basarisizlik() -> void:
+	var kay: Array = await _b14_kayitlar()
+	var c1: Array = kay[0]
+	var c2: Array = kay[1]
+
+	# 1) klonsuz: Lazer2'de ölür.
+	var s1: Dictionary = await _b14_senaryo([], [_b13_a(0, Callable(), 36), _b13_a(1, Callable(), 250)])
+	var p1: Vector2 = _b14_son(s1)
+	_kaydi("Bölüm 14 başarısızlık 1: klonsuz -> Lazer2'de ölür", s1["oldu"] > 0 and not s1["bitti_ham"] and p1.x > 420.0 and p1.x < 460.0,
+		"36 kare bekleyip GecitA'dan geçer, Z1 ile fırlar; ölüm=%d, son konum (%.0f,%.0f) (ışın x 447..453, gövde girişi 433)" % [s1["oldu"], p1.x, p1.y])
+
+	# 2) yalnız C1: Lazer1'de ölür.
+	var s2: Dictionary = await _b14_senaryo([c1], _b14_oyuncu())
+	var p2: Vector2 = _b14_son(s2)
+	_kaydi("Bölüm 14 başarısızlık 2: yalnız C1 -> Lazer1'de ölür", s2["oldu"] > 0 and not s2["bitti_ham"] and p2.x > 880.0 and p2.x < 925.0,
+		"ölüm=%d, son konum (%.0f,%.0f) (ışın x 912..918, gövde girişi 898)" % [s2["oldu"], p2.x, p2.y])
+
+	# 3) C1 + C2: Lazer3'te ölür.
+	var s3: Dictionary = await _b14_senaryo([c1, c2], _b14_oyuncu())
+	var p3: Vector2 = _b14_son(s3)
+	_kaydi("Bölüm 14 başarısızlık 3: C1 + C2 (C3 yok) -> Lazer3'te ölür", s3["oldu"] > 0 and not s3["bitti_ham"] and p3.x > 1050.0 and p3.y < 300.0,
+		"ölüm=%d, son konum (%.0f,%.0f) (ışın x 1087..1093, çıkıntıda)" % [s3["oldu"], p3.x, p3.y])
+
+	# 4) C1 PlakaA'da erken ayrılır (<32 kare bekler): GecitA'ya girerken açıklık < 48, Z1'e varamaz.
+	var ayr4: Array = []
+	var ok4 := true
+	for b in [0, 10, 20, 28]:
+		var s: Dictionary = await _b14_senaryo([], _b14_t1(b))
+		var d: Dictionary = await _b14_son_durum([s["kayit"]], 250)
+		var olc: Dictionary = _b14_olc(s)
+		ok4 = ok4 and not _b14_ok1(d) and olc["xmax"] < 262.0
+		ayr4.append("bekle=%d: en büyük x=%.0f, Lazer2 kapanır=%s" % [b, olc["xmax"], str(not d["l2"])])
+	_kaydi("Bölüm 14 başarısızlık 4: C1 başta < 32 kare bekler -> GecitA'dan geçemez", ok4, "; ".join(ayr4))
+
+	# 5) C2 PlakaR'da kısa basılı kalır: GecitR açıklığı yetmez, kutu ve C2 geçemez.
+	var ayr5: Array = []
+	var ok5 := true
+	for rb in [0, 10]:
+		var s: Dictionary = await _b14_senaryo([c1], _b14_t2(854.0, rb))
+		var d: Dictionary = await _b14_son_durum([c1, s["kayit"]], 450)
+		var olc: Dictionary = _b14_olc(s)
+		ok5 = ok5 and not _b14_ok2(d) and olc["xmax"] < 700.0
+		ayr5.append("r_bekle=%d: en büyük x=%.0f, PlakaP tutulur=%s" % [rb, olc["xmax"], str(d["pp"])])
+	_kaydi("Bölüm 14 başarısızlık 5: C2 PlakaR'da kısa basılı kalır -> geçit kapanır, kutu/C2 geçemez", ok5, "; ".join(ayr5))
+
+	# 6) C2 yanlış kapak konumunda S basar (Z2 sensörü ya da Kapak2 sınırı).
+	var ayr6: Array = []
+	var ok6 := true
+	for x in [800.0, 830.0, 890.0]:
+		var s: Dictionary = await _b14_senaryo([c1], _b14_t2(x))
+		var d: Dictionary = await _b14_son_durum([c1, s["kayit"]], 450)
+		ok6 = ok6 and not _b14_ok2(d)
+		ayr6.append("S x>=%.0f: Lazer1 kapanır=%s" % [x, str(not d["l1"])])
+	_kaydi("Bölüm 14 başarısızlık 6: C2 yanlış konumda S basar -> PlakaP tutulmaz", ok6, "; ".join(ayr6))
+
+	# 7) C3, C2 çukura inmeden Lazer1'e varır (konvoy +0): Lazer1'de ölür.
+	var f0: int = (await _b14_senaryo([c1], _b14_t2()))["baslangic"][5]
+	var s7: Dictionary = await _b14_senaryo([c1, c2], _b14_t3(f0))
+	var p7: Vector2 = _b14_son(s7)
+	_kaydi("Bölüm 14 başarısızlık 7: C3 C2 ile aynı karede yürür (konvoy +0) -> Lazer1 açık, ölür", s7["oldu"] > 0 and p7.x > 880.0 and p7.x < 925.0,
+		"C3 yürüyüşü C2 ile aynı karede (kare %d); ölüm=%d, son (%.0f,%.0f)" % [f0, s7["oldu"], p7.x, p7.y])
+
+	# 8) Oyuncu Lazer2'ye çok erken fırlar.
+	var s8: Dictionary = await _b14_senaryo([c1], _b14_oyuncu(14, 90))
+	var p8: Vector2 = _b14_son(s8)
+	_kaydi("Bölüm 14 başarısızlık 8: oyuncu Z1'den kare 90'da fırlar (Lazer2 henüz açık) -> ölür", s8["oldu"] > 0 and p8.x > 420.0 and p8.x < 480.0 and not s8["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s8["oldu"], p8.x, p8.y])
+
+	# 9) C3 çıkıntıya çıkmaz (yalnız kutuyu iter, PlakaU boş): oyuncu Lazer3'te ölür.
+	var c3_yarim: Array = (await _b14_senaryo([c1, c2], _b14_t3().slice(0, 9)))["kayit"]
+	var s9: Dictionary = await _b14_senaryo([c1, c2, c3_yarim], _b14_oyuncu(14, -1, "Lazer1"))
+	var p9: Vector2 = _b14_son(s9)
+	_kaydi("Bölüm 14 başarısızlık 9: C3 çıkıntıya çıkmaz (PlakaU boş) -> oyuncu Lazer3'te ölür", s9["oldu"] > 0 and not s9["bitti_ham"] and p9.x > 1050.0,
+		"ölüm=%d, son (%.0f,%.0f)" % [s9["oldu"], p9.x, p9.y])
+
+	# 10) C2 yarışta duraksar (PlakaR'dan çıkınca 6 kare): geçit kutuyu ve C2'yi yakalar.
+	var s10: Dictionary = await _b14_senaryo([c1], _b14_t2(854.0, 60, 475.0, 6))
+	var d10: Dictionary = await _b14_son_durum([c1, s10["kayit"]], 450)
+	var o10: Dictionary = _b14_olc(s10)
+	_kaydi("Bölüm 14 başarısızlık 10: C2 yarışta 6 kare duraksar -> geçit kapanır, PlakaP tutulmaz", not _b14_ok2(d10) and o10["xmax"] < 700.0,
+		"en büyük x=%.0f (geçit sol yüzü 700), PlakaP tutulur=%s" % [o10["xmax"], str(d10["pp"])])
+
+	# 11) C3 kutuyu çıkıntı yüzüne yaklaştırmaz (hedef x=880): çıkıntıya çıkamaz.
+	var s11: Dictionary = await _b14_senaryo([c1, c2], _b14_t3(-1, 760.0, 880.0))
+	var d11: Dictionary = await _b14_son_durum([c1, c2, s11["kayit"]], 560)
+	_kaydi("Bölüm 14 başarısızlık 11: C3 kutuyu uzakta bırakır (x=880) -> çıkıntıya çıkamaz", not _b14_ok3(d11),
+		"PlakaU tutulur=%s, Lazer3 açık=%s" % [str(d11["pu"]), str(d11["l3"])])
+	_kayitlar().sifirla()
+	paused = false
+
+
+# ---------------------------------------------------------------- 3) atlanamazlık
+func _test_bolum14_atlanamaz() -> void:
+	var kay: Array = await _b14_kayitlar()
+	var c1: Array = kay[0]
+	var c2: Array = kay[1]
+	var ayr: Array = []
+	var hepsi := true
+
+	# GecitA kapalı (PlakaA boş): sağ + zıplama ile geçilemez (üst 400, 200 px > 100,9).
+	var sa: Dictionary = await _b14_senaryo([], _b14_spam(1.0, 10), _b14_yerlestir(Vector2(200, 576)))
+	var oa: Dictionary = _b14_olc(sa)
+	var ok: bool = oa["xmax"] <= 242.0 and oa["ayak"] > 480.0
+	hepsi = hepsi and ok
+	ayr.append("GecitA kapalı: en büyük x=%.0f (sol yüz 255-14=241), en yüksek ayak y=%.0f (kapak üstü 400)" % [oa["xmax"], oa["ayak"]])
+
+	# GecitR kapalı (PlakaR boş): bant üstünden sağ + zıplama ile geçilemez (kutu basamak olsa bile).
+	var sr: Dictionary = await _b14_senaryo([], _b14_spam(1.0, 12), _b14_yerlestir(Vector2(560, 376)))
+	var orr: Dictionary = _b14_olc(sr)
+	ok = orr["xmax"] <= 687.0 and not sr["bitti_ham"]
+	hepsi = hepsi and ok
+	ayr.append("GecitR kapalı: en büyük x=%.0f (sol yüz 700-14=686), ayak y min=%.0f (geçit alt kenarı 400, kutu üstü 360)" % [orr["xmax"], orr["ayak"]])
+
+	# Z1 uçuşu (C1 var): sağ basılı + zıplama spam; GecitR kapalı kalır, x<=686.
+	var sz: Dictionary = await _b14_senaryo([c1], [_b13_a(1, _b4_x_ge(318.0), 200), _b13_a(0, _b14_l2_kapali_zemin(), 200)] + _b14_spam(1.0, 14))
+	var oz: Dictionary = _b14_olc(sz)
+	ok = oz["xmax"] <= 687.0 and not sz["bitti_ham"]
+	hepsi = hepsi and ok
+	ayr.append("Z1 uçuşu + sağ/zıpla spam: en büyük x=%.0f (<=686), bitti=%s" % [oz["xmax"], sz["bitti_ham"]])
+	var szu: Dictionary = await _b14_senaryo([c1], [_b13_a(1, _b4_x_ge(318.0), 200), _b13_a(0, _b14_l2_kapali_zemin(), 200), _b13_a(1, Callable(), 60)])
+	var ozu: Dictionary = _b14_olc(szu)
+	ok = ozu["ayak"] > 340.0 and ozu["ayak"] < 365.0
+	hepsi = hepsi and ok
+	ayr.append("Z1 uçuş tepesi ayak y=%.1f (taslak 353; çıkıntı yüzeyi 270: %.1f px kısa; TavanD alt 200: baş y=%.1f)" % [ozu["ayak"], ozu["ayak"] - 270.0, ozu["ayak"] - 48.0])
+
+	# Lazerleri zıplayarak aşma: açıkken ölür, x ışının solunda kalır.
+	for k in [["Lazer2", Vector2(405, 376), 447.0], ["Lazer1", Vector2(886, 376), 912.0], ["Lazer3", Vector2(1030, 246), 1087.0]]:
+		var sl: Dictionary = await _b14_senaryo([], _b14_spam(1.0, 8), _b14_yerlestir(k[1]))
+		var ol: Dictionary = _b14_olc(sl)
+		ok = sl["oldu"] > 0 and ol["xmax"] < k[2] + 9.0
+		hepsi = hepsi and ok
+		ayr.append("%s zıplayarak: ölüm=%d, en büyük x=%.0f (ışın sol kenarı %.0f)" % [k[0], sl["oldu"], ol["xmax"], k[2]])
+
+	# Çukur duvarı (UR sol yüz x=920): Lazer1 açık ve kapalı, çukur içinden sağa sağ+zıpla ile çıkış yok.
+	var scn: Dictionary = await _b14_senaryo([], _b14_spam(1.0, 8), _b14_yerlestir(Vector2(880, 576)))
+	var oc: Dictionary = _b14_olc(scn)
+	var scn2: Dictionary = await _b14_senaryo([c1, c2], _b14_spam(1.0, 8), _b14_yerlestir(Vector2(880, 576)))
+	var oc2: Dictionary = _b14_olc(scn2)
+	ok = oc["xmax"] <= 907.0 and oc2["xmax"] <= 907.0
+	hepsi = hepsi and ok
+	ayr.append("çukur duvarı: Lazer1 açık x=%.0f ölüm=%d, kapalı (C2 var) x=%.0f ölüm=%d (sol yüz 920-14=906)" % [oc["xmax"], scn["oldu"], oc2["xmax"], scn2["oldu"]])
+
+	# Kutu yokken çıkıntı: güvertede sağ+zıpla spam (kutu başlangıçta x=675'te): çıkıntıya (x>1000, ayak<=270) çıkılmaz.
+	var sk: Dictionary = await _b14_senaryo([], _b14_spam(1.0, 8), _b14_yerlestir(Vector2(940, 376), Vector2(675, 380)))
+	var ok_k: Dictionary = _b14_olc(sk)
+	ok = ok_k["xmax"] <= 987.0 and ok_k["ayak"] > 270.0
+	hepsi = hepsi and ok
+	ayr.append("çıkıntı kutusuz: en büyük x=%.0f (<=986), en yüksek ayak y=%.1f (>270; çıkıntı 130 px > 100,9, kıtlık %.1f px)" % [ok_k["xmax"], ok_k["ayak"], ok_k["ayak"] - 270.0])
+
+	# Kutu basamağı: kutu çıkıntı yüzünde (x=980): kutu üstünden çıkıntıya çıkılır (tek yol); ayak payı ölçülür.
+	var sb: Dictionary = await _b14_senaryo([], [_b13_a(1, Callable(), 14, true), _b13_a(0, _b14_zeminde(), 60),
+		_b13_a(0, Callable(), 14, true), _b13_a(1, Callable(), 40)], _b14_yerlestir(Vector2(946, 376), Vector2(980, 380)))
+	var ob: Dictionary = _b14_olc(sb)
+	var f_son: Vector2 = _b14_son(sb)
+	ok = f_son.x > 1000.0 and f_son.y < 260.0 and ob["ayak"] < 270.0
+	hepsi = hepsi and ok
+	ayr.append("kutu basamağı: çıkıntıya çıkar (son=(%.0f,%.0f)), kutu üstü zıplama tepesi ayak y=%.1f (çıkıntı yüzeyi 270, pay %.1f px)" % [f_son.x, f_son.y, ob["ayak"], 270.0 - ob["ayak"]])
+
+	# Z2 uçuşu (çukur tabanı): Lazer1 açıkken ölür; C2 çukurdayken (Lazer1 kapalı) çıkıntıya yetmez.
+	var s_z2: Dictionary = await _b14_senaryo([], [_b13_a(1, Callable(), 80)], _b14_yerlestir(Vector2(790, 576)))
+	var oz2: Dictionary = _b14_olc(s_z2)
+	ok = s_z2["oldu"] > 0 and oz2["xmax"] <= 907.0
+	hepsi = hepsi and ok
+	ayr.append("Z2 uçuşu (Lazer1 açık): ölüm=%d, en büyük x=%.0f (sol yüz 906; K=20'de güverte seviyesinde gövde x 892..920 ışında)" % [s_z2["oldu"], oz2["xmax"]])
+	var s_z2b: Dictionary = await _b14_senaryo([c1, c2], [_b13_a(0, _b14_kare_ge(420), 500), _b13_a(-1, _b4_x_le(800.0), 60),
+		_b13_a(1, Callable(), 90)], _b14_yerlestir(Vector2(850, 576)))
+	var oz2b: Dictionary = _b14_olc(s_z2b)
+	ok = oz2b["ayak"] > 340.0 and not s_z2b["bitti_ham"]
+	hepsi = hepsi and ok
+	ayr.append("Z2 uçuşu (Lazer1 kapalı, C2 çukurda): ayak y min=%.1f (çıkıntı 270), en büyük x=%.0f, ölüm=%d, bitti=%s" % [oz2b["ayak"], oz2b["xmax"], s_z2b["oldu"], s_z2b["bitti_ham"]])
+
+	_kaydi("Bölüm 14 atlanamazlık hesapları (geçitler, lazerler, çukur duvarı, Z1/Z2 uçuşları, kutu basamağı)", hepsi, "; ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+# ---------------------------------------------------------------- 4) kısayol taraması
+func _test_bolum14_kisayol() -> void:
+	var kay: Array = await _b14_kayitlar()
+	var c1: Array = kay[0]
+	var c2: Array = kay[1]
+	var c3: Array = kay[2]
+	var ayr: Array = []
+	var hepsi := true
+
+	# --- 1: klonsuz (çeşitli girdiler)
+	var kos: Array = [
+		["sag sürekli", [_b13_a(1, Callable(), 300)]],
+		["bekle 36 + sag sürekli (GecitA geçilir)", [_b13_a(0, Callable(), 36), _b13_a(1, Callable(), 300)]],
+		["bekle 36 + sağ+zıpla", [_b13_a(0, Callable(), 36)] + _b14_spam(1.0, 12)],
+		["sağ+zıpla", _b14_spam(1.0, 12)],
+		["Z1 uçuşu", [_b13_a(1, _b4_x_ge(318.0), 200), _b13_a(1, Callable(), 150)]]]
+	for k in kos:
+		var s: Dictionary = await _b14_senaryo([], k[1])
+		hepsi = hepsi and not s["bitti_ham"]
+		ayr.append("1 klonsuz/%s: bitti=%s" % [k[0], s["bitti_ham"]])
+
+	# --- 2: tek klon (her rol), --- 3: iki klon (tüm sıralar); roller önceki klonlarla gerçek dünyada kaydedilir
+	var roller: Array = ["C1", "C2", "C3"]
+	var bitenler: Array = []
+	var toplam := 0
+	for kor in [false, true]:
+		for a in roller:
+			var ka: Array = await _b14_rol(a, [], kor)
+			toplam += 1
+			if await _b14_bitirir_mi([ka]):
+				bitenler.append("%s%s" % [a, "(kör)" if kor else ""])
+			for b in roller:
+				var kb: Array = await _b14_rol(b, [ka], kor)
+				toplam += 1
+				if await _b14_bitirir_mi([ka, kb]):
+					bitenler.append("%s+%s%s" % [a, b, "(kör)" if kor else ""])
+	hepsi = hepsi and bitenler.is_empty()
+	ayr.append("2-3 tek/iki klon (3 rol x tüm sıralar x koşullu/kör zamanlama, her biri 4 oyuncu stratejisi): %d küme, bitiren=%s" % [toplam, str(bitenler)])
+
+	# --- 3b: taslak kayıtlarıyla tüm alt kümeler ve sıralar
+	var kume: Array = [["C1", [c1]], ["C2", [c2]], ["C3", [c3]], ["C1+C2", [c1, c2]], ["C1+C3", [c1, c3]], ["C2+C3", [c2, c3]],
+		["C2+C1", [c2, c1]], ["C3+C1", [c3, c1]], ["C3+C2", [c3, c2]], ["C1+C1", [c1, c1]], ["C2+C2", [c2, c2]], ["C3+C3", [c3, c3]]]
+	var bitenler2: Array = []
+	for k in kume:
+		if await _b14_bitirir_mi(k[1]):
+			bitenler2.append(k[0])
+	hepsi = hepsi and bitenler2.is_empty()
+	ayr.append("3b tek/iki klon, taslak kayıtları (12 küme, 4 strateji): bitiren=%s" % str(bitenler2))
+
+	# --- min klon 3: üç tutucu aynı anda üç ayrı plakada ve çözüm 3 klonla biter
+	var tam: Dictionary = await _b14_senaryo(kay, _b14_oyuncu())
+	var f3 := -1
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if o["pm"] and o["pp"] and o["pu"] and f3 < 0:
+			f3 = f
+	var f_l3 := -1
+	for f in range(tam["iz"].size()):
+		if tam["iz"][f].x >= 1074.0 and f_l3 < 0:
+			f_l3 = f
+	var ok3: bool = tam["bitti_ham"] and f3 >= 0 and f_l3 > f3
+	hepsi = hepsi and ok3
+	ayr.append("min klon 3: bitti=%s, PlakaM+PlakaP+PlakaU birlikte basılı ilk kare=%d, oyuncu Lazer3 ışınına (x>=1074) kare %d'de varır" % [tam["bitti_ham"], f3, f_l3])
+
+	# --- Kutuyla plaka tutma: kutu PlakaM'ye sola itilir (Cr = PlakaR tutucusu geçidi açık tutar).
+	var cr: Array = (await _b14_senaryo([c1], _b14_ucus_ve_plakar(400, 475.0)))["kayit"]
+	var adim: Array = _b14_kutu_sola_adim(330.0)
+	var sk: Dictionary = await _b14_senaryo([c1, cr], adim)
+	var kutu_son: Vector2 = sk["ozel"][sk["ozel"].size() - 1]["kutu"]
+	var kutu_m: bool = kutu_son.x > 300.0 and kutu_son.x < 360.0 and kutu_son.y > 370.0 and kutu_son.y < 390.0
+	var devam: Dictionary = await _b14_senaryo([c1, cr, sk["kayit"]], _b14_oyuncu(14, -1, ""))
+	hepsi = hepsi and kutu_m and not devam["bitti_ham"]
+	ayr.append("kutuyla plaka tutma: kutu PlakaM üstüne sola itilebilir (kutu=(%.0f,%.0f), geçidi Cr açık tutar); kutu bu halde çıkıntı basamağı olamaz, bölüm bitmez (bitti=%s)" % [
+		kutu_son.x, kutu_son.y, devam["bitti_ham"]])
+
+	# --- Zıplatıcı + kutu: kutu Raf'ın solundan düşürülür; Z1 bölgesine (x 340..400) geri itilemez
+	var sk2: Dictionary = await _b14_senaryo([c1, cr], _b14_kutu_sola_adim(200.0))
+	var kutu2: Vector2 = sk2["ozel"][sk2["ozel"].size() - 1]["kutu"]
+	hepsi = hepsi and kutu2.x < 280.0
+	ayr.append("zıplatıcı+kutu: kutu Raf'tan düşürülürse son konum=(%.0f,%.0f) (Z1 bölgesi x 340..400 dışı, GecitA x 255..275'in solu; geri itici gerekir)" % [kutu2.x, kutu2.y])
+	var sz2: Dictionary = await _b14_senaryo([], [_b13_a(0, Callable(), 30)], _b14_yerlestir(Vector2(60, 576), Vector2(820, 380)))
+	var kz2: Vector2 = sz2["ozel"][sz2["ozel"].size() - 1]["kutu"]
+	hepsi = hepsi and absf(kz2.y - 380.0) < 3.0
+	ayr.append("kutu Kapak1 üstünde: y=%.1f (Z2 sensörü çukur tabanında, tetiklenmez)" % kz2.y)
+
+	# --- Bant dalgalanması: oyuncu PlakaR üstünde dalgalanıp yürürse GecitR'de takılır
+	var s_d: Dictionary = await _b14_senaryo([c1], [_b13_a(1, _b4_x_ge(318.0), 200), _b13_a(0, _b14_l2_kapali_zemin(), 200),
+		_b13_a(1, _b14_bantta_zemin(520.0), 120), _b13_a(-1, Callable(), 8), _b13_a(1, Callable(), 8), _b13_a(-1, Callable(), 8),
+		_b13_a(1, Callable(), 8), _b13_a(1, _b4_x_ge(690.0), 100)])
+	var od: Dictionary = _b14_olc(s_d)
+	hepsi = hepsi and not s_d["bitti_ham"] and od["xmax"] < 700.0
+	ayr.append("bant dalgalanması: GecitR'de takılır (en büyük x=%.0f, bitti=%s)" % [od["xmax"], s_d["bitti_ham"]])
+
+	# --- Geçit altı park / röle (GecitR altında park eden klon): yarışı kolaylaştırır, klon sayısını düşürmez
+	var c_p: Array = (await _b14_senaryo([c1], [_b13_a(1, _b4_x_ge(318.0), 200), _b13_a(0, _b14_l2_kapali_zemin(), 200),
+		_b13_a(1, _b14_bantta_zemin(520.0), 120), _b13_a(-1, _b4_x_le(475.0), 80), _b13_a(0, Callable(), 60),
+		_b13_a(1, _b4_x_ge(700.0), 120), _b13_a(0, Callable(), 10)]))["kayit"]
+	var s_pk: Dictionary = await _b14_senaryo([c1, c_p], _b14_t2(854.0, 60, 475.0, 20))
+	var d_pk: Dictionary = await _b14_son_durum([c1, c_p, s_pk["kayit"]], 500)
+	var o_pk: Dictionary = _b14_olc(s_pk)
+	var park_bitti: bool = await _b14_bitirir_mi([c1, c_p])
+	hepsi = hepsi and not park_bitti
+	ayr.append("geçit altı park: park klonu varken C2 yarış duraksama=20 kare -> C2 PlakaP tutar=%s (en büyük x=%.0f); C1+park ile bölüm biter=%s (klon sayısını düşürmez)" % [
+		str(_b14_ok2(d_pk)), o_pk["xmax"], park_bitti])
+
+	# --- S ile iniş yolları
+	var ayr_s: Array = []
+	for k in [["Raf x=330", Vector2(330, 376)], ["Raf x=290", Vector2(290, 376)], ["Kapak1 x=800", Vector2(800, 376)],
+			["Kapak1 x=850", Vector2(850, 376)], ["Kapak2 x=895", Vector2(895, 376)], ["Kapak2 x=940", Vector2(940, 376)],
+			["Kapak2 x=970", Vector2(970, 376)]]:
+		var ss: Dictionary = await _b14_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 50)],
+			_b14_yerlestir(k[1], Vector2(675, 380)))
+		var pn: Vector2 = _b14_son(ss)
+		ayr_s.append("%s: son (%.0f,%.0f)" % [k[0], pn.x, pn.y])
+	ayr.append("S ile iniş (taslak: yalnız Raf ve iki kapak): " + ", ".join(ayr_s))
+
+	_kaydi("Bölüm 14 kısayol taraması (klonsuz/1/2 klon tüm sıralar, min klon 3, kutu, plaka tutma, zıplatıcı+kutu, bant, park/röle, S)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Oyuncu: Z1'den fırlar, bant üstüne iner, Cr geçidi açık tutarken kutunun üstünden aşar, kutuyu sola itip x<=hedef olunca durur.
+func _b14_kutu_sola_adim(hedef: float) -> Array:
+	return [_b13_a(1, _b4_x_ge(318.0), 200),
+		_b13_a(0, func(b: Node) -> bool: return not b.get_node("Lazer2").acik_mi() and _klonlar(b)[0].is_on_floor(), 250),
+		_b13_a(1, _b14_bantta_zemin(520.0), 120), _b13_a(0, _b14_p("PlakaR"), 20),
+		_b13_a(1, func(b: Node) -> bool: return b.get_node("Oyuncu").global_position.x >= 628.0, 200),
+		_b13_a(1, Callable(), 12, true), _b13_a(1, func(b: Node) -> bool: return b.get_node("Oyuncu").global_position.x >= 735.0, 100),
+		_b13_a(0, _b14_zeminde(), 60),
+		_b13_a(-1, func(b: Node) -> bool: return b.get_node("Kutu").global_position.x <= hedef, 600),
+		_b13_a(0, Callable(), 40)]
+
+
+
+# ---------------------------------------------------------------- 5) hassasiyet (pencere ölçümleri)
+func _b14_ok_yaz(degerler: Array, oklar: Array) -> String:
+	return _b13_aralik_yaz(degerler, oklar)
+
+
+func _test_bolum14_hassasiyet() -> void:
+	var kay: Array = await _b14_kayitlar()
+	var c1: Array = kay[0]
+	var c2: Array = kay[1]
+	var ayr: Array = []
+	var hepsi := true
+
+	# W1: GecitA yarışı. (a) PlakaA'da başta bekleme, (b) plakadan ayrılınca duraksama.
+	var vs: Array = []
+	var os: Array = []
+	for b in range(0, 64, 4):
+		var s: Dictionary = await _b14_senaryo([], _b14_t1(b))
+		var d: Dictionary = await _b14_son_durum([s["kayit"]], 250)
+		vs.append(b)
+		os.append(_b14_ok1(d))
+	var pen_a: String = _b14_ok_yaz(vs, os)
+	hepsi = hepsi and _b14_pen(vs, os, 36) and not os[0]
+	ayr.append("W1a C1 başta bekleme (kare) başarılı: %s (taslak >=32)" % pen_a)
+	vs = []
+	os = []
+	for g in range(0, 10):
+		var s: Dictionary = await _b14_senaryo([], _b14_t1(36, 318.0, g))
+		var d: Dictionary = await _b14_son_durum([s["kayit"]], 250)
+		vs.append(g)
+		os.append(_b14_ok1(d))
+	hepsi = hepsi and os[0] and not os[9]
+	ayr.append("W1b C1 PlakaA'dan ayrılınca duraksama (kare) başarılı: %s (taslak pay ~4)" % _b14_ok_yaz(vs, os))
+
+	# W4: Z1 giriş x'i (sağ basılıyken sensöre girilen merkez x, sonra 2 kare daha sağ).
+	vs = []
+	os = []
+	for x in range(280, 400, 6):
+		var s: Dictionary = await _b14_senaryo([], _b14_t1(36, float(x)))
+		var d: Dictionary = await _b14_son_durum([s["kayit"]], 250)
+		vs.append(x)
+		os.append(_b14_ok1(d))
+	hepsi = hepsi and _b14_pen(vs, os, 322) and not os[0]
+	ayr.append("W4 Z1: sağ bırakma x'i (yürüyüş x>=...) başarılı: %s (taslak sensör x0±44 = 326..)" % _b14_ok_yaz(vs, os))
+
+	# W3: Lazer2 geçişi: oyuncu Z1'den fırlama karesi (C1 klonu referans).
+	vs = []
+	os = []
+	for n in range(90, 160, 3):
+		var s: Dictionary = await _b14_senaryo([c1], [_b13_a(1, _b4_x_ge(318.0), 200), _b13_a(0, _b14_kare_ge(n), 400),
+			_b13_a(1, _b14_bantta_zemin(520.0), 120)])
+		vs.append(n)
+		os.append(s["oldu"] == 0 and not s["tamam"].has(false))
+	hepsi = hepsi and _b14_pen(vs, os, 150) and not os[0]
+	ayr.append("W3 Z1'den fırlama karesi (Lazer2) başarılı: %s (taslak >=~137; Lazer2 klon indikten sonra kapanır)" % _b14_ok_yaz(vs, os))
+
+	# W2: GecitR yarışı: (a) PlakaR'da basılı kalma (r_bekle), (b) plakadan çıkınca duraksama (bant payı).
+	vs = []
+	os = []
+	for rb in range(0, 60, 4):
+		var s: Dictionary = await _b14_senaryo([c1], _b14_t2(854.0, rb))
+		var d: Dictionary = await _b14_son_durum([c1, s["kayit"]], 450)
+		vs.append(rb)
+		os.append(_b14_ok2(d))
+	hepsi = hepsi and _b14_pen(vs, os, 56) and not os[0]
+	var ref2: Dictionary = await _b14_senaryo([c1], _b14_t2())
+	var n_pr := 0
+	for o in ref2["ozel"]:
+		if o["pr"]:
+			n_pr += 1
+	ayr.append("W2a C2 PlakaR'da r_bekle (x<=475'e vardıktan sonra) başarılı: %s; referans çözümde PlakaR toplam %d kare basılı (taslak >=47)" % [_b14_ok_yaz(vs, os), n_pr])
+	vs = []
+	os = []
+	for yd in range(0, 9):
+		var s: Dictionary = await _b14_senaryo([c1], _b14_t2(854.0, 60, 475.0, yd))
+		var d: Dictionary = await _b14_son_durum([c1, s["kayit"]], 450)
+		vs.append(yd)
+		os.append(_b14_ok2(d))
+	var yarispay := 0
+	for i in range(vs.size()):
+		if os[i]:
+			yarispay = vs[i]
+	hepsi = hepsi and os[0] and not os[8]
+	ayr.append("W2b C2 yarış (plakadan çıkınca duraksama, kare) başarılı: %s -> bant payı %d kare (taslak ~2,4)" % [_b14_ok_yaz(vs, os), yarispay])
+
+	# W5: C2'nin S konumu (kaydedilen x eşiği; canlı tur ile klon tekrarının ikisi de başarılı olmalı).
+	vs = []
+	os = []
+	var ol: Array = []
+	for x in range(780, 920, 4):
+		var s: Dictionary = await _b14_senaryo([c1], _b14_t2(float(x)))
+		var d: Dictionary = await _b14_son_durum([c1, s["kayit"]], 450)
+		var canli: bool = s["oldu"] == 0 and s["ozel"][s["ozel"].size() - 1]["pp"]
+		vs.append(x)
+		os.append(_b14_ok2(d))
+		ol.append(canli)
+	var ik: Array = []
+	for i in range(vs.size()):
+		ik.append(os[i] and ol[i])
+	hepsi = hepsi and _b14_pen(vs, os, 852) and _b14_pen(vs, ol, 852) and not os[0]
+	ayr.append("W5 C2 S eşiği (merkez x>=...): klon tekrarı başarılı=%s, canlı tur PlakaP'ye iner=%s, ikisi birden=%s (taslak 840..866; canlı/klon farkı için dikiş testi)" % [
+		_b14_ok_yaz(vs, os), _b14_ok_yaz(vs, ol), _b14_ok_yaz(vs, ik)])
+
+	# W6: C3 konvoy: C3'ün yürüyüşe başlama karesi, C2'nin yürüyüşünden (f0) d kare sonra.
+	var f0: int = ref2["baslangic"][5]
+	vs = []
+	os = []
+	var os600: Array = []
+	for d in [-10, -4, 0, 1, 2, 3, 6, 12, 18, 22, 24, 26, 28, 32, 40, 60, 80, 100, 120, 140]:
+		var s: Dictionary = await _b14_senaryo([c1, c2], _b14_t3(f0 + d))
+		var dd: Dictionary = await _b14_son_durum([c1, c2, s["kayit"]], 760)
+		vs.append(d)
+		var ok_d: bool = _b14_ok3(dd) and _b14_ok2(dd) and s["oldu"] == 0
+		os.append(ok_d)
+		os600.append(ok_d and s["kare"] <= 600)
+	hepsi = hepsi and _b14_pen(vs, os, 32) and _b14_pen_degil(vs, os, -10) and _b14_pen_degil(vs, os, 3)
+	ayr.append("W6 C3 yürüyüş başlangıcı = C2 yürüyüşü (kare %d) + d, başarılı d: %s; tur <=600 kare olanlar: %s (taslak konvoy +1..+3 kare ÇALIŞMAZ: Lazer1'i C2 çukura inmeden geçemez)" % [f0, _b14_ok_yaz(vs, os), _b14_ok_yaz(vs, os600)])
+	vs = []
+	os = []
+	for yd in range(0, 9):
+		var s: Dictionary = await _b14_senaryo([c1, c2], _b14_t3(-1, 760.0, 979.0, 14, 14, yd))
+		var dd: Dictionary = await _b14_son_durum([c1, c2, s["kayit"]], 560)
+		vs.append(yd)
+		os.append(_b14_ok3(dd) and s["oldu"] == 0)
+	var c3pay := 0
+	for i in range(vs.size()):
+		if os[i]:
+			c3pay = vs[i]
+	hepsi = hepsi and os[0] and not os[8]
+	ayr.append("W6b C3 kendi başına yarış (plakadan çıkınca duraksama) başarılı: %s -> pay %d kare (taslak ~2,9)" % [_b14_ok_yaz(vs, os), c3pay])
+
+	# W7: çıkıntı çıkışı: kutu hedef x'i, kutuya zıplama sağ süresi, ikinci zıplamada sağ gecikmesi.
+	vs = []
+	os = []
+	for hx in range(870, 1000, 10):
+		var s: Dictionary = await _b14_senaryo([c1, c2], _b14_t3(-1, 760.0, float(hx)))
+		var dd: Dictionary = await _b14_son_durum([c1, c2, s["kayit"]], 560)
+		vs.append(hx)
+		os.append(_b14_ok3(dd))
+	hepsi = hepsi and _b14_pen(vs, os, 970) and not os[0]
+	ayr.append("W7a kutu hedef x (kutu merkezi >=...) PlakaU'ya çıkış başarılı: %s (kutu x=980 yüze dayanık; taslak pay ~11 px)" % _b14_ok_yaz(vs, os))
+	vs = []
+	os = []
+	for zn in range(2, 30, 2):
+		var s: Dictionary = await _b14_senaryo([c1, c2], _b14_t3(-1, 760.0, 979.0, zn))
+		var dd: Dictionary = await _b14_son_durum([c1, c2, s["kayit"]], 560)
+		vs.append(zn)
+		os.append(_b14_ok3(dd))
+	hepsi = hepsi and _b14_pen(vs, os, 14)
+	ayr.append("W7b kutu üstüne zıplarken sağ süresi (kare) başarılı: %s" % _b14_ok_yaz(vs, os))
+
+	# Çıkıntıdaki zıplama tepesi ayak payı (tam çözümde C3 kaydı).
+	var s3: Dictionary = await _b14_senaryo([c1, c2], _b14_t3())
+	var o3: Dictionary = _b14_olc(s3)
+	ayr.append("W7c C3 en yüksek ayak y=%.1f (çıkıntı yüzeyi 270: pay %.1f px; baş y=%.1f >= TavanD alt 200)" % [o3["ayak"], 270.0 - o3["ayak"], o3["ayak"] - 48.0])
+	hepsi = hepsi and o3["ayak"] < 270.0 and o3["ayak"] - 48.0 >= 200.0
+
+	# Lazer2 kapanış kareleri (C1 kaydı klon olarak): geçici (uçuşta plakadan geçerken) ve kalıcı.
+	var s_l: Dictionary = await _b14_son_durum([c1], 260)
+	var f_ilk := -1
+	var f_kalici := -1
+	var ozl: Array = s_l["ozel"]
+	for f in range(ozl.size()):
+		if not ozl[f]["l2"] and f_ilk < 0:
+			f_ilk = f
+	for f in range(ozl.size() - 1, -1, -1):
+		if ozl[f]["l2"]:
+			f_kalici = f + 1
+			break
+	ayr.append("Lazer2 ilk kapanış kare %d (C1 uçuşta PlakaM'den geçerken geçici), kalıcı kapanış kare %d (taslak ~137)" % [f_ilk, f_kalici])
+	hepsi = hepsi and f_kalici > 120 and f_kalici < 170
+
+	# PlakaR: en az basılı kalma (başarılı en küçük r_bekle ile) ve C2 durak x penceresi (ışın x 447..453, gövde 28)
+	var rmin := -1
+	for rb in range(0, 60, 2):
+		var sx: Dictionary = await _b14_senaryo([c1], _b14_t2(854.0, rb))
+		var dx: Dictionary = await _b14_son_durum([c1, sx["kayit"]], 450)
+		if _b14_ok2(dx):
+			rmin = rb
+			var npr := 0
+			for o in sx["ozel"]:
+				if o["pr"]:
+					npr += 1
+			ayr.append("W2c en kısa başarılı C2: r_bekle=%d, PlakaR toplam basılı=%d kare (taslak >=47; GecitR açıklığı >= 92 olmalı değil: ölçülen)" % [rb, npr])
+			break
+	vs = []
+	os = []
+	var ayr_sx: Array = []
+	for sx_ in [462.0, 466.0, 468.0, 470.0, 474.0, 476.0, 480.0, 485.0]:
+		var sx2: Dictionary = await _b14_senaryo([c1], _b14_t2(854.0, 60, sx_))
+		var dx2: Dictionary = await _b14_son_durum([c1, sx2["kayit"]], 450)
+		vs.append(int(sx_))
+		os.append(_b14_ok2(dx2) and sx2["oldu"] == 0)
+		ayr_sx.append("%d:%s" % [int(sx_), "ok" if os[os.size() - 1] else ("öldü" if sx2["oldu"] > 0 else "x")])
+	ayr.append("W2d C2 plakada durma eşiği (sol bırakma x<=...): %s (Lazer2 bu anda C1 tarafından kapalı; x>=~478'de dikiş/bant sürüklemesi C2'yi plakadan koparır)" % " ".join(ayr_sx))
+	hepsi = hepsi and _b14_pen(vs, os, 470) and _b14_pen_degil(vs, os, 485)
+
+	# Z1 uçuşu: UL1 yüzüne sürtünme ve bant üstüne iniş x'i
+	var s_u: Dictionary = await _b14_senaryo([c1], [_b13_a(1, _b4_x_ge(318.0), 200), _b13_a(0, _b14_l2_kapali_zemin(), 200),
+		_b13_a(1, _b14_bantta_zemin(520.0), 120)])
+	var duvar := 0
+	var f_ac := -1
+	for f in range(s_u["iz"].size()):
+		var p: Vector2 = s_u["iz"][f]
+		if f_ac < 0 and p.y < 560.0:
+			f_ac = f
+		if f_ac >= 0 and p.x > 380.0 and p.x < 392.0 and p.y < 560.0 and p.y > 340.0:
+			duvar += 1
+	var ink: Vector2 = _b14_son(s_u)
+	ayr.append("Z1 uçuşu: UL1 yüzünde (x~386) %d kare sürtünür, bant üstüne iniş x=%.0f (taslak ~546±6)" % [duvar, ink.x])
+	_kaydi("Bölüm 14 ölçüm: zamanlama pencereleri (W1..W7, kare/px)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+
+## Pencere süpürmesinde değer listede yoksa (find == -1) KALDI sayılır.
+func _b14_pen(vs: Array, oklar: Array, v: int) -> bool:
+	var i: int = vs.find(v)
+	return i >= 0 and bool(oklar[i])
+
+
+func _b14_pen_degil(vs: Array, oklar: Array, v: int) -> bool:
+	var i: int = vs.find(v)
+	return i >= 0 and not bool(oklar[i])
+
+
+## Canlı turun kaydını klon olarak oynatıp en büyük konum farkını (px) döndürür.
+## sen: senaryo Callable'ı (kayitlar, adimlar) -> Dictionary; onceki: önceki klon kayıtları.
+func _klon_fark(sen: Callable, onceki: Array, adim: Array) -> float:
+	var canli: Dictionary = await sen.call(onceki, adim)
+	var tekrar: Dictionary = await sen.call(onceki + [canli["kayit"]], [_b4_a(0, Callable(), canli["kare"] + 1)])
+	var idx: int = onceki.size()
+	var maks := 0.0
+	for f in range(mini(canli["iz"].size(), tekrar["klon_izleri"][idx].size())):
+		maks = maxf(maks, (canli["iz"][f] - tekrar["klon_izleri"][idx][f]).length())
+	return maks
+
+
+## Bilinen, motor kaynaklı eş düzlemli zemin seçimi farkı: üst sınır aşılırsa KALDI.
+func _test_bolum10_klon_fark() -> void:
+	var a: Array = await _b10_kayitlar()
+	var sen := func(k: Array, ad: Array) -> Dictionary: return await _b10_senaryo(k, ad)
+	var f1: float = await _klon_fark(sen, [], _b10_a())
+	var f3: float = await _klon_fark(sen, [a[0], a[1]], _b10_c())
+	_kaydi("Bölüm 10 canlı/klon konum farkı üst sınırı (bilinen kısıt, bkz. docs/sorunlar.md)", f1 <= 4.2 and f3 <= 2.55,
+		"A %.2f px (sınır 4,2; ölçüm 1,67, P1 x370..430'a alınmadan önce 3,33), C %.2f px (sınır 2,55; ölçüm 2,04)" % [f1, f3])
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Bölüm 10 PlakaPG tutma: C klonu (son turda tekrar) PG'de sabit kalır, plaka hep basılı;
+## PG çevresinde girdisiz duruş (bant sürüklemesi/dikiş) ölçümü.
+func _test_bolum10_pg_tutma() -> void:
+	var a: Array = await _b10_kayitlar()
+	var s: Dictionary = await _b10_senaryo(a, [_b4_a(0, Callable(), 520)])
+	var iz: Array = s["klon_izleri"][2] if s["klon_izleri"].size() > 2 else []
+	var ilk := -1
+	for f in range(s["ozel"].size()):
+		if s["ozel"][f]["pg"]:
+			ilk = f
+			break
+	var bos := 0
+	var xmin := 1.0e9
+	var xmax := -1.0e9
+	if ilk >= 0:
+		for f in range(ilk, s["ozel"].size()):
+			if not s["ozel"][f]["pg"]:
+				bos += 1
+			xmin = minf(xmin, iz[f].x)
+			xmax = maxf(xmax, iz[f].x)
+	var ok: bool = ilk >= 0 and bos == 0 and xmax - xmin <= 0.5
+	var ayr: Array = ["C tekrarı: PG ilk basılı kare %d, sonrasında basılı olmayan kare %d, C x %.2f..%.2f" % [ilk, bos, xmin, xmax]]
+	var ayr_p: Array = []
+	for x in [806.0, 812.0, 830.0, 850.0, 870.0, 890.0]:
+		var sp: Dictionary = await _b10_senaryo([], [_b4_a(0, Callable(), 120)], _b10_yerlestir(Vector2(x, 416)))
+		var n := 0
+		for o in sp["ozel"]:
+			if o["pg"]:
+				n += 1
+		ayr_p.append("x0=%.0f: %d/120 basılı, son x=%.1f" % [x, n, sp["iz"][sp["iz"].size() - 1].x])
+	ayr.append("PG girdisiz duruş: " + "; ".join(ayr_p))
+	_kaydi("Bölüm 10 PlakaPG tutma: C klonu plakada sabit, PG hep basılı (bant sürüklemesi koparmaz)", ok, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Bölüm 10 PlakaP1 (bant üstünde, Duvar'a değmez) ölçümü: kutu P1'e basınca Lazer1 kapanış karesi
+## ve A'nın PE'ye basma karesi penceresi (C asansöre binmiş olmalı; çözüm 230'da basar, pay >= 8 kare).
+func _test_bolum10_p1_pencere() -> void:
+	var p1: Area2D = null
+	var b: Node = await _bolumu_yukle()
+	p1 = b.get_node("PlakaP1")
+	var bant: Node = b.get_node("Bant1")
+	var duvar: Node = b.get_node("Duvar")
+	var pr: Rect2 = Gorunum.sekil_alani(p1)
+	pr.position += p1.global_position
+	var br: Rect2 = Gorunum.sekil_alani(bant)
+	br.position += bant.global_position
+	var dr: Rect2 = Gorunum.sekil_alani(duvar)
+	dr.position += duvar.global_position
+	var geo_ok: bool = pr.position.x >= br.position.x and pr.end.x <= br.end.x and pr.end.x <= dr.position.x
+	var s1: Dictionary = await _b10_senaryo([], _b10_a())
+	var l1_kapanis := -1
+	for f in range(s1["ozel"].size()):
+		if not s1["ozel"][f]["l1"]:
+			l1_kapanis = f
+			break
+	var basarili: Array = []
+	for bk in range(150, 331, 10):
+		var a: Dictionary = await _b10_senaryo([], _b10_a(bk))
+		var bb: Dictionary = await _b10_senaryo([a["kayit"]], _b10_b())
+		var c: Dictionary = await _b10_senaryo([a["kayit"], bb["kayit"]], _b10_c())
+		var o: Dictionary = await _b10_senaryo([a["kayit"], bb["kayit"], c["kayit"]], _b10_oyuncu())
+		if o["bitti"]:
+			basarili.append(bk)
+	var alt: int = basarili.min() if not basarili.is_empty() else -1
+	var ust: int = basarili.max() if not basarili.is_empty() else -1
+	var ok: bool = geo_ok and alt >= 0 and 230 - alt >= 8 and ust - 230 >= 8
+	_kaydi("Bölüm 10 ölçüm: PlakaP1 bandın üstünde (Duvar'a değmez), L1 kapanışı, A'nın PE basma penceresi (pay >= 8 kare)", ok,
+		"P1 x %.0f..%.0f, Bant1 x %.0f..%.0f, Duvar x %.0f..: %s; L1 ilk kapanış kare %d (A turu); A basma karesi başarılı (10'ar adım): %s -> %d..%d (çözüm 230, pay -%d/+%d kare)" % [
+			pr.position.x, pr.end.x, br.position.x, br.end.x, dr.position.x, "bant üstünde" if geo_ok else "TAŞIYOR",
+			l1_kapanis, str(basarili), alt, ust, 230 - alt, ust - 230])
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_bolum13_klon_fark() -> void:
+	var a: Array = await _b13_kayitlar()
+	var sen := func(k: Array, ad: Array) -> Dictionary: return await _b13_senaryo(k, ad)
+	var f1: float = await _klon_fark(sen, [], _b13_k1())
+	var f2: float = await _klon_fark(sen, [a[0]], _b13_k2())
+	var f3: float = await _klon_fark(sen, [a[0], a[1]], _b13_k3())
+	_kaydi("Bölüm 13 canlı/klon konum farkı üst sınırı (bilinen kısıt, bkz. docs/sorunlar.md)", f1 <= 6.25 and f2 <= 2.1 and f3 <= 12.5,
+		"K1 %.2f px (sınır 6,25; ölçüm 5), K2 %.2f px (sınır 2,1; ölçüm 1,67), K3 %.2f px (sınır 12,5; ölçüm 10)" % [f1, f2, f3])
+	_kayitlar().sifirla()
+	paused = false
+
+# ---------------------------------------------------------------- 6) dikiş / bant: canlı ile klon tekrarı farkı, plaka sürüklenmesi
+func _test_bolum14_dikis() -> void:
+	var kay: Array = await _b14_kayitlar()
+	var c1: Array = kay[0]
+	var ayr: Array = []
+	var hepsi := true
+	# Canlı kaydın aynısını klon olarak oynat: konum farkı.
+	for k in [["C1", [], _b14_t1(), 0], ["C2", [c1], _b14_t2(), 1], ["C3", [c1, kay[1]], _b14_t3(), 2]]:
+		var canli: Dictionary = await _b14_senaryo(k[1], k[2])
+		var tekrar: Dictionary = await _b14_senaryo(k[1] + [canli["kayit"]], [_b13_a(0, Callable(), canli["kare"] + 1)])
+		var idx: int = k[3]
+		var maks := 0.0
+		var ilk := -1
+		var ilk_x := 0.0
+		for f in range(mini(canli["iz"].size(), tekrar["klon_izleri"][idx].size())):
+			var fark: float = (canli["iz"][f] - tekrar["klon_izleri"][idx][f]).length()
+			if fark > 0.01 and ilk < 0:
+				ilk = f
+				ilk_x = canli["iz"][f].x
+			maks = maxf(maks, fark)
+		ayr.append("%s canlı/klon en büyük konum farkı %.2f px (ilk sapma kare %d, x=%.0f)" % [k[0], maks, ilk, ilk_x])
+		var sinir: float = [0.01, 12.5, 2.5][idx]
+		hepsi = hepsi and maks <= sinir
+		ayr[ayr.size() - 1] += " [sınır %.2f px, bilinen kısıt, bkz. docs/sorunlar.md]" % sinir
+	# PlakaR üstünde girdisiz duruş: bantla sürüklenme ve plakanın basılı kalma süresi.
+	var ayr_p: Array = []
+	for x in [469.0, 476.0, 486.0, 496.0, 506.0, 520.0]:
+		var sp: Dictionary = await _b14_senaryo([], [_b13_a(0, Callable(), 120)], _b14_yerlestir(Vector2(x, 376)))
+		var n := 0
+		for o in sp["ozel"]:
+			if o["pr"]:
+				n += 1
+		ayr_p.append("x0=%.0f: %d/120 kare basılı, son x=%.1f" % [x, n, _b14_son(sp).x])
+	ayr.append("PlakaR girdisiz duruş: " + "; ".join(ayr_p))
+	# Bant girdisiz hızı (bant ortası).
+	var sb: Dictionary = await _b14_senaryo([], [_b13_a(0, Callable(), 30)], _b14_yerlestir(Vector2(540, 376)))
+	var hiz: float = (sb["iz"][29].x - sb["iz"][9].x) / 20.0
+	ayr.append("bant girdisiz hızı %.3f px/kare (beklenen 1,667)" % hiz)
+	hepsi = hepsi and absf(hiz - 1.667) < 0.05
+	_kaydi("Bölüm 14 ölçüm: bant-zemin dikişi, canlı/klon farkı (bilinen kısıt, bkz. docs/sorunlar.md; C1<=0,01 C2<=12,5 C3<=2,5 px), PlakaR sürüklenmesi", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+# ---------------------------------------------------------------- 7) klon sınırı
+func _test_bolum14_klon_siniri() -> void:
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var maks: int = bolum.max_klon
+	var gecti := maks == 3
+	var ayr: Array = []
+	for n in range(maks + 1):
+		for i in range(5):
+			_girdi_uygula({"yon": 1.0, "zipla": false})
+			await physics_frame
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		var eski_id := bolum.get_instance_id()
+		await _r_bas()
+		var yeni: Node = await _yeni_sahne_bekle(eski_id)
+		var sayi: int = _kayitlar().turlar.size()
+		if n < maks:
+			gecti = gecti and yeni != null and sayi == n + 1
+			if yeni == null:
+				break
+			bolum = yeni
+		else:
+			var yazi: String = bolum.bilgi.text
+			gecti = gecti and yeni == null and sayi == maks and yazi.contains("Klon hakkı bitti") and yazi.contains("3/3")
+			ayr.append("sınırda etiket: \"%s\"" % yazi)
+		ayr.append("R #%d -> kayıtlı klon: %d" % [n + 1, sayi])
+	_kaydi("Bölüm 14: klon sınırı (dördüncü R klon kaydetmez)", gecti, "max_klon=%d; %s" % [maks, ", ".join(ayr)])
+	_kayitlar().sifirla()
+
+
+# ---------------------------------------------------------------- 8) kilitlenme davranışı
+func _test_bolum14_kilitlenme() -> void:
+	var kay: Array = await _b14_kayitlar()
+	var c1: Array = kay[0]
+	var c2: Array = kay[1]
+	var ayr: Array = []
+	var hepsi := true
+
+	# (a) Çukurda ölüm: oyuncu çukurdan Lazer1 açıkken çıkmaya çalışır -> tur yeniden başlar, klonlar korunur.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(c1.duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	bolum.get_node("Oyuncu").global_position = Vector2(880, 576)
+	var sayac := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var eski_id := bolum.get_instance_id()
+	bolum.get_node("Oyuncu").global_position = Vector2(790, 576)
+	var s: Dictionary = await _b14_kosullu(bolum, [_b13_a(1, Callable(), 90)], sayac)
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var ok: bool = sayac[0] > 0 and yeni != null and _kayitlar().turlar.size() == 1
+	var etiket := ""
+	if yeni != null:
+		etiket = yeni.bilgi.text
+		ok = ok and _klonlar(yeni).size() == 1 and etiket.contains("Tur 2") and etiket.contains("1/3")
+	hepsi = hepsi and ok
+	ayr.append("çukurda ölüm: ölüm=%d, kayıtlı tur=%d, etiket=\"%s\"" % [sayac[0], _kayitlar().turlar.size(), etiket])
+
+	# (b) Çukurdan çıkış: Z2'den sola (Lazer1 solunda) çıkar, kilitlenme yok.
+	var sc: Dictionary = await _b14_senaryo([], [_b13_a(-1, Callable(), 90)], _b14_yerlestir(Vector2(800, 576)))
+	var oc: Dictionary = _b14_olc(sc)
+	var son: Vector2 = _b14_son(sc)
+	var ok_b: bool = sc["oldu"] == 0 and son.x < 760.0 and son.y < 400.0 and oc["xmin"] < 760.0
+	hepsi = hepsi and ok_b
+	ayr.append("çukurdan çıkış: Z2'den sola, son=(%.0f,%.0f), ölüm=%d" % [son.x, son.y, sc["oldu"]])
+
+	# (c) Kutu sola itilirse Raf'tan düşer; bölüm bu turda bitmez, "Baştan başla" sıfırlar.
+	var cr: Array = (await _b14_senaryo([c1], _b14_ucus_ve_plakar(400, 475.0)))["kayit"]
+	var sk: Dictionary = await _b14_senaryo([c1, cr], _b14_kutu_sola_adim(200.0))
+	var kutu: Vector2 = sk["ozel"][sk["ozel"].size() - 1]["kutu"]
+	var dv: Dictionary = await _b14_senaryo([c1, cr, sk["kayit"]], _b14_oyuncu(14, -1, ""))
+	var ok_c: bool = kutu.x < 280.0 and not dv["bitti_ham"]
+	hepsi = hepsi and ok_c
+	ayr.append("kutu sola itilir: kutu=(%.0f,%.0f) (Raf 280..400 dışı), sonraki turda bölüm biter=%s -> kilitlenme" % [kutu.x, kutu.y, dv["bitti_ham"]])
+	# Baştan başla: tüm klonlar silinir, Tur 1, kutu başlangıçta.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(c1.duplicate(true))
+	var b2: Node = await _bolumu_yukle()
+	var eski: Node = current_scene
+	b2.get_node("EkranButonlari/Kutu/YenidenDugmesi").pressed.emit()
+	var yeni2: Node = await _sahne_degisimini_bekle(eski)
+	var kutu_bas: Vector2 = yeni2.get_node("Kutu").global_position
+	var ok_d: bool = _kayitlar().turlar.size() == 0 and _klonlar(yeni2).size() == 0 and yeni2.bilgi.text.begins_with("Tur 1 ") \
+		and absf(kutu_bas.x - 675.0) < 1.0
+	hepsi = hepsi and ok_d
+	ayr.append("Baştan başla: kayıt=%d, klon=%d, etiket=\"%s\", kutu x=%.0f" % [_kayitlar().turlar.size(), _klonlar(yeni2).size(), yeni2.bilgi.text, kutu_bas.x])
+
+	# (d) Klon Lazer2'de ölürse yerinde donar (C2 kaydı C1'siz oynatılır).
+	var sd: Dictionary = await _b14_senaryo([c2], [_b13_a(0, Callable(), 250)])
+	var ki: Array = sd["klon_izleri"][0]
+	var donuk: bool = sd["klon_oldu"][0] and ki[ki.size() - 1] == ki[ki.size() - 40] and ki[ki.size() - 1].x < 450.0
+	hepsi = hepsi and donuk
+	ayr.append("ölü klon: öldü=%s, son konum=(%.0f,%.0f), sabit=%s" % [sd["klon_oldu"][0], ki[ki.size() - 1].x, ki[ki.size() - 1].y, str(donuk)])
+
+	_kaydi("Bölüm 14 kilitlenme: çukurda ölüm, çukurdan çıkış, kutu sola itme + Baştan başla, ölü klon", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+# ---------------------------------------------------------------- 9) determinizm
+func _test_bolum14_determinizm() -> void:
+	var kay: Array = await _b14_kayitlar()
+	var s0: Dictionary = await _b14_senaryo(kay, _b14_oyuncu())
+	var betik: Array = s0["kayit"]
+	var ornek := func(b: Node) -> Dictionary: return _b14_ornekle(b)
+	var referans: Dictionary = {}
+	var sapmali := 0
+	var bitmeyen := 0
+	var maks_sapma := 0.0
+	for n in range(TEKRAR):
+		var s: Dictionary = await _senaryo(kay, betik, 700, Callable(), ornek)
+		if not s["bitti"]:
+			bitmeyen += 1
+		if n == 0:
+			referans = s
+			continue
+		var bu: bool = s["ozel_iz"].size() != referans["ozel_iz"].size() or s["kare"] != referans["kare"]
+		for f in range(mini(s["ozel_iz"].size(), referans["ozel_iz"].size())):
+			if s["ozel_iz"][f] != referans["ozel_iz"][f]:
+				bu = true
+			var d: float = (s["oyuncu_iz"][f] - referans["oyuncu_iz"][f]).length()
+			for ki in range(3):
+				d = maxf(d, (s["klon_izleri"][ki][f] - referans["klon_izleri"][ki][f]).length())
+			if d > 0.0:
+				bu = true
+				maks_sapma = maxf(maks_sapma, d)
+		if bu:
+			sapmali += 1
+	_kaydi("Bölüm 14: determinizm (100x çözüm)", sapmali == 0 and bitmeyen == 0 and s0["bitti_ham"],
+		"%d çalıştırma x %d kare, sapmalı: %d, en büyük sapma: %.4f px, bitirmeyen çalıştırma: %d, kayıt turu bitti: %s" % [
+			TEKRAR, referans["kare"], sapmali, maks_sapma, bitmeyen, s0["bitti_ham"]])
+	_kayitlar().sifirla()
+	paused = false
+
+
+
 func _rapor_yaz(sure: float, hepsi: bool) -> void:
 	var yol := "res://docs/testler.md"
 	var metin := ""
@@ -7214,3 +10167,5438 @@ func _rapor_yaz(sure: float, hepsi: bool) -> void:
 	var f := FileAccess.open(yol, FileAccess.WRITE)
 	f.store_string(metin)
 	f.close()
+
+
+
+# ---------------------------------------------------------------- zamanlı / mandal plaka
+# Kullanıcı kararı (2026-10-15): `tutma_kare` (basış bitince o kadar fizik karesi daha basılı)
+# ve `mandal` (bir kez basılınca tur sonuna kadar). Test sahnesi (oyun bölümü değil):
+# tests/sahneler/zamanli_plaka_test.tscn. Zemin yüzeyi y=600, oyuncu x=200, hız 5 px/kare.
+#   PlakaZ (zamanlı 180) x=350, PlakaM (mandal) x=520, PlakaV (varsayılan) x=650.
+#   Her plakaya bir Gecit (40 px açılır), bir Lazer (basılıyken kapanır), bir Asansor bağlı.
+#   LazerOlum tetikleyicisiz, varsayılan olarak ekran dışında (testte taşınır).
+
+const PLAKA_TEST := "res://tests/sahneler/zamanli_plaka_test.tscn"
+const PL_TUTMA := 180
+const PL_ANAHTARLAR := ["pZ", "fZ", "kZ", "lZ", "gZ", "aZ", "pM", "fM", "kM", "lM", "gM", "aM", "pV", "fV", "lV", "gV", "aV"]
+var pl_olcum: Array = []   # rapor için ölçüm satırları
+
+
+func _plaka_testleri() -> void:
+	aktif_bolum = PLAKA_TEST
+	await _pl_sahne_ozellikleri()
+	await _pl_zamanli_olcum()
+	await _pl_zamanli_yenileme()
+	await _pl_varsayilan()
+	await _pl_klon_kayittan()
+	await _pl_olu_klon()
+	await _pl_mandal()
+	await _pl_tur_basi_sifirlama()
+	await _pl_determinizm()
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Her karede örneklenen durum (basili_mi çağrısı kare başına bir kez ilerler, sonucu etkilemez).
+func _pl_ornekle(b: Node) -> Dictionary:
+	var d := {"o": b.get_node("Oyuncu").global_position.x}
+	for k in ["Z", "M", "V"]:
+		var p: BasincPlakasi = b.get_node("Plaka" + k)
+		d["p" + k] = p.basili_mi()
+		d["f" + k] = p.has_overlapping_bodies()
+		d["k" + k] = p.kalan_kare
+		d["l" + k] = b.get_node("Lazer" + k).acik_mi()
+		d["g" + k] = b.get_node("Gecit" + k).position.y
+		d["a" + k] = b.get_node("Asansor" + k).position.y
+	d["kilitli"] = b.get_node("PlakaM").kilitli
+	var kl: Array = _klonlar(b)
+	if kl.size() > 0:
+		d["klon_oldu"] = kl[0].oldu
+		d["klon_x"] = kl[0].global_position.x
+	return d
+
+
+func _pl_calis(kayitlar: Array, betik: Array, n: int, hazirlik := Callable()) -> Dictionary:
+	aktif_bolum = PLAKA_TEST
+	return await _senaryo(kayitlar, betik, n, hazirlik, Callable(self, "_pl_ornekle"))
+
+
+## Canlı oyuncunun kaydı (girdi dizisi), son çalıştırılan sahneden.
+func _pl_kayit() -> Array:
+	return current_scene.get_node("Oyuncu").kayit_girdileri.duplicate(true)
+
+
+## Plaka p (basılı), f (fiziksel örtüşme) izinden: ilk/son fiziksel kare, son basıştan sonra
+## kesintisiz basılı kalan kare sayısı (kuyruk), erken etkinleşme ve kesinti var mı.
+func _pl_aralik(iz: Array, p: String, f: String) -> Dictionary:
+	var ilk := -1
+	var son := -1
+	var yukselen := 0
+	var onceki := false
+	for i in range(iz.size()):
+		var f_ok: bool = iz[i][f]
+		if f_ok:
+			if ilk < 0:
+				ilk = i
+			son = i
+		if f_ok and not onceki:
+			yukselen += 1
+		onceki = f_ok
+	var kuyruk := 0
+	if son >= 0:
+		var i := son + 1
+		while i < iz.size() and iz[i][p] and not iz[i][f]:
+			kuyruk += 1
+			i += 1
+	var kesintisiz := ilk >= 0
+	var erken := false
+	var basili_toplam := 0
+	for j in range(iz.size()):
+		if iz[j][p]:
+			basili_toplam += 1
+		if ilk >= 0 and j >= ilk and j <= son + kuyruk and not iz[j][p]:
+			kesintisiz = false
+		if (ilk < 0 or j < ilk) and iz[j][p]:
+			erken = true
+	return {"ilk": ilk, "son": son, "kuyruk": kuyruk, "kesintisiz": kesintisiz, "erken": erken,
+		"basis": yukselen, "toplam": basili_toplam}
+
+
+func _pl_hepsi(iz: Array, anahtar: String, deger: Variant, bas: int, son: int) -> bool:
+	for i in range(maxi(bas, 0), mini(son + 1, iz.size())):
+		if iz[i][anahtar] != deger:
+			return false
+	return true
+
+
+func _pl_min(iz: Array, anahtar: String) -> float:
+	var m := 1.0e9
+	for o in iz:
+		m = minf(m, float(o[anahtar]))
+	return m
+
+
+func _pl_z1_betik() -> Array:
+	return _betik([[30, 1, false], [20, 0, false], [30, -1, false], [320, 0, false]])
+
+
+func _pl_sahne_ozellikleri() -> void:
+	var z: Node = load("res://scenes/zamanli_plaka.tscn").instantiate()
+	var m: Node = load("res://scenes/mandal_plaka.tscn").instantiate()
+	var z_ok: bool = z is BasincPlakasi and z.tutma_kare == PL_TUTMA and not z.mandal
+	var m_ok: bool = m is BasincPlakasi and m.mandal and m.tutma_kare == 0
+	z.free()
+	m.free()
+	_kayitlar().sifirla()
+	var b: Node = await _bolumu_yukle()
+	var vp: BasincPlakasi = b.get_node("PlakaV")
+	var v_ok: bool = vp.tutma_kare == 0 and not vp.mandal
+	var s_ok: bool = b.get_node("PlakaZ").tutma_kare == PL_TUTMA and b.get_node("PlakaM").mandal
+	_kaydi("Plaka sahneleri: zamanli_plaka (tutma_kare=180), mandal_plaka (mandal), varsayılan 0/false", z_ok and m_ok and v_ok and s_ok,
+		"zamanlı: %s, mandal: %s, varsayılan: %s, test sahnesinde: %s" % [z_ok, m_ok, v_ok, s_ok])
+
+
+## A1) Zamanlı plaka: basılıyken açık, bıraktıktan sonra tam 180 kare açık, sonra kapanır.
+func _pl_zamanli_olcum() -> void:
+	var s: Dictionary = await _pl_calis([], _pl_z1_betik(), 400)
+	var iz: Array = s["ozel_iz"]
+	var a: Dictionary = _pl_aralik(iz, "pZ", "fZ")
+	var kuyruk: int = a["kuyruk"]
+	var son_dahil: int = a["son"] + kuyruk
+	pl_olcum.append("zamanlı plaka (canlı oyuncu): ilk basış kare %d, son fiziksel kare %d, bıraktıktan sonra kesintisiz basılı kare = %d (beklenen %d)" % [a["ilk"], a["son"], kuyruk, PL_TUTMA])
+	var kuyruk_ok: bool = absi(kuyruk - PL_TUTMA) <= 1
+	_kaydi("Zamanlı plaka 1) basış bittikten sonra tam %d kare basılı, sonra bırakır (±1)" % PL_TUTMA,
+		a["ilk"] >= 0 and kuyruk_ok and a["kesintisiz"] and not a["erken"] and not iz[iz.size() - 1]["pZ"],
+		"ilk basış kare %d, son fiziksel kare %d, kuyruk %d kare, kesintisiz: %s, erken etkin: %s, sonda basılı: %s" % [
+			a["ilk"], a["son"], kuyruk, a["kesintisiz"], a["erken"], iz[iz.size() - 1]["pZ"]])
+	var lz_kapali: bool = _pl_hepsi(iz, "lZ", false, a["ilk"] + 3, son_dahil - 1)
+	var lz_once: bool = _pl_hepsi(iz, "lZ", true, 0, a["ilk"] - 1)
+	var lz_sonra: bool = _pl_hepsi(iz, "lZ", true, son_dahil + 3, iz.size() - 1)
+	var g_min: float = _pl_min(iz, "gZ")
+	var g_son: float = iz[iz.size() - 1]["gZ"]
+	var a_min: float = _pl_min(iz, "aZ")
+	var a_son: float = iz[iz.size() - 1]["aZ"]
+	var g_ok: bool = absf(g_min - 460.0) < 0.01 and absf(g_son - 500.0) < 0.01
+	var a_ok: bool = absf(a_min - 120.0) < 0.01 and absf(a_son - 300.0) < 0.01
+	_kaydi("Zamanlı plaka 2) lazer, geçit ve asansör süre boyunca etkin, sonra eski haline döner",
+		lz_kapali and lz_once and lz_sonra and g_ok and a_ok,
+		"lazer süre boyunca kapalı: %s, öncesi açık: %s, sonrası açık: %s, geçit en açık y=%.0f sonda y=%.0f, asansör en yüksek y=%.0f sonda y=%.0f" % [
+			lz_kapali, lz_once, lz_sonra, g_min, g_son, a_min, a_son])
+	var yenilenir := true
+	for i in range(a["ilk"], a["son"] + 1):
+		if iz[i]["kZ"] != PL_TUTMA + 1:
+			yenilenir = false
+	_kaydi("Zamanlı plaka 3) fiziksel basış sürerken sayaç her kare tutma_kare+1'e yenilenir", yenilenir,
+		"basılı kareler %d..%d, kalan_kare hep %d: %s" % [a["ilk"], a["son"], PL_TUTMA + 1, yenilenir])
+
+
+## A2) Yeniden basma sayacı yeniler (iki basış, arası 180'den kısa: kesintisiz; kuyruk son basıştan 180).
+func _pl_zamanli_yenileme() -> void:
+	var betik := _betik([[30, 1, false], [10, 0, false], [40, -1, false], [40, 1, false],
+		[10, 0, false], [40, -1, false], [300, 0, false]])
+	var s: Dictionary = await _pl_calis([], betik, 470)
+	var iz: Array = s["ozel_iz"]
+	var a: Dictionary = _pl_aralik(iz, "pZ", "fZ")
+	var bosluk := 0
+	var en_uzun_bosluk := 0
+	var basladi := false
+	for i in range(maxi(a["ilk"], 0), a["son"] + 1):
+		if iz[i]["fZ"]:
+			basladi = true
+			bosluk = 0
+		elif basladi:
+			bosluk += 1
+			en_uzun_bosluk = maxi(en_uzun_bosluk, bosluk)
+	var beklenen_toplam: int = (a["son"] - a["ilk"] + 1) + PL_TUTMA
+	pl_olcum.append("zamanlı plaka yeniden basma: %d basış, aradaki en uzun fiziksel boşluk %d kare, son basıştan sonra kuyruk %d kare" % [a["basis"], en_uzun_bosluk, a["kuyruk"]])
+	_kaydi("Zamanlı plaka 4) yeniden basılırsa sayaç yenilenir (2 basış, boşlukta kesintisiz, son basıştan sonra 180)",
+		a["basis"] == 2 and en_uzun_bosluk > 20 and en_uzun_bosluk < PL_TUTMA and a["kesintisiz"] and not a["erken"]
+		and absi(a["kuyruk"] - PL_TUTMA) <= 1 and absi(a["toplam"] - beklenen_toplam) <= 1,
+		"basış sayısı: %d, en uzun boşluk: %d kare, kesintisiz: %s, kuyruk: %d, toplam basılı %d (beklenen %d)" % [
+			a["basis"], en_uzun_bosluk, a["kesintisiz"], a["kuyruk"], a["toplam"], beklenen_toplam])
+
+
+## C) Varsayılan plaka (tutma_kare 0, mandal false): yalnızca üstündeyken basılı, kuyruk 0.
+func _pl_varsayilan() -> void:
+	var betik := _betik([[90, 1, false], [20, 0, false], [60, -1, false], [100, 0, false]])
+	var s: Dictionary = await _pl_calis([], betik, 270)
+	var iz: Array = s["ozel_iz"]
+	var a: Dictionary = _pl_aralik(iz, "pV", "fV")
+	var ayni := true
+	for i in range(iz.size()):
+		if iz[i]["pV"] != iz[i]["fV"]:
+			ayni = false
+	var lazer_kapali := 0
+	for o in iz:
+		if not o["lV"]:
+			lazer_kapali += 1
+	var lazer_ok: bool = lazer_kapali >= a["toplam"] - 2 and lazer_kapali <= a["toplam"] + 2
+	_kaydi("Varsayılan plaka çıplak: basılı == üstünde, kuyruk 0, lazer yalnız o süre kapalı",
+		a["ilk"] >= 0 and ayni and a["kuyruk"] == 0 and lazer_ok and absf(_pl_min(iz, "gV") - 460.0) < 0.01
+		and absf(iz[iz.size() - 1]["gV"] - 500.0) < 0.01,
+		"ilk basış %d, son %d, basılı kare %d, hep p==f: %s, kuyruk %d, lazer kapalı kare %d" % [
+			a["ilk"], a["son"], a["toplam"], ayni, a["kuyruk"], lazer_kapali])
+
+
+func _pl_iz_esit(a: Array, b: Array, anahtarlar: Array) -> int:
+	if a.size() != b.size():
+		return 1000000
+	var fark := 0
+	for i in range(a.size()):
+		for k in anahtarlar:
+			if a[i][k] != b[i][k]:
+				fark += 1
+	return fark
+
+
+## A3/B) Klon kayıttan canlı oyuncuyla aynı kare kare plaka durumunu üretir (zamanlı ve mandal).
+func _pl_klon_kayittan() -> void:
+	var canli: Dictionary = await _pl_calis([], _pl_z1_betik(), 400)
+	var kayit: Array = _pl_kayit()
+	var klon: Dictionary = await _pl_calis([kayit], [], 400)
+	var ak := ["pZ", "fZ", "kZ", "lZ", "gZ", "aZ", "pM", "pV"]
+	var fark: int = _pl_iz_esit(canli["ozel_iz"], klon["ozel_iz"], ak)
+	var ak_a: Dictionary = _pl_aralik(klon["ozel_iz"], "pZ", "fZ")
+	var canli_a: Dictionary = _pl_aralik(canli["ozel_iz"], "pZ", "fZ")
+	_kaydi("Zamanlı plaka 5) klon kayıttan canlı oyuncuyla aynı kareleri üretir (kuyruk 180)",
+		fark == 0 and absi(ak_a["kuyruk"] - PL_TUTMA) <= 1,
+		"%d kare, farklı kare/anahtar: %d, klon kuyruğu %d, canlı kuyruğu %d" % [
+			klon["ozel_iz"].size(), fark, ak_a["kuyruk"], canli_a["kuyruk"]])
+	var mb := _betik([[80, 1, false], [300, 0, false]])
+	var mcanli: Dictionary = await _pl_calis([], mb, 380)
+	var mkayit: Array = _pl_kayit()
+	var mklon: Dictionary = await _pl_calis([mkayit], [], 380)
+	var mfark: int = _pl_iz_esit(mcanli["ozel_iz"], mklon["ozel_iz"], ["pM", "fM", "kilitli", "lM", "gM", "aM"])
+	var ma: Dictionary = _pl_aralik(mklon["ozel_iz"], "pM", "fM")
+	var son_kare: Dictionary = mklon["ozel_iz"][mklon["ozel_iz"].size() - 1]
+	_kaydi("Mandal plaka 5) klon kayıttan oyuncuyla aynı kareleri üretir; yalnız klon basınca da tur sonuna kadar etkin",
+		mfark == 0 and ma["ilk"] >= 0 and son_kare["pM"] and not son_kare["fM"] and son_kare["kilitli"],
+		"farklı kare/anahtar: %d, klon ilk basış kare %d, sonda basılı: %s, fiziksel: %s, kilitli: %s" % [
+			mfark, ma["ilk"], son_kare["pM"], son_kare["fM"], son_kare["kilitli"]])
+
+
+## Test sahnesinde canlı oyuncuyla kayıt alır (lazer ekran dışında).
+func _kaydet_plaka(betik: Array) -> Array:
+	aktif_bolum = PLAKA_TEST
+	return await _kaydet(betik)
+
+
+## A4) Ölü klon plakayı basılı tutmaz; kalan süre işler (180 kare sonra bırakır).
+func _pl_olu_klon() -> void:
+	var kayit: Array = await _kaydet_plaka(_betik([[100, 1, false], [300, 0, false]]))
+	var olum := func(b: Node) -> void:
+		b.get_node("LazerOlum").position = Vector2(395, 620)
+	var s: Dictionary = await _pl_calis([kayit], [], 400, olum)
+	var iz: Array = s["ozel_iz"]
+	var ko := -1
+	for i in range(iz.size()):
+		if iz[i].get("klon_oldu", false):
+			ko = i
+			break
+	var a: Dictionary = _pl_aralik(iz, "pZ", "fZ")
+	var son: Dictionary = iz[iz.size() - 1]
+	var klon_x: float = son.get("klon_x", -1.0)
+	var plakada: bool = absf(klon_x - 350.0) < 44.0   # ölü gövde plaka alanının içinde duruyor
+	var m_hic := true
+	for o in iz:
+		if o["pM"] or o["fM"]:
+			m_hic = false
+	var tutuyor: bool = ko >= 0 and iz[mini(a["son"] + 100, iz.size() - 1)]["pZ"]
+	var biraktı: bool = ko >= 0 and not iz[mini(a["son"] + PL_TUTMA + 3, iz.size() - 1)]["pZ"] and not son["pZ"]
+	pl_olcum.append("zamanlı plaka, ölü klon: ölüm kare %d, son fiziksel kare %d, kuyruk %d kare, ölü gövde x=%.0f (plaka x 320..380)" % [ko, a["son"], a["kuyruk"], klon_x])
+	_kaydi("Zamanlı plaka 6) ölü klon plakayı basılı tutmaz, kalan süre yine işler",
+		ko >= 15 and ko < 80 and plakada and m_hic and tutuyor and biraktı and absi(a["kuyruk"] - PL_TUTMA) <= 1
+		and a["kesintisiz"] and a["basis"] == 1,
+		"klon ölüm karesi %d, ölü x=%.0f (plaka alanında: %s), son fiziksel kare %d, kuyruk %d, son fiziksel+100'de basılı: %s, +183'te bıraktı: %s, sonda basılı: %s, mandala hiç değmedi: %s" % [
+			ko, klon_x, plakada, a["son"], a["kuyruk"], tutuyor, biraktı, son["pZ"], m_hic])
+
+
+## B) Mandal: bir kez basılınca tur sonuna kadar etkin; hedefleri kalıcı etkiler.
+func _pl_mandal() -> void:
+	var s: Dictionary = await _pl_calis([], _betik([[80, 1, false], [300, 0, false]]), 380)
+	var iz: Array = s["ozel_iz"]
+	var a: Dictionary = _pl_aralik(iz, "pM", "fM")
+	var ilk: int = a["ilk"]
+	var kalici: bool = ilk >= 0 and _pl_hepsi(iz, "pM", true, ilk, iz.size() - 1)
+	var oncesi_pasif: bool = ilk > 0 and _pl_hepsi(iz, "pM", false, 0, ilk - 1)
+	var biraktı := false
+	for i in range(maxi(ilk, 0), iz.size()):
+		if not iz[i]["fM"] and iz[i]["pM"]:
+			biraktı = true
+	var son: Dictionary = iz[iz.size() - 1]
+	var lm_ok: bool = _pl_hepsi(iz, "lM", true, 0, ilk - 1) and _pl_hepsi(iz, "lM", false, ilk + 3, iz.size() - 1)
+	var g_ok: bool = absf(son["gM"] - 460.0) < 0.01 and _pl_hepsi(iz, "gM", 500.0, 0, ilk - 1)
+	var as_ok: bool = absf(son["aM"] - 220.0) < 0.01
+	_kaydi("Mandal plaka 1) bir kez basılınca tur sonuna kadar etkin (üstten çekilse de), öncesinde pasif",
+		kalici and oncesi_pasif and biraktı and not son["fM"] and son["kilitli"],
+		"ilk basış kare %d, o andan sonra hep basılı: %s, öncesi hep pasif: %s, üstten ayrıldıktan sonra da basılı: %s, sonda üstünde: %s, kilitli: %s" % [
+			ilk, kalici, oncesi_pasif, biraktı, son["fM"], son["kilitli"]])
+	_kaydi("Mandal plaka 2) kapalı hedefi (lazer, geçit, asansör) kalıcı etkiler",
+		lm_ok and g_ok and as_ok,
+		"lazer öncesi açık/sonrası kapalı: %s, geçit sonda y=%.0f (açık 460): %s, asansör sonda y=%.0f (üst 220): %s" % [
+			lm_ok, son["gM"], g_ok, son["aM"], as_ok])
+	var v_ok := true
+	for o in iz:
+		if o["pV"] != o["fV"]:
+			v_ok = false
+	_kaydi("Mandal plaka 3) varsayılan plaka mandaldan etkilenmez (aynı turda)", v_ok, "pV == fV her karede: %s" % v_ok)
+	var s2: Dictionary = await _pl_calis([], _betik([[80, 1, false], [40, -1, false], [40, 1, false], [220, 0, false]]), 380)
+	var iz2: Array = s2["ozel_iz"]
+	var a2: Dictionary = _pl_aralik(iz2, "pM", "fM")
+	_kaydi("Mandal plaka 4) tekrar basmak durumu bozmaz (hep etkin, ayrılınca da kalır)",
+		a2["ilk"] >= 0 and _pl_hepsi(iz2, "pM", true, a2["ilk"], iz2.size() - 1) and a2["basis"] >= 1,
+		"basış: %d, ilk %d, son fiziksel %d, sondan sonra kesintisiz: %d kare" % [a2["basis"], a2["ilk"], a2["son"], a2["kuyruk"]])
+
+
+## A5) Tur başında (gerçek R yolu) sahne yeniden kurulur: sayaç ve mandal sıfırlanır.
+func _pl_tur_basi_sifirlama() -> void:
+	aktif_bolum = PLAKA_TEST
+	_kayitlar().sifirla()
+	var b: Node = await _bolumu_yukle()
+	for i in range(80):
+		_girdi_uygula({"yon": 1.0, "zipla": false})
+		await physics_frame
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	await physics_frame
+	var once := _pl_ornekle(b)
+	var eski_id := b.get_instance_id()
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	if yeni == null:
+		_kaydi("Tur başında zamanlı sayaç ve mandal sıfırlanır", false, "yeni sahne yüklenmedi")
+		return
+	await physics_frame
+	var sonra := _pl_ornekle(yeni)
+	var once_ok: bool = once["pZ"] and once["kZ"] > 0 and once["pM"] and once["kilitli"]
+	var sonra_ok: bool = not sonra["pZ"] and sonra["kZ"] == 0 and not sonra["pM"] and not sonra["kilitli"] \
+		and sonra["lZ"] and sonra["lM"] and absf(sonra["gZ"] - 500.0) < 0.01 and absf(sonra["gM"] - 500.0) < 0.01 \
+		and absf(sonra["aZ"] - 300.0) < 0.01 and absf(sonra["aM"] - 400.0) < 0.01
+	_kaydi("Tur başında (R ile sahne yeniden kurulunca) zamanlı sayaç ve mandal sıfırlanır", once_ok and sonra_ok,
+		"önce: zamanlı basılı=%s kalan=%d, mandal basılı=%s kilitli=%s; sonra: zamanlı=%s kalan=%d mandal=%s kilitli=%s, lazerler açık: %s/%s, geçitler y=%.0f/%.0f" % [
+			once["pZ"], once["kZ"], once["pM"], once["kilitli"], sonra["pZ"], sonra["kZ"], sonra["pM"], sonra["kilitli"],
+			sonra["lZ"], sonra["lM"], sonra["gZ"], sonra["gM"]])
+	# Baştan başla (tam sıfırlama) yolu
+	for i in range(30):
+		_girdi_uygula({"yon": 1.0, "zipla": false})
+		await physics_frame
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	await physics_frame
+	var once2 := _pl_ornekle(yeni)
+	var eski2 := yeni.get_instance_id()
+	yeni.get_node("EkranButonlari/Kutu/YenidenDugmesi").pressed.emit()
+	var y2: Node = await _yeni_sahne_bekle(eski2)
+	await physics_frame
+	var sonra2 := _pl_ornekle(y2)
+	_kaydi("Baştan başla da zamanlı sayacı sıfırlar (tur 1, klon 0)",
+		once2["pZ"] and not sonra2["pZ"] and sonra2["kZ"] == 0 and _klonlar(y2).size() == 0,
+		"önce basılı=%s, sonra basılı=%s kalan=%d klon=%d" % [once2["pZ"], sonra2["pZ"], sonra2["kZ"], _klonlar(y2).size()])
+	_kayitlar().sifirla()
+
+
+## Determinizm (100x): zamanlı ve mandal birlikte, klon kayıttan.
+func _pl_determinizm() -> void:
+	var betik := _betik([[30, 1, false], [20, 0, false], [30, -1, false], [60, 0, false],
+		[60, 1, false], [20, 0, false], [260, 0, false]])
+	var s0: Dictionary = await _pl_calis([], betik, 480)
+	var kayit: Array = _pl_kayit()
+	var ref: Array = []
+	var sapmali := 0
+	var maks_fark := 0
+	for r in range(TEKRAR):
+		var s: Dictionary = await _pl_calis([kayit], [], 480)
+		var iz: Array = s["ozel_iz"]
+		if r == 0:
+			ref = iz
+			continue
+		var f: int = _pl_iz_esit(iz, ref, PL_ANAHTARLAR)
+		if f > 0:
+			sapmali += 1
+			maks_fark = maxi(maks_fark, f)
+	var ra: Dictionary = _pl_aralik(ref, "pZ", "fZ")
+	var rm: Dictionary = _pl_aralik(ref, "pM", "fM")
+	_kaydi("Zamanlı + mandal determinizm (%dx, klon kayıttan)" % TEKRAR,
+		sapmali == 0 and ra["ilk"] >= 0 and rm["ilk"] >= 0 and ref.size() >= 480,
+		"%d kare, sapmalı çalıştırma: %d, en büyük kare farkı: %d, zamanlı kuyruk %d, mandal ilk basış %d" % [
+			ref.size(), sapmali, maks_fark, ra["kuyruk"], rm["ilk"]])
+	var lf: int = _pl_iz_esit(s0["ozel_iz"], ref, PL_ANAHTARLAR)
+	_kaydi("Zamanlı + mandal: canlı oyuncu ile klon tekrarı aynı kareleri verir", lf == 0,
+		"canlı/klon farkı: %d (anahtar x kare)" % lf)
+
+
+
+# ---------------------------------------------------------------- arayüz (2026-10-15 gecesi)
+# Sonuç ekranı, bölüm içi HUD, geçiş perdesi, ana menü, kontroller, harita yerleşimi.
+# Not: KlonGostergesi/Yuva/TusRozeti/GecisKatmani headless'ta KURULMAZ (LabPaleti.ekransiz()).
+# Test, ekran varken (headless olmayan çalıştırma) varlığı ve özellikleri, headless'ta
+# kurulmadığını doğrular; ikisi de aynı gövdeden geçer.
+
+const AR_B1 := "res://scenes/bolumler/bolum_1.tscn"
+const AR_B4 := "res://scenes/bolumler/bolum_4.tscn"
+const AR_B6 := "res://scenes/bolumler/bolum_6.tscn"
+const AR_YERLESIM := "res://docs/devir/harita_yerlesim.md"
+
+
+func _arayuz_testleri() -> void:
+	_kayitlar().sifirla()
+	paused = false
+	await _ar_sonuc_ekrani()
+	await _ar_sure_saatten_bagimsiz()
+	await _ar_hud()
+	await _ar_hud_bolum_etiketi()
+	await _ar_perde()
+	await _ar_ana_menu()
+	await _ar_kontroller()
+	await _ar_harita()
+	_kayitlar().sifirla()
+	paused = false
+
+
+## user:// altındaki dosyalar (günlük dosyaları hariç): yol -> [değişme zamanı, boyut].
+func _ar_user_goruntu() -> Dictionary:
+	var cikti := {}
+	var dizinler: Array = ["user://"]
+	while not dizinler.is_empty():
+		var d: String = dizinler.pop_back()
+		var da := DirAccess.open(d)
+		if da == null:
+			continue
+		for alt in da.get_directories():
+			if alt == "logs":
+				continue
+			dizinler.append(d.path_join(alt))
+		for f in da.get_files():
+			var yol := d.path_join(f)
+			var fa := FileAccess.open(yol, FileAccess.READ)
+			cikti[yol] = [FileAccess.get_modified_time(yol), fa.get_length() if fa != null else -1]
+	return cikti
+
+
+## Verilen bölümü, `boyutlar` uzunluğunda boş klon kayıtlarıyla yükler, `bekle` kare bekler,
+## canlı oyuncuyu kapıya taşır (gerçek Area2D/sinyal yolu) ve sonuç ekranını bekler.
+func _ar_bitir(yol: String, boyutlar: Array, bekle := 30, gecikme_ms := 0) -> Dictionary:
+	aktif_bolum = yol
+	paused = false
+	_kayitlar().sifirla()
+	var toplam_onceki := 0
+	for n in boyutlar:
+		var k: Array = []
+		for i in range(int(n)):
+			k.append({"yon": 0.0, "zipla": false})
+		_kayitlar().tur_kaydet(k)
+		toplam_onceki += int(n)
+	var b: Node = await _bolumu_yukle()
+	for i in range(bekle):
+		await physics_frame
+	if gecikme_ms > 0:
+		OS.delay_msec(gecikme_ms)
+	var oyuncu: CharacterBody2D = b.get_node("Oyuncu")
+	oyuncu.global_position = b.get_node("Kapi").global_position
+	for i in range(6):
+		await physics_frame
+	var sonuc: Node = b.find_child("SonucEkrani", true, false)
+	return {"bolum": b, "sonuc": sonuc, "kare": oyuncu.kare, "onceki": toplam_onceki, "klon": boyutlar.size(),
+		"bitti": b.bitti}
+
+
+func _ar_beklenen_sure(kare: int) -> String:
+	var saniye := float(kare) / 60.0
+	var dk := int(saniye) / 60
+	return "Süre: %02d:%04.1f" % [dk, saniye - dk * 60]
+
+
+func _ar_etiket(sonuc: Node, ad: String) -> Label:
+	return sonuc.find_child(ad, true, false) as Label
+
+
+func _ar_sonuc_ekrani() -> void:
+	var once := _ar_user_goruntu()
+	var r := RegEx.new()
+	r.compile("^Süre: \\d\\d:\\d\\d\\.\\d$")
+	# 1) Gerçek bölüm 1 çözümü (R + girdi yolu), süre fizik karesinden
+	aktif_bolum = AR_B1
+	var kayit: Array = await _kaydet(_dogru_kayit_betigi())
+	var s: Dictionary = await _senaryo([kayit], _cozum_betigi(), COZUM_SINIR)
+	var b1: Node = current_scene
+	var sonuc: Node = b1.find_child("SonucEkrani", true, false)
+	var toplam: int = b1.get_node("Oyuncu").kare + kayit.size()
+	var sure_t := ""
+	var tur_t := ""
+	var klon_t := ""
+	var rozet_var := false
+	if sonuc != null:
+		sure_t = _ar_etiket(sonuc, "SureEtiketi").text
+		tur_t = _ar_etiket(sonuc, "TurEtiketi").text
+		var ke := _ar_etiket(sonuc, "KlonEtiketi")
+		klon_t = ke.text if ke != null else "(yok)"
+		rozet_var = sonuc.find_child("AzKlonRozeti", true, false) != null
+	_kaydi("Sonuç ekranı (gerçek Bölüm 1 çözümü): süre mm:ss.s fizik karesinden, tur ve klon etiketi",
+		s["bitti"] and sonuc != null and sure_t == _ar_beklenen_sure(toplam) and r.search(sure_t) != null
+		and tur_t == "Tur sayısı: 2" and klon_t == "Kullanılan klon: 1" and not rozet_var,
+		"bitti: %s, toplam kare %d (kayıt %d + canlı %d), süre: \"%s\" (beklenen \"%s\"), tur: \"%s\", klon: \"%s\", rozet: %s" % [
+			s["bitti"], toplam, kayit.size(), toplam - kayit.size(), sure_t, _ar_beklenen_sure(toplam), tur_t, klon_t, rozet_var])
+	# 2) Rozet kuralı: yalnız ipucu_klon>0 ve klon<=ipucu
+	var vakalar := [
+		[AR_B1, [], false, "ipucu 0 (Bölüm 1), klon 0"],
+		[AR_B1, [50], false, "ipucu 0 (Bölüm 1), klon 1"],
+		[AR_B6, [], true, "ipucu 1 (Bölüm 6), klon 0"],
+		[AR_B6, [50], true, "ipucu 1 (Bölüm 6), klon 1"],
+		[AR_B6, [50, 50], false, "ipucu 1 (Bölüm 6), klon 2"],
+		[AR_B4, [50, 50], true, "ipucu 2 (Bölüm 4), klon 2"],
+		[AR_B4, [50, 50, 50], false, "ipucu 2 (Bölüm 4), klon 3"],
+	]
+	var sorun := ""
+	for v in vakalar:
+		var d: Dictionary = await _ar_bitir(v[0], v[1])
+		var so: Node = d["sonuc"]
+		var rozet: Node = so.find_child("AzKlonRozeti", true, false) if so != null else null
+		var ke: Label = _ar_etiket(so, "KlonEtiketi") if so != null else null
+		var beklenen_klon := "Kullanılan klon: %d" % d["klon"]
+		var sure_ok: bool = so != null and _ar_etiket(so, "SureEtiketi").text == _ar_beklenen_sure(d["kare"] + d["onceki"])
+		var ok: bool = so != null and (rozet != null) == v[2] and ke != null and ke.text == beklenen_klon and sure_ok
+		if not ok:
+			sorun += " [%s: rozet=%s beklenen=%s klon etiketi=\"%s\" süre ok=%s]" % [v[3], rozet != null, v[2], ke.text if ke != null else "yok", sure_ok]
+		paused = false
+	_kaydi("Sonuç ekranı: AzKlonRozeti yalnız ipucu_klon>0 ve klon<=ipucu; KlonEtiketi ve süre her vakada doğru",
+		sorun == "", "%d vaka, sorunlar:%s" % [vakalar.size(), sorun if sorun != "" else " yok"])
+	# 3) Süre biçimi: >1 dk
+	var uzun: Dictionary = await _ar_bitir(AR_B1, [3600, 1000])
+	var uso: Node = uzun["sonuc"]
+	var u_t: String = _ar_etiket(uso, "SureEtiketi").text if uso != null else ""
+	_kaydi("Sonuç ekranı süre biçimi dakikayı aşınca mm:ss.s (kayıtlar 3600+1000 kare)",
+		uso != null and u_t == _ar_beklenen_sure(4600 + uzun["kare"]) and u_t.begins_with("Süre: 01:") and r.search(u_t) != null,
+		"süre: \"%s\", beklenen \"%s\"" % [u_t, _ar_beklenen_sure(4600 + uzun["kare"])])
+	paused = false
+	# 4) Kalıcı dosya yazmaz
+	var sonra := _ar_user_goruntu()
+	var yeni_dosya: Array = []
+	for yol in sonra:
+		if not once.has(yol) or once[yol] != sonra[yol]:
+			yeni_dosya.append(yol)
+	_kaydi("Sonuç ekranı kalıcı dosya yazmaz (user:// altında yeni/değişen dosya yok)", yeni_dosya.is_empty(),
+		"user:// dosya sayısı %d -> %d, yeni/değişen: %s" % [once.size(), sonra.size(), str(yeni_dosya)])
+	_kayitlar().sifirla()
+
+
+func _ar_sure_saatten_bagimsiz() -> void:
+	var a: Dictionary = await _ar_bitir(AR_B6, [700, 40], 30, 0)
+	var ta: String = _ar_etiket(a["sonuc"], "SureEtiketi").text if a["sonuc"] != null else ""
+	var ka: int = a["kare"]
+	var b: Dictionary = await _ar_bitir(AR_B6, [700, 40], 30, 900)   # 0,9 sn duvar saati gecikmesi
+	var tb: String = _ar_etiket(b["sonuc"], "SureEtiketi").text if b["sonuc"] != null else ""
+	var kb: int = b["kare"]
+	paused = false
+	_kaydi("Süre gerçek saatten bağımsız: aynı kayıt, farklı duvar saati -> aynı süre",
+		ta != "" and ta == tb and ka == kb and ta == _ar_beklenen_sure(ka + 740),
+		"çalıştırma 1: \"%s\" (%d kare), çalıştırma 2 (+900 ms gecikme): \"%s\" (%d kare)" % [ta, ka, tb, kb])
+	_kayitlar().sifirla()
+
+
+## Bölüm içi HUD: ekranlıda KlonGostergesi/Yuva/TusRozeti kurulur, headless'ta kurulmaz.
+func _ar_hud() -> void:
+	var ekransiz := LabPaleti.ekransiz()
+	aktif_bolum = AR_B6
+	_kayitlar().sifirla()
+	var b: Node = await _bolumu_yukle()
+	await physics_frame
+	var bilgi_ok: bool = b.bilgi.text.begins_with("Tur 1 ") and b.bilgi.text.contains("Klon: 0/2")
+	var g: Node = b.find_child("KlonGostergesi", true, false)
+	if ekransiz:
+		_kaydi("HUD [headless]: KlonGostergesi kurulmaz, metin etiketi (Bilgi) korunur", g == null and bilgi_ok,
+			"KlonGostergesi: %s, Bilgi: \"%s\" (ekranlı doğrulama için headless olmayan çalıştırma gerekir)" % [g != null, b.bilgi.text])
+		return
+	var yuva_say := 0
+	var dolu := 0
+	var yuva_ok := true
+	var rozet: Control = b.find_child("TusRozeti", true, false) as Control
+	if g != null:
+		for c in g.get_children():
+			if c.name.begins_with("Yuva"):
+				yuva_say += 1
+				if (c as Control).mouse_filter != Control.MOUSE_FILTER_IGNORE:
+					yuva_ok = false
+				var st: StyleBoxFlat = c.get_theme_stylebox("panel")
+				if st.bg_color == LabPaleti.KLON:
+					dolu += 1
+	var rozet_ok: bool = rozet != null and rozet.mouse_filter == Control.MOUSE_FILTER_IGNORE and (rozet as Label).text == "R"
+	_kaydi("HUD [ekranlı]: klon yuvaları (max_klon adet, hepsi boş), TusRozeti, girdiyi yutmaz",
+		g != null and yuva_say == 2 and dolu == 0 and yuva_ok and rozet_ok and bilgi_ok,
+		"KlonGostergesi: %s, yuva: %d, dolu: %d, yuvalar IGNORE: %s, rozet: %s" % [g != null, yuva_say, dolu, yuva_ok, rozet_ok])
+	# Gerçek R yolu: bir klon kaydedilince Yuva1 dolu, rozet kalır; ikinciden sonra rozet kalkar
+	var ozet := ""
+	var tamam := true
+	for tur in range(2):
+		for i in range(10):
+			_girdi_uygula({"yon": 0.0, "zipla": false})
+			await physics_frame
+		var eski_id := b.get_instance_id()
+		await _r_bas()
+		b = await _yeni_sahne_bekle(eski_id)
+		await physics_frame
+		var g2: Node = b.find_child("KlonGostergesi", true, false)
+		var d := 0
+		var n := 0
+		if g2 != null:
+			for c in g2.get_children():
+				if c.name.begins_with("Yuva"):
+					n += 1
+					if (c.get_theme_stylebox("panel") as StyleBoxFlat).bg_color == LabPaleti.KLON:
+						d += 1
+		var r2: Node = b.find_child("TusRozeti", true, false)
+		var beklenen_rozet: bool = tur == 0
+		var ok: bool = n == 2 and d == tur + 1 and (r2 != null) == beklenen_rozet
+		tamam = tamam and ok
+		ozet += " tur%d: yuva=%d dolu=%d rozet=%s;" % [tur + 2, n, d, r2 != null]
+	_kaydi("HUD [ekranlı]: R sonrası dolu yuva sayısı klon sayısına eşit, hak bitince TusRozeti kalkar", tamam, ozet)
+	_kayitlar().sifirla()
+
+
+## Geçiş perdesi: ekranlıda kurulur (IGNORE, girdiyi yutmaz, kendiliğinden kalkar), headless'ta kurulmaz.
+func _ar_perde() -> void:
+	aktif_bolum = AR_B1
+	_kayitlar().sifirla()
+	var b: Node = await _bolumu_yukle()
+	var katman: Node = b.find_child("GecisKatmani", true, false)
+	if LabPaleti.ekransiz():
+		await physics_frame
+		_kaydi("Geçiş perdesi [headless]: GecisKatmani kurulmaz", katman == null,
+			"GecisKatmani: %s (ekranlı doğrulama için headless olmayan çalıştırma gerekir)" % [katman != null])
+		return
+	var perde: Control = null
+	var katman_no := -1
+	var vardi: bool = katman != null
+	if katman != null:
+		perde = katman.find_child("Perde", true, false) as Control
+		katman_no = (katman as CanvasLayer).layer
+	var ignore_ok: bool = perde != null and perde.mouse_filter == Control.MOUSE_FILTER_IGNORE
+	# Perde varken girdi çalışır: 20 kare sağa yürü
+	var x0: float = b.get_node("Oyuncu").global_position.x
+	for i in range(20):
+		_girdi_uygula({"yon": 1.0, "zipla": false})
+		await physics_frame
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	var hareket: float = b.get_node("Oyuncu").global_position.x - x0
+	for i in range(30):
+		await physics_frame
+	var kalkti: bool = not is_instance_valid(katman)
+	_kaydi("Geçiş perdesi [ekranlı]: katman 20, Perde mouse_filter IGNORE, girdi çalışır, kendiliğinden kalkar",
+		vardi and ignore_ok and katman_no == 20 and hareket > 20.0 and kalkti,
+		"katman: %s (layer %d), IGNORE: %s, perde varken hareket: %.0f px, 0,5 sn sonra kalktı: %s" % [
+			vardi, katman_no, ignore_ok, hareket, kalkti])
+	_kayitlar().sifirla()
+
+
+func _ar_sahne_yukle(yol: String) -> Node:
+	var eski_id := current_scene.get_instance_id() if current_scene != null else 0
+	paused = false
+	change_scene_to_file(yol)
+	return await _yeni_sahne_bekle(eski_id)
+
+
+## Fare tıklaması (gerçek GUI yolu): viewport koordinatında basma + bırakma.
+func _ar_tikla(kontrol: Control) -> void:
+	var nokta := kontrol.get_global_rect().get_center()
+	var hareket := InputEventMouseMotion.new()
+	hareket.position = nokta
+	hareket.global_position = nokta
+	root.push_input(hareket, true)
+	await physics_frame
+	for basili in [true, false]:
+		var e := InputEventMouseButton.new()
+		e.button_index = MOUSE_BUTTON_LEFT
+		e.position = nokta
+		e.global_position = nokta
+		e.pressed = basili
+		if basili:
+			e.button_mask = MOUSE_BUTTON_MASK_LEFT
+		root.push_input(e, true)
+		await physics_frame
+
+
+func _ar_ana_menu() -> void:
+	_kayitlar().sifirla()
+	var m: Node = await _ar_sahne_yukle("res://scenes/ana_menu.tscn")
+	await physics_frame
+	var oyna: Button = m.find_child("OynaDugmesi", true, false)
+	var kont: Button = m.get_node_or_null("%KontrollerDugmesi")
+	var cik: Button = m.find_child("CikDugmesi", true, false)
+	var var_ok: bool = oyna != null and kont != null and cik != null
+	var odak_ok := false
+	var cik_bagli := false
+	var metin := ""
+	if var_ok:
+		odak_ok = oyna.has_focus() or oyna.focus_mode == Control.FOCUS_NONE
+		cik_bagli = cik.pressed.get_connections().size() > 0
+		metin = "%s/%s/%s" % [oyna.text, kont.text, cik.text]
+	_kaydi("Ana menü: Oyna, Kontroller, Çıkış düğmeleri var; Çıkış bir eyleme bağlı",
+		var_ok and cik_bagli, "düğmeler: %s, çıkış bağlı: %s, odak: Oyna focus_mode=%d has_focus=%s" % [
+			metin, cik_bagli, oyna.focus_mode if oyna != null else -1, oyna.has_focus() if oyna != null else false])
+	# Dekor düğümleri tıklamayı yutmaz: tüm tam ekran dekor Control'leri IGNORE
+	var yutan: Array = []
+	for c in m.get_children():
+		if c is Control and c.name != "Ortala" and (c as Control).mouse_filter == Control.MOUSE_FILTER_STOP:
+			yutan.append(str(c.name))
+	_kaydi("Ana menü: arka plan/animasyon düğümleri fare olayını yutmaz", yutan.is_empty(),
+		"STOP filtreli dekor düğümü: %s" % str(yutan))
+	# Kontroller düğmesi: gerçek tıklama
+	var eski_id := m.get_instance_id()
+	await _ar_tikla(kont)
+	var k: Node = await _yeni_sahne_bekle(eski_id)
+	var gitti: bool = k != null and k.scene_file_path.ends_with("kontroller.tscn")
+	if not gitti:
+		# Tıklama yolu çalışmadıysa (ortam kısıtı) düğme sinyaliyle doğrula ve belirt
+		kont.pressed.emit()
+		k = await _yeni_sahne_bekle(eski_id)
+	_kaydi("Ana menü: Kontroller düğmesi kontroller ekranını açar (gerçek tıklama: %s)" % ("evet" if gitti else "hayır, sinyalle"),
+		k != null and k.scene_file_path.ends_with("kontroller.tscn"),
+		"tıklama sahneyi değiştirdi: %s, sahne: %s" % [gitti, k.scene_file_path if k != null else "yok"])
+	# Oyna düğmesi -> harita
+	var m2: Node = await _ar_sahne_yukle("res://scenes/ana_menu.tscn")
+	await physics_frame
+	var oyna2: Button = m2.find_child("OynaDugmesi", true, false)
+	var id2 := m2.get_instance_id()
+	await _ar_tikla(oyna2)
+	var h: Node = await _yeni_sahne_bekle(id2)
+	var oyna_gitti: bool = h != null and h.scene_file_path.ends_with("harita.tscn")
+	if not oyna_gitti:
+		oyna2.pressed.emit()
+		h = await _yeni_sahne_bekle(id2)
+	_kaydi("Ana menü: Oyna düğmesi haritayı açar (gerçek tıklama: %s)" % ("evet" if oyna_gitti else "hayır, sinyalle"),
+		h != null and h.scene_file_path.ends_with("harita.tscn"),
+		"tıklama sahneyi değiştirdi: %s" % oyna_gitti)
+
+
+func _ar_kontroller() -> void:
+	var eylemler := ["sol", "sag", "zipla", "asagi", "tur_bitir"]
+	# Geçici bir tuş ekle: etiket InputMap'ten gelmiyorsa görünmez
+	var ek := InputEventKey.new()
+	ek.physical_keycode = KEY_F9
+	ek.keycode = KEY_F9
+	InputMap.action_add_event("zipla", ek)
+	var k: Node = await _ar_sahne_yukle("res://scenes/kontroller.tscn")
+	await physics_frame
+	var kutu: Node = k.find_child("Kutu", true, false)
+	var satirlar: Array = []
+	for c in kutu.get_children():
+		if c is HBoxContainer:
+			var etiketler: Array = c.get_children().filter(func(x): return x is Label)
+			if etiketler.size() >= 2:
+				satirlar.append([etiketler[0].text, etiketler[1].text])
+	var sorun := ""
+	var beklenen_metinler: Array = []
+	for e in eylemler:
+		var adlar: Array = []
+		for ev in InputMap.action_get_events(e):
+			if ev is InputEventKey:
+				var kod: int = ev.physical_keycode if ev.physical_keycode != 0 else ev.keycode
+				var ad: String = load("res://scripts/kontroller.gd").TUS_ADLARI.get(kod, OS.get_keycode_string(kod))
+				if ad != "" and not adlar.has(ad):
+					adlar.append(ad)
+		var bek := " / ".join(adlar)
+		beklenen_metinler.append(bek)
+		var bulundu := false
+		for s in satirlar:
+			if s[1] == bek:
+				bulundu = true
+		if adlar.is_empty() or not bulundu:
+			sorun += " %s(beklenen \"%s\")" % [e, bek]
+	var f9_var := false
+	for s in satirlar:
+		if s[1].contains("F9"):
+			f9_var = true
+	InputMap.action_erase_event("zipla", ek)
+	_kaydi("Kontroller ekranı: tuş adları InputMap'ten gelir (eklenen F9 görünür), 5 eylem satırı",
+		sorun == "" and f9_var and satirlar.size() >= 5,
+		"satırlar: %s, sorunlar:%s, geçici F9 görüldü: %s" % [str(satirlar), sorun if sorun != "" else " yok", f9_var])
+	var geri: Button = k.find_child("GeriDugmesi", true, false)
+	var odak_ok: bool = geri != null and geri.focus_mode == Control.FOCUS_NONE
+	var id := k.get_instance_id()
+	await _ar_tikla(geri)
+	var m: Node = await _yeni_sahne_bekle(id)
+	var tikla_ok: bool = m != null and m.scene_file_path.ends_with("ana_menu.tscn")
+	if not tikla_ok:
+		geri.pressed.emit()
+		m = await _yeni_sahne_bekle(id)
+	_kaydi("Kontroller ekranı: GeriDugmesi (focus_mode NONE) ana menüye döner (gerçek tıklama: %s)" % ("evet" if tikla_ok else "hayır, sinyalle"),
+		odak_ok and m != null and m.scene_file_path.ends_with("ana_menu.tscn"),
+		"focus_mode NONE: %s, dönülen sahne: %s" % [odak_ok, m.scene_file_path if m != null else "yok"])
+
+
+## docs/devir/harita_yerlesim.md tablosundaki konumlar (indeks = bölüm no - 1).
+func _ar_yerlesim_tablosu() -> Array:
+	var metin := FileAccess.get_file_as_string(AR_YERLESIM)
+	var r := RegEx.new()
+	r.compile("\\|\\s*(\\d+)\\s*\\|\\s*Vector2\\(\\s*(-?\\d+)\\s*,\\s*(-?\\d+)\\s*\\)")
+	var tablo: Array = []
+	for m in r.search_all(metin):
+		var no := int(m.get_string(1))
+		while tablo.size() < no:
+			tablo.append(Vector2.ZERO)
+		tablo[no - 1] = Vector2(int(m.get_string(2)), int(m.get_string(3)))
+	return tablo
+
+
+## Düğüm konumları (zincir sırasıyla) için yerleşim denetimi: mesafe >= 100, zincir bağlantıları kesişmez
+## ve komşu olmayan düğüme girmez, kutular ekran/başlık/Geri alanı içinde, hover etiketi başka düğüme binmez.
+func _ar_yerlesim_denetle(tum: Array) -> Dictionary:
+	var yaricap: float = HaritaDugumu.YARICAP
+	var m := tum.size()
+	var mesafe_sorun := ""
+	var en_yakin := 1.0e9
+	for i in range(m):
+		for j in range(i + 1, m):
+			var d: float = (tum[i] as Vector2).distance_to(tum[j])
+			en_yakin = minf(en_yakin, d)
+			if d < 100.0:
+				mesafe_sorun += " %d-%d(%.0f)" % [i + 1, j + 1, d]
+	var parcalar: Array = []
+	for i in range(m - 1):
+		var a: Vector2 = tum[i]
+		var bb: Vector2 = tum[i + 1]
+		var yon := (bb - a).normalized()
+		parcalar.append([a + yon * yaricap, bb - yon * yaricap, i, i + 1])
+	var kesisim := ""
+	for i in range(parcalar.size()):
+		for j in range(i + 1, parcalar.size()):
+			if _segment_kesisir(parcalar[i][0], parcalar[i][1], parcalar[j][0], parcalar[j][1]):
+				kesisim += " %d x %d" % [i + 1, j + 1]
+		for k in range(m):
+			if k == parcalar[i][2] or k == parcalar[i][3]:
+				continue
+			var dd: float = _nokta_parca_uzakligi(tum[k], parcalar[i][0], parcalar[i][1])
+			if dd < yaricap + 20.0:
+				kesisim += " çizgi%d~düğüm%d(%.0f)" % [i + 1, k + 1, dd]
+	var alan := Rect2(Vector2(40, 105), Vector2(1152 - 80, 576 - 105))
+	var geri := Rect2(Vector2(24, 576), Vector2(140, 48))
+	var sinir := ""
+	for i in range(m):
+		var kutu := Rect2((tum[i] as Vector2) - Vector2(yaricap, yaricap), Vector2(yaricap, yaricap) * 2.0)
+		if not alan.encloses(kutu) or kutu.intersects(geri):
+			sinir += " %d" % [i + 1]
+	var bin := ""
+	for i in range(m):
+		var p: Vector2 = tum[i]
+		var etiket_dikd := Rect2(Vector2(clampf(p.x - 140.0, 4.0, 1152.0 - 284.0), p.y + yaricap + 14.0), Vector2(280, 30))
+		for j in range(m):
+			if i == j:
+				continue
+			var q: Vector2 = tum[j]
+			var hex := Rect2(q - Vector2(yaricap, yaricap), Vector2(yaricap, yaricap) * 2.0)
+			if etiket_dikd.intersects(hex):
+				bin += " etiket%d~düğüm%d" % [i + 1, j + 1]
+	return {"mesafe": mesafe_sorun, "en_yakin": en_yakin, "kesisim": kesisim, "sinir": sinir, "bin": bin}
+
+
+func _ar_harita() -> void:
+	var h: Node = await _ar_sahne_yukle("res://scenes/harita.tscn")
+	await physics_frame
+	var kayitlar: Array = BolumListesi.BOLUMLER
+	var n: int = kayitlar.size()
+	# 1) ad ve hover etiketi "Bölüm N: Ad"
+	var sorun := ""
+	for i in range(n):
+		var ad: String = str(kayitlar[i].get("ad", ""))
+		var dugme: Control = h.get_node_or_null("Dugumler/Dugum%d" % (i + 1))
+		var etiket: Label = h.get_node_or_null("Dugumler/Etiket%d" % (i + 1))
+		if ad == "" or dugme == null or etiket == null:
+			sorun += " %d(ad=\"%s\", düğüm=%s, etiket=%s)" % [i + 1, ad, dugme != null, etiket != null]
+			continue
+		var beklenen := "Bölüm %d: %s" % [i + 1, ad]
+		var gizli_basta: bool = not etiket.visible
+		dugme.mouse_entered.emit()
+		var acik: bool = etiket.visible and etiket.text == beklenen
+		dugme.mouse_exited.emit()
+		var kapandi: bool = not etiket.visible
+		if not (gizli_basta and acik and kapandi and BolumListesi.ad(kayitlar[i]["yol"]) == ad):
+			sorun += " %d(\"%s\" gizli:%s açık:%s kapandı:%s)" % [i + 1, etiket.text, gizli_basta, acik, kapandi]
+	_kaydi("Harita: her kayıtta ad var, hover etiketi \"Bölüm N: Ad\" gösterir/gizler (%d kayıt)" % n,
+		sorun == "" and n >= 14, "sorunlar:%s" % (sorun if sorun != "" else " yok"))
+	# 2) Konumlar tabloyla eşleşir: kayıt N, tablo satır N ile aynı; tablo en az kayıt kadar satır
+	var tablo: Array = _ar_yerlesim_tablosu()
+	var konum_sorun := ""
+	for i in range(mini(n, tablo.size())):
+		if (kayitlar[i]["konum"] as Vector2).distance_to(tablo[i]) > 0.01:
+			konum_sorun += " %d(kayıt %s, tablo %s)" % [i + 1, str(kayitlar[i]["konum"]), str(tablo[i])]
+	_kaydi("Harita: BolumListesi konumları harita_yerlesim.md tablosuyla eşleşir (%d kayıt, tablo %d satır; kayıt N = tablo satır N, tablo >= kayıt)" % [n, tablo.size()],
+		konum_sorun == "" and tablo.size() >= n and n >= 1, "sorunlar:%s" % (konum_sorun if konum_sorun != "" else " yok"))
+	# 3) Kayıt sayısı kadar düğümlük yerleşim (şimdiki kayıtlar): mesafe >= 100, çizgi kesmez
+	var tum: Array = []
+	for i in range(n):
+		tum.append(kayitlar[i]["konum"])
+	var r1: Dictionary = _ar_yerlesim_denetle(tum)
+	_kaydi("Harita %d düğümlük yerleşim (kayıt sayısı kadar): en yakın düğümler >= 100 px, çizgiler kesişmez/düğüme girmez, ekran ve başlık/Geri alanı içinde" % n,
+		r1["mesafe"] == "" and r1["kesisim"] == "" and r1["sinir"] == "" and n >= 2,
+		"en yakın mesafe %.0f px, mesafe sorunu:%s, kesişim:%s, sınır dışı:%s" % [
+			r1["en_yakin"], r1["mesafe"] if r1["mesafe"] != "" else " yok",
+			r1["kesisim"] if r1["kesisim"] != "" else " yok", r1["sinir"] if r1["sinir"] != "" else " yok"])
+	# 4) Hover etiketi başka düğüme binmez (kayıt sayısı kadar yerleşim)
+	_kaydi("Harita %d düğümlük yerleşim (kayıt sayısı kadar): hover etiketi komşu düğüme binmez" % n,
+		r1["bin"] == "", "binme:%s" % (r1["bin"] if r1["bin"] != "" else " yok"))
+	# 5) harita_yerlesim.md'deki TÜM satırlar (kayıt olmayan ayrılmış konumlar dahil) aynı kısıtları sağlar
+	var r2: Dictionary = _ar_yerlesim_denetle(tablo)
+	var tablo_bos := false
+	for v in tablo:
+		tablo_bos = tablo_bos or v == Vector2.ZERO
+	var rezerve_sorun := ""
+	for i in range(n, tablo.size()):
+		for j in range(n):
+			if (tablo[i] as Vector2).distance_to(kayitlar[j]["konum"]) < 100.0:
+				rezerve_sorun += " %d-%d" % [i + 1, j + 1]
+	_kaydi("Harita yerleşim tablosu (%d satır, kayıt olmayanlar dahil): mesafe >= 100, çizgiler kesişmez/düğüme girmez, ekran/başlık/Geri içinde, hover etiketi binmez" % tablo.size(),
+		tablo.size() >= 21 and not tablo_bos and r2["mesafe"] == "" and r2["kesisim"] == "" and r2["sinir"] == "" and r2["bin"] == "" and rezerve_sorun == "",
+		"satır %d, en yakın mesafe %.0f px, mesafe:%s, kesişim:%s, sınır:%s, etiket binme:%s, ayrılmış-kayıt:%s" % [
+			tablo.size(), r2["en_yakin"], r2["mesafe"] if r2["mesafe"] != "" else " yok", r2["kesisim"] if r2["kesisim"] != "" else " yok",
+			r2["sinir"] if r2["sinir"] != "" else " yok", r2["bin"] if r2["bin"] != "" else " yok", rezerve_sorun if rezerve_sorun != "" else " yok"])
+	_kayitlar().sifirla()
+
+
+# ================================================================ BÖLÜM 15-17 (Fitil / Mandal / Çifte Mühür)
+# Taslaklar: docs/devir/bolum_15_taslak.md, bolum_16_taslak.md, bolum_17_taslak.md (sayılar tahmindir,
+# bu bloklar ölçerek doğrular). Ortak koşullu oynatıcı: `_n_*`; adım biçimi `_b13_a`.
+const BOLUM_15 := "res://scenes/bolumler/bolum_15.tscn"
+const BOLUM_16 := "res://scenes/bolumler/bolum_16.tscn"
+const BOLUM_17 := "res://scenes/bolumler/bolum_17.tscn"
+
+var _n_onbellek: Dictionary = {}   # bölüm yolu -> kayıt listesi
+
+
+## Bölümdeki her plaka/lazer/geçit/kutu durumunu ad -> değer sözlüğüne yazar (yalnız okur).
+func _n_ornekle(b: Node) -> Dictionary:
+	var d := {}
+	for c in b.get_children():
+		if c is BasincPlakasi:
+			d[c.name] = c.basili_mi()
+			d[str(c.name) + "_f"] = c.has_overlapping_bodies()
+		elif c.has_method("acik_mi"):
+			d[c.name] = c.acik_mi()
+		elif c.get("kayma_mesafe") != null:
+			d[c.name] = c.position.y
+		elif c.name == "Kutu":
+			d[c.name] = c.global_position
+	d["zemin"] = b.get_node("Oyuncu").is_on_floor()
+	d["vy"] = b.get_node("Oyuncu").velocity.y
+	return d
+
+
+## `_b14_kosullu` ile aynı sözleşme: adımlar koşul sağlanana ya da `maks` kareye kadar oynar.
+func _n_kosullu(bolum: Node, adimlar: Array, sayac: Array) -> Dictionary:
+	var oyuncu: CharacterBody2D = bolum.get_node("Oyuncu")
+	var klonlar: Array = _klonlar(bolum)
+	var klon_iz: Array = []
+	for k in klonlar:
+		klon_iz.append([])
+	var iz: Array = []
+	var ozel: Array = []
+	var baslangic: Array = []
+	var tamam: Array = []
+	var kare := 0
+	for a in adimlar:
+		baslangic.append(iz.size())
+		var n := 0
+		var karsilandi: bool = not a["kosul"].is_valid()
+		while n < a["maks"]:
+			if not is_instance_valid(bolum) or bolum.bitti:
+				break
+			_girdi_uygula({"yon": a["yon"], "zipla": a["zipla"] and n == 0, "asagi": a.get("asagi", false)})
+			iz.append(oyuncu.global_position)
+			ozel.append(_n_ornekle(bolum))
+			for i in range(klonlar.size()):
+				klon_iz[i].append(klonlar[i].global_position)
+			await physics_frame
+			n += 1
+			kare += 1
+			if a["kosul"].is_valid() and is_instance_valid(bolum) and a["kosul"].call(bolum):
+				karsilandi = true
+				break
+		tamam.append(karsilandi)
+		if not is_instance_valid(bolum) or bolum.bitti:
+			break
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	var bitti_son: bool = is_instance_valid(bolum) and bolum.bitti
+	var kayit: Array = []
+	if is_instance_valid(oyuncu):
+		kayit = oyuncu.kayit_girdileri.duplicate(true)
+	var klon_oldu: Array = []
+	for k in klonlar:
+		klon_oldu.append(is_instance_valid(k) and k.oldu)
+	for i in range(3):
+		await physics_frame
+	return {"kare": kare, "bitti": bitti_son and sayac[0] == 0, "bitti_ham": bitti_son, "oldu": sayac[0],
+		"iz": iz, "ozel": ozel, "klon_izleri": klon_iz, "baslangic": baslangic, "tamam": tamam,
+		"kayit": kayit, "klon_oldu": klon_oldu}
+
+
+func _n_senaryo(kayitlar: Array, adimlar: Array, hazirlik := Callable()) -> Dictionary:
+	_kayitlar().sifirla()
+	for k in kayitlar:
+		_kayitlar().tur_kaydet(k.duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	if hazirlik.is_valid():
+		hazirlik.call(bolum)
+	var sayac := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var s: Dictionary = await _n_kosullu(bolum, adimlar, sayac)
+	paused = false
+	return s
+
+
+func _n_p(ad: String) -> Callable:
+	return func(b: Node) -> bool: return b.get_node(ad).basili_mi()
+
+
+## Plakada basılı ve yerde.
+func _n_plakada(ad: String) -> Callable:
+	return func(b: Node) -> bool: return b.get_node(ad).basili_mi() and b.get_node("Oyuncu").is_on_floor()
+
+
+func _n_kapali(ad: String) -> Callable:
+	return func(b: Node) -> bool: return not b.get_node(ad).acik_mi()
+
+
+func _n_kare_ge(n: int) -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Oyuncu").kare >= n
+
+
+func _n_zemin() -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Oyuncu").is_on_floor()
+
+
+## Oyuncu y'si (merkez) bu değerin altına/eşit indi.
+func _n_y_le(v: float) -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Oyuncu").global_position.y <= v
+
+
+func _n_y_ge(v: float) -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Oyuncu").global_position.y >= v
+
+
+func _n_gecit_ust(ad: String, y: float) -> Callable:
+	return func(b: Node) -> bool: return b.get_node(ad).position.y <= y
+
+
+func _n_ve(a: Callable, c: Callable) -> Callable:
+	return func(b: Node) -> bool: return a.call(b) and c.call(b)
+
+
+func _n_son(s: Dictionary) -> Vector2:
+	return s["iz"][s["iz"].size() - 1] if s["iz"].size() > 0 else Vector2.ZERO
+
+
+## Oyuncu izinden en büyük/küçük x, en küçük ayak y, en büyük y.
+func _n_olc(s: Dictionary) -> Dictionary:
+	var xmax := -1.0e9
+	var xmin := 1.0e9
+	var ayak := 1.0e9
+	var ymax := -1.0e9
+	for p in s["iz"]:
+		xmax = maxf(xmax, p.x)
+		xmin = minf(xmin, p.x)
+		ayak = minf(ayak, p.y + 24.0)
+		ymax = maxf(ymax, p.y)
+	return {"xmax": xmax, "xmin": xmin, "ayak": ayak, "ymax": ymax}
+
+
+## İlk karesi: ozel[f][anahtar] == deger (yoksa -1).
+func _n_ilk(s: Dictionary, anahtar: String, deger: Variant, bas := 0) -> int:
+	for f in range(bas, s["ozel"].size()):
+		if s["ozel"][f].get(anahtar) == deger:
+			return f
+	return -1
+
+
+## Verilen iz üzerinde x >= v olan ilk kare (yoksa -1).
+func _n_x_kare(iz: Array, v: float, bas := 0) -> int:
+	for f in range(bas, iz.size()):
+		if iz[f].x >= v:
+			return f
+	return -1
+
+
+func _n_iz_yaz(s: Dictionary, adim := 5, bas := 0, son := -1, anahtarlar := []) -> String:
+	var t: Array = []
+	var e: int = s["iz"].size() if son < 0 else mini(son, s["iz"].size())
+	for f in range(bas, e, adim):
+		var o: Dictionary = s["ozel"][f]
+		var ek := ""
+		for a in anahtarlar:
+			var v: Variant = o.get(a)
+			if v is bool:
+				ek += " %s=%s" % [a, "1" if v else "0"]
+			elif v is float:
+				ek += " %s=%.0f" % [a, v]
+		t.append("%d:(%.1f,%.1f)%s%s" % [f, s["iz"][f].x, s["iz"][f].y, "z" if o["zemin"] else "", ek])
+	return "\n".join(t)
+
+
+func _n_kutu_x_ge(v: float) -> Callable:
+	return func(b: Node) -> bool: return b.get_node("Kutu").global_position.x >= v
+
+
+func _n_yerlestir(oyuncu: Vector2, kutu := Vector2(-1.0, -1.0)) -> Callable:
+	return func(b: Node) -> void:
+		b.get_node("Oyuncu").global_position = oyuncu
+		if kutu.x >= 0.0:
+			b.get_node("Kutu").global_position = kutu
+
+
+## n adım: yon + zıplama basılı (her adımda yeniden basış).
+func _n_spam(yon: float, n := 8, kare := 25) -> Array:
+	return _b8_zipla_dizisi(n, yon, kare)
+
+
+## Oyuncu girdisi bu adımlarla bölümü bitirir mi.
+func _n_bitirir(klonlar: Array, adimlar: Array) -> bool:
+	var s: Dictionary = await _n_senaryo(klonlar, adimlar)
+	return s["bitti_ham"] and s["oldu"] == 0
+
+
+## Verilen değerleri sırayla dener: f(v) -> bool (coroutine). Sonuç listesi döner.
+func _n_sup(vs: Array, f: Callable) -> Array:
+	var oks: Array = []
+	for v in vs:
+		oks.append(bool(await f.call(v)))
+	return oks
+
+
+## Aralık özeti: ardışık geçen değerler "lo..hi" parçaları.
+func _n_ar(vs: Array, oks: Array) -> String:
+	return _b13_aralik_yaz(vs, oks)
+
+
+## Pencere iddiası: değer listede varsa ve beklenen sonuçla eşleşiyorsa true (yoksa KALDI).
+func _n_pen(vs: Array, oks: Array, v: int, beklenen := true) -> bool:
+	var i: int = vs.find(v)
+	return i >= 0 and bool(oks[i]) == beklenen
+
+
+## Ok olan değerlerin en büyüğü / en küçüğü (yoksa -1).
+func _n_en_buyuk(vs: Array, oks: Array) -> int:
+	var m := -1
+	for i in range(vs.size()):
+		if oks[i]:
+			m = maxi(m, int(vs[i]))
+	return m
+
+
+func _n_en_kucuk(vs: Array, oks: Array) -> int:
+	var m := 1000000
+	for i in range(vs.size()):
+		if oks[i]:
+			m = mini(m, int(vs[i]))
+	return m if m < 1000000 else -1
+
+
+## Gerçek R yolu: her klon turu bittiğinde R basılır; son tur oyuncu. Etiket/kare/ölüm doğrulanır.
+func _n_cozum(ad: String, turlar: Array, oyuncu: Array, kaynak_max: int) -> void:
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var kareler: Array = []
+	var olumsuz := ""
+	for i in range(turlar.size()):
+		var sayac := [0]
+		bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+		var klon_once: int = _klonlar(bolum).size()
+		var s: Dictionary = await _n_kosullu(bolum, turlar[i], sayac)
+		kareler.append(s["kare"])
+		if s["tamam"].has(false) or s["oldu"] > 0 or s["kare"] > 600 or klon_once != i:
+			olumsuz += " tur%d adım karşılanmadı %s oldu=%d kare=%d klon=%d;" % [i + 1, str(s["tamam"]), s["oldu"], s["kare"], klon_once]
+		var eski_id := bolum.get_instance_id()
+		await _r_bas()
+		bolum = await _yeni_sahne_bekle(eski_id)
+		if bolum == null:
+			_kaydi(ad, false, "tur %d sonrası sahne yüklenmedi;%s" % [i + 1, olumsuz])
+			return
+	var klon_basta: int = _klonlar(bolum).size()
+	var etiket: String = bolum.bilgi.text
+	var sayac4 := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac4[0] += 1)
+	var s4: Dictionary = await _n_kosullu(bolum, oyuncu, sayac4)
+	var hepsi_600 := true
+	for k in kareler:
+		hepsi_600 = hepsi_600 and k <= 600
+	var gecti: bool = s4["bitti"] and klon_basta == turlar.size() and _kayitlar().turlar.size() == turlar.size() \
+		and etiket.contains("Klon: %d/%d" % [turlar.size(), kaynak_max]) and olumsuz == "" and s4["kare"] <= 600 \
+		and s4["oldu"] == 0 and hepsi_600 and not s4["tamam"].has(false)
+	_kaydi(ad, gecti, "bitti: %s, tur kareleri: %s + %d (%.2f sn), klon: %d, kayıtlı tur: %d, ölüm: %d, etiket: \"%s\"%s" % [
+		s4["bitti"], str(kareler), s4["kare"], s4["kare"] / 60.0, klon_basta, _kayitlar().turlar.size(),
+		s4["oldu"], etiket, olumsuz])
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Klon sınırı: max_klon kadar R klon kaydeder, bir sonraki R kaydetmez.
+func _n_klon_siniri(ad: String, beklenen_max: int) -> void:
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var maks: int = bolum.max_klon
+	var gecti := maks == beklenen_max
+	var ayr: Array = []
+	for n in range(maks + 1):
+		for i in range(5):
+			_girdi_uygula({"yon": 1.0, "zipla": false})
+			await physics_frame
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		var eski_id := bolum.get_instance_id()
+		await _r_bas()
+		var yeni: Node = await _yeni_sahne_bekle(eski_id)
+		var sayi: int = _kayitlar().turlar.size()
+		if n < maks:
+			gecti = gecti and yeni != null and sayi == n + 1
+			if yeni == null:
+				break
+			bolum = yeni
+		else:
+			var yazi: String = bolum.bilgi.text
+			gecti = gecti and yeni == null and sayi == maks and yazi.contains("Klon hakkı bitti") \
+				and yazi.contains("%d/%d" % [maks, maks])
+			ayr.append("sınırda etiket: \"%s\"" % yazi)
+		ayr.append("R #%d -> kayıtlı klon: %d" % [n + 1, sayi])
+	_kaydi(ad, gecti, "max_klon=%d; %s" % [maks, ", ".join(ayr)])
+	_kayitlar().sifirla()
+
+
+## Determinizm: çözüm 100x aynı kayıtla yeniden oynatılır, her karede bütün durumlar karşılaştırılır.
+func _n_determinizm(ad: String, kay: Array, oyuncu: Array, tekrar := TEKRAR) -> void:
+	var s0: Dictionary = await _n_senaryo(kay, oyuncu)
+	var betik: Array = s0["kayit"]
+	var ornek := func(b: Node) -> Dictionary: return _n_ornekle(b)
+	var referans: Dictionary = {}
+	var sapmali := 0
+	var bitmeyen := 0
+	var maks_sapma := 0.0
+	for n in range(tekrar):
+		var s: Dictionary = await _senaryo(kay, betik, 700, Callable(), ornek)
+		if not s["bitti"]:
+			bitmeyen += 1
+		if n == 0:
+			referans = s
+			continue
+		var bu: bool = s["ozel_iz"].size() != referans["ozel_iz"].size() or s["kare"] != referans["kare"]
+		for f in range(mini(s["ozel_iz"].size(), referans["ozel_iz"].size())):
+			if s["ozel_iz"][f] != referans["ozel_iz"][f]:
+				bu = true
+			var d: float = (s["oyuncu_iz"][f] - referans["oyuncu_iz"][f]).length()
+			for ki in range(kay.size()):
+				d = maxf(d, (s["klon_izleri"][ki][f] - referans["klon_izleri"][ki][f]).length())
+			if d > 0.0:
+				bu = true
+				maks_sapma = maxf(maks_sapma, d)
+		if bu:
+			sapmali += 1
+	_kaydi(ad, sapmali == 0 and bitmeyen == 0 and s0["bitti_ham"],
+		"%d çalıştırma x %d kare, sapmalı: %d, en büyük sapma: %.4f px, bitirmeyen çalıştırma: %d, kayıt turu bitti: %s" % [
+			tekrar, referans["kare"], sapmali, maks_sapma, bitmeyen, s0["bitti_ham"]])
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Canlı turun kaydını klon olarak oynatıp en büyük konum farkını (px) ve ilk sapma karesini verir.
+func _n_klon_fark(onceki: Array, adim: Array) -> Dictionary:
+	var canli: Dictionary = await _n_senaryo(onceki, adim)
+	var tekrar: Dictionary = await _n_senaryo(onceki + [canli["kayit"]], [_b13_a(0, Callable(), canli["kare"] + 1)])
+	var idx: int = onceki.size()
+	var maks := 0.0
+	var ilk := -1
+	var ilk_x := 0.0
+	for f in range(mini(canli["iz"].size(), tekrar["klon_izleri"][idx].size())):
+		var fark: float = (canli["iz"][f] - tekrar["klon_izleri"][idx][f]).length()
+		if fark > 0.01 and ilk < 0:
+			ilk = f
+			ilk_x = canli["iz"][f].x
+		maks = maxf(maks, fark)
+	return {"fark": maks, "ilk": ilk, "ilk_x": ilk_x, "kare": canli["kare"]}
+
+
+## Plaka tutma süresi: oyuncu plakada 10 kare durur, sonra sağa yürür; fiziksel basış
+## bittikten sonra kaç kare daha `basili_mi()` true? (beklenen: tutma_kare; mandalda ölçüm sonuna kadar.)
+func _n_tutma_olc(plaka: String, konum: Vector2, kare := 330) -> Dictionary:
+	var s: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 10), _b13_a(1, _b4_x_ge(konum.x + 150.0), 100),
+		_b13_a(0, Callable(), kare)], _n_yerlestir(konum))
+	var son_f := -1
+	for f in range(s["ozel"].size()):
+		if s["ozel"][f].get(plaka + "_f", false):
+			son_f = f
+	var n := 0
+	var f2 := son_f + 1
+	while f2 < s["ozel"].size() and s["ozel"][f2].get(plaka, false):
+		n += 1
+		f2 += 1
+	var ilk_basili := -1
+	for f in range(s["ozel"].size()):
+		if s["ozel"][f].get(plaka, false):
+			ilk_basili = f
+			break
+	return {"kalan": n, "son_fiziksel": son_f, "ilk_basili": ilk_basili, "kare": s["ozel"].size(),
+		"sona_kadar": son_f + n >= s["ozel"].size() - 1, "ozel": s["ozel"]}
+
+
+## Sahnede adı verilen önekle başlayan düğümler (bölümde olmaması gereken mekanikler).
+func _n_var_olanlar(b: Node, onekler: Array) -> String:
+	var bulunan: Array = []
+	for c in b.get_children():
+		for o in onekler:
+			if str(c.name).begins_with(o):
+				bulunan.append(str(c.name))
+	return ",".join(bulunan)
+
+
+# ---------------------------------------------------------------- Bölüm 15 (Fitil)
+# C_A: Z1 ile kata çıkar, PlakaA'da kalır. C_B: aynı koşu, G'yi fitil süresinde geçer, PlakaB'de kalır.
+# Oyuncu: aynı koşu, rafta S, kuyudan kapıya.
+var _n15_onb: Array = []   # [A, B]
+
+
+## C_A: gec = başta bekleme, z1_kes = Z1 sensörüne girince `sag` bırakma süresi, bekle = plakada bekleme.
+func _n15_a(gec := 0, bekle := 15, z1_kes := 0) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	if z1_kes > 0:
+		d += [_b13_a(1, _b4_x_ge(477.0), 200), _b13_a(0, Callable(), z1_kes)]
+	d += [_b13_a(1, _b4_x_ge(630.0), 300), _b13_a(0, _n_plakada("PlakaA"), 150), _b13_a(0, Callable(), bekle)]
+	return d
+
+
+## Ortak koşu: ZP'den geçilir (zp_dur: ZP'den ayrılınca duraksama), Z1 ile kata çıkılır, x=630'a kadar.
+func _n15_kosu(gec := 0, zp_dur := 0, z1_kes := 0) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	if zp_dur > 0:
+		d += [_b13_a(1, _b4_x_ge(170.0), 200), _b13_a(0, Callable(), zp_dur)]
+	if z1_kes > 0:
+		d += [_b13_a(1, _b4_x_ge(477.0), 200), _b13_a(0, Callable(), z1_kes)]
+	d.append(_b13_a(1, _b4_x_ge(630.0), 400))
+	return d
+
+
+func _n15_b(gec := 0, zp_dur := 0, bekle := 10, z1_kes := 0) -> Array:
+	return _n15_kosu(gec, zp_dur, z1_kes) + [_b13_a(1, _n_plakada("PlakaB"), 400), _b13_a(0, Callable(), bekle)]
+
+
+## Oyuncu: raf üstünde x >= s_x'te `sag` bırakır, S basar (sag_tut: S sırasında sag basılı), kuyudan kapıya.
+func _n15_o(gec := 0, zp_dur := 0, s_x := 1025.0, sag_tut := false, z1_kes := 0) -> Array:
+	var d: Array = _n15_kosu(gec, zp_dur, z1_kes)
+	d += [_b13_a(1, _b4_x_ge(s_x), 400)]
+	if sag_tut:
+		d += [_b13_a(1, Callable(), 3, false, true)]
+	else:
+		d += [_b13_a(0, Callable(), 1), _b13_a(0, Callable(), 3, false, true)]
+	d += [_b13_a(0, _n_zemin(), 120), _b13_a(1, _b4_bitti_k(), 150)]
+	return d
+
+
+func _n15_kayitlar() -> Array:
+	if _n15_onb.is_empty():
+		var s1: Dictionary = await _n_senaryo([], _n15_a())
+		var s2: Dictionary = await _n_senaryo([s1["kayit"]], _n15_b())
+		_n15_onb = [s1["kayit"], s2["kayit"]]
+	return _n15_onb
+
+
+func _b15_calistir() -> void:
+	await _test_b15_cozum()
+	await _test_b15_basarisizlik()
+	await _test_b15_atlanamaz()
+	await _test_b15_kisayol()
+	await _test_b15_pencereler()
+	await _test_b15_klon_fark()
+	await _test_b15_tutma()
+	await _test_b15_klon_siniri()
+	await _test_b15_kilitlenme()
+	await _test_b15_determinizm()
+
+
+func _test_b15_cozum() -> void:
+	await _n_cozum("Bölüm 15 çözümü (3 tur, 2 klon, gerçek R/girdi yolu)", [_n15_a(), _n15_b()], _n15_o(), 3)
+
+
+func _test_b15_basarisizlik() -> void:
+	var kay: Array = await _n15_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	# 1) klonsuz: LazerA'da ölür.
+	var s1: Dictionary = await _n_senaryo([], [_b13_a(1, Callable(), 250)])
+	var p1: Vector2 = _n_son(s1)
+	_kaydi("Bölüm 15 başarısızlık 1: klonsuz -> LazerA'da ölür", s1["oldu"] > 0 and not s1["bitti_ham"] and p1.x > 690.0 and p1.x < 735.0,
+		"ölüm=%d, son konum (%.0f,%.0f) (ışın x 737..743, gövde girişi 723)" % [s1["oldu"], p1.x, p1.y])
+	# 2) yalnız C_A: oyuncu kuyuda LazerB'de ölür.
+	var s2: Dictionary = await _n_senaryo([c_a], _n15_o())
+	var p2: Vector2 = _n_son(s2)
+	_kaydi("Bölüm 15 başarısızlık 2: yalnız C_A -> kuyuda LazerB'de ölür", s2["oldu"] > 0 and not s2["bitti_ham"] and p2.x > 1000.0 and p2.x < 1060.0,
+		"ölüm=%d, son konum (%.0f,%.0f) (ışın x 1057..1063)" % [s2["oldu"], p2.x, p2.y])
+	# 3) C_A erken ayrılır (plakaya değip hemen sola yürür): LazerA açık, C_B ölür, kayıt boş.
+	var a_gec: Array = (await _n_senaryo([], _n15_a(24)))["kayit"]
+	var s3: Dictionary = await _n_senaryo([a_gec], _n15_b())
+	_kaydi("Bölüm 15 başarısızlık 3: C_A PlakaA'ya 24 kare geç basar -> C_B LazerA'da ölür (kayıt boş)", s3["oldu"] > 0 and not s3["bitti_ham"],
+		"ölüm=%d, son konum (%.0f,%.0f)" % [s3["oldu"], _n_son(s3).x, _n_son(s3).y])
+	# 4) Z1'de `sag` uzun süre bırakılır: gövde boşluğa geri düşer / G kaçar (pencere ölçümü pencereler testinde).
+	var vs4: Array = [15, 24, 30, 54, 66]
+	var ok4 := true
+	var ayr4: Array = []
+	for k in vs4:
+		var s4: Dictionary = await _n_senaryo([c_a], _n15_b(0, 0, 10, k))
+		var d: bool = s4["tamam"].has(false) or s4["oldu"] > 0 or s4["kare"] > 600
+		ok4 = ok4 and d
+		ayr4.append("kes=%d: adım karşılanmadı/ölüm=%s (kare %d)" % [k, str(d), s4["kare"]])
+	_kaydi("Bölüm 15 başarısızlık 4: Z1'de `sag` uzun bırakılır -> fitil kaçar, C_B PlakaB'ye varamaz", ok4, "; ".join(ayr4))
+	# 5) G'de geç kalma: ZP'den ayrılınca 90 kare durur -> G kapanır, C_B/oyuncu çarpıp durur (ölmez).
+	var s5: Dictionary = await _n_senaryo([c_a], _n15_b(0, 90, 10))
+	var o5: Dictionary = _n_olc(s5)
+	_kaydi("Bölüm 15 başarısızlık 5: G'de geç kalma (ZP'den sonra 90 kare duraksama) -> G kapalı, çarpıp durur", s5["tamam"].has(false) and s5["oldu"] == 0 and o5["xmax"] < 840.0 and o5["xmax"] > 780.0,
+		"adımlar=%s, ölüm=%d, en büyük x=%.0f (G sol yüzü 850, gövde 836)" % [str(s5["tamam"]), s5["oldu"], o5["xmax"]])
+	# 6) Rafta `sag` basılıyken S: 12 karede sürüklenip ışına iner, ölür.
+	var s6: Dictionary = await _n_senaryo([c_a, c_b], _n15_o(0, 0, 1020.0, true))
+	# Taslak §9.6: "12 karede +60 px sürükler, ışına inip ölür". Son turda LazerB kapalıdır (C_B PlakaB'de): ölçülen sonuç kaydedilir.
+	var f_s6: int = _n_ilk(s6, "zemin", false, 150)
+	_kaydi("Bölüm 15 ölçüm 6: rafta `sag` basılıyken S (LazerB kapalı) -> sürüklenme ölçülür, ölüm yok (taslak §9.6 'ölür' iddiası LazerB açıkken geçerli)",
+		s6["oldu"] == 0 and s6["bitti_ham"] and _n_olc(s6)["xmax"] > 1030.0,
+		"bitti=%s ölüm=%d son (%.0f,%.0f), en büyük x=%.0f (S sırasında sağ basılı)" % [s6["bitti_ham"], s6["oldu"], _n_son(s6).x, _n_son(s6).y, _n_olc(s6)["xmax"]])
+	# 7) C_B PlakaB'ye ulaşmadan R: LazerB açık, oyuncu kuyuda ölür (C_B yarım: raf yürüyüşü yok).
+	var b_yarim: Array = (await _n_senaryo([c_a], _n15_kosu() + [_b13_a(1, _b4_x_ge(800.0), 200)]))["kayit"]
+	var s7: Dictionary = await _n_senaryo([c_a, b_yarim], _n15_o())
+	_kaydi("Bölüm 15 başarısızlık 7: C_B PlakaB'ye ulaşmaz -> oyuncu LazerB'de ölür", s7["oldu"] > 0 and not s7["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s7["oldu"], _n_son(s7).x, _n_son(s7).y])
+	# 8) S çok erken (x=1005 < 1014): döşeme desteği sürer, S etkisiz.
+	var s8: Dictionary = await _n_senaryo([c_a, c_b], _n15_kosu() + [_b13_a(1, _b4_x_ge(1005.0), 400), _b13_a(0, Callable(), 1),
+		_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 60)])
+	_kaydi("Bölüm 15 başarısızlık 8: S raf başına çok yakın (x=1005) -> düşmez", _n_son(s8).y < 370.0 and s8["oldu"] == 0,
+		"son (%.1f,%.1f) (yüzey y=355.9)" % [_n_son(s8).x, _n_son(s8).y])
+	# 9) S fırlatma sonrası havada / ZP başında kalan klon (4. rol) iddiası: C_B yerine ZP'de bekleyen klon G'yi açık tutar ama LazerB'yi tutmaz.
+	var z_klon: Array = (await _n_senaryo([c_a], [_b13_a(1, _n_plakada("PlakaZ"), 100), _b13_a(0, Callable(), 300)]))["kayit"]
+	var s9: Dictionary = await _n_senaryo([c_a, z_klon], _n15_o())
+	_kaydi("Bölüm 15 başarısızlık 9: ZP başında kalan klon LazerB'yi tutmaz -> oyuncu kuyuda ölür", s9["oldu"] > 0 and not s9["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s9["oldu"], _n_son(s9).x, _n_son(s9).y])
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b15_atlanamaz() -> void:
+	var kay: Array = await _n15_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	# Zeminden F2'ye zıplayarak çıkılmaz (döşeme alt kenarı 420, 220 px > 100,9): F1 sol bölgede.
+	var sa: Dictionary = await _n_senaryo([], _n_spam(0.0, 8), _n_yerlestir(Vector2(300, 576)))
+	var oa: Dictionary = _n_olc(sa)
+	var ok: bool = oa["ayak"] > 440.0
+	hepsi = hepsi and ok
+	ayr.append("F1'den dikey zıplama: en yüksek ayak y=%.1f (döşeme alt kenarı 420, zıplama 100,9: kat 220 px)" % oa["ayak"])
+	# GecitG kapalı (ZP hiç basılmadı): F2'de sağ+zıpla spam, sol yüz 850, gövde 836.
+	var sg: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(790, 356)))
+	var og: Dictionary = _n_olc(sg)
+	ok = og["xmax"] <= 837.0 and not sg["bitti_ham"]
+	hepsi = hepsi and ok
+	ayr.append("GecitG kapalı: en büyük x=%.0f (sol yüz 850-14=836), ölüm=%d" % [og["xmax"], sg["oldu"]])
+	# LazerA açık: zıplayarak aşılmaz (ölür).
+	var sl: Dictionary = await _n_senaryo([], _n_spam(1.0, 10), _n_yerlestir(Vector2(690, 356)))
+	var ol: Dictionary = _n_olc(sl)
+	ok = sl["oldu"] > 0 and ol["xmax"] < 745.0
+	hepsi = hepsi and ok
+	ayr.append("LazerA zıplayarak: ölüm=%d, en büyük x=%.0f (ışın sol kenarı 737)" % [sl["oldu"], ol["xmax"]])
+	# Z1 uçuşu LazerA'yı aşmaz: Z1'den sağ+zıpla spam (klonsuz): ölür.
+	var sz: Dictionary = await _n_senaryo([], [_b13_a(1, _b4_x_ge(477.0), 200)] + _n_spam(1.0, 14))
+	var oz: Dictionary = _n_olc(sz)
+	ok = sz["oldu"] > 0 and oz["xmax"] < 745.0
+	hepsi = hepsi and ok
+	ayr.append("Z1 uçuşu + zıpla spam (klonsuz): ölüm=%d, en büyük x=%.0f, tepe ayak y=%.1f (taslak 353)" % [sz["oldu"], oz["xmax"], oz["ayak"]])
+	# F1 -> kuyu: DuvarF1 (x 980..1000) F1 koridorunu kapatır.
+	var sd: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(900, 576)))
+	var od: Dictionary = _n_olc(sd)
+	ok = od["xmax"] <= 967.0
+	hepsi = hepsi and ok
+	ayr.append("DuvarF1: en büyük x=%.0f (sol yüz 980-14=966)" % od["xmax"])
+	# Kuyudan F2'ye çıkış yok (220 px).
+	var sk: Dictionary = await _n_senaryo(kay, _n_spam(0.0, 10), _n_yerlestir(Vector2(1060, 576)))
+	var ok_k: Dictionary = _n_olc(sk)
+	ok = ok_k["ayak"] > 450.0
+	hepsi = hepsi and ok
+	ayr.append("kuyu dikey zıplama (LazerB kapalı): en yüksek ayak y=%.1f (zemin 600, raf üstü 380; 220 px > 100,9)" % ok_k["ayak"])
+	# LazerB: kapalı değilken (yalnız C_A) raf yürüyüşü ışından geçer -> ölür.
+	var sb: Dictionary = await _n_senaryo([kay[0]], _n_spam(1.0, 6), _n_yerlestir(Vector2(1030, 356)))
+	ok = sb["oldu"] > 0
+	hepsi = hepsi and ok
+	ayr.append("LazerB açık: raf üstünde sağ+zıpla -> ölüm=%d" % sb["oldu"])
+	# Raf x 1000..1120: kapı yalnız kuyu tabanında: F2 sağ ucunda (SagDuvar) kapıya değilmez.
+	_kaydi("Bölüm 15 atlanamazlık hesapları (kat boşluğu, geçit, lazerler, DuvarF1, kuyu çıkışı)", hepsi, "; ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b15_kisayol() -> void:
+	var kay: Array = await _n15_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	var ayr: Array = []
+	var hepsi := true
+	# Sahnede olmaması gereken mekanikler: kutu/bant/şalter/asansör yok (taslak §1): kutu basamağı, bant dalgalanması uygulanamaz.
+	var b0: Node = await _bolumu_yukle()
+	var var_olan: String = _n_var_olanlar(b0, ["Kutu", "Bant", "Salter", "Asansor"])
+	paused = false
+	hepsi = hepsi and var_olan == ""
+	ayr.append("sahnede kutu/bant/şalter/asansör: [%s] (yok olmalı)" % var_olan)
+	# 1) klonsuz: çeşitli girdiler.
+	var kos: Array = [
+		["sag sürekli", [_b13_a(1, Callable(), 400)]],
+		["sağ+zıpla spam", _n_spam(1.0, 20)],
+		["bekle 60 + sag", [_b13_a(0, Callable(), 60), _b13_a(1, Callable(), 400)]],
+		["Z1 uçuşu + sag", _n15_kosu() + [_b13_a(1, Callable(), 200)]]]
+	for k in kos:
+		var s: Dictionary = await _n_senaryo([], k[1])
+		hepsi = hepsi and not s["bitti_ham"]
+		ayr.append("klonsuz/%s: bitti=%s" % [k[0], s["bitti_ham"]])
+	# 2) tek klon: C_A, C_B(kör, kayıt turunda LazerA'da ölür), ZP tutucusu; oyuncu stratejileri.
+	var tekler: Array = []
+	var c_b_kor: Array = (await _n_senaryo([], _n15_b()))["kayit"]
+	var tek_ad: Array = ["C_A", "C_B(kör)", "ZP-bekleyen"]
+	var z_klon: Array = (await _n_senaryo([], [_b13_a(1, _n_plakada("PlakaZ"), 100), _b13_a(0, Callable(), 300)]))["kayit"]
+	tekler = [c_a, c_b_kor, z_klon]
+	var oyuncu_st: Array = [_n15_o(), _n15_o(0, 0, 1010.0), _n15_o(0, 0, 1040.0), [_b13_a(1, Callable(), 400)],
+		_n15_kosu() + [_b13_a(1, Callable(), 300)]]
+	var biten: Array = []
+	for i in range(tekler.size()):
+		for st in oyuncu_st:
+			if await _n_bitirir([tekler[i]], st):
+				biten.append(tek_ad[i])
+	hepsi = hepsi and biten.is_empty()
+	ayr.append("tek klon (3 rol x 5 oyuncu stratejisi): bitiren=%s" % str(biten))
+	# 3) röle: tek klon PlakaA'da T kare bekleyip PlakaB'ye yürür (kör kayıt); oyuncu ışından T içinde geçer.
+	var rbit: Array = []
+	var rtop := 0
+	for t in [0, 20, 40, 80, 120]:
+		var r: Dictionary = await _n_senaryo([], _n15_kosu() + [_b13_a(1, _n_plakada("PlakaA"), 100), _b13_a(0, Callable(), t),
+			_b13_a(1, _n_plakada("PlakaB"), 300), _b13_a(0, Callable(), 20)])
+		var klon_k: Array = r["kayit"]
+		rtop += 1
+		for st in oyuncu_st:
+			if await _n_bitirir([klon_k], st):
+				rbit.append(t)
+	hepsi = hepsi and rbit.is_empty()
+	ayr.append("röle (tek klon A'da T kare bekleyip B'ye gider, T=0/20/40/80/120 x 5 strateji): bitiren=%s" % str(rbit))
+	# 4) iki klon, tüm alt kümeler / sıralar.
+	var iki: Array = [["A+A", [c_a, c_a]], ["B+A", [c_b, c_a]], ["B+B", [c_b, c_b]], ["A+B", [c_a, c_b]]]
+	var biten2: Array = []
+	for k in iki:
+		var bit: bool = await _n_bitirir(k[1], _n15_o())
+		if bit:
+			biten2.append(k[0])
+	# A+B bitirmeli (taslak çözümü), diğerleri bitirmemeli.
+	hepsi = hepsi and biten2 == ["B+A", "A+B"]
+	ayr.append("iki klon kümeleri (A+A, B+A, B+B, A+B) bitirenler=%s (B+A ile A+B aynı küme; A+A ve B+B bitirmemeli)" % str(biten2))
+	# 5) min klon 2 kanıtı: PlakaA ve PlakaB aynı anda basılı; oyuncu LazerB ışınına bunlardan sonra varır.
+	var tam: Dictionary = await _n_senaryo(kay, _n15_o())
+	var f_ab := -1
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if o["PlakaA"] and o["PlakaB"] and f_ab < 0:
+			f_ab = f
+	var f_lb: int = _n_x_kare(tam["iz"], 1043.0)
+	var ok5: bool = tam["bitti_ham"] and f_ab >= 0 and f_lb > f_ab
+	hepsi = hepsi and ok5
+	ayr.append("min klon 2: bitti=%s, PlakaA+PlakaB birlikte basılı ilk kare=%d, oyuncu LazerB ışınına (x>=1043) kare %d'de varır" % [tam["bitti_ham"], f_ab, f_lb])
+	# 6) S ile yeni iniş yolu: F2 boyunca x'te S bas, kat değiştirenleri listele.
+	var inen: Array = []
+	for x in range(40, 1112, 40):
+		var ss: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 45)],
+			_n_yerlestir(Vector2(float(x), 356)))
+		if _n_son(ss).y > 430.0:
+			inen.append(x)
+	var inen_ok := true
+	for x in inen:
+		inen_ok = inen_ok and x >= 1000
+	hepsi = hepsi and inen_ok and inen.size() > 0
+	ayr.append("S ile F2'den inenler (x, 40 px adım; yalnız raf x>=1000 beklenir): %s" % str(inen))
+	# 7) lazeri zıplayarak aşma: atlanamazlık testinde.
+	_kaydi("Bölüm 15 kısayol taraması (klonsuz, 1 klon, röle, iki klon kümeleri, min klon 2, S inişleri, yok mekanikler)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b15_pencereler() -> void:
+	var kay: Array = await _n15_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	var ayr: Array = []
+	var hepsi := true
+	# --- tur başı: gerçek oyuncu koşusunda G açıklık penceresi ve gövdenin geçiş aralığı (kare)
+	var tam: Dictionary = await _n_senaryo(kay, _n15_o())
+	var g0 := -1
+	var g1 := -1
+	var zp_son := -1
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if o["GecitG"] <= 232.0:
+			if g0 < 0:
+				g0 = f
+			g1 = f
+		if o["PlakaZ_f"]:
+			zp_son = f
+	var f_in: int = _n_x_kare(tam["iz"], 836.0)
+	var f_out: int = _n_x_kare(tam["iz"], 885.0)
+	ayr.append("oyuncu: ZP son fiziksel kare=%d, G açıklık>=48 kare %d..%d, gövde G'de kare %d..%d -> G pay: çıkışa göre %d kare, girişe göre %d kare (%.0f px; geçit kapanırken altındaki karakter için durur), açılış payı %d kare" % [
+		zp_son, g0, g1, f_in, f_out, g1 - f_out, g1 - f_in, (g1 - f_in) * 5.0, f_in - g0])
+	hepsi = hepsi and (g1 - f_out) >= 20 and f_in > g0
+	# --- W1: ZP'den ayrılınca duraksama (C_B ve oyuncu)
+	var vs: Array = []
+	for d in range(0, 91, 3):
+		vs.append(d)
+	var okb: Array = await _n_sup(vs, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([c_a], _n15_b(0, v, 10))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var oko: Array = await _n_sup(vs, func(v: int) -> bool: return await _n_bitirir(kay, _n15_o(0, v)))
+	var w1b := _n_en_buyuk(vs, okb)
+	var w1o := _n_en_buyuk(vs, oko)
+	ayr.append("W1 ZP sonrası duraksama (kare) C_B başarılı: %s (en çok %d kare = %d px; taslak pay ~51); oyuncu başarılı: %s (en çok %d)" % [_n_ar(vs, okb), w1b, w1b * 5, _n_ar(vs, oko), w1o])
+	hepsi = hepsi and _n_pen(vs, okb, 0) and _n_pen(vs, okb, 90, false) and w1b >= 30 and w1b <= 70 and w1o >= 30
+	# --- W2: Z1'de `sag` bırakma süresi (C_A için PlakaA'ya varış; C_B için fitil dahil)
+	var vz: Array = []
+	for d in range(0, 91, 3):
+		vz.append(d)
+	var oka: Array = await _n_sup(vz, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([], _n15_a(0, 10, v))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var okz: Array = await _n_sup(vz, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([c_a], _n15_b(0, 0, 10, v))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	ayr.append("W2 Z1 sensöründe `sag` bırakma (kare) C_A: %s (en çok %d; taslak ~28), C_B (fitil dahil): %s (en çok %d)" % [_n_ar(vz, oka), _n_en_buyuk(vz, oka), _n_ar(vz, okz), _n_en_buyuk(vz, okz)])
+	hepsi = hepsi and _n_pen(vz, oka, 0) and _n_pen(vz, okz, 0) and _n_pen(vz, oka, 9) and not _n_pen(vz, oka, 15)
+	# --- W3: C_A'nın PlakaA'ya geç basması (başta bekleme): C_B ışına varıştan önce basılmalı
+	var vg: Array = []
+	for d in range(0, 31, 1):
+		vg.append(d)
+	var okg: Array = await _n_sup(vg, func(v: int) -> bool:
+		var a2: Array = (await _n_senaryo([], _n15_a(v)))["kayit"]
+		var s: Dictionary = await _n_senaryo([a2], _n15_b(0, 0, 10))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var w3 := _n_en_buyuk(vg, okg)
+	ayr.append("W3 C_A başta bekleme (kare; C_B bekleme yok): başarılı %s (en çok %d kare = %d px; taslak pay ~25)" % [_n_ar(vg, okg), w3, w3 * 5])
+	hepsi = hepsi and _n_pen(vg, okg, 0) and w3 >= 4 and w3 < 30
+	# --- W3b: C_A plakaya değer değmez sola yürür (en erken ayrılma): C_B kendi basışıyla yardım eder, pay ölçülür
+	var okg2: Array = await _n_sup(vg, func(v: int) -> bool:
+		var a3: Array = (await _n_senaryo([], _n15_kosu(v) + [_b13_a(1, _n_plakada("PlakaA"), 100), _b13_a(-1, _b4_x_le(590.0), 100), _b13_a(0, Callable(), 100)]))["kayit"]
+		var s: Dictionary = await _n_senaryo([a3], _n15_b(0, 0, 10))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	ayr.append("W3b C_A plakaya değer değmez sola yürür (başta bekleme kare): C_B başarılı %s (C_B plakayı kendisi de basar: sağ kenar 670, ışın 737)" % _n_ar(vg, okg2))
+	# --- W4: C_B'nin PlakaB'ye geç basması: oyuncu ışına varmadan önce basılmalı
+	var vh: Array = []
+	for d in range(0, 121, 4):
+		vh.append(d)
+	var okh: Array = await _n_sup(vh, func(v: int) -> bool:
+		var b2: Array = (await _n_senaryo([c_a], _n15_b(v, 0, 10)))["kayit"]
+		return await _n_bitirir([c_a, b2], _n15_o()))
+	var w4 := _n_en_buyuk(vh, okh)
+	ayr.append("W4 C_B başta bekleme (kare): oyuncu başarılı %s (en çok %d kare = %d px; taslak pay ~70)" % [_n_ar(vh, okh), w4, w4 * 5])
+	hepsi = hepsi and _n_pen(vh, okh, 0) and w4 >= 4
+	# --- W5: S konumu (merkez x)
+	var vx: Array = []
+	for x in range(1000, 1081, 3):
+		vx.append(x)
+	var okx: Array = await _n_sup(vx, func(v: int) -> bool: return await _n_bitirir(kay, _n15_o(0, 0, float(v))))
+	ayr.append("W5 S konumu (raf üstü merkez x; gövde ilk eşik x>=v): başarılı %s (taslak 1014..1043: 29 px)" % _n_ar(vx, okx))
+	hepsi = hepsi and _n_en_buyuk(vx, okx) > _n_en_kucuk(vx, okx) + 6
+	_kaydi("Bölüm 15 zamanlama payları (G açıklığı, W1 ZP duraksama, W2 Z1 sag, W3/W4 klon pay, W5 S konumu)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b15_klon_fark() -> void:
+	var kay: Array = await _n15_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	for k in [["C_A", [], _n15_a()], ["C_B", [kay[0]], _n15_b()], ["Oyuncu", kay, _n15_o()]]:
+		var r: Dictionary = await _n_klon_fark(k[1], k[2])
+		ayr.append("%s canlı/klon en büyük konum farkı %.2f px (ilk sapma kare %d)" % [k[0], r["fark"], r["ilk"]])
+		# Üst sınır iddiası: bant/dikiş yok; ölçülen değerin ~%25 payı ile 0,5 px.
+		hepsi = hepsi and r["fark"] <= 0.5
+	_kaydi("Bölüm 15 ölçüm: canlı kayıt vs klon tekrarı konum farkı (bant/dikiş yok, üst sınır 0,5 px)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b15_tutma() -> void:
+	var ayr: Array = []
+	var hepsi := true
+	aktif_bolum = BOLUM_15
+	var r: Dictionary = await _n_tutma_olc("PlakaZ", Vector2(120, 576), 260)
+	ayr.append("ZP: ilk basili kare=%d, son fiziksel kare=%d, sonra basılı kalan=%d kare (beklenen tam 180)" % [r["ilk_basili"], r["son_fiziksel"], r["kalan"]])
+	hepsi = hepsi and r["kalan"] == 180
+	# Yeniden basış sayacı yeniler: plakada 5 kare, 40 kare dışarıda, 5 kare yeniden, sonra yürü: son basıştan sonra 180.
+	var s: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 5), _b13_a(1, Callable(), 14), _b13_a(0, Callable(), 3),
+		_b13_a(-1, Callable(), 14), _b13_a(0, Callable(), 5), _b13_a(1, _b4_x_ge(300.0), 100), _b13_a(0, Callable(), 260)], _n_yerlestir(Vector2(120, 576)))
+	var son_f := -1
+	var aralik := 0
+	for f in range(s["ozel"].size()):
+		if s["ozel"][f]["PlakaZ_f"]:
+			son_f = f
+	var f2 := son_f + 1
+	while f2 < s["ozel"].size() and s["ozel"][f2]["PlakaZ"]:
+		aralik += 1
+		f2 += 1
+	ayr.append("yeniden basış: son fiziksel kare=%d, sonrası basılı=%d (beklenen 180, sayaç yenilenir)" % [son_f, aralik])
+	hepsi = hepsi and aralik == 180
+	# Tur başı sıfırlama: R sonrası yeni turda ZP basılı değil, G kapalı (y=280), lazerler tur kurallarına göre.
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	for i in range(30):
+		_girdi_uygula({"yon": 1.0, "zipla": false})
+		await physics_frame
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	var onc: bool = bolum.get_node("PlakaZ").basili_mi()
+	var eski_id := bolum.get_instance_id()
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var z_yeni: bool = yeni.get_node("PlakaZ").basili_mi()
+	var g_y: float = yeni.get_node("GecitG").position.y
+	var kalan: int = yeni.get_node("PlakaZ").kalan_kare
+	ayr.append("tur başı sıfırlama: R öncesi ZP basılı=%s; yeni turda ZP basılı=%s, kalan_kare=%d, G y=%.0f (kapalı 280)" % [str(onc), str(z_yeni), kalan, g_y])
+	hepsi = hepsi and z_yeni == false and kalan == 0 and absf(g_y - 280.0) < 0.5
+	_kaydi("Bölüm 15: zamanlı plaka tam 180 kare, yeniden basış sayacı yeniler, tur başı sıfırlama", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b15_klon_siniri() -> void:
+	await _n_klon_siniri("Bölüm 15: klon sınırı (dördüncü R klon kaydetmez)", 3)
+
+
+func _test_b15_kilitlenme() -> void:
+	var kay: Array = await _n15_kayitlar()
+	var c_a: Array = kay[0]
+	var ayr: Array = []
+	var hepsi := true
+	# (a) kuyuda ölüm: LazerB açıkken kuyuya iner, ışına girer -> tur yeniden başlar, klonlar korunur.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(c_a.duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	bolum.get_node("Oyuncu").global_position = Vector2(1030, 356)
+	var sayac := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var eski_id := bolum.get_instance_id()
+	var s: Dictionary = await _n_kosullu(bolum, [_b13_a(0, Callable(), 1), _b13_a(0, Callable(), 3, false, true), _b13_a(0, _n_zemin(), 100),
+		_b13_a(1, Callable(), 60)], sayac)
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var etiket := ""
+	var ok: bool = sayac[0] > 0 and yeni != null and _kayitlar().turlar.size() == 1
+	if yeni != null:
+		etiket = yeni.bilgi.text
+		ok = ok and _klonlar(yeni).size() == 1 and etiket.contains("Tur 2") and etiket.contains("1/3")
+	hepsi = hepsi and ok
+	ayr.append("kuyuda ölüm: ölüm=%d, kayıtlı tur=%d, etiket=\"%s\"" % [sayac[0], _kayitlar().turlar.size(), etiket])
+	# (b) kuyudan F2'ye dönüş yok (ışının solunda kalan oyuncu): zıplama spam, ayak y.
+	var sk: Dictionary = await _n_senaryo([c_a], _n_spam(0.0, 12), _n_yerlestir(Vector2(1010, 576)))
+	var ok_b: bool = _n_olc(sk)["ayak"] > 450.0 and sk["oldu"] == 0
+	hepsi = hepsi and ok_b
+	ayr.append("kuyuda ışının solunda: zıplama en yüksek ayak y=%.1f (F2 yüzeyi 380), ölüm=%d -> F2'ye dönüş yok (çıkış: R/Baştan başla)" % [_n_olc(sk)["ayak"], sk["oldu"]])
+	# (c) Baştan başla: tüm klonlar silinir.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(c_a.duplicate(true))
+	var b2: Node = await _bolumu_yukle()
+	var eski: Node = current_scene
+	b2.get_node("EkranButonlari/Kutu/YenidenDugmesi").pressed.emit()
+	var yeni2: Node = await _sahne_degisimini_bekle(eski)
+	var ok_c: bool = _kayitlar().turlar.size() == 0 and _klonlar(yeni2).size() == 0 and yeni2.bilgi.text.begins_with("Tur 1 ")
+	hepsi = hepsi and ok_c
+	ayr.append("Baştan başla: kayıt=%d, klon=%d, etiket=\"%s\"" % [_kayitlar().turlar.size(), _klonlar(yeni2).size(), yeni2.bilgi.text])
+	# (d) Klonlar G altında bitmez: tam çözümde klonların son konumu plakada.
+	var tam: Dictionary = await _n_senaryo(kay, [_b13_a(0, Callable(), 320)])
+	var ki: Array = tam["klon_izleri"]
+	var son_a: Vector2 = ki[0][ki[0].size() - 1]
+	var son_b: Vector2 = ki[1][ki[1].size() - 1]
+	var ok_d: bool = son_a.x > 600.0 and son_a.x < 700.0 and son_b.x > 890.0 and son_b.x < 990.0 and not tam["klon_oldu"][0] and not tam["klon_oldu"][1]
+	hepsi = hepsi and ok_d
+	ayr.append("klonlar plakada biter: C_A (%.0f,%.0f), C_B (%.0f,%.0f) (G x 850..870 altında değil)" % [son_a.x, son_a.y, son_b.x, son_b.y])
+	_kaydi("Bölüm 15 kilitlenme: kuyuda ölüm, kuyudan dönüş yok, Baştan başla, klon konumları", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b15_determinizm() -> void:
+	var kay: Array = await _n15_kayitlar()
+	await _n_determinizm("Bölüm 15: determinizm (100x çözüm)", kay, _n15_o())
+
+
+
+
+
+
+
+# ---------------------------------------------------------------- Bölüm 17 (Çifte Mühür)
+# C_A: Z1, ters bant, PlakaA'da kalır. C_B: LazerA'yı geçer, raf1'de S, cepte MP'ye basar, ZP'ye basar, Z2 ile
+# döner, PlakaB'de kalır. C_C: aynı gezi, G_Z'yi fitil süresinde geçer, GecitM'den geçer, PlakaC'de kalır.
+# Oyuncu: aynı gezi, raf2'de S, kuyuda LazerC'den (kapalı) geçer, kutu + ledge basamağı, kapı.
+var _n17_onb: Array = []   # [A, B, C]
+
+
+func _n17_a(gec := 0, bekle := 15) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d += [_b13_a(1, _b4_x_ge(440.0), 400), _b13_a(1, _n_plakada("PlakaA"), 100), _b13_a(0, Callable(), bekle)]
+	return d
+
+
+## Cep gezisi. s_x: raf1 S eşiği; sag_tut: S sırasında sag basılı; z2_bekle: Z2'de sag bırakma (<0: y<=345'e kadar);
+## zp_sonra: ZP'den ayrılınca duraksama (fitil payı ölçümü); zp_atla: ZP'ye basmaz (fitil yok).
+func _n17_gezi(gec := 0, s_x := 580.0, sag_tut := false, z2_bekle := -1, zp_sonra := 0, zp_atla := false) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d += [_b13_a(1, _b4_x_ge(150.0), 300), _b13_a(1, _b4_x_ge(s_x), 400)]
+	if sag_tut:
+		d.append(_b13_a(1, Callable(), 3, false, true))
+	else:
+		d += [_b13_a(0, Callable(), 1), _b13_a(0, Callable(), 3, false, true)]
+	d.append(_b13_a(0, _n_plakada("PlakaM"), 120))
+	if not zp_atla:
+		d += [_b13_a(-1, _n_plakada("PlakaZ"), 100), _b13_a(0, Callable(), 1), _b13_a(1, _b4_x_ge(546.0), 60)]
+		if zp_sonra > 0:
+			d.append(_b13_a(0, Callable(), zp_sonra))
+	else:
+		d.append(_b13_a(0, Callable(), 1))
+	d.append(_b13_a(1, _b4_x_ge(610.0), 100))
+	if z2_bekle >= 0:
+		d.append(_b13_a(0, Callable(), z2_bekle))
+	else:
+		d.append(_b13_a(0, _n_y_le(345.0), 100))
+	d.append(_b13_a(1, _n_zemin(), 80))
+	return d
+
+
+func _n17_b(gec := 0, bekle := 15) -> Array:
+	return _n17_gezi(gec) + [_b13_a(1, _n_plakada("PlakaB"), 400), _b13_a(0, Callable(), bekle)]
+
+
+func _n17_c(gec := 0, bekle := 15, zp_sonra := 0, zp_atla := false) -> Array:
+	return _n17_gezi(gec, 580.0, false, -1, zp_sonra, zp_atla) + [_b13_a(1, _n_plakada("PlakaC"), 500), _b13_a(0, Callable(), bekle)]
+
+
+## Oyuncu: gezi + raf2'de S (s2_x eşiği) + kutuyu it + kutuya zıpla + ledge'e zıpla + kapı.
+func _n17_o(gec := 0, s2_x := 985.0, sag_tut2 := false, zp_sonra := 0, z_n := 14) -> Array:
+	var d: Array = _n17_gezi(gec, 580.0, false, -1, zp_sonra)
+	d.append(_b13_a(1, _b4_x_ge(s2_x), 400))
+	if sag_tut2:
+		d.append(_b13_a(1, Callable(), 3, false, true))
+	else:
+		d += [_b13_a(0, Callable(), 1), _b13_a(0, Callable(), 3, false, true)]
+	d += [_b13_a(0, _n_zemin(), 120), _b13_a(1, _n_kutu_x_ge(1079.0), 200), _b13_a(1, Callable(), z_n, true),
+		_b13_a(0, _n_zemin(), 60), _b13_a(1, Callable(), z_n, true), _b13_a(1, _b4_bitti_k(), 150)]
+	return d
+
+
+func _n17_kayitlar() -> Array:
+	if _n17_onb.is_empty():
+		var s1: Dictionary = await _n_senaryo([], _n17_a())
+		var s2: Dictionary = await _n_senaryo([s1["kayit"]], _n17_b())
+		var s3: Dictionary = await _n_senaryo([s1["kayit"], s2["kayit"]], _n17_c())
+		_n17_onb = [s1["kayit"], s2["kayit"], s3["kayit"]]
+	return _n17_onb
+
+
+func _b17_calistir() -> void:
+	await _test_b17_cozum()
+	await _test_b17_basarisizlik()
+	await _test_b17_atlanamaz()
+	await _test_b17_kisayol()
+	await _test_b17_pencereler()
+	await _test_b17_dikis()
+	await _test_b17_tutma()
+	await _test_b17_klon_siniri()
+	await _test_b17_kilitlenme()
+	await _test_b17_determinizm()
+
+
+func _test_b17_cozum() -> void:
+	await _n_cozum("Bölüm 17 çözümü (4 tur, 3 klon, gerçek R/girdi yolu)", [_n17_a(), _n17_b(), _n17_c()], _n17_o(), 3)
+
+
+func _test_b17_basarisizlik() -> void:
+	var kay: Array = await _n17_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	# 1) klonsuz: LazerA'da ölür.
+	var s1: Dictionary = await _n_senaryo([], [_b13_a(1, Callable(), 400)])
+	_kaydi("Bölüm 17 başarısızlık 1: klonsuz -> LazerA'da ölür", s1["oldu"] > 0 and not s1["bitti_ham"] and _n_son(s1).x < 515.0 and _n_son(s1).x > 440.0,
+		"ölüm=%d, son konum (%.0f,%.0f) (ışın x 512..518, gövde girişi 498)" % [s1["oldu"], _n_son(s1).x, _n_son(s1).y])
+	# 2) yalnız C_A: oyuncu cep gezisiyle devam eder, LazerB'de ölür.
+	var s2: Dictionary = await _n_senaryo([c_a], _n17_o())
+	_kaydi("Bölüm 17 başarısızlık 2: yalnız C_A -> LazerB'de ölür", s2["oldu"] > 0 and not s2["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f) (ışın x 787..793)" % [s2["oldu"], _n_son(s2).x, _n_son(s2).y])
+	# 3) C_A + C_B, C_C yok: oyuncu LazerC'de ölür (raf2/kuyu).
+	var s3: Dictionary = await _n_senaryo([c_a, c_b], _n17_o())
+	_kaydi("Bölüm 17 başarısızlık 3: C_A + C_B, C_C yok -> LazerC'de ölür", s3["oldu"] > 0 and not s3["bitti_ham"] and _n_son(s3).x > 1000.0,
+		"ölüm=%d, son (%.0f,%.0f) (ışın x 1037..1043)" % [s3["oldu"], _n_son(s3).x, _n_son(s3).y])
+	# 4) G_Z'de geç kalma: ZP'den ayrılınca 40 kare duraksar (fitil biter) -> G_Z kapalı, çarpıp durur.
+	var s4: Dictionary = await _n_senaryo([c_a, c_b], _n17_c(0, 15, 40))
+	_kaydi("Bölüm 17 başarısızlık 4: C_C ZP'den sonra 40 kare duraksar -> G_Z kapanır, PlakaC tutulmaz (ölmez)", s4["tamam"].has(false) and s4["oldu"] == 0 and _n_olc(s4)["xmax"] < 840.0,
+		"adımlar=%s, ölüm=%d, en büyük x=%.0f (G_Z sol yüzü 820, gövde 806)" % [str(s4["tamam"]), s4["oldu"], _n_olc(s4)["xmax"]])
+	# 5) Z2'de `sag` sürekli (bırakılmaz): döşeme köşesine çarpar.
+	var s5: Dictionary = await _n_senaryo([c_a], _n17_gezi(0, 580.0, false, 0) + [_b13_a(1, _n_plakada("PlakaB"), 150)])
+	_kaydi("Bölüm 17 başarısızlık 5: Z2'de `sag` bırakılmaz -> köşeye çarpar, PlakaB'ye varış gecikir/başarısız", s5["tamam"].has(false) or s5["kare"] > 330,
+		"adımlar=%s, kare=%d, ölüm=%d" % [str(s5["tamam"]), s5["kare"], s5["oldu"]])
+	# 6) C_B plakadan erken ayrılır: C_C LazerB'de ölür.
+	var b_erken: Array = (await _n_senaryo([c_a], _n17_gezi() + [_b13_a(1, _n_plakada("PlakaB"), 400), _b13_a(-1, _b4_x_le(640.0), 100),
+		_b13_a(0, Callable(), 100)]))["kayit"]
+	var s6: Dictionary = await _n_senaryo([c_a, b_erken], _n17_c())
+	_kaydi("Bölüm 17 başarısızlık 6: C_B plakadan erken ayrılır -> C_C LazerB'de ölür", s6["oldu"] > 0 and not s6["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s6["oldu"], _n_son(s6).x, _n_son(s6).y])
+	# 7) Raf1'de S çok geç (Z2 sensörü içi, x>=606): cepten hemen fırlar; MP basılmayabilir.
+	var s7: Dictionary = await _n_senaryo([c_a], _n17_gezi(0, 640.0) + [_b13_a(1, _n_plakada("PlakaB"), 150)])
+	var mp7: bool = _n_ilk(s7, "PlakaM", true) >= 0
+	_kaydi("Bölüm 17 ölçüm 7: raf1'de S geç (eşik x>=640, Z2 sensörü üstü) -> ölçülür", true,
+		"MP basıldı=%s, adımlar=%s, kare=%d, ölüm=%d" % [str(mp7), str(s7["tamam"]), s7["kare"], s7["oldu"]])
+	# 8) Raf2'de `sag` basılıyken S: 12 karede +60 px sürüklenir (LazerC kapalıyken ölmez; C_C yokken ölür).
+	var s8: Dictionary = await _n_senaryo([c_a, c_b], _n17_o(0, 985.0, true))
+	_kaydi("Bölüm 17 başarısızlık 8: C_C yokken raf2'de `sag` basılı S -> ışına iner, ölür", s8["oldu"] > 0 and not s8["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s8["oldu"], _n_son(s8).x, _n_son(s8).y])
+	var s8b: Dictionary = await _n_senaryo(kay, _n17_o(0, 985.0, true))
+	_kaydi("Bölüm 17 ölçüm 8b: tam klon setiyle raf2'de `sag` basılı S (LazerC kapalı) -> taslak §9.8 'ölür' iddiası", s8b["oldu"] == 0 and s8b["bitti_ham"],
+		"bitti=%s, ölüm=%d, son (%.0f,%.0f), en büyük x=%.0f (LazerC kapalı olduğundan ölüm beklenmez)" % [str(s8b["bitti_ham"]), s8b["oldu"], _n_son(s8b).x, _n_son(s8b).y, _n_olc(s8b)["xmax"]])
+	# 9) Kutu kuyuda: ledge ile kutu arası 20 px < gövde 28 px: oyuncu kutunun sağına geçemez, kutu sola itilemez;
+	#    kutu yalnız sağa (ledge yüzüne x=1080) itilir.
+	var s9: Dictionary = await _n_senaryo(kay, [_b13_a(0, _n_kapali("LazerC"), 500), _b13_a(1, _n_kutu_x_ge(1079.0), 200), _b13_a(1, Callable(), 40)],
+		_n_yerlestir(Vector2(1020, 576)))
+	var kx: float = s9["ozel"][s9["ozel"].size() - 1]["Kutu"].x
+	var px: float = _n_olc(s9)["xmax"]
+	_kaydi("Bölüm 17 başarısızlık 9: kutu kuyuda yalnız sağa (ledge yüzüne) itilir; kutunun sağına geçilemez (20 px aralık < 28)", kx > 1078.0 and kx < 1082.0 and px < 1070.0,
+		"kutu son x=%.1f (ledge yüzü 1100: kutu 40 px -> 1080), oyuncu en büyük x=%.1f (kutu sol yüzü 1060-14=1046 civarı), ölüm=%d" % [kx, px, s9["oldu"]])
+	# 10) ZP'ye basmayan C_C: G_Z kapalı kalır, C_C takılır.
+	var s10: Dictionary = await _n_senaryo([c_a, c_b], _n17_c(0, 15, 0, true))
+	_kaydi("Bölüm 17 başarısızlık 10: C_C ZP'ye basmaz (fitil yok, ~25 kare erken) -> LazerB'ye C_B plakaya varmadan gelir (ölür) ya da G_Z'de takılır",
+		s10["tamam"].has(false) or s10["oldu"] > 0,
+		"adımlar=%s, ölüm=%d, en büyük x=%.0f (ışın B x 787..793)" % [str(s10["tamam"]), s10["oldu"], _n_olc(s10)["xmax"]])
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b17_atlanamaz() -> void:
+	var kay: Array = await _n17_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	# F1 dikey zıplama
+	var sa: Dictionary = await _n_senaryo([], _n_spam(0.0, 8), _n_yerlestir(Vector2(300, 576)))
+	hepsi = hepsi and _n_olc(sa)["ayak"] > 440.0
+	ayr.append("F1 dikey zıplama: en yüksek ayak y=%.1f (döşeme alt kenarı 420)" % _n_olc(sa)["ayak"])
+	# DuvarW1: F1 sağa geçilmez (x 440..460).
+	var sw: Dictionary = await _n_senaryo([], _n_spam(1.0, 14), _n_yerlestir(Vector2(380, 576)))
+	hepsi = hepsi and _n_olc(sw)["xmax"] <= 427.0
+	ayr.append("DuvarW1: en büyük x=%.0f (sol yüz 440-14=426)" % _n_olc(sw)["xmax"])
+	# BlokW2: F1'de cepten kuyuya geçilmez (x 760..960).
+	var sb: Dictionary = await _n_senaryo([], _n_spam(1.0, 14), _n_yerlestir(Vector2(700, 576)))
+	hepsi = hepsi and _n_olc(sb)["xmax"] <= 747.0
+	ayr.append("BlokW2: en büyük x=%.0f (sol yüz 760-14=746)" % _n_olc(sb)["xmax"])
+	# GecitZ ve GecitM kapalı (ZP/MP basılmadı): F2'de sağ+zıpla spam.
+	var sg: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(790, 356)))
+	hepsi = hepsi and _n_olc(sg)["xmax"] <= 807.0
+	ayr.append("GecitZ kapalı: en büyük x=%.0f (sol yüz 820-14=806)" % _n_olc(sg)["xmax"])
+	var sm: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(850, 356)))
+	hepsi = hepsi and _n_olc(sm)["xmax"] <= 857.0
+	ayr.append("GecitM kapalı (GecitZ'den sonra): en büyük x=%.0f (sol yüz 870-14=856)" % _n_olc(sm)["xmax"])
+	# Lazerler
+	for k in [["LazerA", Vector2(480, 356), 512.0], ["LazerB", Vector2(760, 356), 787.0], ["LazerC", Vector2(1000, 356), 1037.0]]:
+		var sl: Dictionary = await _n_senaryo([], _n_spam(1.0, 8), _n_yerlestir(k[1]))
+		var ok: bool = sl["oldu"] > 0 and _n_olc(sl)["xmax"] < k[2] + 12.0
+		hepsi = hepsi and ok
+		ayr.append("%s zıplayarak: ölüm=%d, en büyük x=%.0f (ışın sol kenarı %.0f)" % [k[0], sl["oldu"], _n_olc(sl)["xmax"], k[2]])
+	# LazerC kuyuda (kapalı değil): kuyudan kutuya yürürken ölür
+	var sk: Dictionary = await _n_senaryo([], [_b13_a(1, Callable(), 60)], _n_yerlestir(Vector2(990, 576), Vector2(1100, 580)))
+	hepsi = hepsi and sk["oldu"] > 0
+	ayr.append("LazerC kuyu tabanı (açık): ölüm=%d" % sk["oldu"])
+	# Z1 uçuşu LazerA'yı aşmaz (klonsuz).
+	var sz: Dictionary = await _n_senaryo([], [_b13_a(1, _b4_x_ge(106.0), 200)] + _n_spam(1.0, 14))
+	hepsi = hepsi and sz["oldu"] > 0 and _n_olc(sz)["xmax"] < 530.0
+	ayr.append("Z1 uçuşu (klonsuz): ölüm=%d, en büyük x=%.0f (LazerA ışını x 512..518)" % [sz["oldu"], _n_olc(sz)["xmax"]])
+	# Ledge kutusuz: kutu uzakta; kuyudan ledge'e zıplama (114 px > 100,9).
+	var sl2: Dictionary = await _n_senaryo(kay, _n_spam(1.0, 10), _n_yerlestir(Vector2(1080, 576), Vector2(1000, 580)))
+	hepsi = hepsi and _n_olc(sl2)["ayak"] > 486.0 and not sl2["bitti_ham"]
+	ayr.append("ledge kutusuz: en yüksek ayak y=%.1f (ledge üstü 486; yetmezlik %.1f px), bitti=%s" % [_n_olc(sl2)["ayak"], _n_olc(sl2)["ayak"] - 486.0, str(sl2["bitti_ham"])])
+	# Kutu basamağı
+	var sbx: Dictionary = await _n_senaryo(kay, [_b13_a(0, _n_kapali("LazerC"), 500), _b13_a(1, _b4_x_ge(1046.0), 60), _b13_a(1, Callable(), 14, true),
+		_b13_a(0, _n_zemin(), 80), _b13_a(1, Callable(), 14, true), _b13_a(1, _b4_bitti_k(), 100)], _n_yerlestir(Vector2(1020, 576), Vector2(1080, 580)))
+	var f2: int = sbx["baslangic"][3] if sbx["baslangic"].size() > 3 else 0
+	var ayak2 := 1.0e9
+	var bas2 := 1.0e9
+	for f in range(f2, sbx["iz"].size()):
+		ayak2 = minf(ayak2, sbx["iz"][f].y + 24.0)
+		bas2 = minf(bas2, sbx["iz"][f].y - 24.0)
+	hepsi = hepsi and sbx["bitti_ham"] and ayak2 < 486.0
+	ayr.append("kutu basamağı: bitti=%s, ikinci zıplamada kapıya varılana dek en küçük ayak y=%.1f (ledge 486; kapıya varış ölçümü keser, tepe değildir: %.1f px üstünde), baş y=%.1f (DosemeP3 alt 420: o anda %.1f px pay; tavan kırpması tepeyi 468'e sınırlar: taslak pay 18)" % [
+		str(sbx["bitti_ham"]), ayak2, 486.0 - ayak2, bas2, bas2 - 420.0])
+	_kaydi("Bölüm 17 atlanamazlık hesapları (kat, duvarlar, geçitler, lazerler, Z1 uçuşu, ledge, kutu basamağı)", hepsi, "; ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b17_kisayol() -> void:
+	var kay: Array = await _n17_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	var c_c: Array = kay[2]
+	var ayr: Array = []
+	var hepsi := true
+	var b0: Node = await _bolumu_yukle()
+	var var_olan: String = _n_var_olanlar(b0, ["Salter", "Asansor"])
+	paused = false
+	hepsi = hepsi and var_olan == ""
+	ayr.append("sahnede şalter/asansör: [%s] (yok olmalı)" % var_olan)
+	var oyuncu_st: Array = [_n17_o(), [_b13_a(1, Callable(), 600)], _n17_gezi() + [_b13_a(1, Callable(), 300)],
+		_n17_gezi() + [_b13_a(1, _n_plakada("PlakaC"), 400), _b13_a(0, Callable(), 100)], _n17_o(0, 1000.0, true)]
+	var klonsuz_bit := false
+	for st in oyuncu_st:
+		klonsuz_bit = klonsuz_bit or await _n_bitirir([], st)
+	hepsi = hepsi and not klonsuz_bit
+	ayr.append("klonsuz (5 oyuncu stratejisi): bitti=%s" % str(klonsuz_bit))
+	var kume: Array = [["A", [c_a]], ["B", [c_b]], ["C", [c_c]], ["A+B", [c_a, c_b]], ["A+C", [c_a, c_c]], ["B+C", [c_b, c_c]],
+		["A+A", [c_a, c_a]], ["B+B", [c_b, c_b]], ["C+C", [c_c, c_c]], ["A+B+C", [c_a, c_b, c_c]]]
+	var biten: Array = []
+	for k in kume:
+		for st in oyuncu_st:
+			if await _n_bitirir(k[1], st):
+				biten.append(k[0])
+				break
+	hepsi = hepsi and biten == ["A+B+C"]
+	ayr.append("alt kümeler (10 küme x 5 strateji): bitirenler=%s (yalnız A+B+C beklenir)" % str(biten))
+	# kör kayıt
+	var kor_b: Array = (await _n_senaryo([], _n17_b()))["kayit"]
+	var kor_c: Array = (await _n_senaryo([], _n17_c()))["kayit"]
+	var kor_bit := false
+	for ks in [[c_a, kor_b], [c_a, kor_c], [kor_b, kor_c], [c_a, kor_b, kor_c]]:
+		for st in oyuncu_st:
+			kor_bit = kor_bit or await _n_bitirir(ks, st)
+	hepsi = hepsi and not kor_bit
+	ayr.append("kör kayıtlı B/C ile kümeler: bitti=%s" % str(kor_bit))
+	# 2 klon + oyuncu PlakaC'de bekler
+	var bekle_c: bool = await _n_bitirir([c_a, c_b], _n17_gezi() + [_b13_a(1, _n_plakada("PlakaC"), 400), _b13_a(0, Callable(), 400)])
+	hepsi = hepsi and not bekle_c
+	ayr.append("2 klon + oyuncu PlakaC'de bekler: bitti=%s" % str(bekle_c))
+	# bant dalgalanması: C_A bant üstünde sag/sol dalgalanır, PlakaA'da yine tutulur; bölüm yine 3 klon ister.
+	var a_dal: Array = (await _n_senaryo([], [_b13_a(1, _b4_x_ge(200.0), 200), _b13_a(-1, Callable(), 6), _b13_a(1, Callable(), 6), _b13_a(-1, Callable(), 6),
+		_b13_a(1, Callable(), 6)] + _n17_a()))["kayit"]
+	var dal_bit: bool = await _n_bitirir([a_dal, c_b], _n17_o())
+	var dal_bit2: bool = await _n_bitirir([a_dal, c_b, c_c], _n17_o())
+	ayr.append("bant dalgalanması: dalgalı C_A + C_B bitti=%s (2 klon: olmamalı), dalgalı C_A + B + C bitti=%s (3 klon)" % [str(dal_bit), str(dal_bit2)])
+	hepsi = hepsi and not dal_bit
+	# geçit altı park / röle: C_C' ZP'ye basmaz (G_Z'de kapalı kalır), oyuncu cep gezisiyle fitili açar: yine 3 klon.
+	var c_park: Array = (await _n_senaryo([c_a, c_b], _n17_c(0, 15, 0, true)))["kayit"]
+	var park_bit3: bool = await _n_bitirir([c_a, c_b, c_park], _n17_o())
+	var park_bit2: bool = await _n_bitirir([c_a, c_b], _n17_o())
+	ayr.append("geçit altı park/röle (C_C ZP'siz kayıtlı, oyuncu ZP'yi açar): 3 klonla bitti=%s (alternatif yol, klon sayısını düşürmez), 2 klonla bitti=%s" % [str(park_bit3), str(park_bit2)])
+	hepsi = hepsi and not park_bit2
+	# mandalla klon tasarrufu: oyuncu MP'yi basar, B gezisiz (kör): 2 klonla bitmez.
+	var b_gezisiz: Array = (await _n_senaryo([c_a], _n17_gezi(0, 580.0, false, -1, 0, true) + [_b13_a(1, _n_plakada("PlakaB"), 200)]))["kayit"]
+	var mp_bit: bool = await _n_bitirir([c_a, b_gezisiz], _n17_o())
+	hepsi = hepsi and not mp_bit
+	ayr.append("mandalla tasarruf (B gezisiz, oyuncu MP'yi basar; 2 klon): bitti=%s" % str(mp_bit))
+	# kutu: kuyu tabanından çıkmaz, plaka tutamaz.
+	var tam: Dictionary = await _n_senaryo(kay, _n17_o())
+	var ky: float = 0.0
+	for o in tam["ozel"]:
+		ky = maxf(ky, 0.0)
+	var kutu_min_y := 1.0e9
+	for o in tam["ozel"]:
+		kutu_min_y = minf(kutu_min_y, o["Kutu"].y)
+	hepsi = hepsi and kutu_min_y > 500.0
+	ayr.append("kutu: tam çözümde en yüksek konumu y=%.0f (kuyu tabanı 580; F2'ye çıkamaz)" % kutu_min_y)
+	# S ile yeni iniş: F2 boyunca x'te S, kat değiştirenler.
+	var inen: Array = []
+	for x in range(120, 1060, 40):
+		var ss: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 45)],
+			_n_yerlestir(Vector2(float(x), 356)))
+		if _n_son(ss).y > 430.0:
+			inen.append(x)
+	var inen_ok := true
+	for x in inen:
+		inen_ok = inen_ok and ((x >= 560 and x <= 680) or (x >= 960 and x <= 1080))
+	hepsi = hepsi and inen_ok and inen.size() > 0
+	ayr.append("S ile F2'den inenler (x, 40 px adım; yalnız raf1 560..680 / raf2 960..1080 beklenir): %s" % str(inen))
+	# min klon 3 kanıtı
+	var f3 := -1
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if o["PlakaA"] and o["PlakaB"] and o["PlakaC"] and f3 < 0:
+			f3 = f
+	var f_lc: int = _n_x_kare(tam["iz"], 1020.0)
+	var ok3: bool = tam["bitti_ham"] and f3 >= 0 and f_lc > f3
+	hepsi = hepsi and ok3
+	ayr.append("min klon 3: bitti=%s, PlakaA+B+C birlikte basılı ilk kare=%d, oyuncu LazerC'ye yakın (x>=1020) kare %d'de varır" % [str(tam["bitti_ham"]), f3, f_lc])
+	_kaydi("Bölüm 17 kısayol taraması (klonsuz, alt kümeler, kör kayıt, bant, park/röle, mandal, kutu, S inişleri, min klon 3)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b17_pencereler() -> void:
+	var kay: Array = await _n17_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	var c_c: Array = kay[2]
+	var ayr: Array = []
+	var hepsi := true
+	# --- referans: oyuncu turunda fitil / GecitZ / GecitM pencereleri
+	var tam: Dictionary = await _n_senaryo(kay, _n17_o())
+	var zp_son := -1
+	var gz0 := -1
+	var gz1 := -1
+	var gm0 := -1
+	var mp0: int = _n_ilk(tam, "PlakaM", true)
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if o["PlakaZ_f"]:
+			zp_son = f
+		if o["GecitZ"] <= 232.0:
+			if gz0 < 0:
+				gz0 = f
+			gz1 = f
+		if o["GecitM"] <= 232.0 and gm0 < 0:
+			gm0 = f
+	var g_in: int = _n_x_kare(tam["iz"], 806.0)
+	var g_out: int = _n_x_kare(tam["iz"], 855.0)
+	ayr.append("oyuncu turu: ZP son fiziksel kare=%d, GecitZ >=48 px açık kare %d..%d, gövde GecitZ'de kare %d..%d -> W4 fitil payı: çıkışa göre %d kare, girişe göre %d kare (%d px; taslak ~21; geçit altındaki karakter için kapanmayı durdurur), açılış payı %d kare" % [
+		zp_son, gz0, gz1, g_in, g_out, gz1 - g_out, gz1 - g_in, (gz1 - g_in) * 5, g_in - gz0])
+	ayr.append("MP basışı kare %d, GecitM >=48 px açık kare %d (W6 pay: oyuncunun GecitM'ye (x>=856) varışı kare %d)" % [mp0, gm0, _n_x_kare(tam["iz"], 856.0)])
+	hepsi = hepsi and (gz1 - g_out) >= 0
+	# --- W1: C_A başta bekleme
+	var vg: Array = []
+	for d in range(0, 41, 1):
+		vg.append(d)
+	var okg: Array = await _n_sup(vg, func(v: int) -> bool:
+		var a2: Array = (await _n_senaryo([], _n17_a(v)))["kayit"]
+		var s: Dictionary = await _n_senaryo([a2], _n17_b())
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var w1 := _n_en_buyuk(vg, okg)
+	ayr.append("W1 C_A başta bekleme (kare): C_B başarılı %s (en çok %d kare = %d px; taslak pay ~20)" % [_n_ar(vg, okg), w1, w1 * 5])
+	hepsi = hepsi and _n_pen(vg, okg, 0) and w1 >= 1
+	# --- W2: raf1 S eşiği; canlı kayıt başarısı ve klon tekrarı (C_B kaydı klon olarak: PlakaB + PlakaM tutulur, klon ölmez)
+	var vx: Array = []
+	for x in range(560, 641, 3):
+		vx.append(x)
+	var canli_ok: Array = []
+	var klon_ok: Array = []
+	for v in vx:
+		var s: Dictionary = await _n_senaryo([c_a], _n17_gezi(0, float(v)) + [_b13_a(1, _n_plakada("PlakaB"), 400), _b13_a(0, Callable(), 10)])
+		var ok_c: bool = not s["tamam"].has(false) and s["oldu"] == 0
+		canli_ok.append(ok_c)
+		var ok_k := false
+		if ok_c:
+			var r: Dictionary = await _n_senaryo([c_a, s["kayit"]], [_b13_a(0, Callable(), 330)])
+			var son: Dictionary = r["ozel"][r["ozel"].size() - 1]
+			ok_k = son["PlakaB"] and son["PlakaM"] and not r["klon_oldu"][1]
+		klon_ok.append(ok_k)
+	ayr.append("W2 raf1 S eşiği (merkez x>=v): canlı kayıt %s | klon tekrarı %s (taslak 574..605: 32 px, ayrışma düşülünce 20 px)" % [_n_ar(vx, canli_ok), _n_ar(vx, klon_ok)])
+	hepsi = hepsi and _n_en_buyuk(vx, klon_ok) > _n_en_kucuk(vx, klon_ok)
+	# --- W3: Z2'de `sag` bırakma süresi
+	var vz: Array = [0, 1, 2, 3, 4, 6, 8, 10, 15, 20, 30, 45, 60, 80, 100]
+	var okz: Array = await _n_sup(vz, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([c_a], _n17_gezi(0, 580.0, false, v) + [_b13_a(1, _n_plakada("PlakaB"), 300)])
+		return not s["tamam"].has(false) and s["oldu"] == 0 and s["kare"] <= 600)
+	ayr.append("W3 Z2'de `sag` bırakma süresi (kare; değerler %s): C_B başarılı %s (taslak 'en geç ~28' pay)" % [str(vz), _n_ar(vz, okz)])
+	# --- W4: ZP'den ayrılınca duraksama (fitil payı): C_C ve oyuncu
+	var vf: Array = []
+	for d in range(0, 61, 2):
+		vf.append(d)
+	var okc: Array = await _n_sup(vf, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([c_a, c_b], _n17_c(0, 15, v))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var oko: Array = await _n_sup(vf, func(v: int) -> bool: return await _n_bitirir(kay, _n17_o(0, 985.0, false, v)))
+	var w4c := _n_en_buyuk(vf, okc)
+	var w4o := _n_en_buyuk(vf, oko)
+	ayr.append("W4 ZP'den sonra duraksama (kare): C_C başarılı %s (en çok %d kare = %d px), oyuncu başarılı %s (en çok %d kare = %d px); taslak pay ~21" % [
+		_n_ar(vf, okc), w4c, w4c * 5, _n_ar(vf, oko), w4o, w4o * 5])
+	hepsi = hepsi and _n_pen(vf, okc, 0) and _n_pen(vf, okc, 60, false)
+	# --- W5: C_B başta bekleme -> C_C
+	var vh: Array = []
+	for d in range(0, 41, 2):
+		vh.append(d)
+	var okh: Array = await _n_sup(vh, func(v: int) -> bool:
+		var b2: Array = (await _n_senaryo([c_a], _n17_b(v)))["kayit"]
+		var s: Dictionary = await _n_senaryo([c_a, b2], _n17_c())
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var w5 := _n_en_buyuk(vh, okh)
+	ayr.append("W5 C_B başta bekleme (kare): C_C başarılı %s (en çok %d kare = %d px; taslak pay ~16)" % [_n_ar(vh, okh), w5, w5 * 5])
+	hepsi = hepsi and _n_pen(vh, okh, 0)
+	# --- W7: raf2 S eşiği (oyuncu)
+	var vy: Array = []
+	for x in range(960, 1081, 3):
+		vy.append(x)
+	var oky: Array = await _n_sup(vy, func(v: int) -> bool: return await _n_bitirir(kay, _n17_o(0, float(v))))
+	ayr.append("W7 raf2 S eşiği (merkez x>=v): oyuncu başarılı %s (taslak 974..1023: 49 px, ayrışma düşülünce 37 px)" % _n_ar(vy, oky))
+	hepsi = hepsi and _n_en_buyuk(vy, oky) > _n_en_kucuk(vy, oky)
+	# --- W8: C_C başta bekleme -> oyuncu
+	var vk: Array = []
+	for d in range(0, 61, 3):
+		vk.append(d)
+	var okk: Array = await _n_sup(vk, func(v: int) -> bool:
+		var c2: Array = (await _n_senaryo([c_a, c_b], _n17_c(v)))["kayit"]
+		return await _n_bitirir([c_a, c_b, c2], _n17_o()))
+	var w8 := _n_en_buyuk(vk, okk)
+	ayr.append("W8 C_C başta bekleme (kare): oyuncu başarılı %s (en çok %d kare = %d px; taslak pay ~59)" % [_n_ar(vk, okk), w8, w8 * 5])
+	hepsi = hepsi and _n_pen(vk, okk, 0)
+	# --- W9: kutu itme hedefi
+	var vb: Array = []
+	for x in range(1060, 1081, 2):
+		vb.append(x)
+	var okb: Array = await _n_sup(vb, func(v: int) -> bool:
+		var o2: Array = _n17_gezi() + [_b13_a(1, _b4_x_ge(985.0), 400), _b13_a(0, Callable(), 1), _b13_a(0, Callable(), 3, false, true),
+			_b13_a(0, _n_zemin(), 120), _b13_a(1, _n_kutu_x_ge(float(v)), 200), _b13_a(1, Callable(), 14, true),
+			_b13_a(0, _n_zemin(), 60), _b13_a(1, Callable(), 14, true), _b13_a(1, _b4_bitti_k(), 150)]
+		return await _n_bitirir(kay, o2))
+	ayr.append("W9 kutu itme hedefi (kutu merkez x>=v'de dur; ledge yüzü kutu 1080): bitiren %s" % _n_ar(vb, okb))
+	_kaydi("Bölüm 17 zamanlama payları (fitil, W1..W9)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Bant/dikiş: canlı kayıt vs klon tekrarı konum farkı (px) ve üst sınır iddiası; bant hızları.
+func _test_b17_dikis() -> void:
+	var kay: Array = await _n17_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	var olc: Array = []
+	for k in [["C_A", [], _n17_a()], ["C_B", [kay[0]], _n17_b()], ["C_C", [kay[0], kay[1]], _n17_c()], ["Oyuncu", kay, _n17_o()]]:
+		var r: Dictionary = await _n_klon_fark(k[1], k[2])
+		olc.append(r["fark"])
+		ayr.append("%s canlı/klon en büyük konum farkı %.2f px (ilk sapma kare %d, x=%.0f)" % [k[0], r["fark"], r["ilk"], r["ilk_x"]])
+	# Üst sınır iddiası: ölçülen en büyük fark + ~%25 pay; mutlak üst sınır dikiş ayrışması 11,67 px (+%25 = 14,6).
+	var en_buyuk := 0.0
+	for f in olc:
+		en_buyuk = maxf(en_buyuk, f)
+	hepsi = hepsi and en_buyuk <= 0.5
+	ayr.append("en büyük fark %.2f px (üst sınır iddiası 0,5 px; taslak ayrışma 11,67 px öngörüyordu, bu bölümde çözüm turlarında 0 ölçüldü)" % en_buyuk)
+	# Dikiş taraması: bant uçlarında (x=240, 400) durup bekleyen canlı kayıt klon olarak aynı oynar mı?
+	var dikis_maks := 0.0
+	var dikis_x := 0.0
+	var dik_ad: Array = []
+	for xs in [226, 232, 236, 240, 244, 250, 256, 388, 394, 398, 402, 406, 412]:
+		var adim: Array = [_b13_a(1, _b4_x_ge(float(xs)), 200), _b13_a(0, Callable(), 30), _b13_a(1, _b4_x_ge(440.0), 200)]
+		for onceki in [[], [kay[0]]]:
+			var rr: Dictionary = await _n_klon_fark(onceki, adim)
+			if rr["fark"] > dikis_maks:
+				dikis_maks = rr["fark"]
+				dikis_x = float(xs)
+	# Üst sınır iddiası: ölçülen 3,33 px (bir bant adımı) + ~%25 pay = 4,2 px (taslak ayrışması 11,67 px'e göre çok daha küçük).
+	hepsi = hepsi and dikis_maks <= 4.2
+	ayr.append("dikiş taraması (x=240 ve 400 çevresinde 13 durma noktası x {klonsuz, C_A'lı}): en büyük canlı/klon farkı %.2f px (durma x>=%.0f; üst sınır iddiası 4,2 px)" % [dikis_maks, dikis_x])
+	# Bant hızları: girdisiz 1,667; girdili (sag) ters yön net 3,33 px/kare.
+	var sb: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 30)], _n_yerlestir(Vector2(320, 356)))
+	var hiz0: float = (sb["iz"][29].x - sb["iz"][9].x) / 20.0
+	var sg: Dictionary = await _n_senaryo([], [_b13_a(1, Callable(), 30)], _n_yerlestir(Vector2(260, 356)))
+	var hiz1: float = (sg["iz"][29].x - sg["iz"][9].x) / 20.0
+	ayr.append("bant hızı: girdisiz %.3f px/kare (taslak -1,667), sag basılı %.3f px/kare (taslak +3,33)" % [hiz0, hiz1])
+	hepsi = hepsi and absf(hiz0 + 1.667) < 0.1 and absf(hiz1 - 3.333) < 0.1
+	# Yürüyüş uzaması: bant 160 px: 160/3,33 = 48 kare, düz 160/5 = 32 kare (taslak ~16 kare uzar).
+	var sy: Dictionary = await _n_senaryo([], [_b13_a(1, _b4_x_ge(240.0), 200), _b13_a(1, _b4_x_ge(400.0), 200)], _n_yerlestir(Vector2(200, 356)))
+	var f_b: int = sy["baslangic"][1]
+	var f_e: int = sy["iz"].size()
+	ayr.append("bant geçişi (x 240 -> 400) %d kare (düz zeminde 32; taslak ~48)" % (f_e - f_b))
+	_kaydi("Bölüm 17 ölçüm: bant/dikiş, canlı kayıt vs klon tekrarı farkı (üst sınır 0,5 px; dikiş taraması 4,2 px), bant hızları", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b17_tutma() -> void:
+	var ayr: Array = []
+	var hepsi := true
+	aktif_bolum = BOLUM_17
+	var r: Dictionary = await _n_tutma_olc("PlakaZ", Vector2(500, 576), 260)
+	ayr.append("ZP: ilk basili kare=%d, son fiziksel kare=%d, sonra basılı kalan=%d kare (beklenen tam 70)" % [r["ilk_basili"], r["son_fiziksel"], r["kalan"]])
+	hepsi = hepsi and r["kalan"] == 70
+	var m: Dictionary = await _n_tutma_olc("PlakaM", Vector2(570, 576), 300)
+	ayr.append("MP (mandal): son fiziksel kare=%d, sonra basılı=%d kare (ölçüm sonuna kadar=%s)" % [m["son_fiziksel"], m["kalan"], str(m["sona_kadar"])])
+	hepsi = hepsi and m["sona_kadar"]
+	# Tur başı sıfırlama
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	for i in range(30):
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		await physics_frame
+	var eski_id := bolum.get_instance_id()
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var ok: bool = yeni != null and not yeni.get_node("PlakaZ").basili_mi() and yeni.get_node("PlakaZ").kalan_kare == 0 \
+		and not yeni.get_node("PlakaM").kilitli and absf(yeni.get_node("GecitZ").position.y - 280.0) < 0.5 \
+		and absf(yeni.get_node("GecitM").position.y - 280.0) < 0.5
+	hepsi = hepsi and ok
+	ayr.append("tur başı sıfırlama: ZP kalan=%d, MP kilitli=%s, GecitZ y=%.0f, GecitM y=%.0f (kapalı 280)" % [
+		yeni.get_node("PlakaZ").kalan_kare if yeni != null else -1, str(yeni.get_node("PlakaM").kilitli if yeni != null else "?"),
+		yeni.get_node("GecitZ").position.y if yeni != null else -1.0, yeni.get_node("GecitM").position.y if yeni != null else -1.0])
+	_kaydi("Bölüm 17: ZP tam 70 kare (tutma_kare=70), MP kalıcı, tur başı sıfırlama", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b17_klon_siniri() -> void:
+	await _n_klon_siniri("Bölüm 17: klon sınırı (dördüncü R klon kaydetmez)", 3)
+
+
+func _test_b17_kilitlenme() -> void:
+	var kay: Array = await _n17_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	# (a) Kuyuda ölüm: LazerC açıkken kuyuya inen oyuncu ışına girer, tur yeniden başlar, klonlar korunur.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(kay[0].duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	bolum.get_node("Oyuncu").global_position = Vector2(1000, 356)
+	var sayac := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var eski_id := bolum.get_instance_id()
+	var s: Dictionary = await _n_kosullu(bolum, [_b13_a(0, Callable(), 1), _b13_a(0, Callable(), 3, false, true), _b13_a(0, _n_zemin(), 100),
+		_b13_a(1, Callable(), 60)], sayac)
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var etiket := ""
+	var ok: bool = sayac[0] > 0 and yeni != null and _kayitlar().turlar.size() == 1
+	if yeni != null:
+		etiket = yeni.bilgi.text
+		ok = ok and _klonlar(yeni).size() == 1 and etiket.contains("Tur 2") and etiket.contains("1/3")
+	hepsi = hepsi and ok
+	ayr.append("kuyuda ölüm: ölüm=%d, kayıtlı tur=%d, etiket=\"%s\"" % [sayac[0], _kayitlar().turlar.size(), etiket])
+	# (b) Kuyudan F2'ye dönüş yok.
+	var sk: Dictionary = await _n_senaryo(kay, _n_spam(0.0, 12), _n_yerlestir(Vector2(1010, 576), Vector2(975, 580)))
+	hepsi = hepsi and _n_olc(sk)["ayak"] > 450.0 and sk["oldu"] == 0
+	ayr.append("kuyuda ışının solunda: zıplama en yüksek ayak y=%.1f (F2 yüzeyi 380), ölüm=%d" % [_n_olc(sk)["ayak"], sk["oldu"]])
+	# (c) Baştan başla: kutu başlangıçta.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(kay[0].duplicate(true))
+	var b2: Node = await _bolumu_yukle()
+	var eski: Node = current_scene
+	b2.get_node("EkranButonlari/Kutu/YenidenDugmesi").pressed.emit()
+	var yeni2: Node = await _sahne_degisimini_bekle(eski)
+	var kutu_bas: Vector2 = yeni2.get_node("Kutu").global_position
+	var ok_c: bool = _kayitlar().turlar.size() == 0 and _klonlar(yeni2).size() == 0 and yeni2.bilgi.text.begins_with("Tur 1 ") and absf(kutu_bas.x - 1060.0) < 1.0
+	hepsi = hepsi and ok_c
+	ayr.append("Baştan başla: kayıt=%d, klon=%d, etiket=\"%s\", kutu x=%.0f" % [_kayitlar().turlar.size(), _klonlar(yeni2).size(), yeni2.bilgi.text, kutu_bas.x])
+	# (d) G_Z altında park / cep: G_Z solunda takılan oyuncu raf1'e dönüp tekrar deneyebilir (MP kalıcı).
+	var sg: Dictionary = await _n_senaryo([kay[0], kay[1]], _n17_c(0, 15, 60) + [_b13_a(0, Callable(), 5)])
+	hepsi = hepsi and sg["oldu"] == 0
+	ayr.append("G_Z'de geç kalma: ölüm=%d, kilit yok (oyuncu geri dönebilir), son (%.0f,%.0f)" % [sg["oldu"], _n_son(sg).x, _n_son(sg).y])
+	# (e) klonlar plakada biter
+	var tam: Dictionary = await _n_senaryo(kay, [_b13_a(0, Callable(), 390)])
+	var ki: Array = tam["klon_izleri"]
+	var sa: Vector2 = ki[0][ki[0].size() - 1]
+	var sb: Vector2 = ki[1][ki[1].size() - 1]
+	var sc: Vector2 = ki[2][ki[2].size() - 1]
+	var ok_e: bool = not tam["klon_oldu"][0] and not tam["klon_oldu"][1] and not tam["klon_oldu"][2] \
+		and sa.x > 395.0 and sa.x < 480.0 and sb.x > 690.0 and sb.x < 790.0 and sc.x > 880.0 and sc.x < 980.0
+	hepsi = hepsi and ok_e
+	ayr.append("klonlar plakada biter: A (%.0f,%.0f), B (%.0f,%.0f), C (%.0f,%.0f); geçit altında değil" % [sa.x, sa.y, sb.x, sb.y, sc.x, sc.y])
+	# (f) ölü klon yerinde donar.
+	var sd: Dictionary = await _n_senaryo([kay[1]], [_b13_a(0, Callable(), 250)])
+	var kz: Array = sd["klon_izleri"][0]
+	var donuk: bool = sd["klon_oldu"][0] and kz[kz.size() - 1] == kz[kz.size() - 40] and kz[kz.size() - 1].x < 520.0
+	hepsi = hepsi and donuk
+	ayr.append("ölü klon: öldü=%s, son (%.0f,%.0f), sabit=%s" % [str(sd["klon_oldu"][0]), kz[kz.size() - 1].x, kz[kz.size() - 1].y, str(donuk)])
+	_kaydi("Bölüm 17 kilitlenme: kuyuda ölüm, kuyudan dönüş yok, Baştan başla, G_Z, klon konumları, ölü klon", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b17_determinizm() -> void:
+	var kay: Array = await _n17_kayitlar()
+	await _n_determinizm("Bölüm 17: determinizm (100x çözüm)", kay, _n17_o())
+
+
+
+
+# ---------------------------------------------------------------- Bölüm 16 (Mandal)
+# C_A: Z1 ile kata çıkar, PlakaA'da kalır. C_B: LazerA'yı geçer, rafta S, cepte MP (mandal), Z2 ile döner,
+# G'yi geçer, PlakaB'de kalır. C_C: aynı gezi, PlakaC'de kalır. Oyuncu: gezi + kutuyu iter + kutu/Sehpa basamağı.
+var _n16_onb: Array = []   # [A, B, C]
+
+
+func _n16_a(gec := 0, bekle := 15) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d += [_b13_a(1, _b4_x_ge(250.0), 300), _b13_a(0, _n_plakada("PlakaA"), 100), _b13_a(0, Callable(), bekle)]
+	return d
+
+
+## Cep gezisi: Z1, raf üstünde S (s_x eşiği; sag_tut: S sırasında sag basılı), MP, Z2 sensörüne gir,
+## `sag` bırak (z2_bekle>=0: o kadar kare; <0: ayak y<=z2_y olana kadar), sonra `sag`.
+## atla: cep gezisini atlayıp yalnız F2 koşusu. gec: başta bekleme.
+func _n16_gezi(gec := 0, s_x := 440.0, sag_tut := false, z2_x := 472.0, z2_bekle := -1, atla := false) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d.append(_b13_a(1, _b4_x_ge(150.0), 300))
+	if atla:
+		d.append(_b13_a(1, _b4_x_ge(560.0), 300))
+		return d
+	d.append(_b13_a(1, _b4_x_ge(s_x), 300))
+	if sag_tut:
+		d.append(_b13_a(1, Callable(), 3, false, true))
+	else:
+		d += [_b13_a(0, Callable(), 1), _b13_a(0, Callable(), 3, false, true)]
+	d += [_b13_a(0, _n_plakada("MP"), 120), _b13_a(0, Callable(), 2), _b13_a(1, _b4_x_ge(z2_x), 100)]
+	if z2_bekle >= 0:
+		d.append(_b13_a(0, Callable(), z2_bekle))
+	else:
+		d.append(_b13_a(0, _n_y_le(345.0), 100))
+	d.append(_b13_a(1, _n_zemin(), 80))
+	return d
+
+
+func _n16_b(gec := 0, bekle := 15) -> Array:
+	return _n16_gezi(gec) + [_b13_a(1, _n_plakada("PlakaB"), 400), _b13_a(0, Callable(), bekle)]
+
+
+func _n16_c(gec := 0, bekle := 15, atla := false) -> Array:
+	return _n16_gezi(gec, 440.0, false, 472.0, -1, atla) + [_b13_a(1, _n_plakada("PlakaC"), 500), _b13_a(0, Callable(), bekle)]
+
+
+## Oyuncu: gezi + (kutu hedefe kadar it) + kutuya zıpla + Sehpa'ya zıpla + kapı.
+func _n16_o(gec := 0, kutu_x := 959.0, z_n := 14) -> Array:
+	return _n16_gezi(gec) + [_b13_a(1, _n_kutu_x_ge(kutu_x), 400), _b13_a(1, Callable(), z_n, true), _b13_a(0, _n_zemin(), 80),
+		_b13_a(1, Callable(), z_n, true), _b13_a(1, _b4_bitti_k(), 150)]
+
+
+func _n16_kayitlar() -> Array:
+	if _n16_onb.is_empty():
+		var s1: Dictionary = await _n_senaryo([], _n16_a())
+		var s2: Dictionary = await _n_senaryo([s1["kayit"]], _n16_b())
+		var s3: Dictionary = await _n_senaryo([s1["kayit"], s2["kayit"]], _n16_c())
+		_n16_onb = [s1["kayit"], s2["kayit"], s3["kayit"]]
+	return _n16_onb
+
+
+func _b16_calistir() -> void:
+	await _test_b16_cozum()
+	await _test_b16_basarisizlik()
+	await _test_b16_atlanamaz()
+	await _test_b16_kisayol()
+	await _test_b16_pencereler()
+	await _test_b16_klon_fark()
+	await _test_b16_mandal()
+	await _test_b16_klon_siniri()
+	await _test_b16_kilitlenme()
+	await _test_b16_determinizm()
+
+
+func _test_b16_cozum() -> void:
+	await _n_cozum("Bölüm 16 çözümü (4 tur, 3 klon, gerçek R/girdi yolu)", [_n16_a(), _n16_b(), _n16_c()], _n16_o(), 3)
+
+
+func _test_b16_basarisizlik() -> void:
+	var kay: Array = await _n16_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	# 1) klonsuz: LazerA'da ölür.
+	var s1: Dictionary = await _n_senaryo([], _n16_gezi() + [_b13_a(1, Callable(), 100)])
+	var p1: Vector2 = _n_son(s1)
+	var s1b: Dictionary = await _n_senaryo([], [_b13_a(1, Callable(), 300)])
+	_kaydi("Bölüm 16 başarısızlık 1: klonsuz -> LazerA'da ölür", s1b["oldu"] > 0 and not s1b["bitti_ham"] and _n_son(s1b).x < 330.0,
+		"ölüm=%d, son konum (%.0f,%.0f) (ışın x 327..333, gövde girişi 313)" % [s1b["oldu"], _n_son(s1b).x, _n_son(s1b).y])
+	# 2) yalnız C_A: oyuncu G'de takılır/LazerB'de ölür (MP basılmadıysa G kapalı).
+	var s2: Dictionary = await _n_senaryo([c_a], [_b13_a(1, Callable(), 300)])
+	_kaydi("Bölüm 16 başarısızlık 2: yalnız C_A, oyuncu doğrudan yürür -> F2 koşusunda G kapalı, çarpıp durur (ölmez)", s2["oldu"] == 0 and not s2["bitti_ham"] and _n_olc(s2)["xmax"] < 590.0,
+		"en büyük x=%.0f (G sol yüzü 590, gövde 576), ölüm=%d" % [_n_olc(s2)["xmax"], s2["oldu"]])
+	var s2b: Dictionary = await _n_senaryo([c_a], _n16_o())
+	_kaydi("Bölüm 16 başarısızlık 2b: yalnız C_A, oyuncu cep gezisiyle G'yi açar -> LazerB'de ölür", s2b["oldu"] > 0 and not s2b["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f) (LazerB ışını x 737..743)" % [s2b["oldu"], _n_son(s2b).x, _n_son(s2b).y])
+	# 3) C_A + C_B (C_C yok): oyuncu LazerC'de ölür.
+	var s3: Dictionary = await _n_senaryo([c_a, c_b], _n16_o())
+	_kaydi("Bölüm 16 başarısızlık 3: C_A + C_B, C_C yok -> LazerC'de ölür", s3["oldu"] > 0 and not s3["bitti_ham"] and _n_son(s3).x > 800.0 and _n_son(s3).x < 860.0,
+		"ölüm=%d, son (%.0f,%.0f) (ışın x 857..863)" % [s3["oldu"], _n_son(s3).x, _n_son(s3).y])
+	# 4) C_B cep gezisi olmadan (G kapalı): kayıt turunda G'ye çarpıp bekler; PlakaB tutulmaz, oyuncu LazerB'de ölür.
+	var b_gezisiz: Array = (await _n_senaryo([c_a], _n16_c(0, 15, true)))["kayit"]
+	var s4: Dictionary = await _n_senaryo([c_a, b_gezisiz], _n16_o())
+	_kaydi("Bölüm 16 başarısızlık 4: C_B cep gezisi yapmaz (G kapalı) -> PlakaB tutulmaz, oyuncu LazerB'de ölür", s4["oldu"] > 0 and not s4["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s4["oldu"], _n_son(s4).x, _n_son(s4).y])
+	# 5) Rafta `sag` basılıyken S: sürüklenip Z2 sensörüne iner (merkez > 465), MP basılmaz.
+	var s5: Dictionary = await _n_senaryo([c_a], _n16_gezi(0, 440.0, true) + [_b13_a(0, Callable(), 10)])
+	var mp_basildi: bool = _n_ilk(s5, "MP", true) >= 0
+	var g_min: float = 1.0e9
+	for o in s5["ozel"]:
+		g_min = minf(g_min, o["G"])
+	# Taslak §9.5: "cebe sürüklenip Z2'den hemen fırlar, MP basılmaz". Ölçülen: MP yine basılır (gövde MP kenarına iner), G açılır.
+	_kaydi("Bölüm 16 ölçüm 5: rafta `sag` basılıyken S -> MP yine basılır, G açılır (taslak §9.5 'MP basılmaz' iddiası yanlış)", mp_basildi and g_min <= 181.0 and s5["oldu"] == 0,
+		"MP basıldı=%s, G en yüksek (küçük y) = %.0f (kapalı 280), kare %d, ölüm=%d, son (%.0f,%.0f)" % [str(mp_basildi), g_min, s5["kare"], s5["oldu"], _n_son(s5).x, _n_son(s5).y])
+	# 6) Z2'de `sag` hiç bırakılmazsa: (bırakılmadan sürekli sag) tavan/döşeme köşesine çarpıp geri düşer.
+	var s6: Dictionary = await _n_senaryo([c_a], _n16_gezi(0, 440.0, false, 472.0, 0) + [_b13_a(1, _n_plakada("PlakaB"), 120)])
+	_kaydi("Bölüm 16 başarısızlık 6: Z2'de `sag` bırakılmaz (sürekli sag) -> köşeye çarpıp cebe geri düşer (taslak: gövde x=526'da yaslanır)", s6["tamam"].has(false) or s6["kare"] > 200,
+		"adımlar=%s, kare=%d, ölüm=%d" % [str(s6["tamam"]), s6["kare"], s6["oldu"]])
+	# 7) C_B plakadan erken ayrılır (PlakaB'den geri dönüp cebe iner): LazerB açılır, C_C ve oyuncu ölür.
+	var b_erken: Array = (await _n_senaryo([c_a], _n16_gezi() + [_b13_a(1, _n_plakada("PlakaB"), 400), _b13_a(-1, _b4_x_le(600.0), 100),
+		_b13_a(0, Callable(), 100)]))["kayit"]
+	var s7: Dictionary = await _n_senaryo([c_a, b_erken], _n16_c())
+	_kaydi("Bölüm 16 başarısızlık 7: C_B plakadan erken ayrılır -> C_C LazerB'de ölür", s7["oldu"] > 0 and not s7["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s7["oldu"], _n_son(s7).x, _n_son(s7).y])
+	# 8) Kutu sola itilirse: basamak kaybolur (bölüm kilitlenir).
+	var s8: Dictionary = await _n_senaryo(kay, [_b13_a(-1, _b4_x_le(700.0), 400), _b13_a(0, Callable(), 3)], _n_yerlestir(Vector2(960, 356)))
+	var kutu_x: float = s8["ozel"][s8["ozel"].size() - 1]["Kutu"].x
+	_kaydi("Bölüm 16 başarısızlık 8: kutu sağdan sola itilir -> Sehpa yüzünden uzaklaşır", kutu_x < 760.0,
+		"kutu son x=%.0f (başlangıç 920, Sehpa yüzü 980)" % kutu_x)
+	# 9) S çok erken (x=400 .. raf başı 420): düşmez.
+	var s9: Dictionary = await _n_senaryo([c_a], _n16_gezi(0, 425.0) + [_b13_a(1, _n_plakada("PlakaB"), 100)])
+	_kaydi("Bölüm 16 başarısızlık 9: raf başında (x~425) S -> döşeme desteği sürer, cebe inilmez, G açılmaz (C_B PlakaB'ye varamaz, ölmez)", s9["tamam"].has(false) and s9["oldu"] == 0,
+		"adımlar=%s, ölüm=%d, en büyük y=%.1f (cep ~576; yüzey 355.9)" % [str(s9["tamam"]), s9["oldu"], _n_olc(s9)["ymax"]])
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b16_atlanamaz() -> void:
+	var kay: Array = await _n16_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	# F1 -> F2: zıplayarak çıkılmaz (kat 220 px).
+	var sa: Dictionary = await _n_senaryo([], _n_spam(0.0, 8), _n_yerlestir(Vector2(300, 576)))
+	var ok: bool = _n_olc(sa)["ayak"] > 440.0
+	hepsi = hepsi and ok
+	ayr.append("F1 dikey zıplama: en yüksek ayak y=%.1f (döşeme alt kenarı 420)" % _n_olc(sa)["ayak"])
+	# DuvarW: F1 sağa geçilmez.
+	var sw: Dictionary = await _n_senaryo([], _n_spam(1.0, 14), _n_yerlestir(Vector2(300, 576)))
+	ok = _n_olc(sw)["xmax"] <= 367.0
+	hepsi = hepsi and ok
+	ayr.append("DuvarW: en büyük x=%.0f (sol yüz 380-14=366)" % _n_olc(sw)["xmax"])
+	# Cep dikey zıplama: raf altından çıkılmaz (kat 220 px); cep sağ duvarı.
+	var sc: Dictionary = await _n_senaryo([], _n_spam(0.0, 8), _n_yerlestir(Vector2(430, 576)))
+	ok = _n_olc(sc)["ayak"] > 450.0
+	hepsi = hepsi and ok
+	ayr.append("cep dikey zıplama (Z2 dışı x=430): en yüksek ayak y=%.1f (raf üstü 380)" % _n_olc(sc)["ayak"])
+	var sd: Dictionary = await _n_senaryo([], _n_spam(1.0, 10), _n_yerlestir(Vector2(560, 576)))
+	ok = _n_olc(sd)["xmax"] <= 587.0
+	hepsi = hepsi and ok
+	ayr.append("DuvarCep: en büyük x=%.0f (sol yüz 600-14=586), kayıtsız Z2 sensörü içinden geçse bile" % _n_olc(sd)["xmax"])
+	# G kapalı (MP basılmadı): F2'de sağ+zıpla spam.
+	var sg: Dictionary = await _n_senaryo([kay[0]], _n_spam(1.0, 12), _n_yerlestir(Vector2(560, 356)))
+	ok = _n_olc(sg)["xmax"] <= 577.0 or _n_olc(sg)["xmax"] <= 587.0
+	hepsi = hepsi and ok
+	ayr.append("G kapalı: en büyük x=%.0f (sol yüz 590-14=576)" % _n_olc(sg)["xmax"])
+	# Lazerler (kapalı değil): zıplayarak aşılmaz.
+	for k in [["LazerA", Vector2(300, 356), 327.0], ["LazerB", Vector2(700, 356), 737.0], ["LazerC", Vector2(820, 356), 857.0]]:
+		var sl: Dictionary = await _n_senaryo([], _n_spam(1.0, 8), _n_yerlestir(k[1], Vector2(100, 360)))
+		ok = sl["oldu"] > 0 and _n_olc(sl)["xmax"] < k[2] + 12.0
+		hepsi = hepsi and ok
+		ayr.append("%s zıplayarak: ölüm=%d, en büyük x=%.0f (ışın sol kenarı %.0f)" % [k[0], sl["oldu"], _n_olc(sl)["xmax"], k[2]])
+	# Z1/Z2 uçuşu lazer bandına girer: Z1 uçuşu (klonsuz) sağ+zıpla: LazerA'da ölür.
+	var sz: Dictionary = await _n_senaryo([], [_b13_a(1, _b4_x_ge(106.0), 200)] + _n_spam(1.0, 14))
+	ok = sz["oldu"] > 0 and _n_olc(sz)["xmax"] < 345.0
+	hepsi = hepsi and ok
+	ayr.append("Z1 uçuşu (klonsuz): ölüm=%d, en büyük x=%.0f, uçuş tepesi ayak y=%.1f (taslak 353)" % [sz["oldu"], _n_olc(sz)["xmax"], _n_olc(sz)["ayak"]])
+	# Sehpa kutusuz: oyuncu Sehpa yüzünde (kutu uzakta) sağ+zıpla spam: çıkılmaz (120 px > 100,9).
+	var sk: Dictionary = await _n_senaryo(kay, _n_spam(1.0, 10), _n_yerlestir(Vector2(950, 356), Vector2(100, 360)))
+	ok = _n_olc(sk)["ayak"] > 260.0 and not sk["bitti_ham"]
+	hepsi = hepsi and ok
+	ayr.append("Sehpa kutusuz: en yüksek ayak y=%.1f (Sehpa üstü 260; yetmezlik %.1f px), bitti=%s" % [_n_olc(sk)["ayak"], _n_olc(sk)["ayak"] - 260.0, str(sk["bitti_ham"])])
+	# Kutu basamağı: kutu Sehpa yüzünde: kutuya, Sehpa'ya çıkış payı + tavan baş payı.
+	var sb: Dictionary = await _n_senaryo(kay, [_b13_a(1, Callable(), 14, true), _b13_a(0, _n_zemin(), 80), _b13_a(1, Callable(), 14, true),
+		_b13_a(1, _b4_bitti_k(), 100)], _n_yerlestir(Vector2(926, 356), Vector2(960, 360)))
+	var f2: int = sb["baslangic"][2] if sb["baslangic"].size() > 2 else 0
+	var ayak2 := 1.0e9
+	var bas2 := 1.0e9
+	for f in range(f2, sb["iz"].size()):
+		ayak2 = minf(ayak2, sb["iz"][f].y + 24.0)
+		bas2 = minf(bas2, sb["iz"][f].y - 24.0)
+	ok = sb["bitti_ham"] and ayak2 < 260.0 and bas2 > 180.0
+	hepsi = hepsi and ok
+	ayr.append("kutu basamağı: bitti=%s, ikinci zıplama tepe ayak y=%.1f (Sehpa 260: pay %.1f px; taslak 20,9), baş y=%.1f (tavan 180: pay %.1f px; taslak 11)" % [
+		str(sb["bitti_ham"]), ayak2, 260.0 - ayak2, bas2, bas2 - 180.0])
+	_kaydi("Bölüm 16 atlanamazlık hesapları (kat, DuvarW, cep, DuvarCep, G, lazerler, Z1 uçuşu, Sehpa, kutu basamağı)", hepsi, "; ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b16_kisayol() -> void:
+	var kay: Array = await _n16_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	var c_c: Array = kay[2]
+	var ayr: Array = []
+	var hepsi := true
+	var b0: Node = await _bolumu_yukle()
+	var var_olan: String = _n_var_olanlar(b0, ["Bant", "Salter", "Asansor", "Zamanli", "PlakaZ"])
+	paused = false
+	hepsi = hepsi and var_olan == ""
+	ayr.append("sahnede bant/şalter/asansör/zamanlı plaka: [%s] (yok olmalı)" % var_olan)
+	var oyuncu_st: Array = [_n16_o(), [_b13_a(1, Callable(), 500)], _n16_gezi() + [_b13_a(1, Callable(), 300)],
+		_n16_gezi() + [_b13_a(1, _n_plakada("PlakaC"), 400), _b13_a(0, Callable(), 100)]]
+	# klonsuz
+	var klonsuz_bit := false
+	for st in oyuncu_st:
+		klonsuz_bit = klonsuz_bit or await _n_bitirir([], st)
+	hepsi = hepsi and not klonsuz_bit
+	ayr.append("klonsuz (4 oyuncu stratejisi): bitti=%s" % str(klonsuz_bit))
+	# tüm alt kümeler (taslak kayıtlarıyla) ve oyuncu stratejileri
+	var kume: Array = [["A", [c_a]], ["B", [c_b]], ["C", [c_c]], ["A+B", [c_a, c_b]], ["A+C", [c_a, c_c]], ["B+C", [c_b, c_c]],
+		["A+A", [c_a, c_a]], ["B+B", [c_b, c_b]], ["C+C", [c_c, c_c]], ["A+B+C", [c_a, c_b, c_c]]]
+	var biten: Array = []
+	for k in kume:
+		for st in oyuncu_st:
+			if await _n_bitirir(k[1], st):
+				biten.append(k[0])
+				break
+	hepsi = hepsi and biten == ["A+B+C"]
+	ayr.append("alt kümeler (10 küme x 4 strateji): bitirenler=%s (yalnız A+B+C beklenir)" % str(biten))
+	# kör kayıt: klonlar gerçek dünyada önceki klonlar olmadan kaydedilir (kayıt turunda ölüm -> boş)
+	var kor_b: Array = (await _n_senaryo([], _n16_b()))["kayit"]
+	var kor_c: Array = (await _n_senaryo([], _n16_c()))["kayit"]
+	var kor_bit := false
+	for ks in [[c_a, kor_b], [c_a, kor_c], [kor_b, kor_c], [c_a, kor_b, kor_c]]:
+		for st in oyuncu_st:
+			kor_bit = kor_bit or await _n_bitirir(ks, st)
+	hepsi = hepsi and not kor_bit
+	ayr.append("kör kayıtlı (önceki klonsuz kaydedilen) B/C ile kümeler: bitti=%s" % str(kor_bit))
+	# min klon-1 = 2 klon + oyuncunun PlakaC'yi tutması: kapıya gidemez.
+	var c_oyuncu_bekle: bool = await _n_bitirir([c_a, c_b], _n16_gezi() + [_b13_a(1, _n_plakada("PlakaC"), 400), _b13_a(0, Callable(), 400)])
+	hepsi = hepsi and not c_oyuncu_bekle
+	ayr.append("2 klon + oyuncu PlakaC'de bekler: bitti=%s" % str(c_oyuncu_bekle))
+	# mandal ile klon tasarrufu: MP'yi oyuncunun kendisi basması (B', C' cep gezisi atlar; kör kayıtlı): yine A, B', C' = 3 klon.
+	var b_atla: Array = (await _n_senaryo([c_a], _n16_c(0, 15, true)))["kayit"]
+	var c_atla: Array = (await _n_senaryo([c_a, b_atla], _n16_c(0, 15, true)))["kayit"]
+	var s_mp: Dictionary = await _n_senaryo([c_a, b_atla, c_atla], _n16_o())
+	ayr.append("MP'yi oyuncu basar (C_B, C_C gezisiz; 3 klon): bitti=%s, ölüm=%d (klon sayısını düşürmez: yine A + 2 plaka tutucu)" % [str(s_mp["bitti_ham"]), s_mp["oldu"]])
+	var s_mp2: Dictionary = await _n_senaryo([c_a, b_atla], _n16_o())
+	hepsi = hepsi and not s_mp2["bitti_ham"]
+	ayr.append("MP'yi oyuncu basar, 2 klon (A + gezisiz B): bitti=%s" % str(s_mp2["bitti_ham"]))
+	# röle: oyuncu PlakaA'da kalır, tek klon... oyuncu plakada bekleyip kapıya gidemez; strateji A.
+	# kutuyla plaka tutma: kutu sola PlakaC üstüne itilir (LazerC kapalı kalır) - oyuncu LazerC'yi geçmiş olmalı (C_C ile).
+	var s_k: Dictionary = await _n_senaryo([c_a, c_b], _n16_gezi() + [_b13_a(1, _n_plakada("PlakaC"), 400), _b13_a(0, Callable(), 30)])
+	hepsi = hepsi and not s_k["bitti_ham"]
+	ayr.append("kutu PlakaC'ye itmek için LazerC (x=860) geçilmeli: C_C yokken oyuncu PlakaC'ye yürüyebilir ama ışının sağına geçemez; bitti=%s, ölüm=%d" % [str(s_k["bitti_ham"]), s_k["oldu"]])
+	# S ile yeni iniş: F2 boyunca; kutu uzakta.
+	var inen: Array = []
+	for x in range(120, 961, 40):
+		var ss: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 45)],
+			_n_yerlestir(Vector2(float(x), 356), Vector2(50, 360)))
+		if _n_son(ss).y > 430.0:
+			inen.append(x)
+	var inen_ok := true
+	for x in inen:
+		inen_ok = inen_ok and x >= 400 and x <= 560
+	hepsi = hepsi and inen_ok and inen.size() > 0
+	ayr.append("S ile F2'den inenler (x, 40 px adım; yalnız raf 420..540 + kenar boşluk beklenir): %s" % str(inen))
+	# min klon 3 kanıtı: üç plaka birlikte basılı, oyuncu LazerC'den sonra.
+	var tam: Dictionary = await _n_senaryo(kay, _n16_o())
+	var f3 := -1
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if o["PlakaA"] and o["PlakaB"] and o["PlakaC"] and f3 < 0:
+			f3 = f
+	var f_lc: int = _n_x_kare(tam["iz"], 870.0)
+	var ok3: bool = tam["bitti_ham"] and f3 >= 0 and f_lc > f3
+	hepsi = hepsi and ok3
+	ayr.append("min klon 3: bitti=%s, PlakaA+B+C birlikte basılı ilk kare=%d, oyuncu LazerC ışınına (x>=870) kare %d'de varır" % [str(tam["bitti_ham"]), f3, f_lc])
+	_kaydi("Bölüm 16 kısayol taraması (klonsuz, alt kümeler, kör kayıt, mandal tasarrufu, kutu, S inişleri, min klon 3)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b16_pencereler() -> void:
+	var kay: Array = await _n16_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	var c_c: Array = kay[2]
+	var ayr: Array = []
+	var hepsi := true
+	# --- referans zamanlar (C_C turu, klonlar A, B)
+	var rc: Dictionary = await _n_senaryo([c_a, c_b], _n16_c())
+	var f_mp: int = _n_ilk(rc, "MP", true)
+	var f_g48 := -1
+	for f in range(rc["ozel"].size()):
+		if rc["ozel"][f]["G"] <= 232.0:
+			f_g48 = f
+			break
+	var f_gx: int = _n_x_kare(rc["iz"], 576.0)
+	ayr.append("referans (C_C turu): MP basışı kare %d, G >=48 px açık kare %d, C_C'nin G'ye (x>=576) varışı kare %d, G önünde bekleme %d kare" % [f_mp, f_g48, f_gx, maxi(0, f_g48 - f_gx)])
+	var rb: Dictionary = await _n_senaryo([c_a], _n16_b())
+	var f_mpb: int = _n_ilk(rb, "MP", true)
+	var f_g48b := -1
+	for f in range(rb["ozel"].size()):
+		if rb["ozel"][f]["G"] <= 232.0:
+			f_g48b = f
+			break
+	var f_gxb: int = _n_x_kare(rb["iz"], 576.0)
+	ayr.append("C_B turu: MP kare %d, G>=48 kare %d, C_B G'ye varış kare %d -> W3 pay %d kare (taslak ~16)" % [f_mpb, f_g48b, f_gxb, f_gxb - f_g48b])
+	hepsi = hepsi and f_gxb - f_g48b >= 8
+	# --- W1: C_A başta bekleme (C_B LazerA'ya geç basmaya karşı)
+	var vg: Array = []
+	for d in range(0, 41, 1):
+		vg.append(d)
+	var okg: Array = await _n_sup(vg, func(v: int) -> bool:
+		var a2: Array = (await _n_senaryo([], _n16_a(v)))["kayit"]
+		var s: Dictionary = await _n_senaryo([a2], _n16_b())
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var w1 := _n_en_buyuk(vg, okg)
+	ayr.append("W1 C_A başta bekleme (kare): C_B başarılı %s (en çok %d kare = %d px; taslak pay ~19)" % [_n_ar(vg, okg), w1, w1 * 5])
+	hepsi = hepsi and _n_pen(vg, okg, 0) and w1 >= 3 and w1 < 40
+	# --- W2: S konumu eşiği (C_B başarılı mı)
+	var vx: Array = []
+	for x in range(425, 481, 3):
+		vx.append(x)
+	var okx: Array = await _n_sup(vx, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([c_a], _n16_gezi(0, float(v)) + [_b13_a(1, _n_plakada("PlakaB"), 400)])
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	ayr.append("W2 S konumu eşiği (raf üstü merkez x>=v): C_B başarılı %s (taslak 434..465: 31 px)" % _n_ar(vx, okx))
+	hepsi = hepsi and _n_en_buyuk(vx, okx) > _n_en_kucuk(vx, okx)
+	# --- W4: Z2 sensöründe `sag` bırakma süresi (z2_bekle), 0..70
+	var vz: Array = [0, 1, 2, 3, 4, 6, 8, 10, 15, 20, 30, 45, 60, 80, 100]
+	var okz: Array = await _n_sup(vz, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([c_a], _n16_gezi(0, 440.0, false, 472.0, v) + [_b13_a(1, _n_plakada("PlakaB"), 300)])
+		return not s["tamam"].has(false) and s["oldu"] == 0 and s["kare"] <= 600)
+	ayr.append("W4 Z2'de `sag` bırakma süresi (kare; değerler %s): C_B başarılı %s (taslak: sag sürekli basılı + 'en geç ~28 kare' pay; ölçülen: sürekli sag BAŞARISIZ, bırakma alt sınırı var, üst sınır yok: geri düşen raf üstüne iner)" % [str(vz), _n_ar(vz, okz)])
+	hepsi = hepsi and _n_pen(vz, okz, 0, false) and _n_pen(vz, okz, 10)
+	# --- W5: C_B başta bekleme -> C_C LazerB'ye varışı
+	var vh: Array = []
+	for d in range(0, 61, 2):
+		vh.append(d)
+	var okh: Array = await _n_sup(vh, func(v: int) -> bool:
+		var b2: Array = (await _n_senaryo([c_a], _n16_b(v)))["kayit"]
+		var s: Dictionary = await _n_senaryo([c_a, b2], _n16_c())
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var w5 := _n_en_buyuk(vh, okh)
+	ayr.append("W5 C_B başta bekleme (kare): C_C başarılı %s (en çok %d kare = %d px; taslak pay ~25)" % [_n_ar(vh, okh), w5, w5 * 5])
+	hepsi = hepsi and _n_pen(vh, okh, 0) and w5 >= 2
+	# --- W6: C_C başta bekleme -> oyuncu LazerC'ye varışı
+	var vk: Array = []
+	for d in range(0, 61, 2):
+		vk.append(d)
+	var okk: Array = await _n_sup(vk, func(v: int) -> bool:
+		var c2: Array = (await _n_senaryo([c_a, c_b], _n16_c(v)))["kayit"]
+		return await _n_bitirir([c_a, c_b, c2], _n16_o()))
+	var w6 := _n_en_buyuk(vk, okk)
+	ayr.append("W6 C_C başta bekleme (kare): oyuncu başarılı %s (en çok %d kare = %d px; taslak pay >= 8)" % [_n_ar(vk, okk), w6, w6 * 5])
+	hepsi = hepsi and _n_pen(vk, okk, 0) and w6 >= 2
+	# --- W8: kutu itme yeri (kutu_x hedefi): kutu Sehpa yüzüne ne kadar yakın olmalı
+	var vb: Array = []
+	for x in range(920, 961, 4):
+		vb.append(x)
+	var okb: Array = await _n_sup(vb, func(v: int) -> bool: return await _n_bitirir(kay, _n16_o(0, float(v))))
+	ayr.append("W8 kutu itme hedefi (kutu merkez x>=v'de dur; Sehpa yüzü kutu 960): bitiren %s" % _n_ar(vb, okb))
+	# --- zıplayış sayıları: Z1 uçuş tepesi (C_A kaydı)
+	var sa: Dictionary = await _n_senaryo([], _n16_a())
+	ayr.append("Z1 uçuş tepesi: ayak y=%.1f (taslak 353, F2 yüzeyi 380: pay %.1f px)" % [_n_olc(sa)["ayak"], 380.0 - _n_olc(sa)["ayak"]])
+	_kaydi("Bölüm 16 zamanlama payları (W1 LazerA, W2 S konumu, W3 G, W4 Z2 sag, W5/W6 klon payları, W8 kutu)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b16_klon_fark() -> void:
+	var kay: Array = await _n16_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	for k in [["C_A", [], _n16_a()], ["C_B", [kay[0]], _n16_b()], ["C_C", [kay[0], kay[1]], _n16_c()], ["Oyuncu", kay, _n16_o()]]:
+		var r: Dictionary = await _n_klon_fark(k[1], k[2])
+		ayr.append("%s canlı/klon en büyük konum farkı %.2f px (ilk sapma kare %d)" % [k[0], r["fark"], r["ilk"]])
+		hepsi = hepsi and r["fark"] <= 0.5
+	_kaydi("Bölüm 16 ölçüm: canlı kayıt vs klon tekrarı konum farkı (bant/dikiş yok, üst sınır 0,5 px)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b16_mandal() -> void:
+	var ayr: Array = []
+	var hepsi := true
+	aktif_bolum = BOLUM_16
+	var r: Dictionary = await _n_tutma_olc("MP", Vector2(450, 576), 330)
+	ayr.append("MP: ilk basili kare=%d, son fiziksel kare=%d, sonra basılı kalan=%d kare (ölçüm sonuna kadar=%s)" % [r["ilk_basili"], r["son_fiziksel"], r["kalan"], str(r["sona_kadar"])])
+	hepsi = hepsi and r["sona_kadar"] and r["kalan"] >= 300
+	# G mandal sayesinde açık kalır: MP'den ayrıldıktan 300 kare sonra G hâlâ açık (y<=180+1).
+	var son_g: float = r["ozel"][r["ozel"].size() - 1]["G"]
+	ayr.append("MP'den ayrıldıktan ~%d kare sonra G y=%.0f (açık 180)" % [r["kalan"], son_g])
+	hepsi = hepsi and son_g <= 181.0
+	# Kutu da mandalı kilitler mi (kutu MP üstüne düşer)? Kutu cepe giremez (raf yürünür): ölçülür.
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	for i in range(30):
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		await physics_frame
+	var kilitli0: bool = bolum.get_node("MP").kilitli
+	var eski_id := bolum.get_instance_id()
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var ok_t: bool = yeni != null and yeni.get_node("MP").kilitli == false and yeni.get_node("MP").basili_mi() == false \
+		and absf(yeni.get_node("G").position.y - 280.0) < 0.5
+	hepsi = hepsi and ok_t and not kilitli0
+	ayr.append("tur başı sıfırlama: ilk turda MP kilitli=%s; R sonrası yeni turda MP kilitli=%s, G y=%.0f (kapalı 280)" % [str(kilitli0), str(yeni.get_node("MP").kilitli if yeni != null else "?"), yeni.get_node("G").position.y if yeni != null else -1.0])
+	# Tur sonuna kadar kalıcı: klon replay'inde de aynı (MP'ye basan C_B klonu sonrası C_B plakada değilken bile).
+	_kaydi("Bölüm 16: mandal plaka kalıcı (tur sonuna kadar), tur başı sıfırlama", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b16_klon_siniri() -> void:
+	await _n_klon_siniri("Bölüm 16: klon sınırı (dördüncü R klon kaydetmez)", 3)
+
+
+func _test_b16_kilitlenme() -> void:
+	var kay: Array = await _n16_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	# (a) kutu sola itilirse bölüm bitmez (Sehpa basamağı kaybolur).
+	var sk: Dictionary = await _n_senaryo(kay, [_b13_a(-1, _b4_x_le(760.0), 400), _b13_a(0, Callable(), 3), _b13_a(1, Callable(), 60),
+		_b13_a(1, Callable(), 14, true), _b13_a(0, _n_zemin(), 80), _b13_a(1, Callable(), 14, true), _b13_a(1, _b4_bitti_k(), 100)],
+		_n_yerlestir(Vector2(960, 356)))
+	var kx: float = sk["ozel"][sk["ozel"].size() - 1]["Kutu"].x
+	var ok: bool = not sk["bitti_ham"] and kx < 800.0
+	hepsi = hepsi and ok
+	ayr.append("kutu sola itilir: kutu x=%.0f, bölüm bitti=%s (kilitlenme: Baştan başla gerekir)" % [kx, str(sk["bitti_ham"])])
+	# (b) Baştan başla: kutu başlangıç konumunda (920), klonlar silinir.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(kay[0].duplicate(true))
+	var b2: Node = await _bolumu_yukle()
+	var eski: Node = current_scene
+	b2.get_node("EkranButonlari/Kutu/YenidenDugmesi").pressed.emit()
+	var yeni2: Node = await _sahne_degisimini_bekle(eski)
+	var kutu_bas: Vector2 = yeni2.get_node("Kutu").global_position
+	var ok_b: bool = _kayitlar().turlar.size() == 0 and _klonlar(yeni2).size() == 0 and yeni2.bilgi.text.begins_with("Tur 1 ") and absf(kutu_bas.x - 920.0) < 1.0
+	hepsi = hepsi and ok_b
+	ayr.append("Baştan başla: kayıt=%d, klon=%d, etiket=\"%s\", kutu x=%.0f" % [_kayitlar().turlar.size(), _klonlar(yeni2).size(), yeni2.bilgi.text, kutu_bas.x])
+	# (c) cepte ölüm yok (cepte lazer yok); cepten çıkış yalnız Z2: cepte sola yürü, sağa yürü, kare/ölüm.
+	var sc: Dictionary = await _n_senaryo([], [_b13_a(-1, Callable(), 30), _b13_a(1, Callable(), 40), _b13_a(0, Callable(), 100)], _n_yerlestir(Vector2(450, 576)))
+	ok = sc["oldu"] == 0
+	hepsi = hepsi and ok
+	ayr.append("cepte yürüme: ölüm=%d, son (%.0f,%.0f); Z2 sensörü cepten tek çıkış (DuvarW/DuvarCep)" % [sc["oldu"], _n_son(sc).x, _n_son(sc).y])
+	# (d) klonlar G altında bitmez: C_B ve C_C plakada.
+	var tam: Dictionary = await _n_senaryo(kay, [_b13_a(0, Callable(), 330)])
+	var ki: Array = tam["klon_izleri"]
+	var sb: Vector2 = ki[1][ki[1].size() - 1]
+	var sc2: Vector2 = ki[2][ki[2].size() - 1]
+	var ok_d: bool = sb.x > 620.0 and sb.x < 720.0 and sc2.x > 750.0 and sc2.x < 850.0 and not tam["klon_oldu"][0] and not tam["klon_oldu"][1] and not tam["klon_oldu"][2]
+	hepsi = hepsi and ok_d
+	ayr.append("klonlar plakada biter: C_B (%.0f,%.0f), C_C (%.0f,%.0f); G x 590..610 altında değil" % [sb.x, sb.y, sc2.x, sc2.y])
+	# (e) ölü klon yerinde donar: C_B kaydı C_A'sız oynatılır (LazerA'da ölür).
+	var sd: Dictionary = await _n_senaryo([kay[1]], [_b13_a(0, Callable(), 250)])
+	var kz: Array = sd["klon_izleri"][0]
+	var donuk: bool = sd["klon_oldu"][0] and kz[kz.size() - 1] == kz[kz.size() - 40] and kz[kz.size() - 1].x < 345.0
+	hepsi = hepsi and donuk
+	ayr.append("ölü klon: öldü=%s, son (%.0f,%.0f), sabit=%s" % [str(sd["klon_oldu"][0]), kz[kz.size() - 1].x, kz[kz.size() - 1].y, str(donuk)])
+	_kaydi("Bölüm 16 kilitlenme: kutu sola itme, Baştan başla, cep, klon konumları, ölü klon", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b16_determinizm() -> void:
+	var kay: Array = await _n16_kayitlar()
+	await _n_determinizm("Bölüm 16: determinizm (100x çözüm)", kay, _n16_o())
+
+
+# ##CHUNKS##
+# ================================================================ Bölüm 18 (Vardiya)
+# Taslak: docs/devir/bolum_18_taslak.md. C_A: zamanlı plakalı asansörle F2'ye çıkar, PlakaA'da kalır.
+# C_B: aynı yol, PlakaB'de kalır. Oyuncu: aynı yol, rafta S, cepten sola, LazerB/LazerA2/kapı.
+const BOLUM_18 := "res://scenes/bolumler/bolum_18.tscn"
+var _n18_onb: Array = []   # [A, B]
+
+
+## Ortak giriş: gec kare bekle, ZP'den geçip x>=birak_x'te `sag` bırak, asansör tepeye çıkana kadar bekle.
+func _n18_yuk(gec := 0, birak_x := 230.0, tepe_bekle := 250, tepe_dur := 0) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d.append(_b13_a(1, _b4_x_ge(birak_x), 150))
+	d.append(_b13_a(0, _n_gecit_ust("Asansor", 390.5), tepe_bekle))
+	if tepe_dur > 0:
+		d.append(_b13_a(0, Callable(), tepe_dur))
+	return d
+
+
+func _n18_a(gec := 0, bekle := 15, birak_x := 230.0, tepe_dur := 0) -> Array:
+	return _n18_yuk(gec, birak_x, 250, tepe_dur) + [_b13_a(1, _n_plakada("PlakaA"), 200), _b13_a(0, Callable(), bekle)]
+
+
+func _n18_b(gec := 0, bekle := 15, birak_x := 230.0, tepe_dur := 0) -> Array:
+	return _n18_yuk(gec, birak_x, 250, tepe_dur) + [_b13_a(1, _n_plakada("PlakaB"), 300), _b13_a(0, Callable(), bekle)]
+
+
+## Oyuncu: rafta s_x'te `sag` bırakır, S basar (sag_tut: S sırasında sag basılı), cepten sola kapıya.
+func _n18_o(gec := 0, s_x := 780.0, sag_tut := false, birak_x := 230.0) -> Array:
+	var d: Array = _n18_yuk(gec, birak_x) + [_b13_a(1, _b4_x_ge(s_x), 400)]
+	if sag_tut:
+		d += [_b13_a(1, Callable(), 3, false, true)]
+	else:
+		d += [_b13_a(0, Callable(), 1), _b13_a(0, Callable(), 3, false, true)]
+	d += [_b13_a(0, _n_zemin(), 120), _b13_a(-1, _b4_bitti_k(), 300)]
+	return d
+
+
+func _n18_kayitlar() -> Array:
+	if _n18_onb.is_empty():
+		var s1: Dictionary = await _n_senaryo([], _n18_a())
+		var s2: Dictionary = await _n_senaryo([s1["kayit"]], _n18_b())
+		_n18_onb = [s1["kayit"], s2["kayit"]]
+	return _n18_onb
+
+
+func _n_ge_y(ad: String, y: float) -> Callable:
+	return func(b: Node) -> bool: return b.get_node(ad).position.y >= y
+
+
+## Klon i'nin son karedeki konumu.
+func _n_klon_son(s: Dictionary, i: int) -> Vector2:
+	var a: Array = s["klon_izleri"][i]
+	return a[a.size() - 1]
+
+
+func _b18_calistir() -> void:
+	await _test_b18_cozum()
+	await _test_b18_basarisizlik()
+	await _test_b18_atlanamaz()
+	await _test_b18_kisayol()
+	await _test_b18_pencereler()
+	await _test_b18_klon_fark()
+	await _test_b18_tutma()
+	await _test_b18_klon_siniri()
+	await _test_b18_kilitlenme()
+	await _test_b18_determinizm()
+
+
+func _test_b18_cozum() -> void:
+	await _n_cozum("Bölüm 18 çözümü (3 tur, 2 klon, gerçek R/girdi yolu; max_klon 2)", [_n18_a(), _n18_b()], _n18_o(), 2)
+
+
+func _test_b18_basarisizlik() -> void:
+	var kay: Array = await _n18_kayitlar()
+	var c_a: Array = kay[0]
+	# 1) klonsuz: LazerA'da ölür.
+	var s1: Dictionary = await _n_senaryo([], _n18_o())
+	var p1: Vector2 = _n_son(s1)
+	_kaydi("Bölüm 18 başarısızlık 1: klonsuz -> LazerA'da ölür", s1["oldu"] > 0 and not s1["bitti_ham"],
+		"ölüm=%d, son konum (%.0f,%.0f) (ışın x 467..473)" % [s1["oldu"], p1.x, p1.y])
+	# 2) yalnız C_A: oyuncu cepte LazerB'de ölür.
+	var s2: Dictionary = await _n_senaryo([c_a], _n18_o())
+	var p2: Vector2 = _n_son(s2)
+	_kaydi("Bölüm 18 başarısızlık 2: yalnız C_A -> cepte LazerB'de ölür", s2["oldu"] > 0 and not s2["bitti_ham"] and p2.x > 640.0 and p2.x < 700.0,
+		"ölüm=%d, son konum (%.0f,%.0f) (ışın x 637..643)" % [s2["oldu"], p2.x, p2.y])
+	# 3) C_A plakaya 60 kare geç basar -> C_B LazerA'da ölür.
+	var a_gec: Array = (await _n_senaryo([], _n18_a(60)))["kayit"]
+	var s3: Dictionary = await _n_senaryo([a_gec], _n18_b())
+	_kaydi("Bölüm 18 başarısızlık 3: C_A 60 kare geç basar -> C_B LazerA'da ölür", s3["oldu"] > 0 and not s3["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s3["oldu"], _n_son(s3).x, _n_son(s3).y])
+	# 4) C_A plakaya değer değmez sola yürür -> LazerA açık; C_B ölür.
+	var a_erken: Array = (await _n_senaryo([], _n18_yuk() + [_b13_a(1, _n_plakada("PlakaA"), 200), _b13_a(-1, _b4_x_le(330.0), 100), _b13_a(0, Callable(), 100)]))["kayit"]
+	var s4: Dictionary = await _n_senaryo([a_erken], _n18_b())
+	_kaydi("Bölüm 18 başarısızlık 4: C_A plakadan hemen ayrılır -> C_B LazerA'da ölür", s4["oldu"] > 0 and not s4["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s4["oldu"], _n_son(s4).x, _n_son(s4).y])
+	# 5) C_B PlakaB'den ayrılır -> oyuncu cepte LazerB'de ölür.
+	var b_erken: Array = (await _n_senaryo([c_a], _n18_yuk() + [_b13_a(1, _n_plakada("PlakaB"), 300), _b13_a(-1, _b4_x_le(450.0), 100), _b13_a(0, Callable(), 150)]))["kayit"]
+	var s5: Dictionary = await _n_senaryo([c_a, b_erken], _n18_o())
+	_kaydi("Bölüm 18 başarısızlık 5: C_B PlakaB'den ayrılır -> oyuncu LazerB'de ölür", s5["oldu"] > 0 and not s5["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s5["oldu"], _n_son(s5).x, _n_son(s5).y])
+	# 6) asansörde `sag` bırakılmaz: tepeye yürünürken kenardan F1'e düşer, F2'ye çıkılmaz.
+	var s6: Dictionary = await _n_senaryo([c_a], [_b13_a(1, Callable(), 400)])
+	_kaydi("Bölüm 18 başarısızlık 6: asansörde `sag` bırakılmaz -> F2'ye çıkılmaz", not s6["bitti_ham"] and _n_olc(s6)["ymax"] > 500.0,
+		"en büyük y=%.1f (F1 merkez 576), ölüm=%d, son (%.0f,%.0f)" % [_n_olc(s6)["ymax"], s6["oldu"], _n_son(s6).x, _n_son(s6).y])
+	# 7) rafta çok erken S (x=700 < 720): DosemeA destekler, etkisiz.
+	var s7: Dictionary = await _n_senaryo([c_a, kay[1]], _n18_yuk() + [_b13_a(1, _b4_x_ge(700.0), 400), _b13_a(0, Callable(), 1),
+		_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 60)])
+	_kaydi("Bölüm 18 başarısızlık 7: raf başından çok önce S (x=700) -> düşmez", _n_son(s7).y < 370.0 and s7["oldu"] == 0,
+		"son (%.1f,%.1f) (F2 yüzeyi 380 -> merkez 356)" % [_n_son(s7).x, _n_son(s7).y])
+	# 8) rafta `sag` basılı S: sürüklenir, BlokR'ye yaslanır, yine cebe iner (taslak: zarar yok).
+	var s8: Dictionary = await _n_senaryo(kay, _n18_o(0, 780.0, true))
+	_kaydi("Bölüm 18 ölçüm 8: rafta `sag` basılı S -> cebe iner, yine biter (taslak §9.7)", s8["bitti_ham"] and s8["oldu"] == 0,
+		"bitti=%s ölüm=%d en büyük x=%.0f" % [s8["bitti_ham"], s8["oldu"], _n_olc(s8)["xmax"]])
+	# 9) ZP'ye basıp asansöre binmeden yürür: asansör boş çıkar ve geri iner; kilit yok.
+	var s9: Dictionary = await _n_senaryo([], [_b13_a(1, _b4_x_ge(330.0), 150), _b13_a(0, _n_gecit_ust("Asansor", 390.5), 250),
+		_b13_a(0, _n_ge_y("Asansor", 609.5), 450)])
+	_kaydi("Bölüm 18 başarısızlık 9: ZP'ye basıp binmeden yürür -> asansör boş çıkar ve geri iner (kilit yok)", not s9["tamam"].has(false) and s9["oldu"] == 0,
+		"adımlar=%s, toplam kare=%d" % [str(s9["tamam"]), s9["ozel"].size()])
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b18_atlanamaz() -> void:
+	var kay: Array = await _n18_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	for x in [180.0, 320.0, 100.0]:
+		var sa: Dictionary = await _n_senaryo([], _n_spam(0.0, 8), _n_yerlestir(Vector2(x, 576)))
+		var oa: Dictionary = _n_olc(sa)
+		hepsi = hepsi and oa["ayak"] > 440.0
+		ayr.append("F1 x=%.0f dikey zıplama: en yüksek ayak y=%.1f (F2 yüzeyi 380, 220 px > 100,9)" % [x, oa["ayak"]])
+	var sd: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(320, 576)))
+	var od: Dictionary = _n_olc(sd)
+	hepsi = hepsi and od["xmax"] <= 337.0
+	ayr.append("DuvarWK sol alan: en büyük x=%.0f (sol yüz 350-14=336)" % od["xmax"])
+	var sl: Dictionary = await _n_senaryo([], _n_spam(1.0, 10), _n_yerlestir(Vector2(420, 356)))
+	hepsi = hepsi and sl["oldu"] > 0 and _n_olc(sl)["xmax"] < 480.0
+	ayr.append("LazerA zıplayarak: ölüm=%d, en büyük x=%.0f (ışın 467..473)" % [sl["oldu"], _n_olc(sl)["xmax"]])
+	var s2: Dictionary = await _n_senaryo([], _n_spam(-1.0, 10), _n_yerlestir(Vector2(600, 576)))
+	hepsi = hepsi and s2["oldu"] > 0 and _n_olc(s2)["xmin"] > 530.0
+	ayr.append("LazerA2 zıplayarak: ölüm=%d, en küçük x=%.0f (ışın 537..543)" % [s2["oldu"], _n_olc(s2)["xmin"]])
+	var sb: Dictionary = await _n_senaryo([], _n_spam(-1.0, 10), _n_yerlestir(Vector2(760, 576)))
+	hepsi = hepsi and sb["oldu"] > 0 and _n_olc(sb)["xmin"] > 625.0
+	ayr.append("LazerB zıplayarak: ölüm=%d, en küçük x=%.0f (ışın 637..643)" % [sb["oldu"], _n_olc(sb)["xmin"]])
+	var sc: Dictionary = await _n_senaryo(kay, _n_spam(0.0, 10), _n_yerlestir(Vector2(790, 576)))
+	hepsi = hepsi and _n_olc(sc)["ayak"] > 450.0
+	ayr.append("cepten dikey zıplama: en yüksek ayak y=%.1f (raf üstü 380)" % _n_olc(sc)["ayak"])
+	var st: Dictionary = await _n_senaryo([], _n_spam(0.0, 6), _n_yerlestir(Vector2(500, 356)))
+	hepsi = hepsi and _n_olc(st)["ayak"] - 48.0 >= 180.0
+	ayr.append("F2 tavan: en yüksek baş y=%.1f (tavan alt kenarı 180)" % (_n_olc(st)["ayak"] - 48.0))
+	var sk: Dictionary = await _n_senaryo([], _n_spam(1.0, 10), _n_yerlestir(Vector2(296, 576)))
+	hepsi = hepsi and _n_olc(sk)["ayak"] > 440.0
+	ayr.append("kuyu sağı sağ+zıpla: en yüksek ayak y=%.1f" % _n_olc(sk)["ayak"])
+	_kaydi("Bölüm 18 atlanamazlık (kat boşluğu, DuvarWK, üç lazer zıplayarak, cep dönüşü, tavan)", hepsi, "; ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b18_kisayol() -> void:
+	var kay: Array = await _n18_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	var ayr: Array = []
+	var hepsi := true
+	var b0: Node = await _bolumu_yukle()
+	var var_olan: String = _n_var_olanlar(b0, ["Kutu", "Bant", "Salter", "Gecit", "Z1", "Mandal", "Ziplatici"])
+	paused = false
+	hepsi = hepsi and var_olan == ""
+	ayr.append("sahnede kutu/bant/şalter/geçit/zıplatıcı/mandal: [%s] (yok olmalı)" % var_olan)
+	var oyuncu_st: Array = [_n18_o(), _n18_o(0, 735.0), _n18_o(0, 825.0), _n18_o(0, 780.0, true), [_b13_a(1, Callable(), 500)],
+		_n18_yuk() + [_b13_a(1, Callable(), 400)], _n18_yuk() + [_b13_a(1, _b4_x_ge(700.0), 300), _b13_a(0, Callable(), 3, false, true),
+		_b13_a(-1, Callable(), 300)]]
+	var kb: Array = []
+	for st in oyuncu_st:
+		if await _n_bitirir([], st):
+			kb.append(1)
+	hepsi = hepsi and kb.is_empty()
+	ayr.append("klonsuz x 7 strateji: bitiren=%d" % kb.size())
+	var c_b_kor: Array = (await _n_senaryo([], _n18_b()))["kayit"]
+	var z_klon: Array = (await _n_senaryo([], [_b13_a(1, _n_plakada("PlakaZ"), 100), _b13_a(0, Callable(), 300)]))["kayit"]
+	var park: Array = (await _n_senaryo([], [_b13_a(1, _b4_x_ge(330.0), 150), _b13_a(0, Callable(), 500)]))["kayit"]
+	var tek_ad: Array = ["C_A", "C_B(kör)", "ZP-bekleyen", "F1 park"]
+	var tekler: Array = [c_a, c_b_kor, z_klon, park]
+	var biten: Array = []
+	for i in range(tekler.size()):
+		for st in oyuncu_st:
+			if await _n_bitirir([tekler[i]], st):
+				biten.append(tek_ad[i])
+	hepsi = hepsi and biten.is_empty()
+	ayr.append("tek klon (4 rol x 7 strateji): bitiren=%s" % str(biten))
+	var rbit: Array = []
+	for t in [0, 20, 40, 80, 120, 160]:
+		var r: Dictionary = await _n_senaryo([], _n18_yuk() + [_b13_a(1, _n_plakada("PlakaA"), 100), _b13_a(0, Callable(), t),
+			_b13_a(1, _n_plakada("PlakaB"), 300), _b13_a(0, Callable(), 20)])
+		for st in oyuncu_st:
+			if await _n_bitirir([r["kayit"]], st):
+				rbit.append(t)
+	hepsi = hepsi and rbit.is_empty()
+	ayr.append("röle (A'dan B'ye, T=0..160 x 7 strateji): bitiren=%s" % str(rbit))
+	var iki: Array = [["A+A", [c_a, c_a]], ["B+B", [c_b, c_b]], ["A+B", [c_a, c_b]], ["B+A", [c_b, c_a]], ["A+ZP", [c_a, z_klon]],
+		["Bkör+A", [c_b_kor, c_a]]]
+	var biten2: Array = []
+	for k in iki:
+		if await _n_bitirir(k[1], _n18_o()):
+			biten2.append(k[0])
+	hepsi = hepsi and biten2 == ["A+B", "B+A"]
+	ayr.append("iki klon kümeleri bitirenler=%s (yalnız A+B / B+A beklenir)" % str(biten2))
+	var tam: Dictionary = await _n_senaryo(kay, _n18_o())
+	var f_ab := -1
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if o["PlakaA"] and o["PlakaB"] and f_ab < 0:
+			f_ab = f
+	var f_b := -1
+	var f_a2 := -1
+	var f_raf: int = _n_x_kare(tam["iz"], 734.0)
+	for f in range(f_raf, tam["iz"].size()):
+		if tam["iz"][f].y > 500.0 and tam["iz"][f].x <= 657.0 and f_b < 0:
+			f_b = f
+		if tam["iz"][f].y > 500.0 and tam["iz"][f].x <= 557.0 and f_a2 < 0:
+			f_a2 = f
+	var ok5: bool = tam["bitti_ham"] and f_ab >= 0 and f_b > f_ab and f_a2 > f_b
+	hepsi = hepsi and ok5
+	ayr.append("min klon 2: bitti=%s, A+B birlikte basılı ilk kare=%d, LazerB ışınına kare %d, LazerA2 kare %d (taslak ~309/~329)" % [tam["bitti_ham"], f_ab, f_b, f_a2])
+	var inen: Array = []
+	for x in range(310, 840, 20):
+		var ss: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 45)],
+			_n_yerlestir(Vector2(float(x), 356)))
+		if _n_son(ss).y > 430.0:
+			inen.append(x)
+	var inen_ok := true
+	for x in inen:
+		inen_ok = inen_ok and x >= 730
+	hepsi = hepsi and inen_ok and inen.size() > 0
+	ayr.append("S ile DosemeA/raf üstünden inenler (x 310..830, 20 px adım): %s (yalnız raf, x>=730 beklenir)" % str(inen))
+	_kaydi("Bölüm 18 kısayol taraması (klonsuz, 1 klon, röle, park, ZP, iki klon, min klon 2, S inişleri)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b18_pencereler() -> void:
+	var kay: Array = await _n18_kayitlar()
+	var c_a: Array = kay[0]
+	var ayr: Array = []
+	var hepsi := true
+	var tam: Dictionary = await _n_senaryo(kay, _n18_o())
+	var zp_son := -1
+	var f_tepe := -1
+	var f_cik := -1
+	for f in range(tam["ozel"].size()):
+		if tam["ozel"][f]["PlakaZ_f"]:
+			zp_son = f
+		if f_tepe < 0 and tam["iz"][f].y <= 356.5:
+			f_tepe = f
+		if f_cik < 0 and tam["iz"][f].x >= 304.0 and tam["iz"][f].y <= 360.0:
+			f_cik = f
+	var fitil_pay: int = zp_son + 180 - f_cik
+	ayr.append("ZP son fiziksel kare=%d, tepeye varış kare=%d, F2'ye çıkış (x>=304) kare=%d -> fitil payı %d kare (fitil sonu %d; taslak ~78)" % [zp_son, f_tepe, f_cik, fitil_pay, zp_son + 180])
+	hepsi = hepsi and fitil_pay >= 30
+	var vs: Array = []
+	for x in range(166, 306, 4):
+		vs.append(x)
+	var ok1: Array = await _n_sup(vs, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([], _n18_a(0, 10, float(v)))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var lo := _n_en_kucuk(vs, ok1)
+	var hi := _n_en_buyuk(vs, ok1)
+	ayr.append("W1 biniş `sag` bırakma x (4 px adım): başarılı %s -> %d..%d (~%d px; taslak 196..264 = 68 px; asansör x 170..290)" % [_n_ar(vs, ok1), lo, hi, hi - lo + 4])
+	hepsi = hepsi and lo > 0 and hi - lo >= 40
+	var vd: Array = []
+	for d in range(0, 161, 8):
+		vd.append(d)
+	var okd: Array = await _n_sup(vd, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([], _n18_yuk() + [_b13_a(0, Callable(), v), _b13_a(1, _n_plakada("PlakaA"), 200), _b13_a(0, Callable(), 10)])
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	ayr.append("W2 tepede duraksama (kare): başarılı %s (en çok %d)" % [_n_ar(vd, okd), _n_en_buyuk(vd, okd)])
+	hepsi = hepsi and _n_pen(vd, okd, 0)
+	var vg: Array = []
+	for d in range(0, 61, 2):
+		vg.append(d)
+	var okg: Array = await _n_sup(vg, func(v: int) -> bool:
+		var a2: Array = (await _n_senaryo([], _n18_a(0, 15, 230.0, v)))["kayit"]
+		var s: Dictionary = await _n_senaryo([a2], _n18_b(0, 10))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	var w3 := _n_en_buyuk(vg, okg)
+	ayr.append("W3 C_A tepede bekleme (kare; asansör fitili 64 ile sınırlı): C_B başarılı %s (en çok %d kare = %d px; taslak pay ~23)" % [_n_ar(vg, okg), w3, w3 * 5])
+	hepsi = hepsi and _n_pen(vg, okg, 0) and w3 >= 4
+	var vh: Array = []
+	for d in range(0, 201, 8):
+		vh.append(d)
+	var okh: Array = await _n_sup(vh, func(v: int) -> bool:
+		var b2: Array = (await _n_senaryo([c_a], _n18_b(0, 10, 230.0, v)))["kayit"]
+		return await _n_bitirir([c_a, b2], _n18_o()))
+	var w5 := _n_en_buyuk(vh, okh)
+	ayr.append("W5 C_B tepede bekleme (kare): oyuncu başarılı %s (en çok %d kare = %d px; taslak pay ~99)" % [_n_ar(vh, okh), w5, w5 * 5])
+	hepsi = hepsi and _n_pen(vh, okh, 0) and w5 >= 16
+	var vx: Array = []
+	for x in range(700, 846, 3):
+		vx.append(x)
+	var okx: Array = await _n_sup(vx, func(v: int) -> bool: return await _n_bitirir(kay, _n18_o(0, float(v))))
+	var xlo := _n_en_kucuk(vx, okx)
+	var xhi := _n_en_buyuk(vx, okx)
+	ayr.append("W4 raf S konumu (`sag` bırakma merkez x; 826 üstü BlokR duvarı = aynı): başarılı %s -> %d..%d (~%d px; taslak 734..826 = 92 px)" % [_n_ar(vx, okx), xlo, xhi, xhi - xlo + 3])
+	hepsi = hepsi and xhi - xlo >= 30
+	ayr.append("oyuncu turu %d kare (<=600, pay %d)" % [tam["kare"], 600 - tam["kare"]])
+	hepsi = hepsi and tam["kare"] <= 600
+	_kaydi("Bölüm 18 zamanlama payları (fitil, W1 biniş, W2 tepe, W3/W5 klon payları, W4 raf S)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b18_klon_fark() -> void:
+	var kay: Array = await _n18_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	for k in [["C_A", [], _n18_a()], ["C_B", [kay[0]], _n18_b()], ["Oyuncu", kay, _n18_o()]]:
+		var r: Dictionary = await _n_klon_fark(k[1], k[2])
+		ayr.append("%s canlı/klon en büyük konum farkı %.2f px (ilk sapma kare %d)" % [k[0], r["fark"], r["ilk"]])
+		hepsi = hepsi and r["fark"] <= 0.5
+	_kaydi("Bölüm 18 ölçüm: canlı kayıt vs klon tekrarı konum farkı (üst sınır 0,5 px)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b18_tutma() -> void:
+	var ayr: Array = []
+	var hepsi := true
+	aktif_bolum = BOLUM_18
+	var r: Dictionary = await _n_tutma_olc("PlakaZ", Vector2(120, 576), 260)
+	ayr.append("ZP: ilk basılı kare=%d, son fiziksel kare=%d, sonra basılı kalan=%d kare (beklenen tam 180)" % [r["ilk_basili"], r["son_fiziksel"], r["kalan"]])
+	hepsi = hepsi and r["kalan"] == 180
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	for i in range(40):
+		_girdi_uygula({"yon": 1.0, "zipla": false})
+		await physics_frame
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	var onc: bool = bolum.get_node("PlakaZ").basili_mi()
+	var eski_id := bolum.get_instance_id()
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var z_yeni: bool = yeni.get_node("PlakaZ").basili_mi()
+	var a_y: float = yeni.get_node("Asansor").position.y
+	var kalan: int = yeni.get_node("PlakaZ").kalan_kare
+	ayr.append("tur başı sıfırlama: R öncesi ZP basılı=%s; yeni turda ZP basılı=%s, kalan_kare=%d, asansör y=%.0f (alt 610)" % [str(onc), str(z_yeni), kalan, a_y])
+	hepsi = hepsi and z_yeni == false and kalan == 0 and absf(a_y - 610.0) < 0.5
+	_kaydi("Bölüm 18: zamanlı plaka tam 180 kare, tur başı sıfırlama", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b18_klon_siniri() -> void:
+	await _n_klon_siniri("Bölüm 18: klon sınırı (üçüncü R klon kaydetmez)", 2)
+
+
+func _test_b18_kilitlenme() -> void:
+	var kay: Array = await _n18_kayitlar()
+	var c_a: Array = kay[0]
+	var ayr: Array = []
+	var hepsi := true
+	# (a) cepte ölüm: yalnız C_A varken cepten sola: LazerB öldürür, tur yeniden başlar, klon korunur.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(c_a.duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	bolum.get_node("Oyuncu").global_position = Vector2(760, 576)
+	var sayac := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var eski_id := bolum.get_instance_id()
+	await _n_kosullu(bolum, [_b13_a(-1, Callable(), 80)], sayac)
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var etiket := ""
+	var ok: bool = sayac[0] > 0 and yeni != null and _kayitlar().turlar.size() == 1
+	if yeni != null:
+		etiket = yeni.bilgi.text
+		ok = ok and _klonlar(yeni).size() == 1 and etiket.contains("Tur 2") and etiket.contains("1/2")
+	hepsi = hepsi and ok
+	ayr.append("cepte ölüm: ölüm=%d, kayıtlı tur=%d, etiket=\"%s\"" % [sayac[0], _kayitlar().turlar.size(), etiket])
+	# (b) asansöre geç binen: ZP'ye basıp binmeden ayrılır, asansör iner; geri dönüp biner, F2'ye çıkar.
+	var sg: Dictionary = await _n_senaryo([], [_b13_a(1, _b4_x_ge(330.0), 150), _b13_a(0, _n_gecit_ust("Asansor", 390.5), 250),
+		_b13_a(0, _n_ge_y("Asansor", 609.5), 450), _b13_a(-1, _b4_x_le(225.0), 100), _b13_a(0, _n_gecit_ust("Asansor", 390.5), 250),
+		_b13_a(1, _b4_x_ge(320.0), 100), _b13_a(0, Callable(), 10)])
+	var son: Vector2 = _n_son(sg)
+	var ok_b: bool = not sg["tamam"].has(false) and sg["oldu"] == 0 and son.y < 370.0 and son.x >= 300.0
+	hepsi = hepsi and ok_b
+	ayr.append("geç binen: adımlar=%s, son (%.0f,%.0f), ölüm=%d (F2'ye çıkabildi)" % [str(sg["tamam"]), son.x, son.y, sg["oldu"]])
+	# (c) cepten dönüş yok.
+	var sk: Dictionary = await _n_senaryo([c_a], _n_spam(0.0, 12), _n_yerlestir(Vector2(790, 576)))
+	var ok_c: bool = _n_olc(sk)["ayak"] > 450.0 and sk["oldu"] == 0
+	hepsi = hepsi and ok_c
+	ayr.append("cepte zıplama en yüksek ayak y=%.1f (F2 yüzeyi 380): F2'ye dönüş yok (çıkış: R/Baştan başla)" % _n_olc(sk)["ayak"])
+	# (d) Baştan başla.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(c_a.duplicate(true))
+	var b2: Node = await _bolumu_yukle()
+	var eski: Node = current_scene
+	b2.get_node("EkranButonlari/Kutu/YenidenDugmesi").pressed.emit()
+	var yeni2: Node = await _sahne_degisimini_bekle(eski)
+	var ok_d: bool = _kayitlar().turlar.size() == 0 and _klonlar(yeni2).size() == 0 and yeni2.bilgi.text.begins_with("Tur 1 ")
+	hepsi = hepsi and ok_d
+	ayr.append("Baştan başla: kayıt=%d, klon=%d, etiket=\"%s\"" % [_kayitlar().turlar.size(), _klonlar(yeni2).size(), yeni2.bilgi.text])
+	# (e) klonlar plakada biter ve ölmez.
+	var tam: Dictionary = await _n_senaryo(kay, [_b13_a(0, Callable(), 320)])
+	var sa: Vector2 = _n_klon_son(tam, 0)
+	var sb: Vector2 = _n_klon_son(tam, 1)
+	var ok_e: bool = sa.x > 335.0 and sa.x < 410.0 and sb.x > 555.0 and sb.x < 630.0 and not tam["klon_oldu"][0] and not tam["klon_oldu"][1]
+	hepsi = hepsi and ok_e
+	ayr.append("klonlar plakada biter: C_A (%.0f,%.0f), C_B (%.0f,%.0f)" % [sa.x, sa.y, sb.x, sb.y])
+	_kaydi("Bölüm 18 kilitlenme: cepte ölüm, asansöre geç binen, cepten dönüş yok, Baştan başla, klon konumları", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b18_determinizm() -> void:
+	var kay: Array = await _n18_kayitlar()
+	await _n_determinizm("Bölüm 18: determinizm (100x çözüm)", kay, _n18_o())
+
+
+# ================================================================ Bölüm 19 (Karşı Ağırlık) — ARŞİVLENDİ
+# Bölüm 19 (Karşı Ağırlık) kullanıcı kararıyla oyundan kaldırıldı (eski Bölüm 20, yeni Bölüm 19 "Büyük Saat" ile çok benziyordu); sahnesi
+# scenes/bolumler/arsiv/bolum_19_arsiv.tscn altında, testleri kaldırıldı. Eski 20/21/22 -> yeni 19/20/21 (docs/devir/numara_esleme.md).
+
+
+# ================================================================ Bölüm 19 (Büyük Saat)
+# Taslak: docs/devir/bolum_19_taslak.md. C_A: Z1 ile F2, PlakaA'da kalır. C_H: Z1, LazerA, PlakaL'de ~150 kare durur
+# (asansör yukarıda), sonra PlakaX'e geçer (DEVİR) ve orada kalır. C_B: Z1, LazerA, asansöre biner, F3, bant, G, rafta S,
+# odada PlakaB'de kalır. Oyuncu: C_B yolu, LazerB, şalter "geri bas", LazerS, kapı.
+const BOLUM_19 := "res://scenes/bolumler/bolum_19.tscn"
+var _n19_onb: Array = []   # [A, H, B]
+
+
+## Z1 uçuşu: gec kare bekle, Z1 sensörüne (x>=z_x) girince `sag` z_kes kare bırak, F2'ye çıkana kadar (y<=360) sağa.
+func _n19_f2(gec := 0, z_kes := 0) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d.append(_b13_a(1, _b4_x_ge(125.0), 200))
+	if z_kes > 0:
+		d.append(_b13_a(0, Callable(), z_kes))
+	d.append(_b13_a(1, _n_y_le(360.0), 200))
+	return d
+
+
+func _n19_a(gec := 0, bekle := 15, z_kes := 0) -> Array:
+	return _n19_f2(gec, z_kes) + [_b13_a(1, _n_plakada("PlakaA"), 200), _b13_a(0, Callable(), bekle)]
+
+
+## C_H: PlakaL'de l_dur kare durur, sonra PlakaX'e geçer ve orada kalır.
+func _n19_h(gec := 0, l_dur := 150, bekle := 15, z_kes := 0) -> Array:
+	return _n19_f2(gec, z_kes) + [_b13_a(1, _n_plakada("PlakaL"), 300), _b13_a(0, Callable(), l_dur),
+		_b13_a(1, _n_plakada("PlakaX"), 100), _b13_a(0, Callable(), bekle)]
+
+
+## C_B / oyuncu ortak yolu: asansöre biner (bin_x'te `sag` bırakır), tepede çıkar, bantı/G'yi geçer, rafta s_x'te S.
+func _n19_yol(gec := 0, bin_x := 470.0, s_x := 870.0, sag_tut := false, tepe_dur := 0, z_kes := 0) -> Array:
+	var d: Array = _n19_f2(gec, z_kes)
+	d.append(_b13_a(1, _b4_x_ge(bin_x), 300))
+	d.append(_b13_a(0, _n_gecit_ust("Asansor", 170.5), 400))
+	if tepe_dur > 0:
+		d.append(_b13_a(0, Callable(), tepe_dur))
+	d.append(_b13_a(1, _b4_x_ge(s_x), 500))
+	if sag_tut:
+		d.append(_b13_a(1, Callable(), 3, false, true))
+	else:
+		d += [_b13_a(0, Callable(), 1), _b13_a(0, Callable(), 3, false, true)]
+	d.append(_b13_a(0, _n_zemin(), 120))
+	return d
+
+
+func _n19_b(gec := 0, bekle := 15, bin_x := 470.0, s_x := 870.0, tepe_dur := 0) -> Array:
+	return _n19_yol(gec, bin_x, s_x, false, tepe_dur) + [_b13_a(1, _n_plakada("PlakaB"), 100), _b13_a(0, Callable(), bekle)]
+
+
+## Oyuncu: odada LazerB'yi geçer, sol_x'te `sol` bir kare (şalter geri bas), sonra kapıya.
+func _n19_o(gec := 0, bin_x := 470.0, s_x := 870.0, sag_tut := false, sol_x := 1030.0, geri_bas := true, tepe_dur := 0) -> Array:
+	var d: Array = _n19_yol(gec, bin_x, s_x, sag_tut, tepe_dur)
+	if geri_bas:
+		d += [_b13_a(1, _b4_x_ge(sol_x), 300), _b13_a(-1, Callable(), 1)]
+	d.append(_b13_a(1, _b4_bitti_k(), 300))
+	return d
+
+
+func _n19_kayitlar() -> Array:
+	if _n19_onb.is_empty():
+		var s1: Dictionary = await _n_senaryo([], _n19_a())
+		var s2: Dictionary = await _n_senaryo([s1["kayit"]], _n19_h())
+		var s3: Dictionary = await _n_senaryo([s1["kayit"], s2["kayit"]], _n19_b())
+		_n19_onb = [s1["kayit"], s2["kayit"], s3["kayit"]]
+	return _n19_onb
+
+
+func _b19_calistir() -> void:
+	await _test_b19_cozum()
+	await _test_b19_basarisizlik()
+	await _test_b19_atlanamaz()
+	await _test_b19_kisayol()
+	await _test_b19_pencereler()
+	await _test_b19_klon_fark()
+	await _test_b19_tutma()
+	await _test_b19_klon_siniri()
+	await _test_b19_kilitlenme()
+	await _test_b19_determinizm()
+
+
+func _test_b19_cozum() -> void:
+	await _n_cozum("Bölüm 19 çözümü (4 tur, 3 klon, gerçek R/girdi yolu)", [_n19_a(), _n19_h(), _n19_b()], _n19_o(), 3)
+
+
+func _test_b19_basarisizlik() -> void:
+	var kay: Array = await _n19_kayitlar()
+	var c_a: Array = kay[0]
+	var c_h: Array = kay[1]
+	var c_b: Array = kay[2]
+	# 1) klonsuz: LazerA'da ölür.
+	var s1: Dictionary = await _n_senaryo([], _n19_o())
+	_kaydi("Bölüm 19 başarısızlık 1: klonsuz -> LazerA'da ölür", s1["oldu"] > 0 and not s1["bitti_ham"] and _n_son(s1).x > 300.0 and _n_son(s1).x < 345.0,
+		"ölüm=%d, son (%.0f,%.0f) (ışın 337..343)" % [s1["oldu"], _n_son(s1).x, _n_son(s1).y])
+	# 2) yalnız C_A: asansör kalkmaz, oyuncu çıkamaz.
+	var s2: Dictionary = await _n_senaryo([c_a], _n19_o())
+	_kaydi("Bölüm 19 başarısızlık 2: yalnız C_A -> asansör yükselmez, oyuncu F3'e çıkamaz", not s2["bitti_ham"] and s2["tamam"].has(false) and s2["oldu"] == 0,
+		"adımlar=%s, ölüm=%d, son (%.0f,%.0f)" % [str(s2["tamam"]), s2["oldu"], _n_son(s2).x, _n_son(s2).y])
+	# 3) C_A + C_H, C_B yok: oyuncu odada LazerB'de ölür.
+	var s3: Dictionary = await _n_senaryo([c_a, c_h], _n19_o())
+	_kaydi("Bölüm 19 başarısızlık 3: C_B yok -> oyuncu odada LazerB'de ölür", s3["oldu"] > 0 and not s3["bitti_ham"] and _n_son(s3).x > 900.0 and _n_son(s3).x < 945.0,
+		"ölüm=%d, son (%.0f,%.0f) (ışın 942..948)" % [s3["oldu"], _n_son(s3).x, _n_son(s3).y])
+	# 4) C_H devir yapmaz (PlakaL'de kalır): G kapalı, binenler G'de takılır.
+	var h_devirsiz: Array = (await _n_senaryo([c_a], _n19_f2() + [_b13_a(1, _n_plakada("PlakaL"), 300), _b13_a(0, Callable(), 400)]))["kayit"]
+	var s4: Dictionary = await _n_senaryo([c_a, h_devirsiz, c_b], _n19_o())
+	_kaydi("Bölüm 19 başarısızlık 4: C_H devir yapmaz -> G kapalı kalır, oyuncu G'de takılır, bölüm bitmez", not s4["bitti_ham"] and s4["oldu"] == 0 and _n_olc(s4)["xmax"] < 770.0,
+		"adımlar=%s, ölüm=%d, en büyük x=%.0f (G sol yüz 780-14=766)" % [str(s4["tamam"]), s4["oldu"], _n_olc(s4)["xmax"]])
+	# 5) C_H PlakaL'den erken (60 kare sonra) devreder: asansör iner, binenler çıkamaz.
+	var h_erken: Array = (await _n_senaryo([c_a], _n19_h(0, 60)))["kayit"]
+	var s5: Dictionary = await _n_senaryo([c_a, h_erken, c_b], _n19_o())
+	_kaydi("Bölüm 19 başarısızlık 5: C_H 60 kare sonra devreder -> asansör iner, oyuncu F3'e çıkamaz", not s5["bitti_ham"] and s5["oldu"] == 0,
+		"adımlar=%s, ölüm=%d, son (%.0f,%.0f)" % [str(s5["tamam"]), s5["oldu"], _n_son(s5).x, _n_son(s5).y])
+	# 6) asansöre geç biniş (40 kare bekleme): çıkış yok.
+	var s6: Dictionary = await _n_senaryo(kay, _n19_o(40))
+	_kaydi("Bölüm 19 başarısızlık 6: asansöre geç biniş (başlangıçta 40 kare bekleme) -> asansör yukarıda, oyuncu çıkamaz", not s6["bitti_ham"] and s6["oldu"] == 0,
+		"adımlar=%s, ölüm=%d, son (%.0f,%.0f)" % [str(s6["tamam"]), s6["oldu"], _n_son(s6).x, _n_son(s6).y])
+	# 7) rafta erken S (x=800 < 810): DosemeF3b destekler.
+	var s7: Dictionary = await _n_senaryo(kay, _n19_yol(0, 470.0, 800.0) + [_b13_a(0, Callable(), 40)])
+	_kaydi("Bölüm 19 başarısızlık 7: raf başından önce S (x=800) -> düşmez", _n_son(s7).y < 180.0 and s7["oldu"] == 0,
+		"son (%.1f,%.1f) (F3 yüzeyi 160 -> merkez 136)" % [_n_son(s7).x, _n_son(s7).y])
+	# 8) rafta `sag` basılı S: sürüklenme, BlokF3R'ye yaslanır, yine iner ve biter.
+	var s8: Dictionary = await _n_senaryo(kay, _n19_o(0, 470.0, 870.0, true))
+	_kaydi("Bölüm 19 ölçüm 8: rafta `sag` basılı S -> iner, yine biter (taslak §9.7)", s8["bitti_ham"] and s8["oldu"] == 0,
+		"bitti=%s ölüm=%d" % [s8["bitti_ham"], s8["oldu"]])
+	# 9) C_B 60 kare gecikir: oyuncu odaya önce iner -> LazerB'de ölür.
+	var b_gec: Array = (await _n_senaryo([c_a, c_h], _n19_b(0, 15, 470.0, 870.0, 60)))["kayit"]
+	var s9: Dictionary = await _n_senaryo([c_a, c_h, b_gec], _n19_o())
+	_kaydi("Bölüm 19 başarısızlık 9: C_B 60 kare gecikir -> oyuncu LazerB'de ölür", s9["oldu"] > 0 and not s9["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s9["oldu"], _n_son(s9).x, _n_son(s9).y])
+	# 10) şalter geri bas yok: LazerS öldürücü kalır.
+	var s10: Dictionary = await _n_senaryo(kay, _n19_o(0, 470.0, 870.0, false, 1030.0, false))
+	_kaydi("Bölüm 19 başarısızlık 10: şalter geri basılmaz -> LazerS'de ölür", s10["oldu"] > 0 and not s10["bitti_ham"] and _n_son(s10).x > 1040.0,
+		"ölüm=%d, son (%.0f,%.0f) (ışın 1072..1078)" % [s10["oldu"], _n_son(s10).x, _n_son(s10).y])
+	# 11) şalter geri bas çok erken (SolAlan içinde): şalter geri sağa döner -> ölür.
+	var s11: Dictionary = await _n_senaryo(kay, _n19_o(0, 470.0, 870.0, false, 1005.0, true))
+	_kaydi("Bölüm 19 başarısızlık 11: şalter erken geri basılır (x=1005) -> tekrar sağa döner, LazerS'de ölür", s11["oldu"] > 0 and not s11["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s11["oldu"], _n_son(s11).x, _n_son(s11).y])
+	# 12) Z1 uçuşunda `sag` uzun bırakılır: F2'ye çıkış/plaka alınamaz (ölçüm).
+	var s12: Dictionary = await _n_senaryo([], _n19_a(0, 15, 40))
+	_kaydi("Bölüm 19 başarısızlık 12: Z1 uçuşunda `sag` 40 kare bırakılır -> C_A plakaya varamaz (ölçüm)", s12["tamam"].has(false) or s12["oldu"] > 0 or s12["kare"] > 600,
+		"adımlar=%s, ölüm=%d, kare=%d, son (%.0f,%.0f)" % [str(s12["tamam"]), s12["oldu"], s12["kare"], _n_son(s12).x, _n_son(s12).y])
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b19_atlanamaz() -> void:
+	var kay: Array = await _n19_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	for x in [90.0, 320.0]:
+		var sa: Dictionary = await _n_senaryo([], _n_spam(0.0, 8), _n_yerlestir(Vector2(x, 576)))
+		hepsi = hepsi and _n_olc(sa)["ayak"] > 440.0
+		ayr.append("F1 x=%.0f dikey zıplama: en yüksek ayak y=%.1f (F2 yüzeyi 380)" % [x, _n_olc(sa)["ayak"]])
+	# klonsuz sağ+zıpla spam (Z1 dahil): LazerA'yı aşamaz.
+	var sz: Dictionary = await _n_senaryo([], _n19_f2() + _n_spam(1.0, 16))
+	hepsi = hepsi and sz["oldu"] > 0 and not sz["bitti_ham"] and _n_olc(sz)["xmax"] < 350.0 and _n_olc(sz)["ayak"] > 300.0
+	ayr.append("klonsuz Z1 uçuşu + sağ+zıpla spam: ölüm=%d, en büyük x=%.0f, tepe ayak y=%.1f (Z1 tepe 247 -> ayak 353)" % [sz["oldu"], _n_olc(sz)["xmax"], _n_olc(sz)["ayak"]])
+	# F2 -> F3: asansör aşağıdayken zıplayarak F3'e çıkılmaz.
+	var sf: Dictionary = await _n_senaryo([], _n_spam(0.0, 8), _n_yerlestir(Vector2(470, 356)))
+	hepsi = hepsi and _n_olc(sf)["ayak"] > 270.0
+	ayr.append("asansör üstünde dikey zıplama: en yüksek ayak y=%.1f (F3 yüzeyi 160)" % _n_olc(sf)["ayak"])
+	# F2 sağ ucu / DuvarW2.
+	var sw: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(700, 356)))
+	hepsi = hepsi and _n_olc(sw)["xmax"] <= 707.0
+	ayr.append("DuvarW2 (F2 sağ ucu): en büyük x=%.0f (sol yüz 720-14=706)" % _n_olc(sw)["xmax"])
+	# GecitG kapalı: F3'te DosemeF3b üstünde sağ+zıpla (sol yüz 780 -> gövde 766).
+	var sg: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(745, 136)))
+	hepsi = hepsi and _n_olc(sg)["xmax"] <= 767.0 and not sg["bitti_ham"]
+	ayr.append("GecitG kapalı (F3b): en büyük x=%.0f (766), tavan baş y=%.1f" % [_n_olc(sg)["xmax"], _n_olc(sg)["ayak"] - 48.0])
+	hepsi = hepsi and _n_olc(sg)["ayak"] - 48.0 >= 0.0
+	# LazerB zıplayarak (odada, PlakaB'nin sağında).
+	var sb: Dictionary = await _n_senaryo([], _n_spam(1.0, 10), _n_yerlestir(Vector2(925, 356)))
+	hepsi = hepsi and sb["oldu"] > 0 and _n_olc(sb)["xmax"] < 960.0
+	ayr.append("LazerB zıplayarak: ölüm=%d, en büyük x=%.0f (ışın 942..948)" % [sb["oldu"], _n_olc(sb)["xmax"]])
+	# LazerS zıplayarak (şalter sağda).
+	var ss: Dictionary = await _n_senaryo([], _n_spam(1.0, 10), _n_yerlestir(Vector2(1045, 356)))
+	hepsi = hepsi and ss["oldu"] > 0 and _n_olc(ss)["xmax"] < 1085.0
+	ayr.append("LazerS zıplayarak (şalter sağda): ölüm=%d, en büyük x=%.0f (ışın 1072..1078)" % [ss["oldu"], _n_olc(ss)["xmax"]])
+	# Odadan F3'e dönüş yok.
+	var so: Dictionary = await _n_senaryo(kay, _n_spam(0.0, 10), _n_yerlestir(Vector2(1050, 356)))
+	hepsi = hepsi and _n_olc(so)["ayak"] > 270.0
+	ayr.append("odadan dikey zıplama (x=1050): en yüksek ayak y=%.1f" % _n_olc(so)["ayak"])
+	# F2 tavan (200..380).
+	var st: Dictionary = await _n_senaryo([], _n_spam(0.0, 6), _n_yerlestir(Vector2(250, 356)))
+	hepsi = hepsi and _n_olc(st)["ayak"] - 48.0 >= 200.0
+	ayr.append("F2 tavan: en yüksek baş y=%.1f (alt kenar 200)" % (_n_olc(st)["ayak"] - 48.0))
+	# BlokF1 (F1 sağ ucu).
+	var sd: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(330, 576)))
+	hepsi = hepsi and _n_olc(sd)["xmax"] <= 387.0
+	ayr.append("BlokF1 (F1 sağ ucu): en büyük x=%.0f (sol yüz 400-14=386)" % _n_olc(sd)["xmax"])
+	_kaydi("Bölüm 19 atlanamazlık (kat boşluğu, Z1 uçuşu, asansör, G, 3 lazer, DuvarW2, oda dönüşü, tavan)", hepsi, "; ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b19_kisayol() -> void:
+	var kay: Array = await _n19_kayitlar()
+	var c_a: Array = kay[0]
+	var c_h: Array = kay[1]
+	var c_b: Array = kay[2]
+	var ayr: Array = []
+	var hepsi := true
+	var b0: Node = await _bolumu_yukle()
+	var var_olan: String = _n_var_olanlar(b0, ["Kutu", "Mandal", "PlakaZ", "Zamanli"])
+	paused = false
+	hepsi = hepsi and var_olan == ""
+	ayr.append("sahnede kutu/zamanlı/mandal plaka: [%s] (yok olmalı)" % var_olan)
+	var oyuncu_st: Array = [_n19_o(), _n19_o(0, 440.0), _n19_o(0, 500.0), _n19_o(0, 470.0, 830.0), _n19_o(0, 470.0, 910.0, true),
+		_n19_o(0, 470.0, 870.0, false, 1030.0, false), [_b13_a(1, Callable(), 600)],
+		_n19_f2() + [_b13_a(1, _n_plakada("PlakaL"), 300), _b13_a(0, Callable(), 300)],
+		_n19_f2() + [_b13_a(1, Callable(), 500)]]
+	var kb: Array = []
+	for st in oyuncu_st:
+		if await _n_bitirir([], st):
+			kb.append(1)
+	hepsi = hepsi and kb.is_empty()
+	ayr.append("klonsuz x %d strateji: bitiren=%d" % [oyuncu_st.size(), kb.size()])
+	var c_b_kor: Array = (await _n_senaryo([], _n19_b()))["kayit"]
+	var c_h_kor: Array = (await _n_senaryo([], _n19_h()))["kayit"]
+	var z_klon: Array = (await _n_senaryo([], [_b13_a(1, _b4_x_ge(140.0), 100), _b13_a(0, Callable(), 400)]))["kayit"]
+	var park: Array = (await _n_senaryo([], [_b13_a(1, _b4_x_ge(330.0), 150), _b13_a(0, Callable(), 500)]))["kayit"]
+	var tek_ad: Array = ["C_A", "C_H(kör)", "C_B(kör)", "Z1-bekleyen", "F1 park"]
+	var tekler: Array = [c_a, c_h_kor, c_b_kor, z_klon, park]
+	var biten: Array = []
+	for i in range(tekler.size()):
+		for st in oyuncu_st:
+			if await _n_bitirir([tekler[i]], st):
+				biten.append(tek_ad[i])
+	hepsi = hepsi and biten.is_empty()
+	ayr.append("tek klon (5 rol x %d strateji): bitiren=%s" % [oyuncu_st.size(), str(biten)])
+	# geçit altı park / asansör altı çukur park klonları ve H erken devir.
+	var g_park: Array = (await _n_senaryo([c_a, c_h], _n19_yol(0, 470.0, 740.0) + [_b13_a(1, _b4_x_ge(770.0), 100), _b13_a(0, Callable(), 500)]))["kayit"]
+	var h_kisa: Array = (await _n_senaryo([c_a], _n19_h(0, 60)))["kayit"]
+	var cukur: Array = (await _n_senaryo([c_a, c_h], _n19_f2(0) + [_b13_a(1, _b4_x_ge(430.0), 200), _b13_a(0, Callable(), 500)]))["kayit"]
+	var havuz: Array = [["A", c_a], ["H", c_h], ["B", c_b], ["Z", z_klon], ["P", park], ["Hk", c_h_kor], ["Bk", c_b_kor], ["G", g_park],
+		["Hs", h_kisa], ["Cukur", cukur]]
+	var biten2: Array = []
+	var n2 := 0
+	for i in range(havuz.size()):
+		for j in range(havuz.size()):
+			n2 += 1
+			for st in [_n19_o(), _n19_o(0, 470.0, 870.0, false, 1030.0, false)]:
+				if await _n_bitirir([havuz[i][1], havuz[j][1]], st):
+					biten2.append(havuz[i][0] + "+" + havuz[j][0])
+	hepsi = hepsi and biten2.is_empty()
+	ayr.append("iki klon (%d sıralı çift x 2 strateji): bitiren=%s" % [n2, str(biten2)])
+	# röle (A -> L -> X tek klon), 1-2 klon kümeleri.
+	var rbit: Array = []
+	for t in [0, 20, 40, 80, 120]:
+		var r: Dictionary = await _n_senaryo([], _n19_f2() + [_b13_a(1, _n_plakada("PlakaA"), 100), _b13_a(0, Callable(), t),
+			_b13_a(1, _n_plakada("PlakaL"), 300), _b13_a(0, Callable(), 150), _b13_a(1, _n_plakada("PlakaX"), 100), _b13_a(0, Callable(), 20)])
+		var rk: Array = r["kayit"]
+		for kume in [[rk], [rk, c_b_kor], [rk, c_b], [rk, c_a]]:
+			if await _n_bitirir(kume, _n19_o()):
+				rbit.append("T%d/%d" % [t, kume.size()])
+	hepsi = hepsi and rbit.is_empty()
+	ayr.append("röle (A->L->X tek klon, T=0..120; 1-2 klon kümeleri): bitiren=%s" % str(rbit))
+	var tbit: Array = []
+	for kume in [[c_a, c_h, g_park], [c_a, c_h, cukur], [c_a, h_kisa, cukur], [c_a, c_h, park], [c_a, c_h, z_klon], [c_a, h_kisa, c_b]]:
+		if await _n_bitirir(kume, _n19_o()):
+			tbit.append(kume.size())
+	hepsi = hepsi and tbit.is_empty()
+	ayr.append("3 klon ama B rolü yok / H erken (G park, çukur park, F1 park, Z1 park): bitiren=%s" % str(tbit))
+	# min klon 3 kanıtı ve plaka aralıkları.
+	var tam: Dictionary = await _n_senaryo(kay, _n19_o())
+	var aralik := {}
+	for ad in ["PlakaA", "PlakaL", "PlakaX", "PlakaB"]:
+		var f0 := -1
+		var f1 := -1
+		for f in range(tam["ozel"].size()):
+			if tam["ozel"][f][ad]:
+				if f0 < 0:
+					f0 = f
+				f1 = f
+		aralik[ad] = Vector2i(f0, f1)
+	var f_la: int = _n_x_kare(tam["iz"], 323.0)
+	var f_lb: int = _n_x_kare(tam["iz"], 928.0, f_la)
+	var f_ls: int = _n_x_kare(tam["iz"], 1058.0, f_la)
+	var ok5: bool = tam["bitti_ham"] and aralik["PlakaA"].x >= 0 and aralik["PlakaA"].x < f_la and aralik["PlakaB"].x >= 0 and aralik["PlakaB"].x < f_lb
+	ok5 = ok5 and aralik["PlakaX"].x >= aralik["PlakaL"].x and aralik["PlakaX"].x <= aralik["PlakaL"].y + 1
+	hepsi = hepsi and ok5
+	ayr.append("min klon 3: bitti=%s, A %s (LazerA kare %d), L %s, X %s (devir: X başlangıcı L bitişinden <=1 kare sonra), B %s (LazerB kare %d), LazerS kare %d" % [
+		tam["bitti_ham"], str(aralik["PlakaA"]), f_la, str(aralik["PlakaL"]), str(aralik["PlakaX"]), str(aralik["PlakaB"]), f_lb, f_ls])
+	# S inişleri: F2 üstü (x 210..710) ve F3 (x 540..930).
+	var inen2: Array = []
+	for x in range(210, 711, 20):
+		var s2: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 45)], _n_yerlestir(Vector2(float(x), 356)))
+		if _n_son(s2).y > 430.0:
+			inen2.append(x)
+	var inen3: Array = []
+	for x in range(540, 931, 20):
+		var s3: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 45)], _n_yerlestir(Vector2(float(x), 136)))
+		if _n_son(s3).y > 250.0:
+			inen3.append(x)
+	var inen_ok := inen3.size() > 0
+	for x in inen3:
+		inen_ok = inen_ok and x >= 810
+	inen_ok = inen_ok and inen2.is_empty()
+	hepsi = hepsi and inen_ok
+	ayr.append("S inişleri: F2 üstü (x 210..710, 20 px) = %s (boş beklenir: asansör aşağıdayken katı), F3 (x 540..930) = %s (yalnız raf x>=810)" % [str(inen2), str(inen3)])
+	_kaydi("Bölüm 19 kısayol taraması (klonsuz, 1/2/3 klon, röle, geçit/çukur park, Z1/F1 park, min klon 3, şalter, S inişleri)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b19_pencereler() -> void:
+	var kay: Array = await _n19_kayitlar()
+	var c_a: Array = kay[0]
+	var c_h: Array = kay[1]
+	var ayr: Array = []
+	var hepsi := true
+	var tam: Dictionary = await _n_senaryo(kay, _n19_o())
+	var f_l := -1
+	var f_x := -1
+	var f_tepe := -1
+	var f_bin := -1
+	var f_in := -1
+	var f_g := -1
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if f_l < 0 and o["PlakaL"]:
+			f_l = f
+		if f_x < 0 and o["PlakaX"]:
+			f_x = f
+		if f_g < 0 and o["GecitG"] <= 12.0:
+			f_g = f
+		if f_bin < 0 and tam["iz"][f].x >= 456.0 and tam["iz"][f].y <= 360.0:
+			f_bin = f
+		if f_tepe < 0 and tam["iz"][f].y <= 136.5 and tam["iz"][f].x > 400.0:
+			f_tepe = f
+		if f_in < 0 and tam["iz"][f].x >= 766.0 and tam["iz"][f].y < 140.0:
+			f_in = f
+	ayr.append("oyuncu asansörde kare=%d, L basış kare=%d, F3'e varış kare=%d, X ilk basış kare=%d, G açıklık>=48 kare=%d, oyuncu G önüne (x>=766) kare=%d (bekleme %d)" % [
+		f_bin, f_l, f_tepe, f_x, f_g, f_in, f_g - f_in])
+	hepsi = hepsi and f_l >= 0 and f_x > f_l and f_g > f_x and f_in >= 0
+	# Z1: uçuşta `sag` bırakma süresi (C_A için).
+	var vz: Array = []
+	for d in range(0, 61, 2):
+		vz.append(d)
+	var okz: Array = await _n_sup(vz, func(v: int) -> bool:
+		var s: Dictionary = await _n_senaryo([], _n19_a(0, 10, v))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	ayr.append("W-Z1 uçuşta `sag` bırakma (kare): C_A başarılı %s (en çok %d)" % [_n_ar(vz, okz), _n_en_buyuk(vz, okz)])
+	hepsi = hepsi and _n_pen(vz, okz, 0)
+	# W1: C_A geç basış (C_H ışına varmadan).
+	var vg: Array = []
+	for d in range(0, 41, 1):
+		vg.append(d)
+	var okg: Array = await _n_sup(vg, func(v: int) -> bool:
+		var a2: Array = (await _n_senaryo([], _n19_a(v)))["kayit"]
+		var s: Dictionary = await _n_senaryo([a2], _n19_h(0, 150, 15))
+		return not s["tamam"].has(false) and s["oldu"] == 0)
+	ayr.append("W1 C_A başta bekleme (kare): C_H başarılı %s (en çok %d kare = %d px; taslak pay ~19)" % [_n_ar(vg, okg), _n_en_buyuk(vg, okg), _n_en_buyuk(vg, okg) * 5])
+	hepsi = hepsi and _n_pen(vg, okg, 0) and _n_en_buyuk(vg, okg) >= 4
+	# W2: asansör biniş x.
+	var vb: Array = []
+	for x in range(396, 548, 4):
+		vb.append(x)
+	var okb: Array = await _n_sup(vb, func(v: int) -> bool: return await _n_bitirir(kay, _n19_o(0, float(v))))
+	ayr.append("W2 asansör biniş `sag` bırakma x (oyuncu): başarılı %s -> %d..%d (~%d px; taslak 436..504 = 68 px; asansör x 410..530)" % [_n_ar(vb, okb), _n_en_kucuk(vb, okb), _n_en_buyuk(vb, okb), _n_en_buyuk(vb, okb) - _n_en_kucuk(vb, okb) + 4])
+	hepsi = hepsi and _n_en_buyuk(vb, okb) - _n_en_kucuk(vb, okb) >= 40
+	# W2b: oyuncunun F2'de bekleme süresi (C_H'nin PlakaL basışından sonra asansöre varma).
+	var vt: Array = []
+	for d in range(0, 61, 2):
+		vt.append(d)
+	var okt: Array = await _n_sup(vt, func(v: int) -> bool: return await _n_bitirir(kay, _n19_o(v)))
+	ayr.append("W2b oyuncu başlangıç gecikmesi (kare; asansöre geç varış): başarılı %s (en çok %d; taslak ~+9)" % [_n_ar(vt, okt), _n_en_buyuk(vt, okt)])
+	hepsi = hepsi and _n_pen(vt, okt, 0)
+	# W3: C_H'nin PlakaL'de kalma süresi.
+	var vh: Array = []
+	for d in range(80, 241, 4):
+		vh.append(d)
+	var okh: Array = await _n_sup(vh, func(v: int) -> bool:
+		var h2: Array = (await _n_senaryo([c_a], _n19_h(0, v)))["kayit"]
+		return await _n_bitirir([c_a, h2, kay[2]], _n19_o()))
+	ayr.append("W3 C_H PlakaL'de kalma süresi (kare; çözüm 150, 4 kare adım; B ve oyuncu sabit kayıt): başarılı %s (taslak devir payı >=26 kare)" % _n_ar(vh, okh))
+	hepsi = hepsi and _n_pen(vh, okh, 148) and _n_en_buyuk(vh, okh) - _n_en_kucuk(vh, okh) >= 8
+	# W7: raf S konumu.
+	var vx: Array = []
+	for x in range(800, 945, 3):
+		vx.append(x)
+	var okx: Array = await _n_sup(vx, func(v: int) -> bool: return await _n_bitirir(kay, _n19_o(0, 470.0, float(v))))
+	ayr.append("W7 raf S konumu (`sag` bırakma merkez x; 916 üstü BlokF3R yaslanma = aynı): başarılı %s -> %d..%d (~%d px; taslak 824..916 = 92 px)" % [_n_ar(vx, okx), _n_en_kucuk(vx, okx), _n_en_buyuk(vx, okx), _n_en_buyuk(vx, okx) - _n_en_kucuk(vx, okx) + 3])
+	hepsi = hepsi and _n_en_buyuk(vx, okx) - _n_en_kucuk(vx, okx) >= 30
+	# W8: C_B'nin PlakaB'ye geç basışı.
+	var vp: Array = []
+	for d in range(0, 61, 2):
+		vp.append(d)
+	var okp: Array = await _n_sup(vp, func(v: int) -> bool:
+		var b2: Array = (await _n_senaryo([c_a, c_h], _n19_b(0, 10, 470.0, 870.0, v)))["kayit"]
+		return await _n_bitirir([c_a, c_h, b2], _n19_o()))
+	ayr.append("W8 C_B tepede bekleme (kare): oyuncu başarılı %s (en çok %d kare = %d px; taslak pay ~11)" % [_n_ar(vp, okp), _n_en_buyuk(vp, okp), _n_en_buyuk(vp, okp) * 5])
+	hepsi = hepsi and _n_pen(vp, okp, 0)
+	# W9: şalter geri bas konumu.
+	var vs: Array = []
+	for x in range(996, 1070, 2):
+		vs.append(x)
+	var oks: Array = await _n_sup(vs, func(v: int) -> bool: return await _n_bitirir(kay, _n19_o(0, 470.0, 870.0, false, float(v))))
+	ayr.append("W9 şalter geri bas (`sol` 1 kare, merkez x): başarılı %s -> %d..%d (~%d px; taslak 1019..1053 = 35 px)" % [_n_ar(vs, oks), _n_en_kucuk(vs, oks), _n_en_buyuk(vs, oks), _n_en_buyuk(vs, oks) - _n_en_kucuk(vs, oks) + 2])
+	hepsi = hepsi and _n_en_buyuk(vs, oks) > _n_en_kucuk(vs, oks)
+	ayr.append("oyuncu turu %d kare (<=600, pay %d)" % [tam["kare"], 600 - tam["kare"]])
+	hepsi = hepsi and tam["kare"] <= 600
+	_kaydi("Bölüm 19 zamanlama payları (Z1, W1 klon, W2 biniş, W3 devir, G, W7 raf S, W8 B basışı, W9 şalter)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b19_klon_fark() -> void:
+	var kay: Array = await _n19_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	for k in [["C_A", [], _n19_a()], ["C_H", [kay[0]], _n19_h()], ["C_B", [kay[0], kay[1]], _n19_b()], ["Oyuncu", kay, _n19_o()]]:
+		var r: Dictionary = await _n_klon_fark(k[1], k[2])
+		ayr.append("%s canlı/klon en büyük konum farkı %.2f px (ilk sapma kare %d, x=%.0f)" % [k[0], r["fark"], r["ilk"], r["ilk_x"]])
+		hepsi = hepsi and r["fark"] <= 0.5
+	_kaydi("Bölüm 19 ölçüm: canlı kayıt vs klon tekrarı konum farkı (bant var; üst sınır 0,5 px)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b19_tutma() -> void:
+	var ayr: Array = []
+	var hepsi := true
+	aktif_bolum = BOLUM_19
+	var r: Dictionary = await _n_tutma_olc("PlakaL", Vector2(590, 356), 140)
+	ayr.append("PlakaL (normal): basılı kalan=%d kare (beklenen 0; tutma_kare yok)" % r["kalan"])
+	hepsi = hepsi and r["kalan"] == 0 and r["ilk_basili"] >= 0
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var tutma: Array = []
+	for n in ["PlakaA", "PlakaL", "PlakaX", "PlakaB"]:
+		tutma.append(str(bolum.get_node(n).get("tutma_kare")) + "/" + str(bolum.get_node(n).get("mandal")))
+	hepsi = hepsi and tutma == ["0/false", "0/false", "0/false", "0/false"]
+	ayr.append("plaka tutma_kare/mandal alanları: %s (tümü 0/false)" % str(tutma))
+	for i in range(25):
+		_girdi_uygula({"yon": 1.0, "zipla": false})
+		await physics_frame
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	var eski_id := bolum.get_instance_id()
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var a_y: float = yeni.get_node("Asansor").position.y
+	var g_y: float = yeni.get_node("GecitG").position.y
+	var s_sag: bool = yeni.get_node("Salter").sagda
+	ayr.append("tur başı sıfırlama: asansör y=%.0f (390), G y=%.0f (60), şalter sağda=%s (true), PlakaX basılı=%s" % [a_y, g_y, str(s_sag), str(yeni.get_node("PlakaX").basili_mi())])
+	hepsi = hepsi and absf(a_y - 390.0) < 0.5 and absf(g_y - 60.0) < 0.5 and s_sag and not yeni.get_node("PlakaX").basili_mi()
+	_kaydi("Bölüm 19: plaka tutma yok (0 kare), tur başı sıfırlama (asansör, G, şalter)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b19_klon_siniri() -> void:
+	await _n_klon_siniri("Bölüm 19: klon sınırı (dördüncü R klon kaydetmez)", 3)
+
+
+func _test_b19_kilitlenme() -> void:
+	var kay: Array = await _n19_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	# (a) odada ölüm: A+H varken C_B yok.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(kay[0].duplicate(true))
+	_kayitlar().tur_kaydet(kay[1].duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	bolum.get_node("Oyuncu").global_position = Vector2(925, 356)
+	var sayac := [0]
+	bolum.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var eski_id := bolum.get_instance_id()
+	await _n_kosullu(bolum, [_b13_a(1, Callable(), 80)], sayac)
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var etiket := ""
+	var ok: bool = sayac[0] > 0 and yeni != null and _kayitlar().turlar.size() == 2
+	if yeni != null:
+		etiket = yeni.bilgi.text
+		ok = ok and _klonlar(yeni).size() == 2 and etiket.contains("Tur 3") and etiket.contains("2/3")
+	hepsi = hepsi and ok
+	ayr.append("odada ölüm: ölüm=%d, kayıtlı tur=%d, etiket=\"%s\"" % [sayac[0], _kayitlar().turlar.size(), etiket])
+	# (b) asansöre geç biniş: çıkış yok.
+	var sg: Dictionary = await _n_senaryo(kay, _n19_o(50) + [_b13_a(0, Callable(), 10)])
+	var ok_b: bool = not sg["bitti_ham"] and sg["oldu"] == 0
+	hepsi = hepsi and ok_b
+	ayr.append("geç biniş: bitti=%s, ölüm=%d, son (%.0f,%.0f)" % [sg["bitti_ham"], sg["oldu"], _n_son(sg).x, _n_son(sg).y])
+	# (c) kuyu çukuru: asansör yukarıdayken kuyuya düşen çukurdan zıplayarak çıkar.
+	var sk: Dictionary = await _n_senaryo([kay[0], kay[1]], [_b13_a(0, Callable(), 260)] + _n_spam(1.0, 16, 25), _n_yerlestir(Vector2(380, 356)))
+	var son: Vector2 = _n_son(sk)
+	var ok_k: bool = sk["oldu"] == 0 and son.x > 545.0 and son.y < 370.0
+	hepsi = hepsi and ok_k
+	ayr.append("kuyu çukuru (asansör yukarıda, 40 px): sağ+zıpla spam sonunda (%.0f,%.0f) ölüm=%d" % [son.x, son.y, sk["oldu"]])
+	# (d) oda dönüşsüz.
+	var so: Dictionary = await _n_senaryo(kay, _n_spam(0.0, 12), _n_yerlestir(Vector2(870, 356)))
+	hepsi = hepsi and _n_olc(so)["ayak"] > 270.0 and so["oldu"] == 0
+	ayr.append("odada zıplama en yüksek ayak y=%.1f (F3 yüzeyi 160 erişilmez)" % _n_olc(so)["ayak"])
+	# (e) Baştan başla.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(kay[0].duplicate(true))
+	var b2: Node = await _bolumu_yukle()
+	var eski: Node = current_scene
+	b2.get_node("EkranButonlari/Kutu/YenidenDugmesi").pressed.emit()
+	var yeni2: Node = await _sahne_degisimini_bekle(eski)
+	var ok_e: bool = _kayitlar().turlar.size() == 0 and _klonlar(yeni2).size() == 0 and yeni2.bilgi.text.begins_with("Tur 1 ")
+	hepsi = hepsi and ok_e
+	ayr.append("Baştan başla: kayıt=%d, klon=%d, etiket=\"%s\"" % [_kayitlar().turlar.size(), _klonlar(yeni2).size(), yeni2.bilgi.text])
+	# (f) klon son konumları.
+	var tam: Dictionary = await _n_senaryo(kay, [_b13_a(0, Callable(), 460)])
+	var pa: Vector2 = _n_klon_son(tam, 0)
+	var ph: Vector2 = _n_klon_son(tam, 1)
+	var pb: Vector2 = _n_klon_son(tam, 2)
+	var ok_f: bool = pa.x > 225.0 and pa.x < 312.0 and ph.x > 620.0 and ph.x < 720.0 and pb.x > 835.0 and pb.x < 905.0 \
+		and not tam["klon_oldu"][0] and not tam["klon_oldu"][1] and not tam["klon_oldu"][2]
+	hepsi = hepsi and ok_f
+	ayr.append("klonlar plakada biter: C_A (%.0f,%.0f), C_H (%.0f,%.0f), C_B (%.0f,%.0f); G x 780..800 ve asansör x 410..530 altında değil" % [pa.x, pa.y, ph.x, ph.y, pb.x, pb.y])
+	# (g) şalter geri bas tekrar denenir: ilk deneme erken, ikincisi doğru yerde, kilit yok.
+	var sh: Dictionary = await _n_senaryo(kay, _n19_yol(0, 470.0, 870.0) + [_b13_a(1, _b4_x_ge(1005.0), 200), _b13_a(-1, Callable(), 1),
+		_b13_a(1, Callable(), 10), _b13_a(0, Callable(), 5), _b13_a(1, _b4_x_ge(1030.0), 100), _b13_a(-1, Callable(), 1), _b13_a(1, _b4_bitti_k(), 300)])
+	hepsi = hepsi and sh["bitti_ham"] and sh["oldu"] == 0
+	ayr.append("şalter ilk denemede erken, ikinci denemede doğru: bitti=%s, ölüm=%d (kilit yok)" % [sh["bitti_ham"], sh["oldu"]])
+	# (h) ölü klon: C_B tek başına LazerA'da ölür ve donar.
+	var sd: Dictionary = await _n_senaryo([kay[2]], [_b13_a(0, Callable(), 300)])
+	var kz: Array = sd["klon_izleri"][0]
+	var donuk: bool = sd["klon_oldu"][0] and kz[kz.size() - 1] == kz[kz.size() - 40]
+	hepsi = hepsi and donuk
+	ayr.append("C_B kaydı tek başına: öldü=%s, son (%.0f,%.0f), sabit=%s" % [str(sd["klon_oldu"][0]), kz[kz.size() - 1].x, kz[kz.size() - 1].y, str(donuk)])
+	_kaydi("Bölüm 19 kilitlenme: odada ölüm, geç biniş, kuyu çukuru, oda dönüşü yok, Baştan başla, klon konumları, şalter tekrar, ölü klon", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b19_determinizm() -> void:
+	var kay: Array = await _n19_kayitlar()
+	await _n_determinizm("Bölüm 19: determinizm (100x çözüm)", kay, _n19_o())
+
+
+# ================================================================ Bölüm 20 (Mandal)
+# Taslak: docs/devir/bolum_20_taslak.md (kare/px sayıları tahmindi, burada ölçülür).
+# A: PlakaA'da kalır. B: rafın altında zıplayıp mandala dokunur, rafa iner, LazerA/G'yi geçer, boşluktan F1'e düşer,
+# PlakaB'de kalır. Oyuncu: B yolu (mandala dokunmadan), LazerB'de B'yi bekler, kapı.
+const BOLUM_20 := "res://scenes/bolumler/bolum_20.tscn"
+var _n20_onb: Array = []   # [A, B]
+
+
+## A: gec kare bekler, PlakaA'ya yürür, bekle kare durur.
+func _n20_a(gec := 0, bekle := 15) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d.append(_b13_a(1, _n_plakada("PlakaA"), 200))
+	d.append(_b13_a(0, Callable(), bekle))
+	return d
+
+
+## F2 sağ kenarından düşüp F1'e iner (sağ basılı), sonra `sol` ile PlakaB'ye gider.
+func _n20_dusus(bekle := 15) -> Array:
+	return [_b13_a(1, _b4_x_ge(1030.0), 400), _b13_a(1, _n_ve(_n_zemin(), _n_y_ge(570.0)), 100),
+		_b13_a(-1, _n_plakada("PlakaB"), 200), _b13_a(0, Callable(), bekle)]
+
+
+## B: zip_x'te durup zıplar (mandala dokunur, rafa iner), rafın sağ ucundan F2'ye, kenardan F1'e, PlakaB.
+func _n20_b(gec := 0, bekle := 15, zip_x := 200.0) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d.append(_b13_a(1, _b4_x_ge(zip_x), 150))
+	d.append(_b13_a(0, _n_ve(_n_zemin(), _n_y_le(290.0)), 80, true))
+	return d + _n20_dusus(bekle)
+
+
+## B'nin mandalsız yürüyüşü (zıplamaz): G'de takılır.
+func _n20_b_zipsiz() -> Array:
+	return [_b13_a(1, _b4_x_ge(1030.0), 250)]
+
+
+## A'nın mandal sürümü: mandala zıplar, rafa iner, PlakaA'ya yürür ve orada kalır (taslak §4 eşdeğer yol).
+func _n20_a_mandal(zip_x := 200.0) -> Array:
+	return [_b13_a(1, _b4_x_ge(zip_x), 150), _b13_a(0, _n_ve(_n_zemin(), _n_y_le(290.0)), 80, true),
+		_b13_a(1, _n_plakada("PlakaA"), 300), _b13_a(0, Callable(), 15)]
+
+
+## Yalnız PlakaB'ye giden klon (mandal sürümüyle eşleşir): PlakaA basılınca yürür.
+func _n20_b_sade(kosullu := true) -> Array:
+	var d: Array = []
+	if kosullu:
+		d.append(_b13_a(0, _n_p("PlakaA"), 300))
+	return d + _n20_dusus()
+
+
+## Naif A: mandala dokunup rafta mandalın üstünde bekler.
+func _n20_naif(bekle := 400) -> Array:
+	return [_b13_a(1, _b4_x_ge(200.0), 150), _b13_a(0, _n_ve(_n_zemin(), _n_y_le(290.0)), 80, true), _b13_a(0, Callable(), bekle)]
+
+
+## Oyuncu: mandala dokunmaz, G'den geçer, düşer, LazerB önünde (x<=bekle_x) B'yi bekler (bekle_lb), kapıya.
+func _n20_o(bekle_lb := true, bekle_x := 830.0) -> Array:
+	var d: Array = [_b13_a(1, _b4_x_ge(1030.0), 500), _b13_a(1, _n_ve(_n_zemin(), _n_y_ge(570.0)), 100),
+		_b13_a(-1, _b4_x_le(bekle_x), 200)]
+	if bekle_lb:
+		d.append(_b13_a(0, _n_kapali("LazerB"), 400))
+	d.append(_b13_a(-1, _b4_bitti_k(), 300))
+	return d
+
+
+func _n20_kayitlar() -> Array:
+	if _n20_onb.is_empty():
+		var s1: Dictionary = await _n_senaryo([], _n20_a())
+		var s2: Dictionary = await _n_senaryo([s1["kayit"]], _n20_b())
+		_n20_onb = [s1["kayit"], s2["kayit"]]
+	return _n20_onb
+
+
+func _b20_calistir() -> void:
+	await _test_b20_cozum()
+	await _test_b20_basarisizlik()
+	await _test_b20_atlanamaz()
+	await _test_b20_kisayol()
+	await _test_b20_pencereler()
+	await _test_b20_klon_fark()
+	await _test_b20_mandal()
+	await _test_b20_klon_siniri()
+	await _test_b20_kilitlenme()
+	await _test_b20_determinizm()
+
+
+func _test_b20_cozum() -> void:
+	await _n_cozum("Bölüm 20 çözümü (3 tur, 2 klon, gerçek R/girdi yolu)", [_n20_a(), _n20_b()], _n20_o(), 2)
+
+
+## Örnekte ozel[f][anahtar] bir karede true oldu mu.
+func _n_var_mi(s: Dictionary, anahtar: String) -> bool:
+	return _n_ilk(s, anahtar, true) >= 0
+
+
+func _test_b20_basarisizlik() -> void:
+	var kay: Array = await _n20_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	# 1) klonsuz: LazerA'da ölür.
+	var s1: Dictionary = await _n_senaryo([], _n20_o())
+	_kaydi("Bölüm 20 başarısızlık 1: klonsuz -> LazerA'da ölür", s1["oldu"] > 0 and not s1["bitti_ham"] and _n_son(s1).x > 480.0 and _n_son(s1).x < 520.0,
+		"ölüm=%d, son (%.0f,%.0f) (ışın x 520..526, gövde girişi 506)" % [s1["oldu"], _n_son(s1).x, _n_son(s1).y])
+	# 2) mandal yok: B zıplamadan yürür, G kapalı kalır, durur (ölmez).
+	var s2: Dictionary = await _n_senaryo([c_a], _n20_b_zipsiz())
+	_kaydi("Bölüm 20 başarısızlık 2: mandala dokunulmaz -> GecitG kapalı kalır, yürüyen karakter G'de durur (ölüm yok)",
+		not s2["bitti_ham"] and s2["oldu"] == 0 and _n_olc(s2)["xmax"] < 627.0 and _n_olc(s2)["xmax"] > 600.0 and s2["tamam"].has(false),
+		"adımlar=%s, ölüm=%d, en büyük x=%.0f (G sol yüz 640-14=626)" % [str(s2["tamam"]), s2["oldu"], _n_olc(s2)["xmax"]])
+	# 3) A yok: B LazerA'da ölür.
+	var s3: Dictionary = await _n_senaryo([], _n20_b())
+	_kaydi("Bölüm 20 başarısızlık 3: PlakaA'da kimse yok (yalnız B yolu) -> LazerA'da ölür", s3["oldu"] > 0 and not s3["bitti_ham"] and _n_son(s3).x > 480.0 and _n_son(s3).x < 520.0,
+		"ölüm=%d, son (%.0f,%.0f)" % [s3["oldu"], _n_son(s3).x, _n_son(s3).y])
+	# 4) A çok geç basar (klon geç): B ışına varınca LazerA açık.
+	var a_gec: Array = (await _n_senaryo([], _n20_a(120)))["kayit"]
+	var s4: Dictionary = await _n_senaryo([a_gec], _n20_b())
+	_kaydi("Bölüm 20 başarısızlık 4: A PlakaA'ya 120 kare geç basar -> B LazerA'da ölür", s4["oldu"] > 0 and not s4["bitti_ham"],
+		"ölüm=%d, son (%.0f,%.0f)" % [s4["oldu"], _n_son(s4).x, _n_son(s4).y])
+	# 5) naif yol: A mandalda kalır, B PlakaA'ya gider -> LazerB açık, oyuncu F1'de bekler (çözülmez).
+	var naif: Array = (await _n_senaryo([], _n20_naif()))["kayit"]
+	var b_a: Array = (await _n_senaryo([naif], _n20_a()))["kayit"]
+	var s5: Dictionary = await _n_senaryo([naif, b_a], _n20_o().slice(0, 4))
+	var f5_bekle := -1
+	for f in range(s5["iz"].size()):
+		if s5["iz"][f].x <= 830.0 and s5["iz"][f].y > 500.0:
+			f5_bekle = f
+			break
+	var lb_kapandi5 := f5_bekle >= 0 and _n_ilk(s5, "LazerB", false, f5_bekle) >= 0
+	var xmin5 := 1.0e9
+	for f in range(maxi(f5_bekle, 0), s5["iz"].size()):
+		xmin5 = minf(xmin5, s5["iz"][f].x)
+	_kaydi("Bölüm 20 başarısızlık 5: naif yol (A mandalın üstünde kalır, B PlakaA'da) -> LazerB hiç kapanmaz, oyuncu bekleyip bitiremez",
+		not s5["bitti_ham"] and s5["oldu"] == 0 and s5["tamam"].size() == 4 and not s5["tamam"][3] and f5_bekle >= 0 and not lb_kapandi5 and xmin5 > 810.0,
+		"adımlar=%s, ölüm=%d, LazerB önüne varış kare=%d, sonra kapandı=%s, en küçük x=%.0f (ışın 797..803; gövde girişi 817)" % [str(s5["tamam"]), s5["oldu"], f5_bekle, str(lb_kapandi5), xmin5])
+	# 6) naif yol, oyuncu beklemeden yürür: LazerB'de ölür.
+	var s6: Dictionary = await _n_senaryo([naif, b_a], _n20_o(false))
+	_kaydi("Bölüm 20 başarısızlık 6: naif yol + oyuncu beklemeden yürür -> LazerB'de ölür", s6["oldu"] > 0 and not s6["bitti_ham"] and _n_son(s6).x > 770.0 and _n_son(s6).x < 825.0,
+		"ölüm=%d, son (%.0f,%.0f)" % [s6["oldu"], _n_son(s6).x, _n_son(s6).y])
+	# 7) doğru klonlar ama oyuncu F1'de B'yi beklemeden sürekli yürür: LazerB açık (B daha gelmemiş) -> ölür.
+	var s7: Dictionary = await _n_senaryo(kay, _n20_o(false))
+	_kaydi("Bölüm 20 başarısızlık 7: B gelmeden oyuncu LazerB'ye sürekli yürür -> ölür (ışın görünür, bekleyince geçer)",
+		s7["oldu"] > 0 and not s7["bitti_ham"] and _n_son(s7).x > 770.0 and _n_son(s7).x < 825.0,
+		"ölüm=%d, son (%.0f,%.0f)" % [s7["oldu"], _n_son(s7).x, _n_son(s7).y])
+	# 8) B PlakaB'den hemen ayrılır (kayıt hatası): oyuncu bekler, ışın tekrar yanar -> bitmez.
+	var b_erken: Array = (await _n_senaryo([c_a], _n20_b(0, 0) + [_b13_a(1, Callable(), 40)]))["kayit"]
+	var s8: Dictionary = await _n_senaryo([c_a, b_erken], _n20_o())
+	_kaydi("Bölüm 20 başarısızlık 8: B PlakaB'den hemen ayrılır -> LazerB tekrar yanar, oyuncu bitiremez (ölüm ya da kapanmayan ışın)",
+		not s8["bitti_ham"],
+		"bitti=%s, ölüm=%d, adımlar=%s, son (%.0f,%.0f)" % [s8["bitti_ham"], s8["oldu"], str(s8["tamam"]), _n_son(s8).x, _n_son(s8).y])
+	# 9) mandala yanlış yerden zıplama (c=110 ve c=300, alan 156..244 dışı): mandal basılmaz, G kapalı.
+	var yanlis: Array = []
+	var hepsi9 := true
+	for zx in [110.0, 300.0]:
+		var s9: Dictionary = await _n_senaryo([c_a], _n20_b(0, 15, zx))
+		var yanlis_ok: bool = not s9["bitti_ham"] and s9["oldu"] == 0 and not _n_var_mi(s9, "PlakaM") and _n_olc(s9)["xmax"] < 627.0
+		hepsi9 = hepsi9 and yanlis_ok
+		yanlis.append("zip_x=%.0f: mandal basıldı=%s, en büyük x=%.0f, ölüm=%d" % [zx, str(_n_var_mi(s9, "PlakaM")), _n_olc(s9)["xmax"], s9["oldu"]])
+	_kaydi("Bölüm 20 başarısızlık 9: mandalın altı dışından zıplama (c=110 / c=300) -> mandal basılmaz, G kapalı kalır", hepsi9, "; ".join(yanlis))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b20_atlanamaz() -> void:
+	var ayr: Array = []
+	var hepsi := true
+	# F1'den F2'ye çıkış yok (220 px).
+	for x in [600.0, 700.0, 1100.0]:
+		var sa: Dictionary = await _n_senaryo([], _n_spam(0.0, 8), _n_yerlestir(Vector2(x, 576)))
+		hepsi = hepsi and _n_olc(sa)["ayak"] > 440.0
+		ayr.append("F1 x=%.0f dikey zıplama: en yüksek ayak y=%.1f (DosemeF2 alt kenarı 420)" % [x, _n_olc(sa)["ayak"]])
+	# LazerB zıplayarak aşılmaz (sol+zıpla spam).
+	var sb: Dictionary = await _n_senaryo([], _n_spam(-1.0, 12), _n_yerlestir(Vector2(850, 576)))
+	hepsi = hepsi and sb["oldu"] > 0 and _n_olc(sb)["xmin"] > 780.0 and not sb["bitti_ham"]
+	ayr.append("LazerB zıplayarak (sol+zıpla spam): ölüm=%d, en küçük x=%.0f (ışın 797..803, gövde girişi 817)" % [sb["oldu"], _n_olc(sb)["xmin"]])
+	# LazerA zıplayarak (F2'de, A yokken).
+	var sl: Dictionary = await _n_senaryo([], _n_spam(1.0, 10), _n_yerlestir(Vector2(470, 356)))
+	hepsi = hepsi and sl["oldu"] > 0 and _n_olc(sl)["xmax"] < 520.0 and not sl["bitti_ham"]
+	ayr.append("LazerA zıplayarak: ölüm=%d, en büyük x=%.0f (ışın 520..526, gövde girişi 506)" % [sl["oldu"], _n_olc(sl)["xmax"]])
+	# Raf üstünden LazerA aşılmaz (raftan sağ+zıpla spam).
+	var sr: Dictionary = await _n_senaryo([], _n_spam(1.0, 14), _n_yerlestir(Vector2(200, 281)))
+	hepsi = hepsi and sr["oldu"] > 0 and _n_olc(sr)["xmax"] < 520.0 and not sr["bitti_ham"]
+	ayr.append("raf üstünden sağ+zıpla spam (A yok): ölüm=%d, en büyük x=%.0f, en yüksek ayak y=%.1f" % [sr["oldu"], _n_olc(sr)["xmax"], _n_olc(sr)["ayak"]])
+	# Raftan zıplama tavana çarpar.
+	var sr2: Dictionary = await _n_senaryo([], _n_spam(0.0, 6), _n_yerlestir(Vector2(200, 281)))
+	hepsi = hepsi and _n_olc(sr2)["ayak"] - 48.0 >= 180.0
+	ayr.append("raftan dikey zıplama: en yüksek baş y=%.1f (tavan alt kenarı 180)" % (_n_olc(sr2)["ayak"] - 48.0))
+	# G kapalıyken (mandal yok): G'nin önünden sağ+zıpla spam: geçilmez.
+	var sg: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(590, 356)))
+	hepsi = hepsi and _n_olc(sg)["xmax"] <= 627.0 and not sg["bitti_ham"] and sg["oldu"] == 0
+	ayr.append("GecitG kapalı: en büyük x=%.0f (sol yüz 640-14=626), tavan baş y=%.1f" % [_n_olc(sg)["xmax"], _n_olc(sg)["ayak"] - 48.0])
+	# F2 tavanı: dikey zıplama başı tavana (180) ulaşmaz.
+	var st: Dictionary = await _n_senaryo([], _n_spam(0.0, 6), _n_yerlestir(Vector2(800, 356)))
+	hepsi = hepsi and _n_olc(st)["ayak"] - 48.0 > 180.0
+	ayr.append("F2 dikey zıplama (x=800): en yüksek baş y=%.1f (tavan 180)" % (_n_olc(st)["ayak"] - 48.0))
+	# Mandala kazara basılmaz: raf altından yürüyen karakter.
+	var sk: Dictionary = await _n_senaryo([], [_b13_a(1, _b4_x_ge(330.0), 150), _b13_a(0, Callable(), 5)])
+	hepsi = hepsi and not _n_var_mi(sk, "PlakaM")
+	ayr.append("raf altından yürüme: mandal basıldı=%s (basılmamalı)" % str(_n_var_mi(sk, "PlakaM")))
+	_kaydi("Bölüm 20 atlanamazlık (F1->F2 dönüşü, LazerA/LazerB zıplayarak, raf üstünden, GecitG kapalı, tavan, mandal kazara)", hepsi, "; ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b20_kisayol() -> void:
+	var kay: Array = await _n20_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	var ayr: Array = []
+	var hepsi := true
+	var b0: Node = await _bolumu_yukle()
+	var var_olan: String = _n_var_olanlar(b0, ["Kutu", "Bant", "Salter", "Asansor", "Ziplatici", "PlakaZ", "Zamanli"])
+	paused = false
+	hepsi = hepsi and var_olan == ""
+	ayr.append("sahnede kutu/bant/şalter/asansör/zıplatıcı/zamanlı plaka: [%s] (yok olmalı)" % var_olan)
+	# Oyuncu stratejileri.
+	var mandal_oyuncu: Array = _n20_b(0, 0) + [_b13_a(-1, _b4_bitti_k(), 300)]
+	var st: Array = [_n20_o(), _n20_o(false), _n20_o(true, 880.0), [_b13_a(1, Callable(), 600)], _n_spam(1.0, 20),
+		[_b13_a(0, Callable(), 60), _b13_a(1, Callable(), 400)], mandal_oyuncu, _n20_a_mandal() + _n20_dusus(0) + [_b13_a(-1, _b4_bitti_k(), 200)]]
+	# 1) klonsuz
+	var kb: Array = []
+	for i in range(st.size()):
+		if await _n_bitirir([], st[i]):
+			kb.append(i)
+	hepsi = hepsi and kb.is_empty()
+	ayr.append("klonsuz x %d strateji (kendisi mandal+plaka dahil): bitiren=%s" % [st.size(), str(kb)])
+	# 2) tek klon: A, B(kör: kayıt turunda LazerA'da ölür), naif, A_mandal (kör), B_sade (kör), A ile kaydedilmiş B.
+	var b_kor: Array = (await _n_senaryo([], _n20_b()))["kayit"]
+	var a_m_kor: Array = (await _n_senaryo([], _n20_a_mandal()))["kayit"]
+	var b_sade_kor: Array = (await _n_senaryo([], _n20_b_sade(false)))["kayit"]
+	var naif: Array = (await _n_senaryo([], _n20_naif()))["kayit"]
+	var tekler: Array = [c_a, b_kor, naif, a_m_kor, b_sade_kor, c_b]
+	var tek_ad: Array = ["A", "B(kör)", "naif", "A_mandal", "B_sade(kör)", "B(A ile kaydedilmiş)"]
+	var biten: Array = []
+	for i in range(tekler.size()):
+		for j in range(st.size()):
+			if await _n_bitirir([tekler[i]], st[j]):
+				biten.append("%s/%d" % [tek_ad[i], j])
+	hepsi = hepsi and biten.is_empty()
+	ayr.append("tek klon (%d rol x %d oyuncu stratejisi): bitiren=%s" % [tekler.size(), st.size(), str(biten)])
+	# 3) röle: tek klon PlakaA'da T kare bekleyip PlakaB'ye yürür (kayıt turunda LazerA'da ölür).
+	var rbit: Array = []
+	for t in [0, 20, 60]:
+		var r: Dictionary = await _n_senaryo([], [_b13_a(1, _n_plakada("PlakaA"), 200), _b13_a(0, Callable(), t)] + _n20_dusus(20))
+		for j in range(st.size()):
+			if await _n_bitirir([r["kayit"]], st[j]):
+				rbit.append("T%d/%d" % [t, j])
+	hepsi = hepsi and rbit.is_empty()
+	ayr.append("röle (A'da T=0/20/60 kare bekleyip PlakaB'ye): bitiren=%s" % str(rbit))
+	# 4) iki klon: çözüm ve alternatif bitirir; naif / aynı rol / eksik rol bitirmez.
+	var b_a_nai: Array = (await _n_senaryo([naif], _n20_a()))["kayit"]
+	var b_sade: Array = (await _n_senaryo([a_m_kor], _n20_b_sade()))["kayit"]
+	var iki: Array = [["A+B", [c_a, c_b], true], ["B+A", [c_b, c_a], true], ["A_m+B_sade (eşdeğer yol)", [a_m_kor, b_sade], true],
+		["A+A", [c_a, c_a], false], ["B+B", [c_b, c_b], false], ["naif+A", [naif, b_a_nai], false], ["naif+B", [naif, c_b], false],
+		["A+naif", [c_a, naif], false], ["A+B_sade(kör)", [c_a, b_sade_kor], false]]
+	var iki_bozuk: Array = []
+	var o_alt: Array = [_b13_a(1, _b4_x_ge(480.0), 200), _b13_a(0, _n_kapali("LazerA"), 300)] + _n20_o()   # LazerA'yı da bekler
+	for k in iki:
+		var bit: bool = await _n_bitirir(k[1], o_alt if str(k[0]).begins_with("A_m") else _n20_o())
+		if bit != k[2]:
+			iki_bozuk.append("%s bitti=%s (beklenen %s)" % [k[0], str(bit), str(k[2])])
+	hepsi = hepsi and iki_bozuk.is_empty()
+	ayr.append("iki klon kümeleri (%d): beklentiyle uyuşmayan=%s" % [iki.size(), str(iki_bozuk)])
+	# 5) min klon 2 kanıtı: PlakaA ve PlakaB aynı anda basılı iken oyuncu LazerB'yi geçer.
+	var tam: Dictionary = await _n_senaryo(kay, _n20_o())
+	var f_ab := -1
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if o["PlakaA"] and o["PlakaB"] and f_ab < 0:
+			f_ab = f
+	var f_lb := -1
+	for f in range(tam["iz"].size()):
+		if tam["iz"][f].x <= 790.0 and tam["iz"][f].y > 500.0 and f_lb < 0:
+			f_lb = f
+	var ok5: bool = tam["bitti_ham"] and f_ab >= 0 and f_lb > f_ab
+	hepsi = hepsi and ok5
+	ayr.append("min klon 2: bitti=%s, PlakaA+PlakaB birlikte basılı ilk kare=%d, oyuncu LazerB ışınını (x<=790) kare %d'de geçer" % [tam["bitti_ham"], f_ab, f_lb])
+	# 6) S ile yeni iniş: F2 zeminde S -> kat değiştirmez (tek yönlü yalnız raf).
+	var inen: Array = []
+	for x in range(40, 1000, 40):
+		var ss: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 45)], _n_yerlestir(Vector2(float(x), 356)))
+		if _n_son(ss).y > 430.0:
+			inen.append(x)
+	hepsi = hepsi and inen.is_empty()
+	ayr.append("F2 zeminde S (x=40..960, 40 px): kat değiştiren=%s (boş beklenir)" % str(inen))
+	_kaydi("Bölüm 20 kısayol taraması (klonsuz, 1 klon x 6 rol, röle, 2 klon kümeleri, min klon 2, S inişleri)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Raf altından zıplama yeri taraması için: kilit + rafa iniş (A'sız, tek başına).
+func _n20_zip_deneme(zip_x: float) -> Dictionary:
+	var s: Dictionary = await _n_senaryo([], [_b13_a(1, _b4_x_ge(zip_x), 150), _b13_a(0, _n_ve(_n_zemin(), _n_y_le(290.0)), 80, true), _b13_a(0, Callable(), 3)])
+	return {"kilit": _n_var_mi(s, "PlakaM"), "raf": not s["tamam"].has(false), "ayak": _n_olc(s)["ayak"], "oldu": s["oldu"]}
+
+
+func _test_b20_pencereler() -> void:
+	var kay: Array = await _n20_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	var tam: Dictionary = await _n_senaryo(kay, _n20_o())
+	var s_a: Dictionary = await _n_senaryo([], _n20_a())
+	var s_b: Dictionary = await _n_senaryo([kay[0]], _n20_b())
+	ayr.append("tur kareleri: A %d, B %d, oyuncu %d (<=600, pay %d)" % [s_a["kare"], s_b["kare"], tam["kare"], 600 - maxi(tam["kare"], s_b["kare"])])
+	hepsi = hepsi and tam["bitti_ham"] and s_a["kare"] <= 600 and s_b["kare"] <= 600 and tam["kare"] <= 600
+	# W3: rafa çıkış yüksekliği (dikey zıplamada en yüksek ayak y, raf üstü y=305).
+	var s3: Dictionary = await _n_senaryo([], _n_spam(0.0, 1, 40), _n_yerlestir(Vector2(200, 356)))
+	var ayak3: float = _n_olc(s3)["ayak"]
+	ayr.append("W3 dikey zıplama en yüksek ayak y=%.1f (raf üstü 305: pay %.1f px; taslak 21,5)" % [ayak3, 305.0 - ayak3])
+	hepsi = hepsi and 305.0 - ayak3 >= 12.0
+	# W2: mandala zıplama x taraması (kilit + rafa iniş).
+	var vx: Array = []
+	for x in range(120, 301, 4):
+		vx.append(x)
+	var kilit_ar: Array = []
+	var okx: Array = []
+	for v in vx:
+		var d: Dictionary = await _n20_zip_deneme(float(v))
+		kilit_ar.append(d["kilit"])
+		okx.append(d["kilit"] and d["raf"] and d["oldu"] == 0)
+	ayr.append("W2 zıplama c (dur-zıpla x): kilit+rafa iniş %s -> %d..%d (~%d px; taslak 156..244 = 88 px); yalnız kilit %s" % [_n_ar(vx, okx), _n_en_kucuk(vx, okx), _n_en_buyuk(vx, okx), _n_en_buyuk(vx, okx) - _n_en_kucuk(vx, okx) + 4, _n_ar(vx, kilit_ar)])
+	hepsi = hepsi and _n_en_buyuk(vx, okx) - _n_en_kucuk(vx, okx) >= 60
+	# W4: mandal kilit -> G açıklığı >= 48 px (y<=232) / tam açık (y<=180.5); B'nin G'ye varışı.
+	var f_kilit := -1
+	var f_g48 := -1
+	var f_gtam := -1
+	for f in range(s_b["ozel"].size()):
+		var o: Dictionary = s_b["ozel"][f]
+		if f_kilit < 0 and o["PlakaM"]:
+			f_kilit = f
+		if f_g48 < 0 and o["GecitG"] <= 232.0:
+			f_g48 = f
+		if f_gtam < 0 and o["GecitG"] <= 180.5:
+			f_gtam = f
+	var f_bg: int = _n_x_kare(s_b["iz"], 612.0)
+	var f_la: int = _n_x_kare(s_b["iz"], 500.0)
+	var f_a_basis := -1
+	for f in range(s_a["ozel"].size()):
+		if s_a["ozel"][f]["PlakaA"]:
+			f_a_basis = f
+			break
+	ayr.append("W4 B turunda: mandal kilit kare=%d, G>=48 px açık kare=%d (+%d), G tam açık kare=%d, B G önüne (x>=612) kare=%d => pay %d kare" % [f_kilit, f_g48, f_g48 - f_kilit, f_gtam, f_bg, f_bg - f_g48])
+	hepsi = hepsi and f_kilit >= 0 and f_g48 > f_kilit and f_bg - f_g48 >= 10
+	# W1: A'nın PlakaA'ya basışı -> B'nin LazerA'ya varışı.
+	ayr.append("W1 A PlakaA'ya ilk basış kare=%d, B LazerA'ya (x>=500) varış kare=%d => pay %d kare (taslak ~78)" % [f_a_basis, f_la, f_la - f_a_basis])
+	hepsi = hepsi and f_a_basis >= 0 and f_la - f_a_basis >= 10
+	var vg: Array = []
+	for d in range(0, 161, 4):
+		vg.append(d)
+	var okg: Array = []
+	for v in vg:
+		var a2: Array = (await _n_senaryo([], _n20_a(v)))["kayit"]
+		var sg2: Dictionary = await _n_senaryo([a2], _n20_b())
+		okg.append(not sg2["tamam"].has(false) and sg2["oldu"] == 0)
+	ayr.append("W1 A başta bekleme (kare): B başarılı %s (en çok %d kare = pay)" % [_n_ar(vg, okg), _n_en_buyuk(vg, okg)])
+	hepsi = hepsi and _n_pen(vg, okg, 0) and _n_en_buyuk(vg, okg) >= 10
+	# W1b: B gecikmesi (oyuncu bekler): çözülür mü, tur kare sınırı 600.
+	var vb: Array = []
+	for d in range(0, 201, 10):
+		vb.append(d)
+	var okb: Array = []
+	for v in vb:
+		var b2: Array = (await _n_senaryo([kay[0]], _n20_b(v)))["kayit"]
+		var sb2: Dictionary = await _n_senaryo([kay[0], b2], _n20_o())
+		okb.append(sb2["bitti_ham"] and sb2["oldu"] == 0 and sb2["kare"] <= 600)
+	ayr.append("W1b B başta bekleme (kare; oyuncu LazerB önünde bekler, tur<=600): başarılı %s (alt sınır yok, üst sınır tur kare sınırı)" % _n_ar(vb, okb))
+	hepsi = hepsi and _n_pen(vb, okb, 0) and _n_pen(vb, okb, 50)
+	# W5: oyuncunun LazerB önünde bekleme süresi.
+	var f_o_bekle := -1
+	for f in range(tam["iz"].size()):
+		if tam["iz"][f].x <= 830.0 and tam["iz"][f].y > 500.0:
+			f_o_bekle = f
+			break
+	var f_lb_kapali := _n_ilk(tam, "LazerB", false, maxi(f_o_bekle, 0))
+	var f_b_plaka := -1
+	for f in range(maxi(f_o_bekle, 0), tam["ozel"].size()):
+		if tam["ozel"][f].get("PlakaB_f", false):
+			f_b_plaka = f
+			break
+	var f_o_gecis := -1
+	for f in range(maxi(f_o_bekle, 0), tam["iz"].size()):
+		if tam["iz"][f].x <= 790.0:
+			f_o_gecis = f
+			break
+	var f_o_plaka := -1
+	for f in range(tam["ozel"].size()):
+		if tam["ozel"][f].get("PlakaB_f", false):
+			f_o_plaka = f
+			break
+	ayr.append("W5 oyuncu F1'e iner, PlakaB üstünden geçerken ışını kısa süre kendisi kapatır (kare %d, B değil); oyuncu LazerB önüne (x<=830) kare=%d, B'nin PlakaB'ye basışı/LazerB kapanışı kare=%d/%d => oyuncu bekleme %d kare (ışın görünür), ışın geçişi (x<=790) kare=%d" % [f_o_plaka, f_o_bekle, f_b_plaka, f_lb_kapali, f_lb_kapali - f_o_bekle, f_o_gecis])
+	hepsi = hepsi and f_o_bekle >= 0 and f_lb_kapali > f_o_bekle and f_o_gecis > f_lb_kapali
+	var vw: Array = []
+	for x in range(790, 1000, 10):
+		vw.append(x)
+	var okw: Array = []
+	for v in vw:
+		okw.append(await _n_bitirir(kay, _n20_o(true, float(v))))
+	ayr.append("W5b oyuncu bekleme x (LazerB önü): başarılı %s (gövde girişi 817 altında ölür)" % _n_ar(vw, okw))
+	hepsi = hepsi and _n_pen(vw, okw, 830)
+	# W6: A'nın PlakaA'dan sağa ayrılması -> LazerA'da ölme (tutucu kaçışı).
+	var w6: Array = []
+	var w6_ok := true
+	for ek in [0, 1, 2, 3]:
+		var st6: Array = [_b13_a(1, _n_plakada("PlakaA"), 200), _b13_a(0, Callable(), ek), _b13_a(1, Callable(), 80)]
+		var s6: Dictionary = await _n_senaryo([], st6)
+		var son_f := -1
+		for f in range(s6["ozel"].size()):
+			if s6["ozel"][f].get("PlakaA_f", false):
+				son_f = f
+		w6.append("duraksama %d: ölüm=%d, plakadan ayrılış->ölüm %d kare" % [ek, s6["oldu"], s6["iz"].size() - son_f])
+		w6_ok = w6_ok and s6["oldu"] > 0
+	var s6b: Dictionary = await _n_senaryo([], [_b13_a(1, _n_plakada("PlakaA"), 200), _b13_a(1, Callable(), 4), _b13_a(0, Callable(), 2), _b13_a(1, Callable(), 80)])
+	w6.append("kesik (4 kare yürü, 2 dur, devam): ölüm=%d" % s6b["oldu"])
+	w6_ok = w6_ok and s6b["oldu"] > 0
+	hepsi = hepsi and w6_ok
+	ayr.append("W6 PlakaA tutucusu sağa ayrılırsa LazerA'da ölür: %s" % "; ".join(w6))
+	# W7: PlakaB'den sola ayrılma -> LazerB'de ölme.
+	var w7: Array = []
+	var w7_ok := true
+	for ek in [0, 1, 2, 3]:
+		var s7: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), ek), _b13_a(-1, Callable(), 80)], _n_yerlestir(Vector2(930, 576)))
+		var son_f7 := -1
+		for f in range(s7["ozel"].size()):
+			if s7["ozel"][f].get("PlakaB_f", false):
+				son_f7 = f
+		w7.append("duraksama %d: ölüm=%d, plakadan ayrılış->ölüm %d kare" % [ek, s7["oldu"], s7["iz"].size() - son_f7])
+		w7_ok = w7_ok and s7["oldu"] > 0
+	hepsi = hepsi and w7_ok
+	ayr.append("W7 PlakaB tutucusu sola ayrılırsa LazerB'de ölür: %s" % "; ".join(w7))
+	_kaydi("Bölüm 20 zamanlama payları (W1 A/B, W2 mandal zıplama, W3 raf, W4 geçit, W5 oyuncu bekleme, W6/W7 tutucu kaçışı, tur kareleri)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b20_klon_fark() -> void:
+	var kay: Array = await _n20_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	for k in [["A", [], _n20_a()], ["B", [kay[0]], _n20_b()], ["Oyuncu", kay, _n20_o()]]:
+		var r: Dictionary = await _n_klon_fark(k[1], k[2])
+		ayr.append("%s canlı/klon en büyük konum farkı %.2f px (ilk sapma kare %d, x=%.0f)" % [k[0], r["fark"], r["ilk"], r["ilk_x"]])
+		hepsi = hepsi and r["fark"] <= 0.5
+	_kaydi("Bölüm 20 ölçüm: canlı kayıt vs klon tekrarı konum farkı (bant yok; üst sınır 0,5 px, taslak beklentisi 0)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b20_mandal() -> void:
+	var ayr: Array = []
+	var hepsi := true
+	aktif_bolum = BOLUM_20
+	# Rafın üstünde basılı, sonra rafın sağ ucundan ayrılır: mandal tur sonuna kadar basılı kalır.
+	var r: Dictionary = await _n_tutma_olc("PlakaM", Vector2(200, 281), 330)
+	ayr.append("PlakaM: ilk basılı kare=%d, son fiziksel kare=%d, sonra basılı kalan=%d kare (ölçüm sonuna kadar=%s)" % [r["ilk_basili"], r["son_fiziksel"], r["kalan"], str(r["sona_kadar"])])
+	hepsi = hepsi and r["ilk_basili"] >= 0 and r["sona_kadar"] and r["kalan"] >= 300
+	var son_g: float = r["ozel"][r["ozel"].size() - 1]["GecitG"]
+	ayr.append("mandaldan ayrıldıktan ~%d kare sonra GecitG y=%.0f (açık 180, kapalı 280)" % [r["kalan"], son_g])
+	hepsi = hepsi and son_g <= 181.0
+	var f_acik := -1
+	var tekrar_kapandi := false
+	for f in range(r["ozel"].size()):
+		var y: float = r["ozel"][f]["GecitG"]
+		if f_acik < 0 and y <= 180.5:
+			f_acik = f
+		elif f_acik >= 0 and y > 180.5:
+			tekrar_kapandi = true
+	ayr.append("G tam açık kare=%d, sonradan kapanma=%s" % [f_acik, str(tekrar_kapandi)])
+	hepsi = hepsi and f_acik >= 0 and not tekrar_kapandi
+	# Çözüm turunda (B klonu mandalı bir kez basıyor): oyuncu turu boyunca basılı, G hiç kapanmaz.
+	var kay: Array = await _n20_kayitlar()
+	var tam: Dictionary = await _n_senaryo(kay, _n20_o())
+	var f_m := _n_ilk(tam, "PlakaM", true)
+	var m_kesinti := 0
+	var g_kapandi := false
+	var f_gtam := -1
+	for f in range(maxi(f_m, 0), tam["ozel"].size()):
+		if not tam["ozel"][f]["PlakaM"]:
+			m_kesinti += 1
+		var gy: float = tam["ozel"][f]["GecitG"]
+		if f_gtam < 0 and gy <= 180.5:
+			f_gtam = f
+		elif f_gtam >= 0 and gy > 180.5:
+			g_kapandi = true
+	var b_fiz := -1
+	var b_son_fiz := -1
+	for f in range(tam["ozel"].size()):
+		if tam["ozel"][f].get("PlakaM_f", false):
+			if b_fiz < 0:
+				b_fiz = f
+			b_son_fiz = f
+	ayr.append("çözüm turu: mandal ilk basılı kare=%d, fiziksel basış %d..%d (yalnız B klonu), sonrasında basılı olmayan kare=%d, G tam açık kare=%d, G tekrar kapandı=%s, tur %d kare" % [f_m, b_fiz, b_son_fiz, m_kesinti, f_gtam, str(g_kapandi), tam["kare"]])
+	hepsi = hepsi and f_m >= 0 and m_kesinti == 0 and not g_kapandi and tam["bitti_ham"] and b_son_fiz < tam["ozel"].size() - 30
+	# Tur başı sıfırlama.
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var plaka_m: BasincPlakasi = bolum.get_node("PlakaM")
+	var kilitli0: bool = plaka_m.kilitli
+	var mandal_tur: bool = plaka_m.mandal and plaka_m.tutma_kare == 0
+	bolum.get_node("Oyuncu").global_position = Vector2(200, 281)
+	for i in range(12):
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		await physics_frame
+	var kilitli1: bool = plaka_m.kilitli
+	var eski_id := bolum.get_instance_id()
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var ok_t: bool = yeni != null and yeni.get_node("PlakaM").kilitli == false and yeni.get_node("PlakaM").basili_mi() == false \
+		and absf(yeni.get_node("GecitG").position.y - 280.0) < 0.5
+	hepsi = hepsi and ok_t and not kilitli0 and kilitli1 and mandal_tur
+	ayr.append("tur başı: ilk açılışta kilitli=%s, mandala basınca kilitli=%s, mandal kipi=%s; R sonrası yeni turda kilitli=%s, G y=%.0f (kapalı 280)" % [
+		str(kilitli0), str(kilitli1), str(mandal_tur), str(yeni.get_node("PlakaM").kilitli if yeni != null else "?"), yeni.get_node("GecitG").position.y if yeni != null else -1.0])
+	_kaydi("Bölüm 20: mandal bir kez basınca tur sonuna kadar basılı kalır (G hiç kapanmaz), tur başı sıfırlama", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b20_klon_siniri() -> void:
+	await _n_klon_siniri("Bölüm 20: klon sınırı (üçüncü R klon kaydetmez)", 2)
+
+
+func _test_b20_kilitlenme() -> void:
+	var kay: Array = await _n20_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	# (a) klon hakkı bitmiş (naif yol, 2/2): R klon kaydetmez, etiket "Klon hakkı bitti".
+	var naif: Array = (await _n_senaryo([], _n20_naif()))["kayit"]
+	var b_a: Array = (await _n_senaryo([naif], _n20_a()))["kayit"]
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(naif.duplicate(true))
+	_kayitlar().tur_kaydet(b_a.duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	var eski_id := bolum.get_instance_id()
+	for i in range(5):
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		await physics_frame
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var etiket: String = bolum.bilgi.text if is_instance_valid(bolum) else ""
+	var ok_a: bool = yeni == null and _kayitlar().turlar.size() == 2 and etiket.contains("Klon hakkı bitti") and etiket.contains("2/2")
+	hepsi = hepsi and ok_a
+	ayr.append("naif 2/2: R sonrası yeni sahne=%s, kayıtlı tur=%d, etiket=\"%s\"" % [str(yeni != null), _kayitlar().turlar.size(), etiket])
+	# (b) T tuşu (bastan) o durumdan çıkarır: klonlar silinir, tur 1.
+	var eski2: Node = current_scene
+	await _t_bas()
+	var yeni2: Node = await _sahne_degisimini_bekle(eski2)
+	var ok_b: bool = yeni2 != null and _kayitlar().turlar.size() == 0 and _klonlar(yeni2).size() == 0 and yeni2.bilgi.text.begins_with("Tur 1 ")
+	hepsi = hepsi and ok_b
+	ayr.append("T tuşu: kayıt=%d, klon=%d, etiket=\"%s\"" % [_kayitlar().turlar.size(), _klonlar(yeni2).size() if yeni2 != null else -1, yeni2.bilgi.text if yeni2 != null else ""])
+	# (c) Baştan başla düğmesi.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(naif.duplicate(true))
+	_kayitlar().tur_kaydet(b_a.duplicate(true))
+	var b2: Node = await _bolumu_yukle()
+	var eski3: Node = current_scene
+	b2.get_node("EkranButonlari/Kutu/YenidenDugmesi").pressed.emit()
+	var yeni3: Node = await _sahne_degisimini_bekle(eski3)
+	var ok_c: bool = yeni3 != null and _kayitlar().turlar.size() == 0 and _klonlar(yeni3).size() == 0 and yeni3.bilgi.text.begins_with("Tur 1 ")
+	hepsi = hepsi and ok_c
+	ayr.append("Baştan başla: kayıt=%d, klon=%d" % [_kayitlar().turlar.size(), _klonlar(yeni3).size() if yeni3 != null else -1])
+	# (d) hak varken F1'e erken düşen oyuncu R ile turu bitirip yeni klon kaydeder (çıkış yolu).
+	_kayitlar().sifirla()
+	var b3: Node = await _bolumu_yukle()
+	b3.get_node("Oyuncu").global_position = Vector2(900, 576)
+	for i in range(5):
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		await physics_frame
+	var eski4 := b3.get_instance_id()
+	await _r_bas()
+	var yeni4: Node = await _yeni_sahne_bekle(eski4)
+	var ok_d: bool = yeni4 != null and _kayitlar().turlar.size() == 1 and _klonlar(yeni4).size() == 1
+	hepsi = hepsi and ok_d
+	ayr.append("hak varken F1'de R: yeni tur=%s, kayıtlı tur=%d" % [str(yeni4 != null), _kayitlar().turlar.size()])
+	# (e) F1'de LazerB'ye giren oyuncu ölür, klonlar korunur, tur sayısı artmaz.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(kay[0].duplicate(true))
+	var b4: Node = await _bolumu_yukle()
+	b4.get_node("Oyuncu").global_position = Vector2(850, 576)
+	var sayac := [0]
+	b4.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var eski5 := b4.get_instance_id()
+	await _n_kosullu(b4, [_b13_a(-1, Callable(), 60)], sayac)
+	var yeni5: Node = await _yeni_sahne_bekle(eski5)
+	var ok_e: bool = sayac[0] > 0 and yeni5 != null and _kayitlar().turlar.size() == 1 and _klonlar(yeni5).size() == 1 and yeni5.bilgi.text.begins_with("Tur 2 ")
+	hepsi = hepsi and ok_e
+	ayr.append("F1'de LazerB ölümü: ölüm=%d, kayıtlı tur=%d, klon=%d, etiket=\"%s\"" % [sayac[0], _kayitlar().turlar.size(), _klonlar(yeni5).size() if yeni5 != null else -1, yeni5.bilgi.text if yeni5 != null else ""])
+	# (f) klonlar plakada biter.
+	var son: Dictionary = await _n_senaryo(kay, [_b13_a(0, Callable(), 420)])
+	var pa: Vector2 = _n_klon_son(son, 0)
+	var pb: Vector2 = _n_klon_son(son, 1)
+	var ok_f: bool = pa.x > 366.0 and pa.x < 454.0 and pa.y > 340.0 and pb.x > 872.0 and pb.x < 960.0 and pb.y > 560.0 \
+		and not son["klon_oldu"][0] and not son["klon_oldu"][1]
+	hepsi = hepsi and ok_f
+	ayr.append("klonlar plakada biter: A (%.0f,%.0f) [PlakaA 380..440], B (%.0f,%.0f) [PlakaB 886..946]" % [pa.x, pa.y, pb.x, pb.y])
+	# (g) çözüm turunda ölüm yok, bölüm biter.
+	var tam: Dictionary = await _n_senaryo(kay, _n20_o())
+	hepsi = hepsi and tam["bitti_ham"] and tam["oldu"] == 0
+	ayr.append("çözüm turu: bitti=%s, ölüm=%d" % [str(tam["bitti_ham"]), tam["oldu"]])
+	_kaydi("Bölüm 20 kilitlenme/çıkış: klon hakkı bitince T ve Baştan başla çıkışı, hak varken R, F1 ölümü, klon konumları", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b20_determinizm() -> void:
+	var kay: Array = await _n20_kayitlar()
+	await _n_determinizm("Bölüm 20: determinizm (20x çözüm)", kay, _n20_o(), 20)
+
+
+# ================================================================ Bölüm 21 (Fitil ve Mühür)
+# Taslak: docs/devir/bolum_21_taslak.md (kare/px sayıları tahmindi, burada ölçülür).
+# A (fitilci): raftan S ile kuyuya iner, ZP'ye basar (fitil), PlakaA'da kalır. B (mühürcü): G'nin önünde bekler, G
+# açılınca odaya girip mühre basar, LazerA/GM'yi geçip PlakaB'de kalır. Oyuncu: LazerA, GM, LazerB, kapı.
+const BOLUM_21 := "res://scenes/bolumler/bolum_21.tscn"
+var _n21_onb: Array = []   # [A, B]
+
+
+## A: gec kare bekler, raf ortasından S ile kuyuya iner; zp ise ZP'ye basar; PlakaA'da bekle kare kalır.
+func _n21_a(gec := 0, bekle := 15, zp := true) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d.append(_b13_a(1, _b4_x_ge(380.0), 100))
+	d.append(_b13_a(0, _n_ve(_n_zemin(), _n_y_ge(570.0)), 100, false, true))
+	if zp:
+		d.append(_b13_a(-1, _n_p("PlakaZ"), 100))
+	d.append(_b13_a(1, _n_plakada("PlakaA"), 200))
+	d.append(_b13_a(0, Callable(), bekle))
+	return d
+
+
+## Fitilde kalan naif A: ZP'ye basar ve orada bekler (PlakaA boş kalır).
+func _n21_a_naif(bekle := 420) -> Array:
+	return [_b13_a(1, _b4_x_ge(380.0), 100), _b13_a(0, _n_ve(_n_zemin(), _n_y_ge(570.0)), 100, false, true),
+		_b13_a(-1, _n_p("PlakaZ"), 100), _b13_a(0, Callable(), bekle)]
+
+
+## B: gec kare bekler, G'nin önünde (c<=196) G açılana (>=48 px) dek bekler. mehur: odaya girip mühre basar;
+## değilse odada yalnız c<=140'a (mühre değmeden) girer. Sonra PlakaB'ye yürür ve bekle kare kalır.
+func _n21_b(gec := 0, bekle := 15, mehur := true) -> Array:
+	var d: Array = []
+	if gec > 0:
+		d.append(_b13_a(0, Callable(), gec))
+	d.append(_b13_a(-1, _b4_x_le(196.0), 120))
+	d.append(_b13_a(0, _n_gecit_ust("GecitG", 232.0), 500))
+	if mehur:
+		d.append(_b13_a(-1, _n_p("PlakaM"), 100))
+	else:
+		d.append(_b13_a(-1, _b4_x_le(140.0), 100))
+	d.append(_b13_a(1, _n_plakada("PlakaB"), 400))
+	d.append(_b13_a(0, Callable(), bekle))
+	return d
+
+
+## G tam kapalı mı (y>=279.5).
+func _n21_g_kapali() -> Callable:
+	return func(b: Node) -> bool: return b.get_node("GecitG").position.y >= 279.5
+
+
+## Oyuncu: LazerA önünde ışın sönene dek bekler, sonra LazerB önünde bekler, kapıya.
+func _n21_o(bekle_la := true, bekle_lb := true) -> Array:
+	var d: Array = [_b13_a(1, _b4_x_ge(480.0), 200)]
+	if bekle_la:
+		d.append(_b13_a(0, _n_kapali("LazerA"), 400))
+	d.append(_b13_a(1, _b4_x_ge(850.0), 300))
+	if bekle_lb:
+		d.append(_b13_a(0, _n_kapali("LazerB"), 400))
+	d.append(_b13_a(1, _b4_bitti_k(), 300))
+	return d
+
+
+## Kör eşdeğer A' (taslak §8 iddiası): G önünde sabit süre bekler, odaya girip mühre basar, PlakaB'ye gider.
+## ÖLÇÜM: kayıt turunda G kapalı ve PlakaA boş olduğundan A' LazerA'da ölür; kayıt ölüm anında kesilir, yol tamamlanamaz.
+func _n21_a_kor() -> Array:
+	return [_b13_a(-1, _b4_x_le(196.0), 120), _b13_a(0, Callable(), 125), _b13_a(-1, Callable(), 22),
+		_b13_a(1, Callable(), 170), _b13_a(0, Callable(), 15)]
+
+
+func _n21_kayitlar() -> Array:
+	if _n21_onb.is_empty():
+		var s1: Dictionary = await _n_senaryo([], _n21_a())
+		var s2: Dictionary = await _n_senaryo([s1["kayit"]], _n21_b())
+		_n21_onb = [s1["kayit"], s2["kayit"]]
+	return _n21_onb
+
+
+func _b21_calistir() -> void:
+	aktif_bolum = BOLUM_21
+	_n21_onb = []
+	await _test_b21_cozum()
+	await _test_b21_yapi_kablo()
+	await _test_b21_basarisizlik()
+	await _test_b21_atlanamaz()
+	await _test_b21_kisayol()
+	await _test_b21_pencereler()
+	await _test_b21_klon_fark()
+	await _test_b21_plakalar()
+	await _test_b21_oda_tuzagi()
+	await _test_b21_klon_siniri()
+	await _test_b21_kilitlenme()
+	await _test_b21_gorunurluk()
+	await _test_b21_determinizm()
+
+
+func _test_b21_cozum() -> void:
+	aktif_bolum = BOLUM_21
+	await _n_cozum("Bölüm 21 çözümü (3 tur, 2 klon, gerçek R/girdi yolu)", [_n21_a(), _n21_b()], _n21_o(), 2)
+
+
+func _test_b21_yapi_kablo() -> void:
+	aktif_bolum = BOLUM_21
+	_kayitlar().sifirla()
+	var b: Node = await _bolumu_yukle()
+	var ayr: Array = []
+	var hepsi := true
+	# Sahne parametreleri (taslak §3).
+	var pz: BasincPlakasi = b.get_node("PlakaZ")
+	var pm: BasincPlakasi = b.get_node("PlakaM")
+	var par: bool = b.max_klon == 2 and b.ipucu_klon == 0 and pz.tutma_kare == 180 and not pz.mandal and pm.mandal and pm.tutma_kare == 0
+	hepsi = hepsi and par
+	ayr.append("max_klon=%d, ipucu_klon=%d, ZP tutma_kare=%d mandal=%s, M mandal=%s tutma_kare=%d" % [b.max_klon, b.ipucu_klon, pz.tutma_kare, str(pz.mandal), str(pm.mandal), pm.tutma_kare])
+	var yasak: String = _n_var_olanlar(b, ["Kutu", "Bant", "Salter", "Asansor", "Ziplatici"])
+	hepsi = hepsi and yasak == ""
+	ayr.append("sahnede kutu/bant/şalter/asansör/zıplatıcı: [%s] (yok olmalı)" % yasak)
+	# Ağaç sırası: plaka/geçit/lazer karakterlerden ÖNCE.
+	var sira_ok := true
+	var son := -1
+	for ad in ["PlakaM", "PlakaZ", "PlakaA", "PlakaB", "GecitG", "GecitM", "LazerA", "LazerB", "Kapi", "Oyuncu"]:
+		var i: int = b.get_node(ad).get_index()
+		sira_ok = sira_ok and i > son
+		son = i
+	hepsi = hepsi and sira_ok
+	ayr.append("ağaç sırası taslakla aynı: %s" % str(sira_ok))
+	var g: Node = b.get_node("GecitG")
+	var gm: Node = b.get_node("GecitM")
+	var tg: Array = []
+	for p in g.tetikleyici_yollari:
+		tg.append(str(p))
+	var tgm: Array = []
+	for p in gm.tetikleyici_yollari:
+		tgm.append(str(p))
+	var tetik_ok: bool = tg == ["../PlakaZ", "../PlakaM"] and tgm == ["../PlakaM"] \
+		and b.get_node("LazerA").tetikleyici_yollari.size() == 1 and b.get_node("LazerB").tetikleyici_yollari.size() == 1 \
+		and b.get_node("LazerA").tetik_aktifken_kapali and b.get_node("LazerB").tetik_aktifken_kapali
+	hepsi = hepsi and tetik_ok
+	ayr.append("tetikleyiciler: G=%s, GM=%s" % [str(tg), str(tgm)])
+	# Kablo meta'ları: var, çoklu çizgi, başlangıç tetikleyici plakada, bitiş hedefte.
+	var kablo_say := 0
+	var kablo_sorun: Array = []
+	var plaka_yer := {"PlakaZ": Vector2(180, 592), "PlakaM": Vector2(80, 372), "PlakaA": Vector2(520, 592), "PlakaB": Vector2(790, 372)}
+	var beklenen: Array = [["GecitG", "kablo", "PlakaZ"], ["GecitG", "kablo_2", "PlakaM"], ["GecitM", "kablo", "PlakaM"],
+		["LazerA", "kablo", "PlakaA"], ["LazerB", "kablo", "PlakaB"]]
+	for e in beklenen:
+		var hedef: Node = b.get_node(e[0])
+		if not hedef.has_meta(e[1]):
+			kablo_sorun.append("%s.%s yok" % [e[0], e[1]])
+			continue
+		var pts: PackedVector2Array = hedef.get_meta(e[1])
+		kablo_say += 1
+		if pts.size() < 2:
+			kablo_sorun.append("%s.%s nokta<2" % [e[0], e[1]])
+			continue
+		var bas: Vector2 = pts[0]
+		var bit: Vector2 = pts[pts.size() - 1]
+		var plaka_p: Vector2 = plaka_yer[e[2]]
+		if absf(bas.x - plaka_p.x) > 45.0 or absf(bas.y - plaka_p.y) > 30.0:
+			kablo_sorun.append("%s.%s başı %s, %s plakasından uzak (%s)" % [e[0], e[1], str(bas), e[2], str(plaka_p)])
+		var hp: Vector2 = hedef.position
+		var hedefte := false
+		if str(e[0]).begins_with("Gecit"):
+			hedefte = bit.x >= hp.x - 16.0 and bit.x <= hp.x + 16.0 and bit.y >= hp.y - 106.0 and bit.y <= hp.y + 106.0
+		else:
+			hedefte = absf(bit.x - hp.x) <= 8.0 and bit.y >= hp.y and bit.y <= hp.y + 200.0
+		if not hedefte:
+			kablo_sorun.append("%s.%s sonu %s hedefte değil (%s)" % [e[0], e[1], str(bit), str(hp)])
+		for p in pts:
+			if p.x < 0.0 or p.x > 1152.0 or p.y < 0.0 or p.y > 648.0:
+				kablo_sorun.append("%s.%s ekran dışı nokta %s" % [e[0], e[1], str(p)])
+	hepsi = hepsi and kablo_sorun.is_empty() and kablo_say == 5
+	ayr.append("kablo meta'ları: %d/5 var, sorun=%s" % [kablo_say, str(kablo_sorun)])
+	_kaydi("Bölüm 21 sahne yapısı (parametreler, ağaç sırası, tetikleyiciler, yasak mekanik yok) ve plaka-geçit/lazer kablo meta'ları", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b21_basarisizlik() -> void:
+	aktif_bolum = BOLUM_21
+	var kay: Array = await _n21_kayitlar()
+	var c_a: Array = kay[0]
+	# 1) klonsuz: LazerA'da ölür.
+	var s1: Dictionary = await _n_senaryo([], _n21_o(false))
+	_kaydi("Bölüm 21 başarısızlık 1: klonsuz -> LazerA'da ölür", s1["oldu"] > 0 and not s1["bitti_ham"] and _n_son(s1).x > 480.0 and _n_son(s1).x < 520.0,
+		"ölüm=%d, son (%.0f,%.0f) (ışın x 517..523, gövde girişi 503)" % [s1["oldu"], _n_son(s1).x, _n_son(s1).y])
+	# 2) tek başına fitil: oyuncu kuyuya iner, ZP'ye basar, G açılır ama çıkamaz.
+	var s2: Dictionary = await _n_senaryo([], _n21_a())
+	var g_min := 1.0e9
+	for o in s2["ozel"]:
+		g_min = minf(g_min, o["GecitG"])
+	_kaydi("Bölüm 21 başarısızlık 2: tek başına fitil (oyuncu kuyuya iner) -> G açılır ama oyuncu kuyuda kalır, bölüm bitmez",
+		not s2["bitti_ham"] and s2["oldu"] == 0 and g_min <= 181.0 and _n_son(s2).y > 540.0 and not s2["tamam"].has(false),
+		"G en yüksek y=%.0f (açık 180), son (%.0f,%.0f), adımlar=%s" % [g_min, _n_son(s2).x, _n_son(s2).y, str(s2["tamam"])])
+	# 3) A ZP'ye basmadan PlakaA'da kalır: G hiç açılmaz, B G önünde bekler (şerit hiç dolmaz).
+	var a_zpsiz: Array = (await _n_senaryo([], _n21_a(0, 15, false)))["kayit"]
+	var s3: Dictionary = await _n_senaryo([a_zpsiz], _n21_b())
+	var g_min3 := 1.0e9
+	for o in s3["ozel"]:
+		g_min3 = minf(g_min3, o["GecitG"])
+	_kaydi("Bölüm 21 başarısızlık 3: A ZP'ye basmadan PlakaA'da kalır -> G hiç açılmaz, B önce G önünde sonra GM önünde takılır (odaya giremez, ölmez)",
+		not s3["bitti_ham"] and s3["oldu"] == 0 and g_min3 > 279.0 and s3["tamam"].has(false) and not _n_var_mi(s3, "PlakaM_f") and _n_olc(s3)["xmax"] < 627.0 and not _n_var_mi(s3, "PlakaZ"),
+		"G en küçük y=%.0f (kapalı 280), adımlar=%s, B en büyük x=%.0f, ölüm=%d" % [g_min3, str(s3["tamam"]), _n_olc(s3)["xmax"], s3["oldu"]])
+	# 4) B mührü basmadan odadan çıkar: GM kapalı kalır, B GM'de takılır (ölmez).
+	var s4: Dictionary = await _n_senaryo([c_a], _n21_b(0, 15, false))
+	var gm4 := 1.0e9
+	for o in s4["ozel"]:
+		gm4 = minf(gm4, o["GecitM"])
+	_kaydi("Bölüm 21 başarısızlık 4: B mühre basmadan çıkar -> GM kapalı kalır, B GM önünde durur (ölüm yok), bölüm bitmez",
+		not s4["bitti_ham"] and s4["oldu"] == 0 and gm4 > 279.0 and not _n_var_mi(s4, "PlakaM_f") and _n_olc(s4)["xmax"] > 600.0 and _n_olc(s4)["xmax"] < 627.0,
+		"GM en küçük y=%.0f (kapalı 280), mühür fiziksel basıldı=%s, B en büyük x=%.0f (GM sol yüz 640-14=626), adımlar=%s" % [gm4, str(_n_var_mi(s4, "PlakaM_f")), _n_olc(s4)["xmax"], str(s4["tamam"])])
+	# 5) B çok geç gelir (fitil bitmiş, G kapalı): B G önünde takılır, mühre ulaşamaz (T gerekir).
+	var s5: Dictionary = await _n_senaryo([c_a], _n21_b(340))
+	_kaydi("Bölüm 21 başarısızlık 5: B fitil bittikten sonra (340 kare geç) gelir -> G kapalı, B odaya giremez, mühür basılmaz",
+		not s5["bitti_ham"] and s5["oldu"] == 0 and not _n_var_mi(s5, "PlakaM_f") and s5["tamam"].has(false),
+		"adımlar=%s, ölüm=%d, mühür basıldı=%s, B en büyük x=%.0f" % [str(s5["tamam"]), s5["oldu"], str(_n_var_mi(s5, "PlakaM_f")), _n_olc(s5)["xmax"]])
+	# 6) doğru klonlar ama oyuncu LazerA'ya beklemeden yürür: ölür.
+	var s6: Dictionary = await _n_senaryo(kay, _n21_o(false))
+	_kaydi("Bölüm 21 başarısızlık 6: A PlakaA'ya varmadan oyuncu LazerA'ya yürür -> ölür (ışın görünür, bekleyince geçer)",
+		s6["oldu"] > 0 and not s6["bitti_ham"] and _n_son(s6).x > 480.0 and _n_son(s6).x < 520.0,
+		"ölüm=%d, son (%.0f,%.0f)" % [s6["oldu"], _n_son(s6).x, _n_son(s6).y])
+	# 7) B geç PlakaB'ye varır, oyuncu LazerB'de beklemeden yürür: ölür.
+	var b_gec: Array = (await _n_senaryo([c_a], _n21_b(260)))["kayit"]
+	var s7: Dictionary = await _n_senaryo([c_a, b_gec], _n21_o(true, false))
+	_kaydi("Bölüm 21 başarısızlık 7: B 260 kare geç PlakaB'ye varır, oyuncu LazerB'de beklemeden yürür -> ölür",
+		s7["oldu"] > 0 and not s7["bitti_ham"], "ölüm=%d, son (%.0f,%.0f)" % [s7["oldu"], _n_son(s7).x, _n_son(s7).y])
+	# 8) B PlakaB'den hemen ayrılır: ışın yeniden yanar, oyuncu LazerB'de bekler, bitiremez.
+	var b_erken: Array = (await _n_senaryo([c_a], _n21_b(0, 0) + [_b13_a(1, Callable(), 20)]))["kayit"]
+	# Oyuncu LazerB önüne geldikten 80 kare sonra bakar (B çoktan ayrılmış): ışın açık kalır. (Hemen önünde bekleyen oyuncu
+	# B'nin ~16 karelik basışında 8 karede geçebilir; bu kayıt hatası değil, ışını izleyen oyuncunun hakkıdır.)
+	var o_gec: Array = [_b13_a(1, _b4_x_ge(480.0), 200), _b13_a(0, _n_kapali("LazerA"), 400), _b13_a(1, _b4_x_ge(850.0), 300),
+		_b13_a(0, Callable(), 80), _b13_a(0, _n_kapali("LazerB"), 200), _b13_a(1, _b4_bitti_k(), 300)]
+	var s8: Dictionary = await _n_senaryo([c_a, b_erken], o_gec)
+	_kaydi("Bölüm 21 başarısızlık 8: B PlakaB'den hemen ayrılır -> LazerB tekrar yanar, oyuncu bitiremez (ışın hiç sönmez; sabırsız oyuncu ölür)",
+		not s8["bitti_ham"] and s8["tamam"].has(false),
+		"bitti=%s, ölüm=%d, adımlar=%s, son (%.0f,%.0f), B klon son (%.0f,%.0f)" % [s8["bitti_ham"], s8["oldu"], str(s8["tamam"]), _n_son(s8).x, _n_son(s8).y, _n_klon_son(s8, 1).x, _n_klon_son(s8, 1).y])
+	# 9) A PlakaA'dan erken ayrılır: oyuncu LazerA'da bekler, bitiremez.
+	var a_erken: Array = (await _n_senaryo([], _n21_a(0, 0) + [_b13_a(-1, Callable(), 6)]))["kayit"]
+	var b_a: Array = (await _n_senaryo([a_erken], _n21_b()))["kayit"]
+	var s9: Dictionary = await _n_senaryo([a_erken, b_a], _n21_o())
+	_kaydi("Bölüm 21 başarısızlık 9: A PlakaA'yı hemen bırakır (sola kayar) -> LazerA yeniden yanar, oyuncu bitiremez (ölür ya da bekler)",
+		not s9["bitti_ham"], "bitti=%s, ölüm=%d, adımlar=%s, son (%.0f,%.0f)" % [s9["bitti_ham"], s9["oldu"], str(s9["tamam"]), _n_son(s9).x, _n_son(s9).y])
+	# 10) rafta yanlışlıkla S (B kuyuya düşer, dönüş yok).
+	var b_s: Array = [_b13_a(-1, _b4_x_le(196.0), 120), _b13_a(0, _n_gecit_ust("GecitG", 232.0), 500), _b13_a(1, _b4_x_ge(380.0), 100),
+		_b13_a(0, Callable(), 60, false, true)]
+	var s10: Dictionary = await _n_senaryo([c_a], b_s)
+	_kaydi("Bölüm 21 başarısızlık 10: B rafta S'ye basar -> kuyuya düşer, geri çıkamaz (dönüşsüz)",
+		not s10["bitti_ham"] and s10["oldu"] == 0 and _n_son(s10).y > 560.0, "son (%.0f,%.0f)" % [_n_son(s10).x, _n_son(s10).y])
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b21_atlanamaz() -> void:
+	aktif_bolum = BOLUM_21
+	var ayr: Array = []
+	var hepsi := true
+	# Kuyudan çıkış yok (220 px): kuyu içinde beş x'te dikey zıplama.
+	for x in [150.0, 250.0, 380.0, 500.0, 580.0]:
+		var sa: Dictionary = await _n_senaryo([], _n_spam(0.0, 8), _n_yerlestir(Vector2(x, 576)))
+		hepsi = hepsi and _n_olc(sa)["ayak"] > 440.0
+		ayr.append("kuyu x=%.0f dikey zıplama: en yüksek ayak y=%.1f (F2 yüzeyi 380, kuyu tavanı 420)" % [x, _n_olc(sa)["ayak"]])
+	# Kuyudan yana zıplayarak çıkış denemesi (rafın altı).
+	for yon in [-1.0, 1.0]:
+		var sk: Dictionary = await _n_senaryo([], _n_spam(yon, 14), _n_yerlestir(Vector2(380, 576)))
+		hepsi = hepsi and _n_olc(sk)["ayak"] > 440.0 and _n_olc(sk)["ymax"] > 560.0
+		ayr.append("kuyuda yön=%.0f + zıpla spam: en yüksek ayak y=%.1f" % [yon, _n_olc(sk)["ayak"]])
+	# ZP'ye basan oyuncu (A yolu) kuyudan çıkamaz, G'ye dönemez.
+	var sz: Dictionary = await _n_senaryo([], _n21_a(0, 0) + _n_spam(-1.0, 10))
+	hepsi = hepsi and _n_son(sz).y > 540.0 and not sz["bitti_ham"]
+	ayr.append("fitil koşusu tek başına: A yolundan sonra sol+zıpla spam, son (%.0f,%.0f) (kuyuda)" % [_n_son(sz).x, _n_son(sz).y])
+	# G kapalıyken (ZP/M basılı değil): başlangıçtan sol+zıpla spam odaya girmez.
+	var sg: Dictionary = await _n_senaryo([], _n_spam(-1.0, 14))
+	hepsi = hepsi and _n_olc(sg)["xmin"] >= 192.0 and sg["oldu"] == 0 and not sg["bitti_ham"] and not _n_var_mi(sg, "PlakaM_f")
+	ayr.append("G kapalı, sol+zıpla spam: en küçük x=%.0f (G sağ yüz 180+14=194), baş y=%.1f (tavan 180), mühür basıldı=%s" % [_n_olc(sg)["xmin"], _n_olc(sg)["ayak"] - 48.0, str(_n_var_mi(sg, "PlakaM_f"))])
+	# GM kapalı (mühür yok): GM önünden sağ+zıpla spam geçilmez.
+	var sm: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(590, 356)))
+	hepsi = hepsi and _n_olc(sm)["xmax"] <= 627.0 and not sm["bitti_ham"] and sm["oldu"] == 0
+	ayr.append("GM kapalı: en büyük x=%.0f (sol yüz 640-14=626), baş y=%.1f" % [_n_olc(sm)["xmax"], _n_olc(sm)["ayak"] - 48.0])
+	# LazerA zıplayarak (A yokken).
+	var sl: Dictionary = await _n_senaryo([], _n_spam(1.0, 10), _n_yerlestir(Vector2(440, 356)))
+	hepsi = hepsi and sl["oldu"] > 0 and _n_olc(sl)["xmax"] < 520.0 and not sl["bitti_ham"]
+	ayr.append("LazerA zıplayarak: ölüm=%d, en büyük x=%.0f (ışın 517..523, gövde girişi 503)" % [sl["oldu"], _n_olc(sl)["xmax"]])
+	# LazerB zıplayarak.
+	var sb: Dictionary = await _n_senaryo([], _n_spam(1.0, 12), _n_yerlestir(Vector2(850, 356)))
+	hepsi = hepsi and sb["oldu"] > 0 and _n_olc(sb)["xmax"] < 900.0 and not sb["bitti_ham"]
+	ayr.append("LazerB zıplayarak: ölüm=%d, en büyük x=%.0f (ışın 900..906, gövde girişi 886)" % [sb["oldu"], _n_olc(sb)["xmax"]])
+	# Tavan: F2 dikey zıplama başı tavana (180) ulaşmaz.
+	var st: Dictionary = await _n_senaryo([], _n_spam(0.0, 6), _n_yerlestir(Vector2(800, 356)))
+	hepsi = hepsi and _n_olc(st)["ayak"] - 48.0 > 180.0
+	ayr.append("F2 dikey zıplama (x=800): en yüksek baş y=%.1f (tavan 180)" % (_n_olc(st)["ayak"] - 48.0))
+	# Mühür/fitil kazara basılmaz: G önüne gidip raf üstünden sağa yürüyüş.
+	var sy: Dictionary = await _n_senaryo([], [_b13_a(-1, _b4_x_le(196.0), 100), _b13_a(0, Callable(), 10), _b13_a(1, _b4_x_ge(500.0), 200), _b13_a(0, Callable(), 5)])
+	hepsi = hepsi and not _n_var_mi(sy, "PlakaM_f") and not _n_var_mi(sy, "PlakaZ_f")
+	ayr.append("F2 yürüyüşü (G önüne, raf üstünden sağa): mühür/fitil kazara basıldı=%s/%s (basılmamalı)" % [str(_n_var_mi(sy, "PlakaM_f")), str(_n_var_mi(sy, "PlakaZ_f"))])
+	# Raf dışında S etkisiz: DosemeSol ve DosemeSag üstünde.
+	var dis: Array = []
+	for x in [60.0, 200.0, 300.0, 460.0, 560.0, 800.0, 1000.0]:
+		var ss: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 45)], _n_yerlestir(Vector2(x, 356)))
+		if _n_son(ss).y > 400.0:
+			dis.append(int(x))
+	hepsi = hepsi and dis.is_empty()
+	ayr.append("rafın dışında S (x=60,200,300,460,560,800,1000): kuyuya inen=%s (boş beklenir)" % str(dis))
+	_kaydi("Bölüm 21 atlanamazlık (kuyudan çıkış, odaya G'siz giriş, GM, LazerA/LazerB zıplayarak, tavan, S raf dışı, kazara plaka)", hepsi, "; ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b21_kisayol() -> void:
+	aktif_bolum = BOLUM_21
+	var kay: Array = await _n21_kayitlar()
+	var c_a: Array = kay[0]
+	var c_b: Array = kay[1]
+	var ayr: Array = []
+	var hepsi := true
+	# Oyuncu stratejileri (fitilci / mühürcü olarak kendisi dahil).
+	var a_oyuncu: Array = _n21_a(0, 0) + [_b13_a(1, Callable(), 100)]
+	var b_oyuncu: Array = _n21_b(0, 0) + [_b13_a(1, Callable(), 200)]
+	var st: Array = [_n21_o(), _n21_o(false), _n21_o(true, false), [_b13_a(1, Callable(), 600)], _n_spam(1.0, 20),
+		[_b13_a(0, Callable(), 60), _b13_a(1, Callable(), 400)], a_oyuncu, b_oyuncu]
+	# 1) klonsuz
+	var kb: Array = []
+	for i in range(st.size()):
+		if await _n_bitirir([], st[i]):
+			kb.append(i)
+	hepsi = hepsi and kb.is_empty()
+	ayr.append("klonsuz x %d strateji (oyuncu fitilci/mühürcü dahil): bitiren=%s" % [st.size(), str(kb)])
+	# 2) tek klon rolleri.
+	var b_kor: Array = (await _n_senaryo([], _n21_b()))["kayit"]
+	var naif: Array = (await _n_senaryo([], _n21_a_naif()))["kayit"]
+	var a_zpsiz: Array = (await _n_senaryo([], _n21_a(0, 15, false)))["kayit"]
+	var a_kor: Array = (await _n_senaryo([], _n21_a_kor()))["kayit"]
+	var tekler: Array = [c_a, b_kor, naif, a_zpsiz, a_kor, c_b]
+	var tek_ad: Array = ["A", "B(kör)", "naif(ZP'de kalan)", "A(ZP'siz)", "A'(kör mühürcü)", "B(A ile kaydedilmiş)"]
+	var biten: Array = []
+	for i in range(tekler.size()):
+		for j in range(st.size()):
+			if await _n_bitirir([tekler[i]], st[j]):
+				biten.append("%s/%d" % [tek_ad[i], j])
+	hepsi = hepsi and biten.is_empty()
+	ayr.append("tek klon (%d rol x %d oyuncu stratejisi): bitiren=%s" % [tekler.size(), st.size(), str(biten)])
+	# 3) iki klon: çözüm ve kör eşdeğer bitirir; naif / aynı rol / eksik rol bitirmez.
+	var b_naif: Array = (await _n_senaryo([naif], _n21_b()))["kayit"]
+	var b_fitilci: Array = (await _n_senaryo([a_kor], _n21_a()))["kayit"]
+	var iki: Array = [["A+B", [c_a, c_b], true], ["B+A", [c_b, c_a], true], ["A'(kör mühürcü, LazerA'da ölerek kaydedilir)+B_fitilci", [a_kor, b_fitilci], false],
+		["A+A", [c_a, c_a], false], ["B+B", [c_b, c_b], false], ["naif+B", [naif, b_naif], false], ["naif+A", [naif, c_a], false],
+		["A(ZP'siz)+B", [a_zpsiz, c_b], false], ["A+B(kör)", [c_a, b_kor], false]]
+	var iki_bozuk: Array = []
+	for k in iki:
+		var bit: bool = await _n_bitirir(k[1], _n21_o())
+		if bit != k[2]:
+			iki_bozuk.append("%s bitti=%s (beklenen %s)" % [k[0], str(bit), str(k[2])])
+	hepsi = hepsi and iki_bozuk.is_empty()
+	ayr.append("iki klon kümeleri (%d): beklentiyle uyuşmayan=%s" % [iki.size(), str(iki_bozuk)])
+	# 4) min klon 2 kanıtı: PlakaA ve PlakaB aynı anda basılı iken oyuncu LazerB'yi geçer.
+	var tam: Dictionary = await _n_senaryo(kay, _n21_o())
+	var f_ab := -1
+	for f in range(tam["ozel"].size()):
+		var o: Dictionary = tam["ozel"][f]
+		if o["PlakaA"] and o["PlakaB"] and f_ab < 0:
+			f_ab = f
+	var f_lb := -1
+	for f in range(tam["iz"].size()):
+		if tam["iz"][f].x >= 886.0 and f_lb < 0:
+			f_lb = f
+	var ok4: bool = tam["bitti_ham"] and f_ab >= 0 and f_lb > f_ab
+	hepsi = hepsi and ok4
+	ayr.append("min klon 2: bitti=%s, PlakaA+PlakaB birlikte basılı ilk kare=%d, oyuncu LazerB ışınına (x>=886) kare %d'de varır" % [tam["bitti_ham"], f_ab, f_lb])
+	# 5) S ile yeni iniş: F2 zemininde S -> yalnız raf bölgesinde kuyuya iner.
+	var inen: Array = []
+	for x in range(40, 1100, 40):
+		var ss: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 45)], _n_yerlestir(Vector2(float(x), 356)))
+		if _n_son(ss).y > 430.0:
+			inen.append(x)
+	var inen_ok := not inen.is_empty()
+	for x in inen:
+		inen_ok = inen_ok and x >= 320 and x <= 440
+	hepsi = hepsi and inen_ok
+	ayr.append("F2 zeminde S (x=40..1080, 40 px): kuyuya inen=%s (yalnız raf 320..440 içinde olmalı)" % str(inen))
+	_kaydi("Bölüm 21 kısayol taraması (klonsuz, 1 klon x 6 rol, 2 klon kümeleri, min klon 2, S inişleri)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b21_pencereler() -> void:
+	aktif_bolum = BOLUM_21
+	var kay: Array = await _n21_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	var tam: Dictionary = await _n_senaryo(kay, _n21_o())
+	var s_a: Dictionary = await _n_senaryo([], _n21_a())
+	var s_b: Dictionary = await _n_senaryo([kay[0]], _n21_b())
+	ayr.append("tur kareleri: A %d, B %d, oyuncu %d (<=600, pay %d; taslak ~180/285/295)" % [s_a["kare"], s_b["kare"], tam["kare"], 600 - maxi(maxi(s_a["kare"], s_b["kare"]), tam["kare"])])
+	hepsi = hepsi and tam["bitti_ham"] and s_a["kare"] <= 600 and s_b["kare"] <= 600 and tam["kare"] <= 600
+	# A turu: kuyuya düşüş ve iniş x'i (adım 1 = S ile iniş), ZP/PlakaA kareleri.
+	var f_s0: int = s_a["baslangic"][1]
+	var f_s1: int = s_a["baslangic"][2]
+	var f_a_zp := _n_ilk(s_a, "PlakaZ", true)
+	var f_a_pa := _n_ilk(s_a, "PlakaA", true)
+	ayr.append("A: raf ortası (S başı) kare=%d x=%.0f, kuyu zeminine iniş %d kare sonra x=%.0f (taslak ~34), ZP basış kare=%d (~96), PlakaA basış kare=%d (~157)" % [
+		f_s0, s_a["iz"][f_s0].x, f_s1 - f_s0, s_a["iz"][mini(f_s1, s_a["iz"].size() - 1)].x, f_a_zp, f_a_pa])
+	hepsi = hepsi and f_a_zp > f_s1 and f_a_pa > f_a_zp and f_s1 - f_s0 > 20
+	# B turu (A klon): W1 G açıklığı, B'nin G önünde bekleme süresi, mühür, GM, LazerA varışı.
+	var f_zp_b := _n_ilk(s_b, "PlakaZ", true)
+	var f_g48 := -1
+	var f_gtam := -1
+	for f in range(s_b["ozel"].size()):
+		var gy: float = s_b["ozel"][f]["GecitG"]
+		if f_g48 < 0 and gy <= 232.0:
+			f_g48 = f
+		if f_gtam < 0 and gy <= 180.5:
+			f_gtam = f
+	var f_b_g: int = -1
+	for f in range(s_b["iz"].size()):
+		if s_b["iz"][f].x <= 196.0:
+			f_b_g = f
+			break
+	var f_m := _n_ilk(s_b, "PlakaM", true)
+	var f_gm48 := -1
+	for f in range(s_b["ozel"].size()):
+		if s_b["ozel"][f]["GecitM"] <= 232.0:
+			f_gm48 = f
+			break
+	var f_b_la: int = _n_x_kare(s_b["iz"], 500.0)
+	var f_a_pa_b := _n_ilk(s_b, "PlakaA", true)
+	var f_b_gm: int = _n_x_kare(s_b["iz"], 612.0)
+	var f_b_pb := _n_ilk(s_b, "PlakaB", true)
+	ayr.append("W1 B G önüne (x<=196) kare=%d, ZP basılı kare=%d, G>=48 px açık kare=%d (+%d), G tam açık=%d => B bekleme %d kare (taslak ~110)" % [f_b_g, f_zp_b, f_g48, f_g48 - f_zp_b, f_gtam, f_g48 - f_b_g])
+	hepsi = hepsi and f_b_g >= 0 and f_zp_b >= 0 and f_g48 > f_zp_b and f_g48 >= f_b_g
+	ayr.append("W5 mühür kilit kare=%d, GM>=48 px açık kare=%d (+%d), B GM'yi geçer (x>=612) kare=%d => GM payı %d kare (taslak ~78)" % [f_m, f_gm48, f_gm48 - f_m, f_b_gm, f_b_gm - f_gm48])
+	hepsi = hepsi and f_m > f_g48 and f_gm48 > f_m and f_b_gm - f_gm48 >= 10
+	ayr.append("W4 A PlakaA'ya basış kare=%d, B LazerA'ya (x>=500) varış kare=%d => pay %d kare (taslak ~54); B PlakaB kare=%d" % [f_a_pa_b, f_b_la, f_b_la - f_a_pa_b, f_b_pb])
+	hepsi = hepsi and f_a_pa_b >= 0 and f_b_la - f_a_pa_b >= 10 and f_b_pb > f_b_la
+	# Oyuncu turu: LazerA ve LazerB önünde bekleme.
+	var f_o_la: int = _n_x_kare(tam["iz"], 480.0)
+	var f_la_kapali := _n_ilk(tam, "LazerA", false, maxi(f_o_la, 0))
+	var f_o_lb: int = _n_x_kare(tam["iz"], 850.0)
+	var f_lb_kapali := _n_ilk(tam, "LazerB", false, maxi(f_o_lb, 0))
+	var f_o_gm: int = _n_x_kare(tam["iz"], 612.0)
+	ayr.append("W6 oyuncu LazerA önüne (x>=480) kare=%d, ışın söner kare=%d => bekleme %d (taslak ~100); GM önüne kare=%d (GM açılalı %d kare); LazerB önüne (x>=850) kare=%d, ışın söner kare=%d => bekleme %d" % [
+		f_o_la, f_la_kapali, f_la_kapali - f_o_la, f_o_gm, f_o_gm - f_gm48, f_o_lb, f_lb_kapali, f_lb_kapali - f_o_lb])
+	hepsi = hepsi and f_o_la >= 0 and f_la_kapali > f_o_la and f_lb_kapali >= f_o_lb and f_o_gm > f_gm48
+	# W1 taraması: B başta bekleme (G önünde bekler; fitil süresi dolmadan gelmeli) -> başarılı aralık.
+	var vb: Array = []
+	for d in range(0, 361, 30):
+		vb.append(d)
+	var okb: Array = []
+	for v in vb:
+		var b2: Array = (await _n_senaryo([kay[0]], _n21_b(v)))["kayit"]
+		var sb2: Dictionary = await _n_senaryo([kay[0], b2], _n21_o())
+		okb.append(sb2["bitti_ham"] and sb2["oldu"] == 0 and sb2["kare"] <= 600)
+	ayr.append("W1b B başta bekleme (kare): başarılı %s (üst sınır fitil süresi: G kapanmadan gelmeli)" % _n_ar(vb, okb))
+	hepsi = hepsi and _n_pen(vb, okb, 0) and _n_pen(vb, okb, 90) and _n_pen(vb, okb, 360, false)
+	# W2 taraması: A başta bekleme (B G önünde daha uzun bekler).
+	var vg: Array = []
+	for d in range(0, 241, 30):
+		vg.append(d)
+	var okg: Array = []
+	for v in vg:
+		var a2: Array = (await _n_senaryo([], _n21_a(v)))["kayit"]
+		var sg2: Dictionary = await _n_senaryo([a2], _n21_b())
+		var so2: Dictionary = await _n_senaryo([a2, sg2["kayit"]], _n21_o())
+		okg.append(not sg2["tamam"].has(false) and sg2["oldu"] == 0 and sg2["kare"] <= 600 and so2["bitti_ham"] and so2["oldu"] == 0)
+	ayr.append("W2 A başta bekleme (kare): çözüm bitti %s (alt/üst sınır tur kare sınırı)" % _n_ar(vg, okg))
+	hepsi = hepsi and _n_pen(vg, okg, 0) and _n_pen(vg, okg, 60)
+	# W3: S penceresi (raf üstünde kuyuya iner) ve dikişler.
+	var vs: Array = []
+	for x in range(316, 453, 4):
+		vs.append(x)
+	var oks: Array = []
+	for v in vs:
+		var ss: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), 3, false, true), _b13_a(0, Callable(), 48)], _n_yerlestir(Vector2(float(v), 356)))
+		oks.append(_n_son(ss).y > 430.0)
+	ayr.append("W3 S ile kuyuya iniş c aralığı: %s (taslak 346..414 güvenli; tam raf 334..426); genişlik ~%d px" % [_n_ar(vs, oks), _n_en_buyuk(vs, oks) - _n_en_kucuk(vs, oks) + 4])
+	hepsi = hepsi and _n_pen(vs, oks, 380) and _n_pen(vs, oks, 316, false) and _n_pen(vs, oks, 452, false) and _n_en_buyuk(vs, oks) - _n_en_kucuk(vs, oks) >= 60
+	# W7: PlakaB tutucusu sağa ayrılırsa LazerB'de ölür (kaçış); PlakaA tutucusu kuyuda sola/sağa.
+	var w7: Array = []
+	var w7_ok := true
+	for ek in [0, 1, 2, 3]:
+		var s7: Dictionary = await _n_senaryo([], [_b13_a(0, Callable(), ek), _b13_a(1, Callable(), 80)], _n_yerlestir(Vector2(790, 356)))
+		var son_f7 := -1
+		for f in range(s7["ozel"].size()):
+			if s7["ozel"][f].get("PlakaB_f", false):
+				son_f7 = f
+		w7.append("duraksama %d: ölüm=%d, plakadan ayrılış->ölüm %d kare" % [ek, s7["oldu"], s7["iz"].size() - son_f7])
+		w7_ok = w7_ok and s7["oldu"] > 0
+	hepsi = hepsi and w7_ok
+	ayr.append("W7 PlakaB tutucusu sağa ayrılırsa LazerB'de ölür (taslak ~10 kare): %s" % "; ".join(w7))
+	var s8: Dictionary = await _n_senaryo([], [_b13_a(1, Callable(), 12)], _n_yerlestir(Vector2(500, 576)))
+	var s8b: Dictionary = await _n_senaryo([], [_b13_a(1, Callable(), 20)], _n_yerlestir(Vector2(500, 576)))
+	ayr.append("W8 PlakaA kuyuda: PlakaA'dan ayrılan kuyuda kalır (ölüm %d/%d, y=%.0f/%.0f; kaçış yolu yok)" % [s8["oldu"], s8b["oldu"], _n_son(s8).y, _n_son(s8b).y])
+	hepsi = hepsi and _n_son(s8).y > 560.0 and _n_son(s8b).y > 560.0
+	_kaydi("Bölüm 21 zamanlama payları (tur kareleri, kuyu inişi, W1 G/B bekleme+tarama, W2 A gecikmesi, W3 S penceresi, W4 LazerA, W5 mühür/GM, W6 oyuncu bekleme, W7 tutucu kaçışı)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b21_klon_fark() -> void:
+	aktif_bolum = BOLUM_21
+	var kay: Array = await _n21_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	for k in [["A", [], _n21_a()], ["B", [kay[0]], _n21_b()], ["Oyuncu", kay, _n21_o()]]:
+		var r: Dictionary = await _n_klon_fark(k[1], k[2])
+		ayr.append("%s canlı/klon en büyük konum farkı %.2f px (ilk sapma kare %d, x=%.0f)" % [k[0], r["fark"], r["ilk"], r["ilk_x"]])
+		hepsi = hepsi and r["fark"] <= 0.5
+	_kaydi("Bölüm 21 ölçüm: canlı kayıt vs klon tekrarı konum farkı (bant yok; üst sınır 0,5 px, taslak beklentisi 0)", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b21_plakalar() -> void:
+	aktif_bolum = BOLUM_21
+	var ayr: Array = []
+	var hepsi := true
+	# Fitil (ZP): bırakıldıktan sonra tam 180 kare basılı kalır.
+	var rz: Dictionary = await _n_tutma_olc("PlakaZ", Vector2(200, 576), 330)
+	ayr.append("ZP: ilk basılı kare=%d, son fiziksel kare=%d, sonra basılı kalan=%d kare (tutma_kare 180)" % [rz["ilk_basili"], rz["son_fiziksel"], rz["kalan"]])
+	hepsi = hepsi and rz["ilk_basili"] >= 0 and rz["kalan"] == 180 and not rz["sona_kadar"]
+	var f_g48 := -1
+	var f_kapan := -1
+	for f in range(rz["ozel"].size()):
+		var gy: float = rz["ozel"][f]["GecitG"]
+		if f_g48 < 0 and gy <= 232.0:
+			f_g48 = f
+		if f_g48 >= 0 and f_kapan < 0 and gy > 232.0:
+			f_kapan = f
+	ayr.append("ZP: G>=48 px açık kare=%d (ZP basıştan +%d; taslak ~24), mühürsüz kapanma (G<48 px) kare=%d (bırakıştan +%d; taslak ~206)" % [f_g48, f_g48 - rz["ilk_basili"], f_kapan, f_kapan - rz["son_fiziksel"]])
+	hepsi = hepsi and f_g48 >= 0 and f_kapan > f_g48
+	# Mühür (M): bir kez basılınca tur sonuna kadar basılı, G ve GM hiç kapanmaz.
+	var rm: Dictionary = await _n_tutma_olc("PlakaM", Vector2(80, 356), 330)
+	ayr.append("M: ilk basılı kare=%d, son fiziksel kare=%d, sonra basılı kalan=%d kare (ölçüm sonuna kadar=%s)" % [rm["ilk_basili"], rm["son_fiziksel"], rm["kalan"], str(rm["sona_kadar"])])
+	hepsi = hepsi and rm["ilk_basili"] >= 0 and rm["sona_kadar"] and rm["kalan"] >= 300
+	var son_g: float = rm["ozel"][rm["ozel"].size() - 1]["GecitG"]
+	var son_gm: float = rm["ozel"][rm["ozel"].size() - 1]["GecitM"]
+	var f_acik := -1
+	var tekrar := false
+	for f in range(rm["ozel"].size()):
+		var y: float = rm["ozel"][f]["GecitG"]
+		if f_acik < 0 and y <= 180.5:
+			f_acik = f
+		elif f_acik >= 0 and y > 180.5:
+			tekrar = true
+	ayr.append("M sonrası: G y=%.0f, GM y=%.0f (açık 180), G tam açık kare=%d, G sonradan kapandı=%s" % [son_g, son_gm, f_acik, str(tekrar)])
+	hepsi = hepsi and son_g <= 181.0 and son_gm <= 181.0 and f_acik >= 0 and not tekrar
+	# Çözüm turunda mührü yalnız B basar; fitil bittikten sonra (k > ZP bırakış + 180 + 26) G hâlâ açık.
+	var kay: Array = await _n21_kayitlar()
+	var tam: Dictionary = await _n_senaryo(kay, _n21_o())
+	var f_zp_son := -1
+	for f in range(tam["ozel"].size()):
+		if tam["ozel"][f].get("PlakaZ_f", false):
+			f_zp_son = f
+	var f_m := _n_ilk(tam, "PlakaM", true)
+	var m_kesinti := 0
+	var g_kapandi := false
+	var f_gtam := -1
+	for f in range(maxi(f_m, 0), tam["ozel"].size()):
+		if not tam["ozel"][f]["PlakaM"]:
+			m_kesinti += 1
+	for f in range(tam["ozel"].size()):
+		var gy2: float = tam["ozel"][f]["GecitG"]
+		if f_gtam < 0 and gy2 <= 180.5:
+			f_gtam = f
+		elif f_gtam >= 0 and gy2 > 180.5:
+			g_kapandi = true
+	var fitil_bitis: int = f_zp_son + 180 + 26
+	var g_fitil_sonrasi: float = tam["ozel"][mini(fitil_bitis + 20, tam["ozel"].size() - 1)]["GecitG"]
+	ayr.append("çözüm turu: ZP son fiziksel kare=%d (fitil bitişi ~%d), mühür basılı kare=%d, sonra basılı olmayan=%d, G tam açık=%d, G tekrar kapandı=%s, fitil bittikten 20 kare sonra G y=%.0f, tur %d kare" % [f_zp_son, fitil_bitis, f_m, m_kesinti, f_gtam, str(g_kapandi), g_fitil_sonrasi, tam["kare"]])
+	hepsi = hepsi and f_m >= 0 and m_kesinti == 0 and not g_kapandi and tam["bitti_ham"] and (tam["kare"] <= fitil_bitis or g_fitil_sonrasi <= 181.0)
+	# Tur başı sıfırlama: mühür kilidi, G konumu, ZP.
+	_kayitlar().sifirla()
+	var bolum: Node = await _bolumu_yukle()
+	var plaka_m: BasincPlakasi = bolum.get_node("PlakaM")
+	var kilitli0: bool = plaka_m.kilitli
+	bolum.get_node("Oyuncu").global_position = Vector2(80, 356)
+	for i in range(12):
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		await physics_frame
+	var kilitli1: bool = plaka_m.kilitli
+	var eski_id := bolum.get_instance_id()
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var ok_t: bool = yeni != null and yeni.get_node("PlakaM").kilitli == false and yeni.get_node("PlakaM").basili_mi() == false \
+		and yeni.get_node("PlakaZ").basili_mi() == false and absf(yeni.get_node("GecitG").position.y - 280.0) < 0.5 \
+		and absf(yeni.get_node("GecitM").position.y - 280.0) < 0.5
+	hepsi = hepsi and ok_t and not kilitli0 and kilitli1
+	ayr.append("tur başı: ilk açılışta kilitli=%s, mühre basınca=%s; R sonrası yeni turda mühür kilitli=%s, G y=%.0f, GM y=%.0f (kapalı 280)" % [
+		str(kilitli0), str(kilitli1), str(yeni.get_node("PlakaM").kilitli if yeni != null else "?"),
+		yeni.get_node("GecitG").position.y if yeni != null else -1.0, yeni.get_node("GecitM").position.y if yeni != null else -1.0])
+	_kaydi("Bölüm 21: fitil tam 180 kare, mühür tur sonuna kadar kalıcı (G ve GM kapanmaz), tur başı sıfırlama", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Oda tuzak değildir: mühre basmadan fitil bitip G kapansa da mühre basınca G yeniden açılır (VEYA) ve B çıkabilir.
+func _test_b21_oda_tuzagi() -> void:
+	aktif_bolum = BOLUM_21
+	var kay: Array = await _n21_kayitlar()
+	var tuzak: Array = [_b13_a(-1, _b4_x_le(196.0), 120), _b13_a(0, _n_gecit_ust("GecitG", 232.0), 500),
+		_b13_a(-1, _b4_x_le(140.0), 60), _b13_a(0, _n21_g_kapali(), 500),
+		_b13_a(-1, _n_p("PlakaM"), 100), _b13_a(0, _n_gecit_ust("GecitG", 181.0), 200),
+		_b13_a(1, _b4_x_ge(330.0), 120), _b13_a(0, Callable(), 3)]
+	var s: Dictionary = await _n_senaryo([kay[0]], tuzak)
+	var f_acik := -1
+	var f_kapali := -1
+	var f_yeniden := -1
+	for f in range(s["ozel"].size()):
+		var gy: float = s["ozel"][f]["GecitG"]
+		if f_acik < 0 and gy <= 232.0:
+			f_acik = f
+		elif f_acik >= 0 and f_kapali < 0 and gy >= 279.5:
+			f_kapali = f
+		elif f_kapali >= 0 and f_yeniden < 0 and gy <= 232.0:
+			f_yeniden = f
+	var cikti: bool = _n_son(s).x >= 330.0
+	_kaydi("Bölüm 21 oda tuzak değil: mühre basmadan G kapanır, sonra mühre basınca G yeniden açılır ve B odadan çıkar",
+		not s["tamam"].has(false) and s["oldu"] == 0 and f_acik >= 0 and f_kapali > f_acik and f_yeniden > f_kapali and cikti,
+		"adımlar=%s, ölüm=%d, G>=48 px açık kare=%d, tam kapalı kare=%d (açıklıktan +%d), mühürle yeniden açık kare=%d, çıkış x=%.0f" % [
+			str(s["tamam"]), s["oldu"], f_acik, f_kapali, f_kapali - f_acik, f_yeniden, _n_son(s).x])
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b21_klon_siniri() -> void:
+	aktif_bolum = BOLUM_21
+	await _n_klon_siniri("Bölüm 21: klon sınırı (üçüncü R klon kaydetmez)", 2)
+
+
+func _test_b21_kilitlenme() -> void:
+	aktif_bolum = BOLUM_21
+	var kay: Array = await _n21_kayitlar()
+	var ayr: Array = []
+	var hepsi := true
+	# (a) klon hakkı bitmiş (naif: ZP'de kalan A + eksik B, 2/2): R klon kaydetmez, etiket "Klon hakkı bitti".
+	var naif: Array = (await _n_senaryo([], _n21_a_naif()))["kayit"]
+	var b_naif: Array = (await _n_senaryo([naif], _n21_b()))["kayit"]
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(naif.duplicate(true))
+	_kayitlar().tur_kaydet(b_naif.duplicate(true))
+	var bolum: Node = await _bolumu_yukle()
+	var eski_id := bolum.get_instance_id()
+	for i in range(5):
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		await physics_frame
+	await _r_bas()
+	var yeni: Node = await _yeni_sahne_bekle(eski_id)
+	var etiket: String = bolum.bilgi.text if is_instance_valid(bolum) else ""
+	var ok_a: bool = yeni == null and _kayitlar().turlar.size() == 2 and etiket.contains("Klon hakkı bitti") and etiket.contains("2/2")
+	hepsi = hepsi and ok_a
+	ayr.append("naif 2/2: R sonrası yeni sahne=%s, kayıtlı tur=%d, etiket=\"%s\"" % [str(yeni != null), _kayitlar().turlar.size(), etiket])
+	# (b) T tuşu o durumdan çıkarır.
+	var eski2: Node = current_scene
+	await _t_bas()
+	var yeni2: Node = await _sahne_degisimini_bekle(eski2)
+	var ok_b: bool = yeni2 != null and _kayitlar().turlar.size() == 0 and _klonlar(yeni2).size() == 0 and yeni2.bilgi.text.begins_with("Tur 1 ")
+	hepsi = hepsi and ok_b
+	ayr.append("T tuşu: kayıt=%d, klon=%d, etiket=\"%s\"" % [_kayitlar().turlar.size(), _klonlar(yeni2).size() if yeni2 != null else -1, yeni2.bilgi.text if yeni2 != null else ""])
+	# (c) Baştan başla düğmesi.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(naif.duplicate(true))
+	_kayitlar().tur_kaydet(b_naif.duplicate(true))
+	var b2: Node = await _bolumu_yukle()
+	var eski3: Node = current_scene
+	b2.get_node("EkranButonlari/Kutu/YenidenDugmesi").pressed.emit()
+	var yeni3: Node = await _sahne_degisimini_bekle(eski3)
+	var ok_c: bool = yeni3 != null and _kayitlar().turlar.size() == 0 and _klonlar(yeni3).size() == 0 and yeni3.bilgi.text.begins_with("Tur 1 ")
+	hepsi = hepsi and ok_c
+	ayr.append("Baştan başla: kayıt=%d, klon=%d" % [_kayitlar().turlar.size(), _klonlar(yeni3).size() if yeni3 != null else -1])
+	# (d) hak varken kuyuya düşen oyuncu R ile turu bitirip yeni klon kaydeder (dönüşsüz bölgeden çıkış yolu).
+	_kayitlar().sifirla()
+	var b3: Node = await _bolumu_yukle()
+	b3.get_node("Oyuncu").global_position = Vector2(300, 576)
+	for i in range(5):
+		_girdi_uygula({"yon": 0.0, "zipla": false})
+		await physics_frame
+	var eski4 := b3.get_instance_id()
+	await _r_bas()
+	var yeni4: Node = await _yeni_sahne_bekle(eski4)
+	var ok_d: bool = yeni4 != null and _kayitlar().turlar.size() == 1 and _klonlar(yeni4).size() == 1
+	hepsi = hepsi and ok_d
+	ayr.append("hak varken kuyuda R: yeni tur=%s, kayıtlı tur=%d" % [str(yeni4 != null), _kayitlar().turlar.size()])
+	# (e) LazerA'ya giren oyuncu ölür, klonlar korunur, tur sayısı artmaz.
+	_kayitlar().sifirla()
+	_kayitlar().tur_kaydet(kay[0].duplicate(true))
+	var b4: Node = await _bolumu_yukle()
+	b4.get_node("Oyuncu").global_position = Vector2(440, 356)
+	var sayac := [0]
+	b4.get_node("Oyuncu").oyuncu_oldu.connect(func() -> void: sayac[0] += 1)
+	var eski5 := b4.get_instance_id()
+	await _n_kosullu(b4, [_b13_a(1, Callable(), 40)], sayac)
+	var yeni5: Node = await _yeni_sahne_bekle(eski5)
+	var ok_e: bool = sayac[0] > 0 and yeni5 != null and _kayitlar().turlar.size() == 1 and _klonlar(yeni5).size() == 1 and yeni5.bilgi.text.begins_with("Tur 2 ")
+	hepsi = hepsi and ok_e
+	ayr.append("LazerA ölümü: ölüm=%d, kayıtlı tur=%d, klon=%d, etiket=\"%s\"" % [sayac[0], _kayitlar().turlar.size(), _klonlar(yeni5).size() if yeni5 != null else -1, yeni5.bilgi.text if yeni5 != null else ""])
+	# (f) klonlar plakada biter: A PlakaA'da (kuyu), B PlakaB'de (F2).
+	var son: Dictionary = await _n_senaryo(kay, [_b13_a(0, Callable(), 420)])
+	var pa: Vector2 = _n_klon_son(son, 0)
+	var pb: Vector2 = _n_klon_son(son, 1)
+	var ok_f: bool = pa.x > 476.0 and pa.x < 564.0 and pa.y > 540.0 and pb.x > 746.0 and pb.x < 834.0 and pb.y > 330.0 and pb.y < 380.0 \
+		and not son["klon_oldu"][0] and not son["klon_oldu"][1]
+	hepsi = hepsi and ok_f
+	ayr.append("klonlar plakada biter: A (%.0f,%.0f) [PlakaA 490..550], B (%.0f,%.0f) [PlakaB 760..820]" % [pa.x, pa.y, pb.x, pb.y])
+	# (g) çözüm turunda ölüm yok, bölüm biter.
+	var tam: Dictionary = await _n_senaryo(kay, _n21_o())
+	hepsi = hepsi and tam["bitti_ham"] and tam["oldu"] == 0
+	ayr.append("çözüm turu: bitti=%s, ölüm=%d" % [str(tam["bitti_ham"]), tam["oldu"]])
+	_kaydi("Bölüm 21 kilitlenme/çıkış: klon hakkı bitince T ve Baştan başla çıkışı, kuyuda R, LazerA ölümü, klon konumları", hepsi, " || ".join(ayr))
+	_kayitlar().sifirla()
+	paused = false
+
+
+## Görünürlük: çizimsiz çarpışma/tetikleyici yok + bu bölüme özgü türler doğru nesnede.
+func _test_b21_gorunurluk() -> void:
+	aktif_bolum = BOLUM_21
+	var r: Dictionary = await _gr_bolum_tara(BOLUM_21, 22)
+	_kaydi("Bölüm 21 görünürlük: çarpışma/tetikleyici nesnelerinin hepsinin çizimi var (çizimsiz yok)",
+		r["cizimsiz"].is_empty() and r["sorun"].is_empty() and r["sayi"] >= 15,
+		"nesne: %d, çizimsiz: %s, sorun: %s" % [r["sayi"], str(r["cizimsiz"]), str(r["sorun"])])
+	_kayitlar().sifirla()
+	var b: Node = await _bolumu_yukle()
+	var beklenen := {"Raf": Gorunum.Tur.TEK_YONLU, "PlakaM": Gorunum.Tur.PLAKA_MANDAL, "PlakaZ": Gorunum.Tur.PLAKA_ZAMANLI,
+		"PlakaA": Gorunum.Tur.PLAKA, "PlakaB": Gorunum.Tur.PLAKA, "GecitG": Gorunum.Tur.GECIT, "GecitM": Gorunum.Tur.GECIT,
+		"LazerA": Gorunum.Tur.LAZER, "LazerB": Gorunum.Tur.LAZER, "Kapi": Gorunum.Tur.KAPI,
+		"Zemin": Gorunum.Tur.DUVAR, "Tavan": Gorunum.Tur.DUVAR, "DosemeSol": Gorunum.Tur.DUVAR, "DosemeSag": Gorunum.Tur.DUVAR,
+		"BlokF1Sol": Gorunum.Tur.DUVAR, "BlokF1Sag": Gorunum.Tur.DUVAR}
+	var sorun: Array = []
+	for ad in beklenen:
+		var d: Node = b.get_node_or_null(ad)
+		var g: Gorunum = _gr_gorunum_bul(d) if d != null else null
+		if g == null:
+			sorun.append("%s: Gorunum yok" % ad)
+		elif g.tur != beklenen[ad]:
+			sorun.append("%s: tür %d (beklenen %d)" % [ad, int(g.tur), int(beklenen[ad])])
+	_kaydi("Bölüm 21 görünürlük: her nesnenin Gorunum türü taslak §13 ile aynı (DUVAR/TEK_YONLU/PLAKA_MANDAL/PLAKA_ZAMANLI/GECIT/LAZER/KAPI)",
+		sorun.is_empty(), "sorunlar: %s" % str(sorun))
+	_kayitlar().sifirla()
+	paused = false
+
+
+func _test_b21_determinizm() -> void:
+	aktif_bolum = BOLUM_21
+	var kay: Array = await _n21_kayitlar()
+	await _n_determinizm("Bölüm 21: determinizm (20x çözüm)", kay, _n21_o(), 20)
+
+
+
+
+# ---------------------------------------------------------------- T tuşu (baştan başla) testleri
+
+## T (bastan eylemi) tuşunu bir fizik karesi basılı tutar.
+func _t_bas() -> void:
+	Input.action_press("bastan")
+	await physics_frame
+	Input.action_release("bastan")
+
+
+func _tustu_testleri() -> void:
+	paused = false
+	aktif_bolum = BOLUM
+	# 1) T = baştan başla: klonlar silinir, tur 1; kayıt formatı değişmez.
+	_kayitlar().sifirla()
+	var b: Node = await _bolumu_yukle()
+	for i in range(5):
+		_girdi_uygula({"yon": 1.0, "zipla": false})
+		await physics_frame
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	var eski: Node = current_scene
+	await _r_bas()
+	b = await _sahne_degisimini_bekle(eski)
+	var once_sayi: int = _kayitlar().turlar.size()
+	var klon_once: int = _klonlar(b).size()
+	var oyuncu: CharacterBody2D = b.get_node("Oyuncu")
+	for i in range(8):
+		_girdi_uygula({"yon": 1.0, "zipla": i == 2})
+		await physics_frame
+	_girdi_uygula({"yon": 0.0, "zipla": false})
+	var kayit_once: Array = oyuncu.kayit_girdileri.duplicate(true)
+	eski = current_scene
+	await _t_bas()
+	# T'nin bastığı karede oyuncu hâlâ ağaçtaysa: kayıt formatı aynı ve T girdisi eklenmemiş.
+	var kayit_sonra: Array = oyuncu.kayit_girdileri.duplicate(true) if is_instance_valid(oyuncu) else kayit_once
+	var yeni: Node = await _sahne_degisimini_bekle(eski)
+	var bos: bool = _kayitlar().turlar.size() == 0
+	var klon_say: int = _klonlar(yeni).size() if yeni != null else -1
+	var yazi: String = yeni.bilgi.text if yeni != null else ""
+	var etiket_ok: bool = yazi.begins_with("Tur 1 ") and yazi.contains("Klon: 0/") and yazi.contains("T: baştan başla")
+	_kaydi("T tuşu: baştan başla (klonlar silinir, tur 1)",
+		once_sayi == 1 and klon_once == 1 and yeni != null and bos and klon_say == 0 and etiket_ok,
+		"öncesi: kayıt %d, klon %d; sonrası: Kayitlar boş: %s, klon: %d, etiket: \"%s\"" % [once_sayi, klon_once, bos, klon_say, yazi])
+	# 2) Kayıt formatı {yon, zipla, asagi}; T girdisi kayda girmez.
+	var format_ok := not kayit_once.is_empty() and kayit_sonra.size() <= kayit_once.size() + 1
+	for g in kayit_sonra:
+		format_ok = format_ok and g is Dictionary and g.size() == 3 and g.has("yon") and g.has("zipla") and g.has("asagi")
+	_kaydi("T tuşu: kayıt formatı değişmez, T girdisi kayda girmez", format_ok,
+		"önceki kayıt: %d kare, T karesinden sonra: %d kare, örnek: %s" % [kayit_once.size(), kayit_sonra.size(), str(kayit_sonra[0]) if not kayit_sonra.is_empty() else "-"])
+	# 3) Sonuç ekranı açıkken T etkisizdir (kayıtlar ve sahne korunur).
+	var r: Dictionary = await _ar_bitir(BOLUM, [30])
+	var bolum: Node = r["bolum"]
+	var sonuc_var: bool = r["sonuc"] != null and r["bitti"]
+	var sahne_once: Node = current_scene
+	await _t_bas()
+	for i in range(6):
+		await physics_frame
+	var etkisiz: bool = current_scene == sahne_once and is_instance_valid(bolum) and _kayitlar().turlar.size() == 1 and is_instance_valid(r["sonuc"])
+	_kaydi("T tuşu: sonuç ekranı açıkken etkisiz", sonuc_var and etkisiz,
+		"sonuç ekranı: %s, sahne aynı: %s, Kayitlar: %d klon" % [sonuc_var, current_scene == sahne_once, _kayitlar().turlar.size()])
+	paused = false
+	_kayitlar().sifirla()
+
+
+
+# ---------------------------------------------------------------- görünürlük testleri (--gorunurluk)
+# Genel tarama: sabit koordinat/nesne adı yok; her bölümün tüm CollisionShape2D'leri gezilir.
+# Gorunum düğümü headless'ta da kurulur (_ready); çizim yapılmaz, bu yüzden düğümün VARLIĞI,
+# `tur` ve `alan` değerleri doğrulanır.
+
+## Çarpışma şekli oyuncuya/klona ya da çalışma anında kurulan SinirDuvarlari'na mı ait?
+func _gr_haric_mi(d: Node, kok: Node) -> bool:
+	var n: Node = d
+	while n != null and n != kok:
+		if n.name == "SinirDuvarlari" or n.name == "Oyuncu" or n.get("klon") != null:
+			return true
+		n = n.get_parent()
+	return false
+
+
+## Düğümün altında çizim yapan bir Gorunum var mı? (ilk bulunan; yoksa null)
+func _gr_gorunum_bul(d: Node) -> Gorunum:
+	for c in d.get_children():
+		if c is Gorunum and c.name == "Gorunum":
+			return c
+	return null
+
+
+## Nesnenin kendi görünür çizimi (Polygon2D/ColorRect/Sprite2D, visible=true) var mı?
+func _gr_kendi_cizim(d: Node) -> bool:
+	for c in d.get_children():
+		if (c is Polygon2D or c is ColorRect or c is Sprite2D) and c.visible:
+			return true
+	return false
+
+
+func _gr_dikdortgen(sekil: CollisionShape2D) -> Rect2:
+	if sekil.shape is RectangleShape2D:
+		var b: Vector2 = sekil.shape.size
+		return Rect2(sekil.position - b / 2.0, b)
+	return Rect2()
+
+
+## Tek bir bölümü tarar; {sayi, cizimsiz: [], sorun: []} döner.
+func _gr_bolum_tara(yol: String, no: int) -> Dictionary:
+	var sonuc := {"sayi": 0, "cizimsiz": [], "sorun": []}
+	_kayitlar().sifirla()
+	var sahne: Node = (load(yol) as PackedScene).instantiate()
+	root.add_child(sahne)
+	await process_frame
+	await physics_frame
+	var sekiller: Array = sahne.find_children("*", "CollisionShape2D", true, false)
+	for s in sekiller:
+		var sekil: CollisionShape2D = s
+		var sahip: Node = sekil.get_parent()
+		if not (sahip is CollisionObject2D):
+			continue
+		if _gr_haric_mi(sahip, sahne):
+			continue
+		sonuc["sayi"] += 1
+		var ad: String = "B%d/%s" % [no, str(sahne.get_path_to(sahip))]
+		# Önce şeklin sahibinde, sonra (Salter/SolAlan gibi alt alanlar için) atalarında Gorunum ara.
+		var gorunum: Gorunum = null
+		var gsahip: Node = sahip
+		while gsahip != null and gsahip != sahne:
+			gorunum = _gr_gorunum_bul(gsahip)
+			if gorunum != null:
+				break
+			gsahip = gsahip.get_parent()
+		if gorunum != null:
+			# Tür geçerli bir Gorunum.Tur üyesi olmalı.
+			if not Gorunum.Tur.values().has(int(gorunum.tur)):
+				sonuc["sorun"].append(ad + " (geçersiz tür)")
+			# Alan verilmişse çarpışma şeklini kapsamalı (boş alan = türün varsayılan çizimi).
+			if gorunum.alan.size != Vector2.ZERO:
+				var r := _gr_dikdortgen(sekil)
+				if r.size != Vector2.ZERO:
+					# Şekli Gorunum'un yerel uzayına çevir (aynı düğümse doğrudan).
+					var a: Vector2 = gorunum.to_local(sekil.global_position) - r.size / 2.0
+					var r2 := Rect2(a, r.size)
+					if not gorunum.alan.grow(1.0).encloses(r2):
+						sonuc["sorun"].append("%s (alan şekli kapsamıyor: alan %s, şekil %s)" % [ad, str(gorunum.alan), str(r2)])
+			# Plaka kipi ile Gorunum türü uyumlu olmalı.
+			if gsahip is BasincPlakasi:
+				var bp: BasincPlakasi = gsahip
+				var beklenen := Gorunum.Tur.PLAKA
+				if bp.mandal:
+					beklenen = Gorunum.Tur.PLAKA_MANDAL
+				elif bp.tutma_kare > 0:
+					beklenen = Gorunum.Tur.PLAKA_ZAMANLI
+				if gorunum.tur != beklenen:
+					sonuc["sorun"].append("%s (plaka türü uyumsuz)" % ad)
+			continue
+		# Gorunum yok: nesnenin (veya atalarının) kendi görünür çizimi var mı?
+		var kendi := false
+		var n: Node = sahip
+		while n != null and n != sahne:
+			if _gr_kendi_cizim(n):
+				kendi = true
+				break
+			n = n.get_parent()
+		if not kendi:
+			sonuc["cizimsiz"].append(ad)
+	sahne.queue_free()
+	await process_frame
+	return sonuc
+
+
+func _gorunurluk_testleri() -> void:
+	paused = false
+	var kayitlar: Array = BolumListesi.BOLUMLER
+	var n: int = kayitlar.size()
+
+	# --- 1) Her bölümde çizimsiz çarpışma/tetikleyici yok
+	var toplam := 0
+	var tum_cizimsiz: Array = []
+	var tum_sorun: Array = []
+	for i in range(n):
+		var yol: String = kayitlar[i]["yol"]
+		if not ResourceLoader.exists(yol):
+			tum_sorun.append("B%d: sahne yok (%s)" % [i + 1, yol])
+			continue
+		var r: Dictionary = await _gr_bolum_tara(yol, i + 1)
+		toplam += r["sayi"]
+		tum_cizimsiz.append_array(r["cizimsiz"])
+		tum_sorun.append_array(r["sorun"])
+		_kaydi("Görünürlük: bölüm %d çarpışma/tetikleyici nesnelerinin hepsinin çizimi var" % (i + 1),
+			r["cizimsiz"].is_empty() and r["sorun"].is_empty() and r["sayi"] > 0,
+			"nesne: %d, çizimsiz: %s, sorun: %s" % [r["sayi"], str(r["cizimsiz"]), str(r["sorun"])])
+	_kaydi("Görünürlük: tüm bölümlerde çizimsiz çarpışma/tetikleyici yok",
+		tum_cizimsiz.is_empty() and tum_sorun.is_empty() and toplam > 0,
+		"taranan nesne: %d, ÇİZİMSİZ: %s, sorun: %s" % [toplam, str(tum_cizimsiz), str(tum_sorun)])
+	_kayitlar().sifirla()
+
+	# --- 2) Gorunum.Tur'ların her biri için _draw match'inde kol var
+	var kaynak := FileAccess.get_file_as_string("res://scripts/gorunum.gd")
+	var bas := kaynak.find("func _draw()")
+	var son := kaynak.find("# ----------", bas)
+	var govde := kaynak.substr(bas, (son if son > bas else kaynak.length()) - bas)
+	var eksik_kol: Array = []
+	for ad in Gorunum.Tur.keys():
+		if govde.find("Tur.%s:" % ad) < 0:
+			eksik_kol.append(ad)
+	_kaydi("Gorunum._draw match'inde her Tur üyesi için kol var (%d tür)" % Gorunum.Tur.size(),
+		bas >= 0 and eksik_kol.is_empty(), "kolu olmayan türler: %s" % str(eksik_kol))
+
+	# --- 3) Bölüm kayıtları: benzersiz, sıralı, yüklenebilir, ad dolu, onceki zinciri
+	var yollar: Array = _liste_yollari()
+	var benzersiz := {}
+	for y in yollar:
+		benzersiz[y] = true
+	var dosya_say := 0
+	var dizin := DirAccess.open("res://scenes/bolumler")
+	if dizin != null:
+		for f in dizin.get_files():
+			if f.begins_with("bolum_") and f.ends_with(".tscn"):
+				dosya_say += 1
+	_kaydi("Bölüm listesi: kayıt sayısı = scenes/bolumler/bolum_*.tscn dosya sayısı ve hepsi farklı sahne dosyası",
+		n == dosya_say and dosya_say >= 21 and benzersiz.size() == n,
+		"kayıt: %d, bolum_*.tscn dosyası: %d, farklı yol: %d" % [n, dosya_say, benzersiz.size()])
+	var sorunlar: Array = []
+	for i in range(n):
+		var k: Dictionary = kayitlar[i]
+		var beklenen := "res://scenes/bolumler/bolum_%d.tscn" % (i + 1)
+		if k["yol"] != beklenen:
+			sorunlar.append("kayıt %d yolu %s (beklenen %s)" % [i + 1, k["yol"], beklenen])
+		if not ResourceLoader.exists(k["yol"]):
+			sorunlar.append("kayıt %d dosya yok" % (i + 1))
+		else:
+			var ps = load(k["yol"])
+			if not (ps is PackedScene and ps.can_instantiate()):
+				sorunlar.append("kayıt %d yüklenemez" % (i + 1))
+		if str(k.get("ad", "")).strip_edges() == "":
+			sorunlar.append("kayıt %d adı boş" % (i + 1))
+		var onc_bek := "" if i == 0 else "res://scenes/bolumler/bolum_%d.tscn" % i
+		if str(k.get("onceki", "")) != onc_bek:
+			sorunlar.append("kayıt %d onceki '%s' (beklenen '%s')" % [i + 1, str(k.get("onceki", "")), onc_bek])
+	_kaydi("Bölüm listesi: kayıt N -> bolum_N.tscn, dosya var/yüklenir, ad dolu, onceki zinciri tutarlı",
+		sorunlar.is_empty(), "sorunlar: %s" % str(sorunlar))
+
+
+# ================================================================ HUD bölüm etiketi (Parça 3)
+## Her bölümde HUD'da "Bölüm N · Ad" (adı yoksa "Bölüm N") görünür; numara ve ad BolumListesi'nden okunur,
+## Bilgi satırının (Tur | Klon | R) hemen üstündedir, ekran içindedir, fareyi yutmaz.
+func _ar_hud_bolum_etiketi() -> void:
+	var beklenen := {
+		1: "Bölüm 1 · Giriş", 2: "Bölüm 2 · İkiz", 4: "Bölüm 4 · Kule", 14: "Bölüm 14 · Çekirdek",
+		18: "Bölüm 18 · Vardiya", 19: "Bölüm 19 · Büyük Saat", 20: "Bölüm 20 · Mandal", 21: "Bölüm 21 · Fitil ve Mühür"}
+	var viewport_alan := Rect2(Vector2.ZERO, Vector2(
+		ProjectSettings.get_setting("display/window/size/viewport_width", 1152),
+		ProjectSettings.get_setting("display/window/size/viewport_height", 648)))
+	var kayitlar: Array = BolumListesi.BOLUMLER
+	var sorun := ""
+	var ornek := ""
+	for i in range(kayitlar.size()):
+		aktif_bolum = kayitlar[i]["yol"]
+		_kayitlar().sifirla()
+		var b: Node = await _bolumu_yukle()
+		await physics_frame
+		var et: Label = b.find_child("BolumEtiketi", true, false) as Label
+		if et == null:
+			sorun += " %d(etiket yok)" % (i + 1)
+			continue
+		var bek: String = "Bölüm %d · %s" % [i + 1, kayitlar[i]["ad"]] if str(kayitlar[i].get("ad", "")) != "" else "Bölüm %d" % (i + 1)
+		var rect := Rect2(et.position, et.get_minimum_size())
+		var ust_ok: bool = et.position.y + et.get_minimum_size().y <= b.bilgi.position.y + 0.5 and et.position.x == b.bilgi.position.x
+		var ekran_ok: bool = viewport_alan.encloses(rect) and viewport_alan.has_point(b.bilgi.position)
+		var bilgi_ok: bool = b.bilgi.text.begins_with("Tur 1 ") and b.bilgi.visible and et.visible
+		if et.text != bek or not ust_ok or not ekran_ok or not bilgi_ok or et.mouse_filter != Control.MOUSE_FILTER_IGNORE:
+			sorun += " %d(\"%s\" bekl. \"%s\", üstte:%s, ekranda:%s, bilgi:%s)" % [i + 1, et.text, bek, ust_ok, ekran_ok, bilgi_ok]
+		if beklenen.has(i + 1):
+			if et.text != beklenen[i + 1]:
+				sorun += " %d(sabit beklenen \"%s\", bulunan \"%s\")" % [i + 1, beklenen[i + 1], et.text]
+			ornek += "%s; " % et.text
+	_kaydi("HUD bölüm etiketi: her bölümde \"Bölüm N · Ad\" (numara/ad BolumListesi'nden), Bilgi satırının üstünde, ekranda (%d bölüm)" % kayitlar.size(),
+		sorun == "" and kayitlar.size() >= 21, "sorunlar:%s | örnekler: %s" % [sorun if sorun != "" else " yok", ornek])
+	# Ad yoksa yalnız "Bölüm N"; listede olmayan sahnede (test sahnesi) etiket kurulmaz.
+	aktif_bolum = GECIT_TEST
+	_kayitlar().sifirla()
+	var gt: Node = await _bolumu_yukle()
+	await physics_frame
+	var yok_ok: bool = BolumListesi.baslik_metni(5, "") == "Bölüm 5" and BolumListesi.baslik_metni(14, "Çekirdek") == "Bölüm 14 · Çekirdek" \
+		and BolumListesi.baslik("res://olmayan.tscn") == "" and gt.find_child("BolumEtiketi", true, false) == null
+	_kaydi("HUD bölüm etiketi: adı yoksa yalnız \"Bölüm N\", listede olmayan sahnede etiket yok", yok_ok,
+		"baslik_metni(5,\"\")=\"%s\", test sahnesinde etiket: %s" % [BolumListesi.baslik_metni(5, ""), gt.find_child("BolumEtiketi", true, false) != null])
+	_kayitlar().sifirla()
+	paused = false

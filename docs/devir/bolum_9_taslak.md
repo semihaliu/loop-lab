@@ -1,5 +1,6 @@
 # Bölüm 9 taslağı: "Yük" (`scenes/bolumler/bolum_9.tscn`)
 (Tasarımcı çıktısı; Aşama C'de onaysız uygulama kullanıcı kararı.)
+**2026-10-16 ince ayar:** F2 440 -> 430 (asansör 170), PlakaKutu x 930 -> 910 ve bağlı y değerleri değişti; aşağıdaki tablo ilk hâldir. Güncel değerler ve ölçümler: `docs/devir/bolum_9_ayar.md`.
 
 Yeni fikir: KUTU. Kutu itilir, plakada tutulur, asansörle F2'ye çıkar ve orada geçidi açık tutar. Nesneler: plaka x4, asansör, geçit, lazer x2, tek yönlü platform, kutu, kapı. Şalter/zıplatıcı/bant YOK. `max_klon = 3` (tam 3 klon; kutu olmasa 4 gerekirdi).
 Sabitler: 28x48, HIZ 300 (5 px/kare), zıplama tepesi 96,5 (kare ~100,9), g 1400; kutu 40x40 katman 1+4, yalnız itilir. Asansör/geçit 120 px/sn, asansör position.y merkez (üst yüzey 10 px yukarıda). Zemin yüzeyi 600, oyuncu (100,570). Tek yönlü 120x12 (üst = merkez-6).

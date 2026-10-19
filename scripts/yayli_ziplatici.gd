@@ -8,6 +8,11 @@ extends Area2D
 func _ready() -> void:
 	collision_layer = 0
 	collision_mask = (1 << 1) | (1 << 2) | (1 << 3)
+	# Görünüm: düz kutu gizlenir, yay/ped çizimini Gorunum yapar (yalnızca görsel).
+	var eski := get_node_or_null("Gorsel")
+	if eski != null:
+		eski.visible = false
+	Gorunum.ekle(self, Gorunum.Tur.ZIPLATICI, Gorunum.sekil_alani(self))
 
 
 func _physics_process(_delta: float) -> void:

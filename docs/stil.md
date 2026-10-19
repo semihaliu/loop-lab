@@ -73,3 +73,52 @@ Degrade zemin, 96 px karo dikişleri (bazı karolar aydınlık/koyu), tavan lamb
 - Ana menü: laboratuvar arka planı, camgöbeği başlık.
 - Sonuç ekranı: karartma + koyu panel, yeşil "Bölüm bitti!" başlığı.
 - Harita: arka plan ortak tema; bağlantılar boru gibi (koyu dış + soluk metal iç `Line2D`); düğümler altıgen, saat kadranı çizgileri; başlangıç düğümü amber, diğerleri soluk camgöbeği; hover'da parlama ve "Bölüm N". Çizim sırası Arkaplan < Baglantilar < Dugumler korunur.
+
+## Taşıma bandı ve plaka askısı (2026-10-15)
+
+- Taşıma bandı (`Gorunum.Tur.BANT`, 2026-10-16 yenilendi): koyu kehribar kemer (`BANT_ZEMIN`), üst kenarda parlak amber şerit (`BANT_OK`), uçlarda açık metal makara (4 kollu, amber göbek), kemer üstünde 20 px aralıklı kalın amber ok (chevron) ve aralarında koyu oluk (`BANT_OLUK`). Oklar ve oluklar sürekli akar, makaralar döner; ok ucu, akış ve dönüş yönü bandın `yon` (±1) ve `hiz` değerinden okunur (ters bant = ters akış; B10 Bant2, B17, B20). Faz yalnızca `_process` (görsel zaman) ile ilerler, fizik karesine/oyun mantığına karışmaz. Genişlik gerçek çarpışma şeklinden ölçeklenir. `bolum.gd:_gorunumu_kur` kendi `Gorunum` çocuğu olan gövdeyi atlar (eski hata: bandın üstüne ikinci DUVAR çizimi kemeri örtüyordu).
+- Yüksek plaka (şekil yüksekliği > 20 px, örn. Bölüm 11 PlakaPB 60x32): şeklin tamamını kaplayan kalın blok, üstte basınç yüzeyi (basılıyken alçalır, camgöbeği), lamba.
+- Plaka askısı (`Gorunum.Tur.ASKI`): plaka düğümünde `aski_tavan_y` / `aski_duvar_x` meta değeri varsa tavana iki halat, duvara kol çizilir; z -1 (plakanın arkasında), çarpışmasız.
+
+## Kutu ve yaylı zıplatıcı (2026-10-15)
+
+- Kutu (`Gorunum.Tur.KUTU`): metal takviyeli ahşap kasa; paslı gövde, köşe metal plakaları + perçin, koyu iç panel, amber çapraz bağ, üst kenar ışığı. Boyut gerçek çarpışma şeklinden okunur (40x40 varsayılan). Sabit tasarım, durum okumaz; eski `Gorsel` ColorRect gizlenir.
+- Yaylı zıplatıcı (`Gorunum.Tur.ZIPLATICI`): taban plakası, zigzag bobin yay, yeşil üst ped. Üzerindeki gövdenin `velocity.y` fırlatma hızına yakınsa (yalnızca okunur) ped ~16 fizik karesi boyunca sıkışıp geri uzar ve hafif parlar. Pedin üstünde soluk camgöbeği yukarı oklar etkin alanı gösterir.
+- Yeni nesneler mevcut palet ve `_cerceve`/`_percin` yardımcılarını kullanır; Bölüm 9–13'te ek tür gerekmedi.
+
+## Sonuç ekranı, klon göstergesi ve geçiş (2026-10-15)
+
+- Sonuç ekranı: süre `mm:ss.s` (tüm turların fizik karesi / 60), tur sayısı, kullanılan klon; `ipucu_klon` > 0 ve klon <= ipucu ise amber "Az klonla çözüldü" rozeti. Yalnızca o oturumda gösterilir, kalıcı kayıt yok.
+- Bölüm içi HUD: metin etiketi (Bilgi) korunur; altında klon yuvaları (`KlonGostergesi/Yuva1..N`, klon renginde; dolu = kullanılan) ve amber "R" tuş rozeti (`TusRozeti`, yalnız hak varken).
+- Geçiş: bölüm/tur yüklenince koyu perde (`GecisKatmani/Perde`) 0,25 sn'de solar; mouse_filter IGNORE, fiziğe karışmaz, headless'ta atlanır.
+
+## Zamanlı ve mandal plaka (2026-10-15)
+- Taban çizim normal plakayla aynıdır (`_plaka`); üstüne ek çizilir, çarpışma değişmez.
+- Zamanlı (`Tur.PLAKA_ZAMANLI`): plakanın üstünde 40 px şerit; camgöbeği dolgu kalan süreyle azalır, son %34'te uyarı rengine döner; altında 5 tik çizgisi.
+- Mandal (`Tur.PLAKA_MANDAL`): asma kilit; basılana dek kanca kalkık, gövde pasli, lamba koyu. Basılınca kanca oturur, gövde metal, lamba yeşil + hale (kalıcı).
+- İkisi de durumu üst düğümden okur (`kalan_kare`, `tutma_kare`, `kilitli`), headless'ta çizilmez.
+
+## 2026-10-15 — Ana menü, kontroller ekranı, harita 20 bölüm (güncel: 21, bkz. aşağıdaki not)
+
+- Ana menü: büyük camgöbeği başlık + ince ayraç, yavaş dönen kadran halkası ve yükselen kabarcıklar (`menu_animasyon.gd`, yalnızca `_process`; ekransız modda kapalı), "Oyna / Kontroller / Çıkış" butonları.
+- Kontroller ekranı (`scenes/kontroller.tscn`): tuş adları InputMap'ten okunur; amber tuş metni, "Geri" butonu `focus_mode = NONE`.
+- Harita: 20 bölüm için 5x4 yılan yerleşim (`docs/devir/harita_yerlesim.md`); düğüm üstünde "Bölüm N: Ad" etiketi (`ad` alanı isteğe bağlı).
+
+## Düzeltme: eksik çizimler ve kontrast (2026-10-16)
+- `Gorunum._draw` match'ine dört kol eklendi: `KUTU`, `ZIPLATICI`, `PLAKA_ZAMANLI` (`_plaka` + `_plaka_sayac`), `PLAKA_MANDAL` (`_plaka` + `_plaka_mandal`). Önceden bu nesneler çarpışıyor/tetikliyor ama çizilmiyordu (görünürlük raporu).
+- Kutu: paslı kasa, koyu `KENAR` dış hat, açık metal köşe plakaları ve üst kenar vurgusu; `PANEL` zeminden hem renk (sıcak pas ↔ soğuk panel) hem hatla ayrışır.
+- Yaylı zıplatıcı: taban plakası + metal bobin yay + parlak yeşil ped (`YESIL`, ince açık kenar) ve pedin üstünde akan camgöbeği oklar; zeminde yeşil çizgi + oklar bir bakışta okunur.
+- Zamanlı plaka: normal plaka + üstünde 40 px `KENAR` çerçeveli şerit; camgöbeği dolgu kalan süreyle azalır, son %34'te `UYARI` (kırmızı), altında 5 tik.
+- Mandal plaka: normal plaka + üstünde asma kilit. Açıkken (basılmamış) kanca kalkık, gövde paslı, lamba KIRMIZI (`UYARI`; eskiden `UYARI_KOYU` zeminde seçilmiyordu). Kilitliyken kanca oturur, gövde metal, lamba yeşil + hale.
+- Palete eklendi: `BANT_ZEMIN #3a2610`, `BANT_OK #ffc94d`, `BANT_OLUK #120b04`.
+
+## 2026-10-16 — Bölüm 21/22 kablo çizimi
+- Plaka-geçit/lazer eşleşmesi için ince kablo (`metadata/kablo`, B22'de `kablo_2`): yalnız görünüm, tetikleyici etkinken camgöbeği, değilken soluk metal. Harita 22 bölüm için 6x4 yılan ızgara.
+
+## 2026-10-19 — Bölüm 19 kaldırıldı; harita 21 bölüm
+- Oyunda 21 bölüm var (6x4 yılan ızgaranın son satırında 3 düğüm: 19 @ (1040, 510), 20 @ (860, 510), 21 @ (680, 510); zincir 18 -> 19 -> 20 -> 21). Yerleşim: `docs/devir/harita_yerlesim.md`, numara eşlemesi: `docs/devir/numara_esleme.md`.
+- Yukarıdaki 2026-10-15 ve 2026-10-16 girişlerindeki bölüm numaraları/sayıları (20, 22; "Bölüm 21/22 kablo") o günkü numaralarla yazılmıştır; yeni karşılığı için eşleme tablosuna bak.
+
+## 2026-10-19 — HUD: bölüm numarası ve adı
+- Her bölümde HUD'un sol üstünde "Bölüm 14 · Çekirdek" (adı yoksa "Bölüm 14"): 20 px, `LabPaleti.ONLUK`, koyu kenar çizgisi; "Tur | Klon | R" satırının (Bilgi) hemen üstünde. Bilgi satırı 28 px aşağı kayar; klon yuvaları ve "?" ikonu Bilgi'ye göre dizildiği için birlikte kayar.
+- Numara listedeki sıradan (`indeks + 1`), ad kayıttan gelir (`BolumListesi.baslik`); yeni bölümde kod değişmeden doğru çıkar. Yalnızca görsel (`BolumKatmani`, fareyi yutmaz). Bölüm 1 ve 2'nin adları tahmin ("Giriş", "İkiz"), olduğu gibi bırakıldı.

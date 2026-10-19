@@ -6,7 +6,9 @@ extends CharacterBody2D
 const HIZ := 300.0
 const ZIPLAMA_HIZI := -520.0
 const YER_CEKIMI := 1400.0  # sabit değer: ProjectSettings'e bağlı kalmasın
-const BOS_GIRDI := {"yon": 0.0, "zipla": false}
+const BOS_GIRDI := {"yon": 0.0, "zipla": false, "asagi": false}
+## Aşağı tuşuyla tek yönlü platformun yok sayılacağı sabit fizik karesi sayısı.
+const ASAGI_DUSME_KARE := 12
 
 ## true ise girdi klavyeden değil kayit_girdileri'nden okunur.
 var klon := false
@@ -18,6 +20,9 @@ var kare := 0
 var oldu := false
 ## Ölümün gerçekleştiği kare (klonda kayıt dışı bilgi; deterministik).
 var oldu_kare := -1
+## Aşağı düşmek için geçici yok sayılan tek yönlü platform ve kalan kare sayısı.
+var _yok_sayilan: PhysicsBody2D = null
+var _yok_sayma_kare := 0
 
 ## Canlı oyuncu öldüğünde bir kez yayılır (bolum.gd turu yeniden başlatır).
 signal oyuncu_oldu
@@ -42,6 +47,7 @@ func klavye_girdisi() -> Dictionary:
 	return {
 		"yon": Input.get_axis("sol", "sag"),
 		"zipla": Input.is_action_just_pressed("zipla"),
+		"asagi": Input.is_action_pressed("asagi"),
 	}
 
 
@@ -57,6 +63,7 @@ func girdi_al() -> Dictionary:
 
 ## Verilen girdiyle bir fizik karesi hareket uygular.
 func hareket_uygula(girdi: Dictionary, delta: float) -> void:
+	_asagi_dusmeyi_guncelle(girdi.get("asagi", false))
 	if not is_on_floor():
 		velocity.y += YER_CEKIMI * delta
 
@@ -67,6 +74,33 @@ func hareket_uygula(girdi: Dictionary, delta: float) -> void:
 	velocity.x = girdi["yon"] * HIZ
 	move_and_slide()
 	_it_kutuyu(girdi["yon"], delta)
+
+
+## Aşağı tuşu: üstünde durulan tek yönlü platform bu karakter için ASAGI_DUSME_KARE kare
+## çarpışma istisnasına alınır (kutu ve diğer karakterler etkilenmez), sonra tekrar katı olur.
+## Karakterin hemen altı test_only hareketle yoklanır; deterministiktir (gerçek saat yok).
+func _asagi_dusmeyi_guncelle(asagi: bool) -> void:
+	if _yok_sayilan != null:
+		_yok_sayma_kare -= 1
+		if _yok_sayma_kare <= 0:
+			if is_instance_valid(_yok_sayilan):
+				remove_collision_exception_with(_yok_sayilan)
+			_yok_sayilan = null
+		return
+	if not asagi:
+		return
+	# Duvara yaslıyken kayma listesi zemini vermeyebilir: hemen altı test_only ile yoklanır.
+	var c := move_and_collide(Vector2(0, 4), true)
+	if c == null or c.get_normal().y > -0.7:
+		return
+	var govde := c.get_collider() as PhysicsBody2D
+	if govde == null:
+		return
+	var sahip := govde.shape_find_owner(c.get_collider_shape_index())
+	if govde.is_shape_owner_one_way_collision_enabled(sahip):
+		_yok_sayilan = govde
+		_yok_sayma_kare = ASAGI_DUSME_KARE
+		add_collision_exception_with(_yok_sayilan)
 
 
 ## Yatayda itilen bir nesne (kutu: `it` metodu var) varsa o kare için itme isteği gönderir.

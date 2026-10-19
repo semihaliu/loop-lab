@@ -20,7 +20,7 @@ B1 x 270..430 (üst y=600, zemine gömülü), L1 bandın ortasında x=350, duvar
 | Duvar | StaticBody2D | (440,580) | 20x40 (x 430..450, y 560..600) |
 | Bant1 | scenes/tasima_bandi.tscn | (350,608) | yon=1, hiz=100, üst yüz y=600 |
 | Bant2 | scenes/tasima_bandi.tscn | (970,448) | yon=-1, hiz=100, üst yüz y=440 |
-| PlakaP1 | basinc_plakasi | (410,592) | 60x16, Lazer1'i kapatır |
+| PlakaP1 | basinc_plakasi | (400,592) | 60x16 (x370..430, tam Bant1 üstünde; 2026-10-16: 410 -> 400, Duvar örtüşmesi giderildi), Lazer1'i kapatır |
 | PlakaP2 | basinc_plakasi | (510,592) | 60x16, Lazer2'yi kapatır |
 | PlakaPE | basinc_plakasi | (610,592) | 60x16, asansörü kaldırır |
 | PlakaPG | basinc_plakasi | (850,432) | 60x16 (F2), Gecit'i açar |

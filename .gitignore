@@ -1,2 +1,5 @@
 .godot/
 *.import
+
+# yerel, kişisel yollar içerir
+CLAUDE.local.md

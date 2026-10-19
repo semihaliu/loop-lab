@@ -162,7 +162,7 @@ yon = -1
 hiz = 100.0
 
 [node name="PlakaP1" type="Area2D" parent="."]
-position = Vector2(410, 592)
+position = Vector2(400, 592)
 script = ExtResource("3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlakaP1"]

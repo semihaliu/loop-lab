@@ -1,0 +1,207 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/oyuncu.tscn" id="1"]
+[ext_resource type="Script" path="res://scripts/bolum.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/basinc_plakasi.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/kapi.gd" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/gecit.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/lazer.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://scenes/tek_yonlu.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://scenes/yayli_ziplatici.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://scenes/zamanli_plaka.tscn" id="11"]
+
+[sub_resource type="RectangleShape2D" id="s_1152_40"]
+size = Vector2(1152, 40)
+
+[sub_resource type="RectangleShape2D" id="s_1152_180"]
+size = Vector2(1152, 180)
+
+[sub_resource type="RectangleShape2D" id="s_470_40"]
+size = Vector2(470, 40)
+
+[sub_resource type="RectangleShape2D" id="s_430_40"]
+size = Vector2(430, 40)
+
+[sub_resource type="RectangleShape2D" id="s_20_180"]
+size = Vector2(20, 180)
+
+[sub_resource type="RectangleShape2D" id="s_32_420"]
+size = Vector2(32, 420)
+
+[sub_resource type="RectangleShape2D" id="s_60_16"]
+size = Vector2(60, 16)
+
+[sub_resource type="RectangleShape2D" id="s_36_48"]
+size = Vector2(36, 48)
+
+[node name="Bolum15" type="Node2D"]
+script = ExtResource("2")
+max_klon = 3
+
+[node name="Zemin" type="StaticBody2D" parent="."]
+position = Vector2(576, 620)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zemin"]
+shape = SubResource("s_1152_40")
+
+[node name="Gorsel" type="ColorRect" parent="Zemin"]
+offset_left = -576.0
+offset_top = -20.0
+offset_right = 576.0
+offset_bottom = 20.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="Tavan" type="StaticBody2D" parent="."]
+position = Vector2(576, 90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tavan"]
+shape = SubResource("s_1152_180")
+
+[node name="Gorsel" type="ColorRect" parent="Tavan"]
+offset_left = -576.0
+offset_top = -90.0
+offset_right = 576.0
+offset_bottom = 90.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="DosemeSol" type="StaticBody2D" parent="."]
+position = Vector2(235, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DosemeSol"]
+shape = SubResource("s_470_40")
+
+[node name="Gorsel" type="ColorRect" parent="DosemeSol"]
+offset_left = -235.0
+offset_top = -20.0
+offset_right = 235.0
+offset_bottom = 20.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="DosemeOrta" type="StaticBody2D" parent="."]
+position = Vector2(785, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DosemeOrta"]
+shape = SubResource("s_430_40")
+
+[node name="Gorsel" type="ColorRect" parent="DosemeOrta"]
+offset_left = -215.0
+offset_top = -20.0
+offset_right = 215.0
+offset_bottom = 20.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="DuvarF1" type="StaticBody2D" parent="."]
+position = Vector2(990, 510)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DuvarF1"]
+shape = SubResource("s_20_180")
+
+[node name="Gorsel" type="ColorRect" parent="DuvarF1"]
+offset_left = -10.0
+offset_top = -90.0
+offset_right = 10.0
+offset_bottom = 90.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="SagDuvar" type="StaticBody2D" parent="."]
+position = Vector2(1136, 390)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SagDuvar"]
+shape = SubResource("s_32_420")
+
+[node name="Gorsel" type="ColorRect" parent="SagDuvar"]
+offset_left = -16.0
+offset_top = -210.0
+offset_right = 16.0
+offset_bottom = 210.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="Raf" parent="." instance=ExtResource("7")]
+position = Vector2(1060, 386)
+
+[node name="PlakaZ" parent="." instance=ExtResource("11")]
+position = Vector2(120, 592)
+tutma_kare = 180
+
+[node name="Gorsel" type="ColorRect" parent="PlakaZ"]
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 8.0
+color = Color(0.6, 0.55, 0.25, 1)
+
+[node name="PlakaA" type="Area2D" parent="."]
+position = Vector2(640, 372)
+script = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlakaA"]
+shape = SubResource("s_60_16")
+
+[node name="Gorsel" type="ColorRect" parent="PlakaA"]
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 8.0
+color = Color(0.6, 0.55, 0.25, 1)
+
+[node name="PlakaB" type="Area2D" parent="."]
+position = Vector2(940, 372)
+script = ExtResource("3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlakaB"]
+shape = SubResource("s_60_16")
+
+[node name="Gorsel" type="ColorRect" parent="PlakaB"]
+offset_left = -30.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 8.0
+color = Color(0.6, 0.55, 0.25, 1)
+
+[node name="Z1" parent="." instance=ExtResource("8")]
+position = Vector2(520, 594)
+firlatma_hizi = 820.0
+
+[node name="GecitG" parent="." instance=ExtResource("5")]
+position = Vector2(860, 280)
+kayma_yonu = Vector2(0, -1)
+kayma_mesafe = 100.0
+hiz = 120.0
+tetikleyici_yollari = Array[NodePath]([NodePath("../PlakaZ")])
+
+[node name="LazerA" parent="." instance=ExtResource("6")]
+position = Vector2(740, 180)
+yon = Vector2(0, 1)
+uzunluk = 200.0
+tetikleyici_yollari = Array[NodePath]([NodePath("../PlakaA")])
+tetik_aktifken_kapali = true
+
+[node name="LazerB" parent="." instance=ExtResource("6")]
+position = Vector2(1060, 180)
+yon = Vector2(0, 1)
+uzunluk = 420.0
+tetikleyici_yollari = Array[NodePath]([NodePath("../PlakaB")])
+tetik_aktifken_kapali = true
+
+[node name="Kapi" type="Area2D" parent="."]
+position = Vector2(1100, 576)
+script = ExtResource("4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kapi"]
+shape = SubResource("s_36_48")
+
+[node name="Gorsel" type="ColorRect" parent="Kapi"]
+offset_left = -18.0
+offset_top = -24.0
+offset_right = 18.0
+offset_bottom = 24.0
+color = Color(0.45, 0.25, 0.1, 1)
+
+[node name="Oyuncu" parent="." instance=ExtResource("1")]
+position = Vector2(60, 576)
+
+[node name="Bilgi" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 600.0
+offset_bottom = 40.0

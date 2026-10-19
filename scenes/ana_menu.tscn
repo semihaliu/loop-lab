@@ -27,7 +27,7 @@ theme_override_constants/separation = 16
 [node name="Baslik" type="Label" parent="Ortala/Kutu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Zaman Oyunu"
+text = "Loop Lab"
 horizontal_alignment = 1
 
 [node name="OynaDugmesi" type="Button" parent="Ortala/Kutu"]
@@ -35,7 +35,12 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Oyna"
 
+[node name="KontrollerDugmesi" type="Button" parent="Ortala/Kutu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Kontroller"
+
 [node name="CikDugmesi" type="Button" parent="Ortala/Kutu"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Çık"
+text = "Çıkış"

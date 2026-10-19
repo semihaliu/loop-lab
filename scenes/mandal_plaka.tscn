@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/basinc_plakasi.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="plaka_sekil"]
+size = Vector2(60, 16)
+
+[node name="MandalPlaka" type="Area2D"]
+script = ExtResource("1")
+mandal = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("plaka_sekil")

@@ -270,3 +270,121 @@ Kullanıcı "başka mekanik ekleme" kuralının istisnası olarak yalnızca bu �
 Ölçümler (tests/test_runner.gd `--b12`): çözüm 3 tur / 2 klon / 371 kare, determinizm 100x sapmasız; kutu basamağı payı 11,8 px (taslak 6,5); GK yarışı payı 3 kare; Y2 s>=20; fırlama sonrası sag gecikmesi <=4 kare ve >=5 kare süre; oyuncu izleme gecikmesi L=0..38; kutu inmeden Zıplatıcı'ya girişte çarpışma yok (en az ~10 kare bekleme). Bölüm 12'de röle kısayolu çalışmaz (43 deneme, 0 çözüm), min klon 2 korunur. Yığma (kutuyla fırlayan oyuncu R2'ye çıkar) mümkün ama klon azaltmaz.
 
 **AÇIK KARAR:** Bölüm 6 tek klonla (geçit altı park/röle) çözülüyor (12/12 varyant, `max_klon=2`, taslak min 2); kabul / geçit kuralı değişsin / bölüm yeniden ayarlansın. Kullanıcı kararı bekliyor (bkz. docs/sorunlar.md). Bölüm 7, 9, 10 etkilenmiyor.
+
+## 2026-10-15 - Tek yönlü platformdan aşağı düşme (kullanıcı kararı)
+- Karar: `asagi` eylemi (S / Aşağı ok). Karakter tek yönlü platformun üstündeyken basılıysa o platform yalnızca o karakter için 12 fizik karesi (`ASAGI_DUSME_KARE`) çarpışma istisnasına alınır (`add_collision_exception_with`), sonra tekrar katı olur. Kutu ve diğer karakterler etkilenmez; normal zemin, kutu, asansör, geçit üstünde etkisizdir (yalnızca `one_way_collision` şekilleri). Oyuncu ve klon aynı kod yolunu kullanır; gerçek saat/rastgelelik yok.
+- Kayıt formatı `{yon, zipla}` -> `{yon, zipla, asagi}`; `asagi` her karede kaydedilir. Okuma `.get("asagi", false)`: eski kayıtlar bozulmaz.
+- Artı: oyuncuya kontrol kazandırır, bölüm tasarımında yeni olasılıklar. Eksi: "başka mekanik ekleme" kuralının istisnasıdır; mevcut bölümlerde kısa yollar açabilir (tasarımcı gözden geçirmeli).
+- Kısıt: 12 kare sonra karakter hâlâ platformun içindeyse tek yönlü olduğu için takılmaz, aşağı doğru geçip çıkar.
+
+## 2026-10-15 - Klon ipucu ikonu (kullanıcı kararı)
+- `bolum.gd`'ye `@export var ipucu_klon: int = 0`. 0 ise ikon yoktur; doluysa HUD'da "Klon: X/Y" satırının yanında "?" ikonu (`IpucuIkonu`) çıkar, üstüne gelince altında "N klonla çözülebilir" (`IpucuMetni`, yalnızca hover'da görünür) yazar. Yalnızca Bölüm 4 (`ipucu_klon = 2`, `max_klon = 3`) ve Bölüm 6 (`ipucu_klon = 1`) için ayarlıdır.
+- Yalnızca HUD: oyun mantığı, kayıt ve fiziğe karışmaz; fare yalnızca ikonu yakalar, tuş girdisini etkilemez; ekran butonlarıyla (sağ üst) çakışmaz.
+
+## 2026-10-15 - Oyun adı "Loop Lab", bant ve askı görünümü
+- Oyun adı "Loop Lab": `project.godot` `config/name` (pencere başlığı), ana menü başlığı, CLAUDE.md başlığı. Klasör adı değişmedi.
+- Görünüm: taşıma bandı kayan oklu kemer + makara; Bölüm 11 PlakaPB (konum/çarpışma aynı) tavana ve Kat3 duvarına görsel askıyla bağlı. Yalnızca görsel; mantık, fizik, kayıt değişmedi.
+
+## 2026-10-15 — Bölüm 13 uygulandı (Aşama C)
+
+`scenes/bolumler/bolum_13.tscn` taslağa (`docs/devir/bolum_13_taslak.md`) birebir kuruldu (`max_klon = 3`; 2 taşıma bandı, yaylı zıplatıcı, şalter, 4 lazer, 3 plaka, tek yönlü kapak, kapı kuyuda). `bolumler_listesi.gd`'ye kayıt eklendi (konum (1070,350), önceki Bölüm 12). `ipucu_klon` verilmedi. Çözülebilirlik ve kısayol testleri test yazarının işidir.
+
+**Bölüm 13 ölçüm notu (2026-10-15):** "taslağa birebir" ifadesi K1 ilk yürüyüşü hariç geçerlidir (taslakta `sag` 8 kare yazıyordu, ölçülen çalışan aralık 11..18; testler 12 kullanır). Ayrıntı: `docs/devir/bolum_13_taslak.md` başındaki UYARI ve `docs/sorunlar.md`.
+
+## 2026-10-15 — Kutu ve yaylı zıplatıcı görünümü (Aşama D)
+
+Kutu ve yaylı zıplatıcı düz renkli kutu yerine `Gorunum` türleriyle (`KUTU`, `ZIPLATICI`) çizilir; yalnızca görsel. Çarpışma, fizik, kayıt formatı değişmedi. Zıplatıcı sıkışma animasyonu görsel zamanlayıcıdan türer, `velocity` salt okunur.
+
+## 2026-10-15 — Bölüm 14 uygulandı (Aşama C)
+
+`scenes/bolumler/bolum_14.tscn` taslağa (`docs/devir/bolum_14_taslak.md`) birebir kuruldu (`max_klon = 3`; taşıma bandı, 2 yaylı zıplatıcı, 2 geçit, 3 lazer, 5 plaka, kutu, raf + 2 kapak tek yönlü, kapı çıkıntıda). `bolumler_listesi.gd`'ye kayıt eklendi (konum (1070,545), önceki Bölüm 13). `ipucu_klon` verilmedi. Çözülebilirlik ve kısayol testleri test yazarının işidir.
+
+**Bölüm 14 ölçüm notu (2026-10-15):** "taslağa birebir" yalnızca nesne konumları için geçerlidir; kare/pencere sayıları ölçümle düzeltildi (bkz. `docs/devir/bolum_14_taslak.md` başındaki UYARI). **AÇIK KARAR (kullanıcıya):** canlı oyuncu/klon tekrarı, eş düzlemli bant/zemin dikişlerinde (Bölüm 14 UL1|Bant x≈490, Bölüm 13 BantA|ZeminSag x=260, Bölüm 10 ZeminSol|Bant1 x=270, asansör-zemin hizası) motorun platform seçimi yüzünden ≤11,67 px ayrışıyor (kök neden `player.gd` değil, fizik geniş-faz sırası; dünyada boşta klon sayısı değişince sonuç değişiyor). Seçenekler: A) kabul + test sınırı (uygulandı: ayrışma üst sınırı testle izleniyor), C) bant etkisini motor platform hızından ayırıp deterministik uygulamak (player/kutu/bant fiziği değişir, bant pencereleri yeniden ölçülür). Karar kullanıcıda; şimdilik A.
+
+## 2026-10-15 — Arayüz: sonuç özeti, klon yuvaları, geçiş perdesi
+
+Yalnızca görsel. Süre fizik karesinden (kayıt uzunlukları + canlı kare) hesaplanır, kayıt dosyası yok. Geçiş yalnızca yeni sahne yüklenince solma olarak uygulandı (çıkış solması reload'u geciktireceği için yok). Fizik, kayıt formatı, determinizm değişmedi.
+
+## 2026-10-15 — Zamanlı ve mandal plaka (kullanıcı onaylı istisna, en çok 2 yeni basit nesne)
+
+`BasincPlakasi`'ye iki isteğe bağlı kip eklendi; varsayılanlar (`tutma_kare = 0`, `mandal = false`) mevcut davranışı birebir korur (`basili_mi()` yine yalnızca `has_overlapping_bodies()`).
+- **Zamanlı plaka** (`scenes/zamanli_plaka.tscn`, `tutma_kare = 180`): fiziksel basış bittikten sonra `tutma_kare` fizik karesi daha basılı sayılır; yeniden basılırsa sayaç yenilenir.
+- **Mandal plaka** (`scenes/mandal_plaka.tscn`, `mandal = true`): bir kez basılınca tur sonuna (sahne yeniden kurulana kadar) basılı kalır.
+- Tek sorgu noktası `basili_mi()`; asansör, geçit, lazer ve kutu algılaması değişmeden yeni durumu okur. Sayaç yalnızca `Engine.get_physics_frames()` ile karede bir kez ilerler (gerçek saat/rastgelelik yok), sahne her turda yeniden yüklendiği için durum tur başında sıfırlanır. Kayıt formatı `{yon, zipla, asagi}`, klon sınırı ve tur mantığı değişmedi.
+- Ölü klon plakayı fiziksel olarak tutmaz (katmanları kapanır); zamanlı sayaç klon ölse de yalnızca kalan süreyi sürdürür, klon ölmeden basılmış mandal kalır.
+- Görünüm: `Gorunum.Tur.PLAKA_ZAMANLI` (üstte azalan şerit + tik işaretleri), `PLAKA_MANDAL` (asma kilit, basılınca kalıcı yeşil). Çarpışma/fizik aynı.
+- Artı: yeni bulmaca türleri (zaman penceresi, kalıcı anahtar) yeni sınıf/kod yolu açmadan; mevcut bölümler etkilenmez. Eksi: mandal, "dünya her turda baştan" ilkesine bir tur içi hafıza ekler; zamanlı plaka klonu "ben burada durmadan" etki yaratabildiği için bölüm tasarımında ve çözülebilirlik testlerinde dikkat ister. Yeni bölüm/test yazımı gerektirir (sonradan Bölüm 15–20 kullandı: zamanlı 15, 17, 18, 19; mandal 16, 17).
+
+## 2026-10-15 — Harita yerleşimi ve bölüm adı
+Harita 20 bölüm için yılan ızgara (5 sütun x 4 satır, yalnızca yatay/dikey bağlantı) yerleşir; böylece çizgi kesişimi ve düğüm üstüne binme yapısal olarak yok. `BolumListesi` kaydına isteğe bağlı `ad` alanı eklendi (`BolumListesi.ad(yol)`); konum verisi dışında oyun mantığı değişmedi. Ana menüye Kontroller ekranı eklendi.
+
+## 2026-10-16 — Bölüm 15/16/17 uygulandı
+`scenes/bolumler/bolum_15.tscn` (Fitil, zamanlı plaka, `max_klon = 3`, çözüm en az 2 klon), `bolum_16.tscn` (Mandal, mandal plaka, 3 klon), `bolum_17.tscn` (Çifte Mühür, zamanlı + mandal plaka + ters bant, 3 klon; `tutma_kare = 70`) taslaklara (`docs/devir/bolum_15..17_taslak.md`) birebir kuruldu ve `BolumListesi`'ne eklendi (konumlar `harita_yerlesim.md`). Taslaktaki kare/piksel sayıları tahmindir; çözüm testi ve ölçüm henüz yapılmadı (test-yazari işi). `ipucu_klon` verilmedi. Mevcut testler (harita 17 kayıt dahil) geçti.
+
+## 2026-10-16 - Bölüm 18/19/20 uygulandı
+`scenes/bolumler/bolum_18.tscn` (Vardiya, zamanlı plakalı asansör, `max_klon = 3`, çözüm en az 2 klon), `bolum_19.tscn` (Karşı Ağırlık, iki asansör + geçit, 3 klon), `bolum_20.tscn` (Büyük Saat, zıplatıcı + asansör + geçit + ters bant + şalter, 3 klon) taslaklara (`docs/devir/bolum_18..20_taslak.md`) birebir kuruldu ve `BolumListesi`'ne eklendi (konumlar `harita_yerlesim.md`: 18 (580,510), 19 (360,510), 20 (140,510)). `ipucu_klon` verilmedi. Taslak sayıları tahmindir; ölçüm ve çözüm testleri test-yazari işidir.
+
+**Bölüm 15/16/17 ölçüm notu (2026-10-16):** çözüm testleri ve kısayol taramaları yapıldı (57 test GEÇTİ; bağımsız denetim: kısayol yok, atlanamazlık ve kilitlenme sorunsuz, zamanlı/mandal plaka mantığı determinist). "Taslağa birebir" yalnızca nesne konumları için geçerlidir; kare/pencere sayıları ve bazı senaryolar (uçuşta `sag` bırakma, "ışına inme", kutu kilidi) ölçümle düzeltildi: bkz. her taslağın başındaki ÖLÇÜM NOTU ve `docs/sorunlar.md`.
+
+**Bölüm 18/19/20 ölçüm notu (2026-10-16):** çözüm testleri ve kısayol taramaları yapıldı (58 test GEÇTİ: B18 18, B19 19, B20 21; tam suit 526; bulgular docs/sorunlar.md "Bölüm 18–20"). Min klon: B18 2, B19 3, B20 3 doğrulandı, kısayol yok; ölçülen hiçbir pencere 12 px altında değil (en dar: B20 C_A geç basış 8 kare = 40 px, şalter geri bas ~40 px). Taslak sayı sapmaları her taslağın başındaki ÖLÇÜM NOTU'nda.
+
+## 2026-10-16 — Kalıcı kurallar: görünürlük, okunabilirlik, gözden geçirici kapısı (kullanıcı kararı)
+- **Görünürlük:** çarpışması, tetikleyicisi veya etkisi olan her nesnenin net bir görünümü olur; çizimsiz çarpışma, görünmez plaka/blok, gizli işlev yasak.
+- **Okunabilirlik:** her bölüm yalnızca ekrana bakarak çözülebilir olmalı; çözüm görünmeyen şeye ya da tahmin edilemeyen zamanlamaya dayanmaz. Zor olabilir, haksız olamaz.
+- **Kapı:** `gozden-gecirici` her bölümde çizimsiz çarpışma/tetikleyici arar; bulursa bölüm kabul edilmez. Yeni bölüm taslağı kullanıcı onayı olmadan uygulanmaz.
+- **Ajan modelleri:** `tasarimci` ve `gozden-gecirici` opus; `uygulayici`, `test-yazari`, `grafik` sonnet.
+
+## 2026-10-16 - T tuşu: baştan başla (kullanıcı kararı)
+- T (`bastan` eylemi) ekran butonlarındaki dönen okla aynı işlemi yapar (`EkranButonlari.bastan_basla()`: `Kayitlar.sifirla()` + sahneyi yeniden yükle). Sistem tuşudur: kayıt formatı `{yon, zipla, asagi}` değişmez, oyuncu girdisi olarak kaydedilmez. Sonuç ekranı açıkken ve ölüm/geçiş sırasında (`bitti`) çalışmaz.
+- HUD etiketine "T: baştan başla" eklendi; Kontroller ekranı tuş adlarını Türkçe gösterir (Sol ok, Sağ ok, Yukarı ok, Aşağı ok, Boşluk; diğerleri OS adıyla) ve "Baştan başla" satırı vardır. Test: `-- --tustu` (tam koşuya dahil).
+
+## 2026-10-16 — Görünürlük düzeltmeleri, Parça 1 (grafik; yalnızca görünüm)
+- Kök neden: `Gorunum._draw` match'inde `KUTU`, `ZIPLATICI`, `PLAKA_ZAMANLI`, `PLAKA_MANDAL` kolları yoktu (24 çizimsiz çarpışma/tetikleyici, rapor: `docs/devir/gorunurluk_raporu.md`). Dört kol eklendi; eski düz `Gorsel` kutuları zaten gizliydi, çizim alanları çarpışma şeklinden türediği için çarpışmayı kapsar, z_index 0 ve ağaç sırası nedeniyle zemin/kat çiziminin üstündedir.
+- Taşıma bantlarında (B10 x2, B13 x2, B14, B17, B20) `bolum.gd:_gorunumu_kur` artık kendi `Gorunum` çocuğu olan gövdeyi atlar (ikinci DUVAR çizimi kemeri örtüyordu). Bant çizimi yenilendi: koyu kehribar kemer, parlak amber oklar sürekli akar, makaralar döner; yön/hız `yon`/`hiz`'dan okunur, yalnızca `_process`. Palete `BANT_ZEMIN/BANT_OK/BANT_OLUK` eklendi. Mandal plaka kilit lambası açıkken `UYARI` (kırmızı) yapıldı.
+- Bölüm 14 `PlakaR` +20 px sağa denemesi (kullanıcı onaylı konum değişimi) GERİ ALINDI: 520'de çözüm KALDI (bant, plakadaki klonu sürükler; 10 test), 510'da çözüm GEÇTİ ama başarısızlık 5/10 ve zamanlama ölçümü bozulur (bant payı 2,4 -> 8 kare; bölüm kolaylaşır). Konum 500'de duruyor; karar bekliyor (bkz. `docs/sorunlar.md`).
+- B10 `PlakaPG` ve `PlakaP1` kasıtlı olabileceği için DOKUNULMADI (karar notu `docs/sorunlar.md`).
+
+
+## 2026-10-16 — Bölüm 9 ince ayar (Parça 2 madde 3, kullanıcı onaylı)
+- **Karar:** Fikir (kutu tanıtımı) ve çözüm (3 klon, 4 tur) korunarak geometri ince ayarlandı: F2 yüzeyi 440 -> 430 (Kat2 450x170, asansör `yukseklik` 170, Plaka3/PlakaKutu y 422, Kapı y 406, Geçit y 330, L1 `uzunluk` 130), PlakaKutu x 930 -> 910. Çözüm betiğinde k2 beklemesi 120 -> 60 kare. Ayrıntılı önce/sonra tablosu: `docs/devir/bolum_9_ayar.md`.
+- **Gerekçe:** ölçümde (`_test_bolum9_pencereler`) oyuncu pencereleri zaten >= 15 kare idi; zorluk boş beklemelerden (tur 2: 120 kare, asansörde ~185 kare) ve iki dar güvenlik payından geliyordu: takılı-asansör basamağından F2'ye çıkılabiliyordu (-4,9 px; ayrık zıplama tepesi ~100,9) ve G sprint payı 2-4 kareydi. Sonra: basamak +5 px (çıkılamaz), G sprint 6-8 kare, k3/oyuncu geç kalma payı 50 kare, tur süreleri 25/224/329/407 -> 25/164/274/348.
+- **Test değişikliği:** B9 sabitleri geometriye bağlandı (`B9_F2_Y`, `B9_PK_X`, `B9_GECIT_KAPALI_Y`, `B9_K2_BEKLE`); tur 4 betiği L1 kapanana kadar x=800'de bekler (ekrana bakarak oynama); basamak ölçüm testi artık "F2'ye çıkılamaz"ı doğrular; yeni ölçüm testi pencere paylarını (>= 8 kare) ve tur sürelerini (<= 600) denetler. Atlanamazlık/kısayol/başarısızlık testleri aynen kaldı ve geçti.
+- **Alternatif (seçilmedi):** k2'nin tek taraflı "binişten sonra bas" koşulunu kaldırmak (tur yapısı/nesne değişikliği; ince ayar kapsamı dışında). Kalan not `docs/sorunlar.md`.
+## 2026-10-16 — Bölüm 9 kabul, Bölüm 18 ipucu ikonu (kullanıcı kararı)
+- **Bölüm 9:** kullanıcı mevcut (ince ayarlı) halinden memnun; sonraki değişiklik yok, `docs/sorunlar.md`'deki açık madde kapatıldı.
+- **Bölüm 18 "Vardiya":** `ipucu_klon = 2` (`max_klon` 3 kalır). "?" ikonu ve hover metni "2 klonla çözülebilir" Bölüm 4 ve 6'daki gibi. İkon yalnızca Bölüm 4, 6 ve 18'de; başka bölüme konmaz. Yalnızca HUD, oyun mantığı değişmez.
+
+## 2026-10-16 — Plakaları bandın üstüne oturtma (B14 PlakaR, B10 PlakaPG/PlakaP1; kullanıcı isteği)
+- **Bölüm 10 `PlakaP1`:** merkez x 410 -> 400 (x370..430): tam Bant1 üstünde, Duvar (x430..450) örtüşmesi giderildi. Tutucu kutu bantla Duvar'a dayanıp durduğu için davranış aynı; L1 6 kare erken kapanır (79 -> 73), A'nın PE basma penceresi (180..330 kare) ve 3 klon korunur, A canlı/klon farkı 3,33 -> 1,67 px. Tüm B10 testleri geçti.
+- **Bölüm 14 `PlakaR` ve Bölüm 10 `PlakaPG`: değişiklik YOK.** (B14) bandı 20 px sola uzatma ve plakayı 520'ye alma ayrı ayrı ölçüldü, ikisi de 10 test KALDI; uzatmada çözümün tutma noktası UL1|Bant dikişine düşüp C3 canlı/klon farkını 1,67 -> 13,33 px'e çıkarıyor, bant yarışı payı 2 -> 0. (B10) Bant2'yi 70 px sola uzatmada C klonu PG'den sürüklenip plaka 117 kare boş kalıyor. Gerekçe: bant üstündeki plakayı hareketsiz tutan karakter ancak bant dışında, dikişte (canlı/klon belirsiz) ya da bant yönünde bir engele dayalı durabilir; ikisinde de tutucu karakterdir ve engel yoktur. Alternatifler (onay gerekir): görünür durdurucu ekleme, plakayı bandın engelli ucuna taşıyıp yeniden tasarlama, bant etkisini motordan ayırma. Ölçümler `docs/devir/gece_notlari.md`, açık madde `docs/sorunlar.md`.
+- **Test:** `_test_bolum10_pg_tutma` (C klonu son turda PG'de sabit, PG hep basılı; PG çevresinde girdisiz duruş) ve `_test_bolum10_p1_pencere` (P1 bant üstünde/Duvar'a değmez, L1 kapanışı, A basma penceresi pay >= 8 kare) eklendi (`--b10` ve tam koşu). B10 canlı/klon testinin ölçüm metni güncellendi (sınırlar aynı).
+
+## 2026-10-16 — Bölüm 21 "Mandal" uygulandı; harita 6x4 (22 düğüm)
+- **Bölüm 21:** onaylı taslak (`docs/devir/bolum_21_taslak.md`) birebir `scenes/bolumler/bolum_21.tscn` olarak kuruldu (`max_klon = 2`, çözüm 2 klon, `ipucu_klon = 0`; mandal plaka dersi). Eski B16/B17 oyunda aynen kalır. Geçit LazerA'dan sonra (taslak önerisi).
+- **Kablo çizimi (yalnız görünüm):** geçit/lazer çiziminde isteğe bağlı `kablo` meta'sı (`gorunum.gd:_kablo`); plaka etkinken yanar. Mekanik/çarpışma yok; meta olmayan bölümler değişmez.
+- **Harita:** bölüm sayısı 22 olacağından 5x4 ızgara yerine 6x4 yılan ızgara (x aralığı 180, y 165..510); 1..21 konumları güncellendi, 22. ayrıldı. Ayrıntı `docs/devir/harita_yerlesim.md`. Düğüm sayısı sabit kodlu testler (20) test-yazari tarafından güncellenecek.
+
+## 2026-10-16 — Bölüm 22 "Fitil ve Mühür" uygulandı
+- **Bölüm 22:** onaylı taslak (`docs/devir/bolum_22_taslak.md`) birebir `scenes/bolumler/bolum_22.tscn` olarak kuruldu (`max_klon = 2`, çözüm 2 klon, `ipucu_klon = 0`; zamanlı plaka 180 kare varsayılan, sahnede değiştirilmedi). Eski B16/B17 oyunda aynen kalır. Harita: 22. kayıt "Fitil ve Mühür", konum (500, 510), önceki bölüm 21.
+- **Oda geçidi (G):** taslak önerisi: tetikleyiciler [PlakaZ (fitil), PlakaM (mühür)] VEYA; mühür odayı kalıcı açar, oda tuzak olmaz. Ad: "Fitil ve Mühür" (taslak önerisi).
+- **Kablo (yalnız görünüm):** B21'deki `metadata/kablo` mekanizması; G iki tetikleyicili olduğundan `gorunum.gd`'ye isteğe bağlı ikinci meta `kablo_2` eklendi (`_kablo` -> `_kablo_ciz`): `kablo_2` varsa her kablo kendi tetikleyicisiyle yanar (kablo -> 1., kablo_2 -> 2.), yoksa eskisi gibi herhangi biri. B21 ve eski bölümler değişmez. Çarpışma/mekanik yok. Rotalar: ZP->G (170,584)-(170,376) (kuyuda dikey, zeminin arkasından); M->G (110,372)-(125,372)-(125,300)-(160,300); M->GM (110,372)-(125,372)-(125,190)-(650,190); PA->LA (508,584)-(508,184)-(520,184); PB->LB (820,372)-(880,372)-(880,184)-(903,184). Alternatif: tek meta (ZP kablosu yok, dikey hizaya güvenmek); ikinci kablo yeni görünüm kodu gerektirdiği için seçilmedi. Not: kablo ekranlı gözle doğrulanmadı.
+
+## 2026-10-16 — Kapanış: bölüm sayısı 22
+- Oyunda 22 bölüm var (1–20 + 21 "Mandal" + 22 "Fitil ve Mühür"); eski B16/B17 değişmedi. Madde 3 (plaka/bant) sonucu: B10 PlakaP1 uygulandı; B14 PlakaR ve B10 PlakaPG ölçüldü, geri alındı (sorunlar.md). Bölüm 9 değişmedi; Bölüm 18 `ipucu_klon = 2`.
+
+## 2026-10-19 — Bölüm 19 "Karşı Ağırlık" kaldırıldı (kullanıcı kararı); oyunda 21 bölüm
+- **Karar:** Bölüm 19 ile Bölüm 20 ("Büyük Saat") çok benziyor; Bölüm 19 oyundan çıkarıldı, yerine yenisi YAPILMAYACAK. Sahnesi silinmedi: `scenes/bolumler/arsiv/bolum_19_arsiv.tscn`. Taslağı `docs/devir/arsiv/bolum_19_taslak.md`. Testleri kaldırıldı (test_runner.gd'de "arşivlendi" notu).
+- **Numaralar:** eski 20 -> 19 "Büyük Saat", eski 21 -> 20 "Mandal", eski 22 -> 21 "Fitil ve Mühür"; toplam 21. Tablo: `docs/devir/numara_esleme.md`.
+- **Dosya adı kararı:** sahne dosyaları yeniden adlandırıldı (`bolum_20/21/22.tscn` -> `bolum_19/20/21.tscn`), disk ve liste tutarlı. Gerekçe: numara zaten listedeki sıradan türetilir; dosya adı sıradan bağımsız bırakılırsa "Bölüm 19 = bolum_20.tscn" kafa karıştırır ve testlerdeki sahne yolları ile gösterilen numara ayrışırdı. Eşleme testlerle (tam koşu) doğrulandı: çözüm/başarısızlık/atlanamazlık testleri yeni adlarla geçiyor. Test işlevleri/sabitleri/bayrakları (`--b20` vb.) aynı eşlemeyle yeniden adlandırıldı. Sahne içeriği (fizik, kayıt formatı) değişmedi.
+- **Harita:** zincir 18 -> 19 -> 20 -> 21; 19 @ (1040, 510), 20 @ (860, 510), 21 @ (680, 510); eski 22. konum (500, 510) boşaldı. `harita_yerlesim.md` tablosu 21 satır; ilgili test eşikleri (`tablo.size() >= 21`, `dosya_say >= 21`) güncellendi.
+- **Not:** bu günlükte, `gece_notlari.md`'de ve eski raporlarda önceki girişler eski numaralarla yazılmıştır (tarihsel kayıt); `numara_esleme.md` ile okunur.
+
+## 2026-10-19 — Bölüm 18: max_klon = 2, "?" ikonu kaldırıldı (kullanıcı kararı)
+- **Karar:** Bölüm 18 "Vardiya" `max_klon = 3` -> `2`; `ipucu_klon = 2` -> `0` (ikon ve hover metni yok). Kullanıcı bölümü 2 klonla çözdü. İkon yalnızca Bölüm 4 (2) ve Bölüm 6 (1)'da kalır. Önceki karar (2026-10-16, "Bölüm 18 ipucu ikonu") geçersiz.
+- **Doğrulama:** çözüm 2 klonla (A, B + oyuncu, gerçek R/girdi yolu) `max_klon = 2` altında geçiyor; `--b18` 18/18, `--ipucu` 11/11. Çözüm 2 klonda tutmadığı için "yapma, sorunlar.md'ye yaz" şartı doğmadı.
+- **Test güncellemeleri:** B18 çözüm/klon sınırı testleri 2'ye; kilitlenme testi etiketi "1/2"; ipucu testlerinden B18 çıkarıldı (ikon yalnız 4 ve 6; "diğer tüm bölümlerde ikon yok" taraması B18'i artık kapsıyor). B18 ikon görünürlük testi kalktı.
+
+## 2026-10-19 — HUD: bölüm numarası ve adı (kullanıcı kararı)
+- **Karar:** her bölümde HUD'da "Bölüm 14 · Çekirdek" (adı yoksa "Bölüm 14") görünür. Numara `BolumListesi` sırasından (indeks + 1), ad kayıttan okunur; kod yeni bölümde değişmeden doğru çıkar. Bölüm 1 ve 2 adları ("Giriş", "İkiz") tahmin olarak bırakıldı.
+- **Yerleşim kararı:** etiket "Tur | Klon | R" satırının hemen üstünde ayrı bir `Label` (`BolumEtiketi`, `BolumKatmani`); Bilgi metni (`bilgi.text`) DEĞİŞMEDİ (mevcut testler ve oyun mantığı aynı), yalnız Bilgi satırı 28 px aşağı kaydı. Çizim, çarpışma, fizik, kayıt formatı değişmedi.
+- **Test:** `--arayuz` içinde "HUD bölüm etiketi" (tüm 21 bölüm metni/konumu, sabit örnekler 1, 2, 4, 14, 18, 19, 20, 21; ad yoksa "Bölüm N"; test sahnesinde etiket yok).

@@ -9,6 +9,11 @@ const YER_CEKIMI := 1400.0  # player.gd ile aynı sabit değer
 func _ready() -> void:
 	collision_layer = 1 | (1 << 3)
 	collision_mask = 1
+	# Görünüm: düz kutu gizlenir, laboratuvar kasası Gorunum çizer (yalnızca görsel).
+	var eski := get_node_or_null("Gorsel")
+	if eski != null:
+		eski.visible = false
+	Gorunum.ekle(self, Gorunum.Tur.KUTU, Gorunum.sekil_alani(self))
 
 
 ## O kare için yatay yer değiştirme isteği; dünyaya çarparsa durur.

@@ -105,6 +105,8 @@ color = Color(0.6, 0.55, 0.25, 1)
 [node name="PlakaPB" type="Area2D" parent="."]
 position = Vector2(698, 160)
 script = ExtResource("3")
+metadata/aski_tavan_y = 60.0
+metadata/aski_duvar_x = 760.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlakaPB"]
 shape = SubResource("s_60_32")

@@ -22,6 +22,11 @@ func _on_ev() -> void:
 
 ## Baştan başla: tüm klon kayıtları silinir (tur sayısı 1'e döner), bölüm yeniden yüklenir.
 func _on_yeniden() -> void:
+	bastan_basla()
+
+
+## Baştan başla işleminin tek yeri: dönen ok butonu ve T tuşu (bolum.gd) bunu çağırır.
+func bastan_basla() -> void:
 	Kayitlar.sifirla()
 	get_tree().reload_current_scene()
 

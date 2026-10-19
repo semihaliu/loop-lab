@@ -60,10 +60,13 @@ func _dugum_olustur(i: int, kayit: Dictionary) -> void:
 
 	var etiket := Label.new()
 	etiket.name = "Etiket%d" % (i + 1)
-	etiket.text = "Bölüm %d" % (i + 1)
+	var ad: String = str(kayit.get("ad", ""))
+	etiket.text = "Bölüm %d" % (i + 1) if ad == "" else "Bölüm %d: %s" % [i + 1, ad]
 	etiket.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	etiket.size = Vector2(140, 30)
-	etiket.position = konum + Vector2(-70, HEX_YARICAP + 14.0)
+	etiket.size = Vector2(280, 30)
+	etiket.position = konum + Vector2(-140, HEX_YARICAP + 14.0)
+	etiket.position.x = clampf(etiket.position.x, 4.0, 1152.0 - 284.0)
+	etiket.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	etiket.add_theme_font_size_override("font_size", 22)
 	etiket.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.8))
 	etiket.add_theme_constant_override("outline_size", 6)

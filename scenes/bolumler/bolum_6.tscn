@@ -32,6 +32,7 @@ size = Vector2(36, 48)
 [node name="Bolum6" type="Node2D"]
 script = ExtResource("2")
 max_klon = 2
+ipucu_klon = 1
 
 [node name="Zemin" type="StaticBody2D" parent="."]
 position = Vector2(576, 620)

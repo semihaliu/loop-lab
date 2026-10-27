@@ -1,0 +1,9 @@
+{
+  "bicim": "loop_lab_bolum", "surum": 1,
+  "kimlik": "ihlal_002", "ad": "İki Çıkış",
+  "max_klon": 2, "ipucu_klon": 0,
+  "baslangic": [200, 594], "cikis": [[1050, 420], [900, 594]],
+  "nesneler": [
+    {"tur": "blok", "id": "Zemin", "alan": [0, 600, 1152, 40]}
+  ]
+}

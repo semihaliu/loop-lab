@@ -1,0 +1,11 @@
+{
+  "bicim": "loop_lab_bolum", "surum": 1,
+  "kimlik": "ihlal_007", "ad": "Yinelenen Id",
+  "max_klon": 2, "ipucu_klon": 0,
+  "baslangic": [200, 594], "cikis": [1050, 420],
+  "nesneler": [
+    {"tur": "blok", "id": "Zemin", "alan": [0, 600, 1152, 40]},
+    {"tur": "plaka", "id": "Plaka", "konum": [350, 600]},
+    {"tur": "plaka", "id": "Plaka", "konum": [450, 600]}
+  ]
+}

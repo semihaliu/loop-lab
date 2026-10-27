@@ -21,6 +21,16 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 [autoload]
 
 Kayitlar="*res://scripts/kayitlar.gd"
+TamEkran="*res://scripts/tam_ekran.gd"
+
+[display]
+
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
 
 [input]
 

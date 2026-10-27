@@ -37,7 +37,7 @@ Tek karakter, hedef kapıya ulaşmak. Her turda oyuncunun tuş basışları kayd
 - Kod yazdıktan sonra headless çalıştır: `--headless --path . --quit`. Hata varsa kendin düzelt.
 - **Testler (her kod değişikliğinden sonra çalıştır):**
   `<Godot yolu> --headless --path . --fixed-fps 60 --script res://tests/test_runner.gd`
-  Determinizm (100x), Bölüm 1–21 çözümleri, başarısızlık/atlanamazlık/kısayol, lazer, S düşme, ipucu ikonu, plaka ve arayüz testlerini koşar (~583 test, ~7-10 dk; tek bölüm için `-- --b9` ... `--b21`, `--sdusme`, `--ipucu`, `--plaka`, `--arayuz`, `--tustu`, `--gorunurluk`; bayraklar birleşmez, her biri ayrı koşulur), GEÇTİ/KALDI yazar; kaldıysa çıkış kodu 1.
+  Determinizm (100x), Bölüm 1–21 çözümleri, başarısızlık/atlanamazlık/kısayol, lazer, S düşme, ipucu ikonu, plaka ve arayüz testlerini koşar (~583 test, ~7-10 dk; tek bölüm için `-- --b9` ... `--b21`, `--sdusme`, `--ipucu`, `--plaka`, `--arayuz`, `--tustu`, `--gorunurluk`, `--editor` (editör testleri), `--ed-a11` (yalnız A11: kablo görünümü ve `kirli_mi`, hızlı), `--dene-fizik` (editör açıldıktan sonra B13/B14/B19 izi aynı mı; temiz süreç ister); bayraklar birleşmez, her biri ayrı koşulur), GEÇTİ/KALDI yazar; kaldıysa çıkış kodu 1.
   Sonucu `docs/testler.md`'ye tarihli eklemek için sonuna `-- --rapor` ekle. Testler oyun kodunu değiştirmez, girdiyi `Input.action_press` ile enjekte eder; girdi/fizik/bölüm yerleşimi değişirse `tests/test_runner.gd` içindeki betikleri güncelle.
 
 ## Yapı
@@ -67,5 +67,5 @@ Ajanların kullanılması kullanıcının açık kararıdır (bkz. `docs/kararla
 
 Devir klasörü: `docs/devir/` (akış ve dosya adları için `docs/devir/README.md`; güncel durum `docs/devir/durum.md`).
 Bölüm 8: `max_klon = 2` (kullanıcı kararı, `docs/kararlar.md`).
-Bölüm 16/17 (v2) taslakları `docs/devir/bolum_16_taslak_v2.md` / `bolum_17_taslak_v2.md`: kullanıcı onayı bekliyor, kodlanmadı (sahnedeki 16/17 eski sürümdür).
+Bölüm 16/17 (v2) taslakları onaylandı ve uygulandı (2026-10-16): Bölüm 20 "Mandal" ve Bölüm 21 "Fitil ve Mühür" (`docs/devir/bolum_20_taslak.md` / `bolum_21_taslak.md`; v2 dosya adları ve ilk numaraları 21/22 idi, Bölüm 19 kaldırılınca 20/21 oldu). Sahnedeki 16 "Mandal" ve 17 "Çifte Mühür" eski (v1) sürümdür ve bilinçli olarak oyunda kalır. Onay bekleyen taslak yok.
 Not: ajanlar yalnızca yeni bölüm üretirken kullanılır, küçük düzeltmeler tek oturumda yapılır.

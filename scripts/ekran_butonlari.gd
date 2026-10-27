@@ -15,9 +15,14 @@ func _ready() -> void:
 
 
 ## Ana menüye dön: tüm klon kayıtları silinir (yeni oyun temiz başlar).
+## Dene kipinde (editörden açılan geçici sahne) ana menü yerine editöre, özel kipte (Bölümlerim → Oyna)
+## Bölümlerim'e döner.
 func _on_ev() -> void:
 	Kayitlar.sifirla()
-	get_tree().change_scene_to_file(MENU_SAHNESI)
+	if get_parent() != null:
+		get_tree().change_scene_to_file(BolumYollari.ev_sahnesi(get_parent().scene_file_path))
+	else:
+		get_tree().change_scene_to_file(MENU_SAHNESI)
 
 
 ## Baştan başla: tüm klon kayıtları silinir (tur sayısı 1'e döner), bölüm yeniden yüklenir.

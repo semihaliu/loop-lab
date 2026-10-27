@@ -343,6 +343,7 @@ func _aski() -> void:
 
 func _asansor() -> void:
 	var p: Node = get_parent()
+	_kablo(p)
 	var yarim := Vector2(60, 10)
 	if alan.size != Vector2.ZERO:
 		yarim = alan.size / 2.0
@@ -440,19 +441,54 @@ func _gecit() -> void:
 
 # ---------- plaka kablosu (isteğe bağlı) ----------
 
-## Plaka ile bağlı geçit/lazer arasında ince "kablo" (yalnızca görünüm, çarpışma/fizik yok).
+## Plaka/şalter ile bağlı geçit/lazer/asansör arasında ince "kablo" (yalnızca görünüm, çarpışma/fizik yok).
 ## Üst düğümde `kablo` meta'sı (dünya koordinatlı PackedVector2Array çoklu çizgi) varsa
 ## çizilir; meta yoksa hiçbir şey çizilmez (eski bölümler değişmez). Tetikleyici plakalardan
 ## biri etkinse kablo yanar (camgöbeği), değilse soluk metal. Yalnızca okur.
 func _kablo(p: Node) -> void:
-	# İkinci kablo (`kablo_2`) varsa her kablo kendi tetikleyicisiyle yanar: kablo -> 1., kablo_2 -> 2.
-	var iki := p.has_meta("kablo_2")
-	_kablo_ciz(p, "kablo", 0 if iki else -1)
-	if iki:
-		_kablo_ciz(p, "kablo_2", 1)
+	for k in kablo_plani(p):
+		_kablo_ciz(p, k[0], k[1])
 
 
-## Tek kablo çizimi. sira < 0: tetikleyicilerden herhangi biri etkinse yanar; sira >= 0: yalnız o sıradaki.
+## Üst düğümün çizilecek kabloları: [[meta_adı, sıra], ...]. `kablo` her zaman 1. tetikleyicidir;
+## birden çok tetikleyicisi olan hedefte `kablo_<N>` (N >= 2) N. tetikleyiciyle yanar (görünür tek kablo
+## yanlış plakayla yanmasın, diğerinin kablosu gizli olsa da). Tek tetikleyicili hedefte (eski bölümler)
+## ve asansörde `kablo` sıra -1'dir: bağlı tetikleyici yakar.
+func kablo_plani(p: Node) -> Array:
+	var yollar = p.get("tetikleyici_yollari")
+	var en_cok: int = 1 if yollar == null else yollar.size()
+	var plan: Array = [["kablo", 0 if en_cok >= 2 else -1]]
+	for n in range(2, en_cok + 1):
+		if p.has_meta("kablo_%d" % n):
+			plan.append(["kablo_%d" % n, n - 1])
+	return plan
+
+
+## Bir tetikleyici etkin mi? Plaka: basılı. Şalter: hedefin `acik_taraf_sag` değeriyle aynı tarafta.
+func _tetik_etkin(p: Node, t: Node) -> bool:
+	if t == null:
+		return false
+	if t.has_method("basili_mi"):
+		return t.basili_mi()
+	var sagda = t.get("sagda")
+	return sagda != null and sagda == p.get("acik_taraf_sag")
+
+
+## Kablo yanık mı? sira < 0: tetikleyicilerden herhangi biri etkinse; sira >= 0: yalnız o sıradaki.
+## Asansörde tetikleyici listesi yoktur, kablo `plaka`nın basılı olmasıyla yanar.
+func kablo_yanik_mi(p: Node, sira: int) -> bool:
+	var yollar = p.get("tetikleyici_yollari")
+	if yollar == null:
+		return _tetik_etkin(p, p.get("plaka"))
+	for i in yollar.size():
+		if sira >= 0 and i != sira:
+			continue
+		if _tetik_etkin(p, p.get_node_or_null(yollar[i])):
+			return true
+	return false
+
+
+## Tek kablo çizimi (yalnızca görünüm; çarpışma ve mantık yok).
 func _kablo_ciz(p: Node, meta: String, sira: int) -> void:
 	if not p.has_meta(meta):
 		return
@@ -462,20 +498,13 @@ func _kablo_ciz(p: Node, meta: String, sira: int) -> void:
 	var yerel := PackedVector2Array()
 	for w in nokta:
 		yerel.append(to_local(w))
-	var yanik := false
-	var yollar = p.get("tetikleyici_yollari")
-	if yollar != null:
-		for i in yollar.size():
-			if sira >= 0 and i != sira:
-				continue
-			var t: Node = p.get_node_or_null(yollar[i])
-			if t != null and t.has_method("basili_mi") and t.basili_mi():
-				yanik = true
+	var yanik := kablo_yanik_mi(p, sira)
 	draw_polyline(yerel, LabPaleti.KENAR, 5.0)
 	draw_polyline(yerel, LabPaleti.CAMGOBEGI if yanik else LabPaleti.METAL, 3.0)
 	if yanik:
 		draw_polyline(yerel, Color(1, 1, 1, 0.35), 1.0)
-	for u in [yerel[0], yerel[yerel.size() - 1]]:
+	# Uçlarda ve her ara noktada perçin halkası (lazer ışınında halka yoktur; ayrım buradan da okunur).
+	for u in yerel:
 		draw_circle(u, 3.5, LabPaleti.KENAR)
 		draw_circle(u, 2.0, LabPaleti.YESIL if yanik else LabPaleti.METAL_ACIK)
 

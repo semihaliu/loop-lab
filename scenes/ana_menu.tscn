@@ -35,6 +35,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Oyna"
 
+[node name="EditorDugmesi" type="Button" parent="Ortala/Kutu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Editör"
+
 [node name="KontrollerDugmesi" type="Button" parent="Ortala/Kutu"]
 unique_name_in_owner = true
 layout_mode = 2

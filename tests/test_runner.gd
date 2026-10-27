@@ -8,6 +8,10 @@ extends SceneTree
 ## Çıkış kodu: hepsi geçtiyse 0, değilse 1.
 
 const BOLUM := "res://scenes/bolumler/bolum_1.tscn"
+## Yüklenme gecikmeli: preload, başlangıçta bölüm fiziğini etkileyen RID/geniş-faz sırasını kaydırıyordu (B13/B14/B19 canlı-klon sınırları).
+const EDITOR_TESTLERI_YOLU := "res://tests/editor_testleri.gd"
+## Editör sınıfları yüklenmeden çalışması gerekir (editör grubundan ÖNCE, gecikmeli load); bu dosya editör sınıflarına başvurmaz.
+const DENE_FIZIK_YOLU := "res://tests/dene_fizik_testleri.gd"
 
 ## Şu an yüklenecek bölüm sahnesi (şalter/geçit testleri test sahnesine geçer).
 var aktif_bolum := BOLUM
@@ -26,6 +30,10 @@ func _initialize() -> void:
 		ProjectSettings.get_setting("display/window/size/viewport_width", 1152),
 		ProjectSettings.get_setting("display/window/size/viewport_height", 648))
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_VIEWPORT
+	# A12: kullanıcının gerçek `user://canli/` bölümleri numaraya bağlı testleri etkilemesin; testler yalnız
+	# test köküne bakar (burada canlı bölüm yoksa liste 21 resmî kayıttır, A12 testleri geçici canlı ekler).
+	BolumListesi.kullanici_kok = "user://test_editor/"
+	BolumListesi.yenile()
 	_calistir()
 
 
@@ -197,6 +205,33 @@ func _calistir() -> void:
 			print("[%s] %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"]])
 		quit(0)
 		return
+	if "--dene-fizik" in OS.get_cmdline_user_args():
+		await load(DENE_FIZIK_YOLU).new(self).hepsi()
+		var hepsi_df := true
+		for s in sonuclar:
+			hepsi_df = hepsi_df and s["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		print("TOPLAM: %s (%d test)" % ["GEÇTİ" if hepsi_df else "KALDI", sonuclar.size()])
+		quit(0 if hepsi_df else 1)
+		return
+	if "--editor" in OS.get_cmdline_user_args():
+		await load(EDITOR_TESTLERI_YOLU).new(self).hepsi()
+		var hepsi_ed := true
+		for s in sonuclar:
+			hepsi_ed = hepsi_ed and s["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		print("TOPLAM: %s (%d test)" % ["GEÇTİ" if hepsi_ed else "KALDI", sonuclar.size()])
+		quit(0 if hepsi_ed else 1)
+		return
+	if "--ed-a11" in OS.get_cmdline_user_args():
+		await load(EDITOR_TESTLERI_YOLU).new(self).a11_testleri()
+		var hepsi_a11 := true
+		for s in sonuclar:
+			hepsi_a11 = hepsi_a11 and s["gecti"]
+			print("[%s] %s | %s" % ["GEÇTİ" if s["gecti"] else "KALDI", s["ad"], s["ayrinti"]])
+		print("TOPLAM: %s (%d test)" % ["GEÇTİ" if hepsi_a11 else "KALDI", sonuclar.size()])
+		quit(0 if hepsi_a11 else 1)
+		return
 	if "--gorunurluk" in OS.get_cmdline_user_args():
 		await _gorunurluk_testleri()
 		var hepsi_gr := true
@@ -345,6 +380,8 @@ func _calistir() -> void:
 	await _arayuz_testleri()
 	await _tustu_testleri()
 	await _gorunurluk_testleri()
+	await load(DENE_FIZIK_YOLU).new(self).hepsi()
+	await load(EDITOR_TESTLERI_YOLU).new(self).hepsi()
 	for o in pl_olcum:
 		print("ÖLÇÜM: ", o)
 	aktif_bolum = BOLUM
@@ -1158,7 +1195,7 @@ func _test_bolum_secimi() -> void:
 		var sahne = load(y)
 		if not (sahne is PackedScene and sahne.can_instantiate()):
 			yuklenebilir = false
-	var listede: bool = yollar.has(BOLUM) and yollar.has(BOLUM_2) and yollar.size() == BolumListesi.BOLUMLER.size() and yollar.size() >= 2
+	var listede: bool = yollar.has(BOLUM) and yollar.has(BOLUM_2) and yollar.size() == BolumListesi.liste().size() and yollar.size() >= 2
 	_kaydi("Bölüm listesi", listede and yuklenebilir,
 		"yollar: %s, hepsi yüklenebilir: %s" % [str(yollar), yuklenebilir])
 
@@ -1175,7 +1212,7 @@ func _test_bolum_secimi() -> void:
 	var eski: Node = current_scene
 	dugme.pressed.emit()
 	var yeni: Node = await _sahne_degisimini_bekle(eski)
-	var bolum2_mi: bool = yeni != null and yeni.scene_file_path == BOLUM_2
+	var bolum2_mi: bool = yeni != null and yeni.scene_file_path == BolumListesi.sonraki(BOLUM)   # listedeki sonraki (araya canlı eklenebilir)
 	var klon_sayisi: int = _klonlar(yeni).size() if yeni != null else -1
 	var tur1: bool = yeni != null and yeni.bilgi.text.begins_with("Tur 1 ") and yeni.bilgi.text.contains("Klon: 0/")
 	var bos: bool = _kayitlar().turlar.size() == 0
@@ -1214,7 +1251,7 @@ func _test_bolum_secimi() -> void:
 	_kaydi("Menü \"Oyna\" ilerleme haritasını açar", harita_acildi, "harita açıldı: %s" % harita_acildi)
 
 	# 5) Harita: her bölüm için düğüm, doğru bağlantı sayısı, odaksız butonlar, konumlar listeden.
-	var kayitlar: Array = BolumListesi.BOLUMLER
+	var kayitlar: Array = BolumListesi.liste()
 	var dugumler: Array = harita.get_node("Dugumler").get_children().filter(func(c): return c is Button)
 	var beklenen_baglanti := 0
 	for k in kayitlar:
@@ -1226,7 +1263,7 @@ func _test_bolum_secimi() -> void:
 	var yazi_ok := true
 	for i in range(min(dugumler.size(), kayitlar.size())):
 		var merkez: Vector2 = dugumler[i].position + dugumler[i].size / 2.0
-		if (merkez - kayitlar[i]["konum"]).length() > 0.01:
+		if (merkez - kayitlar[i]["konum"]).length() > 0.01 or (merkez - HaritaYerlesimi.konum(i, kayitlar.size())).length() > 0.01:
 			konum_ok = false
 		if not Rect2(Vector2.ZERO, alan).encloses(Rect2(dugumler[i].position, dugumler[i].size)):
 			konum_ok = false
@@ -1245,11 +1282,11 @@ func _test_bolum_secimi() -> void:
 	var once_harita: Node = current_scene
 	harita.get_node("Dugumler/Dugum2").pressed.emit()
 	var girilen: Node = await _sahne_degisimini_bekle(once_harita)
-	var dogru: bool = girilen != null and girilen.scene_file_path == BOLUM_2
+	var dogru: bool = girilen != null and girilen.scene_file_path == BolumListesi.liste()[1]["yol"]
 	var klon0: bool = girilen != null and _klonlar(girilen).size() == 0 and _kayitlar().turlar.size() == 0
 	var tur_1: bool = girilen != null and girilen.bilgi.text.begins_with("Tur 1 ")
 	_kaydi("Harita düğümü: doğru bölüm, klon 0, tur 1", dogru and klon0 and tur_1,
-		"Bölüm 2 yüklendi: %s, klon sayısı 0 ve Kayitlar boş: %s, tur etiketi Tur 1: %s" % [dogru, klon0, tur_1])
+		"listedeki 2. bölüm yüklendi: %s, klon sayısı 0 ve Kayitlar boş: %s, tur etiketi Tur 1: %s" % [dogru, klon0, tur_1])
 
 	# 7) Geri butonu ana menüye döner.
 	var menu_oncesi: Node = current_scene
@@ -1268,7 +1305,7 @@ func _test_harita_cizgisi() -> void:
 	var onceki: Node = current_scene
 	change_scene_to_file("res://scenes/harita.tscn")
 	var harita: Node = await _sahne_degisimini_bekle(onceki)
-	var kayitlar: Array = BolumListesi.BOLUMLER
+	var kayitlar: Array = BolumListesi.liste()
 	var yaricap: float = harita.HEX_YARICAP
 	var beklenen := 0
 	var uclar_ok := true
@@ -1332,7 +1369,7 @@ func _test_harita_kesisim() -> void:
 	var onceki: Node = current_scene
 	change_scene_to_file("res://scenes/harita.tscn")
 	var harita: Node = await _sahne_degisimini_bekle(onceki)
-	var kayitlar: Array = BolumListesi.BOLUMLER
+	var kayitlar: Array = BolumListesi.liste()
 	var yaricap: float = harita.HEX_YARICAP
 	var parcalar: Array = []   # [bas, son, onceki_indeks, bu_indeks]
 	var sayac := 0
@@ -1377,11 +1414,11 @@ func _test_harita_kesisim() -> void:
 
 
 # ---------------------------------------------------------------- bölüm listesi ve harita
-# Not: bölüm sayısı BolumListesi.BOLUMLER.size()'dan türetilir (en az 8); yeni bölüm eklenince bu testler kırılmaz.
+# Not: bölüm sayısı ve sırası BolumListesi.liste()'den (resmî + canlı) türetilir; araya canlı bölüm eklenince bu testler kırılmaz.
 
 func _liste_yollari() -> Array:
 	var yollar: Array = []
-	for k in BolumListesi.BOLUMLER:
+	for k in BolumListesi.liste():
 		yollar.append(k["yol"])
 	return yollar
 
@@ -1389,14 +1426,19 @@ func _liste_yollari() -> Array:
 ## Liste verisi: en az 8 kayıt, ilk 8 yol sıralı, dosyalar var/yüklenebilir/örneklenebilir,
 ## Kapi ve Oyuncu var, bağlantılar tutarlı, konumlar ekran içinde ve çakışmasız, sonraki zinciri.
 func _test_bolum_listesi() -> void:
-	var kayitlar: Array = BolumListesi.BOLUMLER
+	var kayitlar: Array = BolumListesi.liste()
 	var n: int = kayitlar.size()
 	var yollar: Array = BolumListesi.yollar()
+	# Resmî kayıtların göreli sırası bolum_1.. olarak korunur (araya canlı bölüm girse de); numara = liste indeksi + 1.
+	var resmi_say := 0
 	var ilk8: bool = n >= 8
-	for i in range(mini(n, 8)):
-		ilk8 = ilk8 and yollar[i] == "res://scenes/bolumler/bolum_%d.tscn" % (i + 1)
-	_kaydi("Bölüm listesi en az 8 kayıt, ilk 8 yol bolum_1..8 sıralı", ilk8 and yollar == _liste_yollari(),
-		"kayıt: %d, yollar: %s" % [n, str(yollar)])
+	for k in kayitlar:
+		if k["kaynak"] == "resmi":
+			resmi_say += 1
+			ilk8 = ilk8 and k["yol"] == "res://scenes/bolumler/bolum_%d.tscn" % resmi_say
+	ilk8 = ilk8 and resmi_say >= 8
+	_kaydi("Bölüm listesi en az 8 kayıt, resmî kayıtlar bolum_1.. göreli sırada", ilk8 and yollar == _liste_yollari(),
+		"kayıt: %d, resmî: %d, yollar: %s" % [n, resmi_say, str(yollar)])
 
 	var dosya_ok := true
 	var dugum_ok := true
@@ -7840,7 +7882,7 @@ func _ipucu_testleri() -> void:
 	# 4) Tüm listedeki bölümler: yalnız 4 ve 6'da ikon, ipucu_klon değerleri.
 	var sorunlar := ""
 	var sayi := 0
-	for kayit in BolumListesi.BOLUMLER:
+	for kayit in BolumListesi.liste():
 		var yol: String = kayit["yol"]
 		aktif_bolum = yol
 		_kayitlar().sifirla()
@@ -11031,7 +11073,7 @@ func _ar_yerlesim_denetle(tum: Array) -> Dictionary:
 func _ar_harita() -> void:
 	var h: Node = await _ar_sahne_yukle("res://scenes/harita.tscn")
 	await physics_frame
-	var kayitlar: Array = BolumListesi.BOLUMLER
+	var kayitlar: Array = BolumListesi.liste()
 	var n: int = kayitlar.size()
 	# 1) ad ve hover etiketi "Bölüm N: Ad"
 	var sorun := ""
@@ -11043,6 +11085,8 @@ func _ar_harita() -> void:
 			sorun += " %d(ad=\"%s\", düğüm=%s, etiket=%s)" % [i + 1, ad, dugme != null, etiket != null]
 			continue
 		var beklenen := "Bölüm %d: %s" % [i + 1, ad]
+		if str(kayitlar[i].get("kaynak", "resmi")) == "canli":
+			beklenen += " · Canlı"
 		var gizli_basta: bool = not etiket.visible
 		dugme.mouse_entered.emit()
 		var acik: bool = etiket.visible and etiket.text == beklenen
@@ -11052,14 +11096,19 @@ func _ar_harita() -> void:
 			sorun += " %d(\"%s\" gizli:%s açık:%s kapandı:%s)" % [i + 1, etiket.text, gizli_basta, acik, kapandi]
 	_kaydi("Harita: her kayıtta ad var, hover etiketi \"Bölüm N: Ad\" gösterir/gizler (%d kayıt)" % n,
 		sorun == "" and n >= 14, "sorunlar:%s" % (sorun if sorun != "" else " yok"))
-	# 2) Konumlar tabloyla eşleşir: kayıt N, tablo satır N ile aynı; tablo en az kayıt kadar satır
+	# 2) Konumlar: liste konumu = HaritaYerlesimi.konum(i, n); harita_yerlesim.md tablosu 21 bölümün konumudur
+	# (HaritaYerlesimi.konum(i, 21) ile birebir aynı olmalı; canlı bölüm eklenince tablo değil işlev geçerlidir).
 	var tablo: Array = _ar_yerlesim_tablosu()
 	var konum_sorun := ""
-	for i in range(mini(n, tablo.size())):
-		if (kayitlar[i]["konum"] as Vector2).distance_to(tablo[i]) > 0.01:
-			konum_sorun += " %d(kayıt %s, tablo %s)" % [i + 1, str(kayitlar[i]["konum"]), str(tablo[i])]
-	_kaydi("Harita: BolumListesi konumları harita_yerlesim.md tablosuyla eşleşir (%d kayıt, tablo %d satır; kayıt N = tablo satır N, tablo >= kayıt)" % [n, tablo.size()],
-		konum_sorun == "" and tablo.size() >= n and n >= 1, "sorunlar:%s" % (konum_sorun if konum_sorun != "" else " yok"))
+	for i in range(n):
+		if (kayitlar[i]["konum"] as Vector2).distance_to(HaritaYerlesimi.konum(i, n)) > 0.01:
+			konum_sorun += " %d(kayıt %s, işlev %s)" % [i + 1, str(kayitlar[i]["konum"]), str(HaritaYerlesimi.konum(i, n))]
+	var tablo_sorun := ""
+	for i in range(tablo.size()):
+		if (tablo[i] as Vector2).distance_to(HaritaYerlesimi.konum(i, tablo.size())) > 0.01:
+			tablo_sorun += " %d(tablo %s, işlev %s)" % [i + 1, str(tablo[i]), str(HaritaYerlesimi.konum(i, tablo.size()))]
+	_kaydi("Harita: liste konumları HaritaYerlesimi.konum(i, n) ile, harita_yerlesim.md tablosu HaritaYerlesimi.konum(i, %d) ile eşleşir (%d kayıt)" % [tablo.size(), n],
+		konum_sorun == "" and tablo_sorun == "" and tablo.size() >= 21 and n >= 1, "liste:%s | tablo:%s" % [konum_sorun if konum_sorun != "" else " yok", tablo_sorun if tablo_sorun != "" else " yok"])
 	# 3) Kayıt sayısı kadar düğümlük yerleşim (şimdiki kayıtlar): mesafe >= 100, çizgi kesmez
 	var tum: Array = []
 	for i in range(n):
@@ -11073,21 +11122,27 @@ func _ar_harita() -> void:
 	# 4) Hover etiketi başka düğüme binmez (kayıt sayısı kadar yerleşim)
 	_kaydi("Harita %d düğümlük yerleşim (kayıt sayısı kadar): hover etiketi komşu düğüme binmez" % n,
 		r1["bin"] == "", "binme:%s" % (r1["bin"] if r1["bin"] != "" else " yok"))
-	# 5) harita_yerlesim.md'deki TÜM satırlar (kayıt olmayan ayrılmış konumlar dahil) aynı kısıtları sağlar
+	# 5) harita_yerlesim.md'deki TÜM satırlar aynı kısıtları sağlar
 	var r2: Dictionary = _ar_yerlesim_denetle(tablo)
 	var tablo_bos := false
 	for v in tablo:
 		tablo_bos = tablo_bos or v == Vector2.ZERO
-	var rezerve_sorun := ""
-	for i in range(n, tablo.size()):
-		for j in range(n):
-			if (tablo[i] as Vector2).distance_to(kayitlar[j]["konum"]) < 100.0:
-				rezerve_sorun += " %d-%d" % [i + 1, j + 1]
-	_kaydi("Harita yerleşim tablosu (%d satır, kayıt olmayanlar dahil): mesafe >= 100, çizgiler kesişmez/düğüme girmez, ekran/başlık/Geri içinde, hover etiketi binmez" % tablo.size(),
-		tablo.size() >= 21 and not tablo_bos and r2["mesafe"] == "" and r2["kesisim"] == "" and r2["sinir"] == "" and r2["bin"] == "" and rezerve_sorun == "",
-		"satır %d, en yakın mesafe %.0f px, mesafe:%s, kesişim:%s, sınır:%s, etiket binme:%s, ayrılmış-kayıt:%s" % [
+	_kaydi("Harita yerleşim tablosu (%d satır): mesafe >= 100, çizgiler kesişmez/düğüme girmez, ekran/başlık/Geri içinde, hover etiketi binmez" % tablo.size(),
+		tablo.size() >= 21 and not tablo_bos and r2["mesafe"] == "" and r2["kesisim"] == "" and r2["sinir"] == "" and r2["bin"] == "",
+		"satır %d, en yakın mesafe %.0f px, mesafe:%s, kesişim:%s, sınır:%s, etiket binme:%s" % [
 			tablo.size(), r2["en_yakin"], r2["mesafe"] if r2["mesafe"] != "" else " yok", r2["kesisim"] if r2["kesisim"] != "" else " yok",
-			r2["sinir"] if r2["sinir"] != "" else " yok", r2["bin"] if r2["bin"] != "" else " yok", rezerve_sorun if rezerve_sorun != "" else " yok"])
+			r2["sinir"] if r2["sinir"] != "" else " yok", r2["bin"] if r2["bin"] != "" else " yok"])
+	# 6) A12: 22 / 30 / 40 düğümlük yapay listeler (HaritaYerlesimi.konum) aynı kısıtları sağlar
+	for m in [22, 25, 30, 36, 40]:
+		var yapay: Array = []
+		for i in range(m):
+			yapay.append(HaritaYerlesimi.konum(i, m))
+		var r3: Dictionary = _ar_yerlesim_denetle(yapay)
+		_kaydi("Harita yerleşimi %d düğüm (HaritaYerlesimi): mesafe >= 100, çizgiler kesişmez/düğüme girmez, ekran/başlık/Geri içinde, hover etiketi binmez" % m,
+			r3["mesafe"] == "" and r3["kesisim"] == "" and r3["sinir"] == "" and r3["bin"] == "",
+			"en yakın mesafe %.0f px, mesafe:%s, kesişim:%s, sınır:%s, etiket binme:%s" % [
+				r3["en_yakin"], r3["mesafe"] if r3["mesafe"] != "" else " yok", r3["kesisim"] if r3["kesisim"] != "" else " yok",
+				r3["sinir"] if r3["sinir"] != "" else " yok", r3["bin"] if r3["bin"] != "" else " yok"])
 	_kayitlar().sifirla()
 
 
@@ -15485,7 +15540,7 @@ func _gr_bolum_tara(yol: String, no: int) -> Dictionary:
 
 func _gorunurluk_testleri() -> void:
 	paused = false
-	var kayitlar: Array = BolumListesi.BOLUMLER
+	var kayitlar: Array = BolumListesi.liste()
 	var n: int = kayitlar.size()
 
 	# --- 1) Her bölümde çizimsiz çarpışma/tetikleyici yok
@@ -15501,7 +15556,7 @@ func _gorunurluk_testleri() -> void:
 		toplam += r["sayi"]
 		tum_cizimsiz.append_array(r["cizimsiz"])
 		tum_sorun.append_array(r["sorun"])
-		_kaydi("Görünürlük: bölüm %d çarpışma/tetikleyici nesnelerinin hepsinin çizimi var" % (i + 1),
+		_kaydi("Görünürlük: %s çarpışma/tetikleyici nesnelerinin hepsinin çizimi var" % yol.get_file().get_basename(),
 			r["cizimsiz"].is_empty() and r["sorun"].is_empty() and r["sayi"] > 0,
 			"nesne: %d, çizimsiz: %s, sorun: %s" % [r["sayi"], str(r["cizimsiz"]), str(r["sorun"])])
 	_kaydi("Görünürlük: tüm bölümlerde çizimsiz çarpışma/tetikleyici yok",
@@ -15527,20 +15582,27 @@ func _gorunurluk_testleri() -> void:
 	for y in yollar:
 		benzersiz[y] = true
 	var dosya_say := 0
+	var resmi_kayit := 0
+	for k in kayitlar:
+		if k["kaynak"] == "resmi":
+			resmi_kayit += 1
 	var dizin := DirAccess.open("res://scenes/bolumler")
 	if dizin != null:
 		for f in dizin.get_files():
 			if f.begins_with("bolum_") and f.ends_with(".tscn"):
 				dosya_say += 1
-	_kaydi("Bölüm listesi: kayıt sayısı = scenes/bolumler/bolum_*.tscn dosya sayısı ve hepsi farklı sahne dosyası",
-		n == dosya_say and dosya_say >= 21 and benzersiz.size() == n,
-		"kayıt: %d, bolum_*.tscn dosyası: %d, farklı yol: %d" % [n, dosya_say, benzersiz.size()])
+	_kaydi("Bölüm listesi: resmî kayıt sayısı = scenes/bolumler/bolum_*.tscn dosya sayısı ve hepsi farklı sahne dosyası",
+		resmi_kayit == dosya_say and dosya_say >= 21 and benzersiz.size() == n,
+		"kayıt: %d (resmî %d), bolum_*.tscn dosyası: %d, farklı yol: %d" % [n, resmi_kayit, dosya_say, benzersiz.size()])
 	var sorunlar: Array = []
+	var resmi_sira := 0
 	for i in range(n):
 		var k: Dictionary = kayitlar[i]
-		var beklenen := "res://scenes/bolumler/bolum_%d.tscn" % (i + 1)
-		if k["yol"] != beklenen:
-			sorunlar.append("kayıt %d yolu %s (beklenen %s)" % [i + 1, k["yol"], beklenen])
+		if k["kaynak"] == "resmi":
+			resmi_sira += 1
+			var beklenen := "res://scenes/bolumler/bolum_%d.tscn" % resmi_sira
+			if k["yol"] != beklenen:
+				sorunlar.append("resmî kayıt %d yolu %s (beklenen %s)" % [resmi_sira, k["yol"], beklenen])
 		if not ResourceLoader.exists(k["yol"]):
 			sorunlar.append("kayıt %d dosya yok" % (i + 1))
 		else:
@@ -15549,10 +15611,10 @@ func _gorunurluk_testleri() -> void:
 				sorunlar.append("kayıt %d yüklenemez" % (i + 1))
 		if str(k.get("ad", "")).strip_edges() == "":
 			sorunlar.append("kayıt %d adı boş" % (i + 1))
-		var onc_bek := "" if i == 0 else "res://scenes/bolumler/bolum_%d.tscn" % i
+		var onc_bek: String = "" if i == 0 else str(kayitlar[i - 1]["yol"])
 		if str(k.get("onceki", "")) != onc_bek:
 			sorunlar.append("kayıt %d onceki '%s' (beklenen '%s')" % [i + 1, str(k.get("onceki", "")), onc_bek])
-	_kaydi("Bölüm listesi: kayıt N -> bolum_N.tscn, dosya var/yüklenir, ad dolu, onceki zinciri tutarlı",
+	_kaydi("Bölüm listesi: resmî kayıtlar göreli sırayla bolum_N.tscn, dosya var/yüklenir, ad dolu, onceki = listedeki bir önceki yol",
 		sorunlar.is_empty(), "sorunlar: %s" % str(sorunlar))
 
 
@@ -15560,13 +15622,16 @@ func _gorunurluk_testleri() -> void:
 ## Her bölümde HUD'da "Bölüm N · Ad" (adı yoksa "Bölüm N") görünür; numara ve ad BolumListesi'nden okunur,
 ## Bilgi satırının (Tur | Klon | R) hemen üstündedir, ekran içindedir, fareyi yutmaz.
 func _ar_hud_bolum_etiketi() -> void:
-	var beklenen := {
-		1: "Bölüm 1 · Giriş", 2: "Bölüm 2 · İkiz", 4: "Bölüm 4 · Kule", 14: "Bölüm 14 · Çekirdek",
-		18: "Bölüm 18 · Vardiya", 19: "Bölüm 19 · Büyük Saat", 20: "Bölüm 20 · Mandal", 21: "Bölüm 21 · Fitil ve Mühür"}
+	# Sabit adlar sahne yoluna bağlıdır; numara listedeki sıradan türer (araya canlı bölüm girse de doğru kalır).
+	var beklenen_ad := {
+		"res://scenes/bolumler/bolum_1.tscn": "Giriş", "res://scenes/bolumler/bolum_2.tscn": "İkiz",
+		"res://scenes/bolumler/bolum_4.tscn": "Kule", "res://scenes/bolumler/bolum_14.tscn": "Çekirdek",
+		"res://scenes/bolumler/bolum_18.tscn": "Vardiya", "res://scenes/bolumler/bolum_19.tscn": "Büyük Saat",
+		"res://scenes/bolumler/bolum_20.tscn": "Mandal", "res://scenes/bolumler/bolum_21.tscn": "Fitil ve Mühür"}
 	var viewport_alan := Rect2(Vector2.ZERO, Vector2(
 		ProjectSettings.get_setting("display/window/size/viewport_width", 1152),
 		ProjectSettings.get_setting("display/window/size/viewport_height", 648)))
-	var kayitlar: Array = BolumListesi.BOLUMLER
+	var kayitlar: Array = BolumListesi.liste()
 	var sorun := ""
 	var ornek := ""
 	for i in range(kayitlar.size()):
@@ -15585,9 +15650,10 @@ func _ar_hud_bolum_etiketi() -> void:
 		var bilgi_ok: bool = b.bilgi.text.begins_with("Tur 1 ") and b.bilgi.visible and et.visible
 		if et.text != bek or not ust_ok or not ekran_ok or not bilgi_ok or et.mouse_filter != Control.MOUSE_FILTER_IGNORE:
 			sorun += " %d(\"%s\" bekl. \"%s\", üstte:%s, ekranda:%s, bilgi:%s)" % [i + 1, et.text, bek, ust_ok, ekran_ok, bilgi_ok]
-		if beklenen.has(i + 1):
-			if et.text != beklenen[i + 1]:
-				sorun += " %d(sabit beklenen \"%s\", bulunan \"%s\")" % [i + 1, beklenen[i + 1], et.text]
+		if beklenen_ad.has(kayitlar[i]["yol"]):
+			var sabit: String = "Bölüm %d · %s" % [BolumListesi.indeks(kayitlar[i]["yol"]) + 1, beklenen_ad[kayitlar[i]["yol"]]]
+			if et.text != sabit:
+				sorun += " %d(sabit beklenen \"%s\", bulunan \"%s\")" % [i + 1, sabit, et.text]
 			ornek += "%s; " % et.text
 	_kaydi("HUD bölüm etiketi: her bölümde \"Bölüm N · Ad\" (numara/ad BolumListesi'nden), Bilgi satırının üstünde, ekranda (%d bölüm)" % kayitlar.size(),
 		sorun == "" and kayitlar.size() >= 21, "sorunlar:%s | örnekler: %s" % [sorun if sorun != "" else " yok", ornek])

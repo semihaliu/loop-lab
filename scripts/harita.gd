@@ -1,6 +1,6 @@
 extends Control
 ## İlerleme haritası: bölümler altıgen düğüm olarak yerleşir, bağlı düğümler çizgiyle birleşir.
-## Kilit yok; her düğüme basılabilir. Konumlar ve bağlantılar BolumListesi'nden gelir,
+## Kilit yok; her düğüme basılabilir. Konumlar ve bağlantılar BolumListesi.liste()'nden (resmî + canlı bölümler) gelir,
 ## yeni bölüm eklemek bu betiği değiştirmez. Görseller koddan çizilir.
 ##
 ## Çizim sırası (alttan üste): Arkaplan, Baglantilar (Line2D), Dugumler, başlık, Geri.
@@ -27,8 +27,9 @@ func _ready() -> void:
 	baglantilar = BolumListesi.baglantilar()
 	for i in range(baglantilar.size()):
 		_cizgi_olustur(i, baglantilar[i][0], baglantilar[i][1])
-	for i in range(BolumListesi.BOLUMLER.size()):
-		_dugum_olustur(i, BolumListesi.BOLUMLER[i])
+	var kayitlar := BolumListesi.liste()
+	for i in range(kayitlar.size()):
+		_dugum_olustur(i, kayitlar[i])
 	_geri_dugmesini_hazirla()
 
 
@@ -55,6 +56,7 @@ func _dugum_olustur(i: int, kayit: Dictionary) -> void:
 	var dugme := HaritaDugumu.new()
 	dugme.name = "Dugum%d" % (i + 1)
 	dugme.kur(i + 1, BASLANGIC_RENGI if baslangic else NORMAL_RENK)
+	dugme.canli = str(kayit.get("kaynak", "resmi")) == "canli"
 	dugme.position = konum - dugme.size / 2.0
 	dugumler.add_child(dugme)
 
@@ -62,12 +64,20 @@ func _dugum_olustur(i: int, kayit: Dictionary) -> void:
 	etiket.name = "Etiket%d" % (i + 1)
 	var ad: String = str(kayit.get("ad", ""))
 	etiket.text = "Bölüm %d" % (i + 1) if ad == "" else "Bölüm %d: %s" % [i + 1, ad]
+	if dugme.canli:
+		etiket.text += " · Canlı"
 	etiket.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	etiket.size = Vector2(280, 30)
-	etiket.position = konum + Vector2(-140, HEX_YARICAP + 14.0)
-	etiket.position.x = clampf(etiket.position.x, 4.0, 1152.0 - 284.0)
-	etiket.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	etiket.add_theme_font_size_override("font_size", 22)
+	# Resmî etiketler eskisi gibi sabit 280 px. Yalnız canlı bölüm etiketi (uzun kullanıcı adı) genişler ve ekrana
+	# kenetlenir; ölçüm ağaçtan bağımsız yazı tipiyle yapılır (ağaca eklenmemiş Label tema önbelleği 16 px sayar).
+	var etiket_genislik := 280.0
+	if dugme.canli:
+		var yazi_olcusu := etiket.get_theme_default_font().get_string_size(etiket.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 22).x
+		etiket_genislik = clampf(yazi_olcusu + 24.0, 280.0, 1144.0)
+	etiket.size = Vector2(etiket_genislik, 30)
+	etiket.position = konum + Vector2(-etiket_genislik / 2.0, HEX_YARICAP + 14.0)
+	etiket.position.x = clampf(etiket.position.x, 4.0, 1152.0 - etiket_genislik - 4.0)
+	etiket.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	etiket.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.8))
 	etiket.add_theme_constant_override("outline_size", 6)
 	etiket.visible = false

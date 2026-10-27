@@ -1,0 +1,24 @@
+{"bicim":"loop_lab_bolum","surum":1,"kimlik":"fitil_ve_muhur_001","ad":"Fitil ve Mühür","max_klon":2,"ipucu_klon":0,
+"baslangic":[240,380],"cikis":[1090,380],
+"nesneler":[
+{"tur":"blok","id":"Zemin","alan":[0,600,1152,40]},
+{"tur":"blok","id":"Tavan","alan":[0,0,1152,180]},
+{"tur":"blok","id":"DosemeSol","alan":[0,380,320,40]},
+{"tur":"tek_yonlu","id":"Raf","konum":[380,380]},
+{"tur":"blok","id":"DosemeSag","alan":[440,380,712,40]},
+{"tur":"blok","id":"BlokF1Sol","alan":[0,420,100,180]},
+{"tur":"blok","id":"BlokF1Sag","alan":[600,420,552,180]},
+{"tur":"mandal_plaka","id":"PlakaM","konum":[80,380]},
+{"tur":"zamanli_plaka","id":"PlakaZ","konum":[180,600],"tutma_kare":180},
+{"tur":"plaka","id":"PlakaA","konum":[520,600]},
+{"tur":"plaka","id":"PlakaB","konum":[790,380]},
+{"tur":"gecit","id":"GecitG","konum":[170,380],"kayma_mesafe":100,"tetikleyiciler":["PlakaZ","PlakaM"],"kablolar":[
+ {"tetik":"PlakaZ","ara":[],"uclar":[[170,584],[170,376]]},
+ {"tetik":"PlakaM","ara":[[125,372],[125,300]],"uclar":[[110,372],[160,300]]}]},
+{"tur":"gecit","id":"GecitM","konum":[650,380],"kayma_mesafe":100,"tetikleyiciler":["PlakaM"],"kablolar":[
+ {"tetik":"PlakaM","ara":[[125,372],[125,190]],"uclar":[[110,372],[650,190]]}]},
+{"tur":"lazer","id":"LazerA","konum":[520,180],"yon":"asagi","uzunluk":200,"tetikleyiciler":["PlakaA"],"kablolar":[
+ {"tetik":"PlakaA","ara":[[508,184]],"uclar":[[508,584],[520,184]]}]},
+{"tur":"lazer","id":"LazerB","konum":[903,180],"yon":"asagi","uzunluk":200,"tetikleyiciler":["PlakaB"],"kablolar":[
+ {"tetik":"PlakaB","ara":[[880,372],[880,184]],"uclar":[[820,372],[903,184]]}]}
+]}

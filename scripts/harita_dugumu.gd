@@ -7,8 +7,16 @@ const YARICAP := 34.0
 const BOYUT := Vector2(80, 80)
 const BUYUME := 1.12
 
+## Canlıya alınmış (kullanıcı) bölüm: düğümün dışında ince açık halka çizilir; resmî düğümlerin çizimi değişmez.
+const CANLI_HALKA_ARALIK := 4.5
+const CANLI_HALKA_RENGI := Color(0.78, 0.97, 0.92)
+
 var renk := Color(0.2, 0.5, 0.9)
 var vurgulu := false
+var canli := false:
+	set(v):
+		canli = v
+		queue_redraw()
 var _tween: Tween
 
 
@@ -41,6 +49,13 @@ func _hover_ayarla(acik: bool) -> void:
 	queue_redraw()
 
 
+## Canlı bölüm halkasının noktaları (kapalı altıgen çizgi): düğüm altıgeninin hemen dışında, 80x80 kutunun içinde.
+static func canli_halka(merkez: Vector2) -> PackedVector2Array:
+	var pts := altigen(merkez, YARICAP + CANLI_HALKA_ARALIK)
+	pts.append(pts[0])
+	return pts
+
+
 ## Düz tepeli altıgenin köşeleri.
 static func altigen(merkez: Vector2, yaricap: float) -> PackedVector2Array:
 	var pts := PackedVector2Array()
@@ -55,6 +70,8 @@ func _draw() -> void:
 	draw_colored_polygon(altigen(c + Vector2(0, 5), YARICAP + 1.0), Color(0, 0, 0, 0.35))   # gölge
 	if vurgulu:
 		draw_colored_polygon(altigen(c, YARICAP + 9.0), Color(renk.lightened(0.5), 0.35))   # parlama
+	if canli:
+		draw_polyline(canli_halka(c), CANLI_HALKA_RENGI, 2.0, true)                         # canlı bölüm işareti
 	draw_colored_polygon(altigen(c, YARICAP), renk.darkened(0.55))                          # koyu dış kenar
 	draw_colored_polygon(altigen(c, YARICAP - 5.0), renk.lightened(0.18) if vurgulu else renk)
 	var ic := altigen(c, YARICAP - 5.0)

@@ -1,0 +1,13 @@
+{
+  "bicim": "loop_lab_bolum", "surum": 1,
+  "kimlik": "deneme_asansoru_001", "ad": "Deneme Asansörü",
+  "max_klon": 2, "ipucu_klon": 0,
+  "baslangic": [200, 594], "cikis": [1050, 420],
+  "nesneler": [
+    {"tur": "blok", "id": "Zemin", "alan": [0, 600, 1152, 40]},
+    {"tur": "blok", "id": "Cikinti", "alan": [680, 420, 472, 40]},
+    {"tur": "plaka", "id": "Plaka", "konum": [350, 600]},
+    {"tur": "asansor", "id": "Asansor", "konum": [620, 600], "yukseklik": 180, "plaka": "Plaka",
+     "kablo": {"ara": [], "gizli": true}}
+  ]
+}
